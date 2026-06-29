@@ -1,0 +1,37 @@
+/**
+ * Styles for the field-group builder and the value meta box.
+ */
+
+/* Group builder */
+.loom-acf { display: grid; grid-template-columns: 1fr; gap: 18px; }
+.loom-acf-field { border: 1px solid #dcdcde; border-radius: 8px; margin-bottom: 10px; background: #fff; }
+.loom-acf-field-head { display: flex; align-items: center; gap: 8px; padding: 8px 10px; }
+.loom-acf-handle { color: #9aa0a6; cursor: grab; }
+.loom-acf-field-head input[type=text] { flex: 1; }
+.loom-acf-field-head .loom-acf-name { flex: 0 0 160px; font-family: ui-monospace, monospace; color: #2563eb; }
+.loom-acf-del { color: #dc2626 !important; font-size: 18px; text-decoration: none; }
+.loom-acf-choices { width: 100%; margin: 0 10px 10px; box-sizing: border-box; width: calc(100% - 20px); }
+.loom-acf-subs { margin: 0 10px 10px; padding: 10px; background: #f6f7f7; border-radius: 6px; }
+.loom-acf-subs-title { font-weight: 600; font-size: 12px; color: #555; margin-bottom: 6px; }
+.loom-acf-sub { display: flex; gap: 6px; margin-bottom: 6px; }
+.loom-acf-sub input { flex: 1; }
+.loom-acf-location { border-top: 1px solid #eee; padding-top: 12px; }
+.loom-acf-location h4 { margin: 0 0 8px; }
+.loom-acf-rule { display: flex; gap: 6px; align-items: center; margin-bottom: 6px; flex-wrap: wrap; }
+
+/* Value meta box */
+.loom-values { display: flex; flex-direction: column; gap: 16px; }
+.loom-value-row { display: grid; grid-template-columns: 200px 1fr; gap: 14px; align-items: start; }
+.loom-value-label { font-weight: 600; }
+.loom-value-label code { display: block; font-weight: 400; font-size: 11px; color: #2563eb; margin-top: 2px; }
+.loom-value-input .loom-image-thumb img { max-width: 120px; height: auto; display: block; margin-bottom: 6px; border-radius: 6px; }
+.loom-gallery-thumbs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+.loom-gthumb { position: relative; display: inline-block; }
+.loom-gthumb img { width: 60px; height: 60px; object-fit: cover; border-radius: 6px; display: block; }
+.loom-gthumb-rm { position: absolute; top: -6px; right: -6px; width: 18px; height: 18px; border: 0; border-radius: 50%; background: #dc2626; color: #fff; cursor: pointer; font-size: 11px; line-height: 1; padding: 0; }
+.loom-field-repeater .loom-rep-row { border: 1px solid #e0e0e0; border-radius: 6px; padding: 10px; margin-bottom: 8px; background: #fff; }
+.loom-rep-remove { color: #dc2626 !important; }
+
+@media (max-width: 782px) {
+	.loom-value-row { grid-template-columns: 1fr; }
+}

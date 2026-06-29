@@ -1,0 +1,42 @@
+﻿# OS and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+.tmp/
+temp/
+cache/
+
+# Dependency and build directories
+node_modules/
+vendor/
+dist/
+build/
+coverage/
+
+# WordPress/plugin packaging artifacts
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+
+# Environment and local configuration
+.env
+.env.*
+!.env.example
+local-config.php
+wp-config.php
+
+# Composer/npm lock files can be tracked when the project uses them.
+# This plugin currently has no package manager setup.

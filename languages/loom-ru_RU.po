@@ -1,0 +1,1123 @@
+# Russian translation for Loom Builder.
+# Copyright (C) Loom.
+msgid ""
+msgstr ""
+"Project-Id-Version: Loom Builder 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ru_RU\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"X-Domain: loom\n"
+
+msgid "Accordion"
+msgstr "Аккордеон"
+
+msgid "Add Field"
+msgstr "Добавить поле"
+
+msgid "Add Field Group"
+msgstr "Добавить группу полей"
+
+msgid "Add New Template"
+msgstr "Добавить новый шаблон"
+
+msgid "Add Rule"
+msgstr "Добавить правило"
+
+msgid "Add Section"
+msgstr "Добавить секцию"
+
+msgid "Add Template"
+msgstr "Добавить шаблон"
+
+msgid "Add Your Heading Text Here"
+msgstr "Введите здесь текст заголовка"
+
+msgid "Add accordion items."
+msgstr "Добавьте пункты аккордеона."
+
+msgid "Add images"
+msgstr "Добавить изображения"
+
+msgid "Add images to the gallery."
+msgstr "Добавьте изображения в галерею."
+
+msgid "Add items to the carousel."
+msgstr "Добавьте элементы в карусель."
+
+msgid "Add row"
+msgstr "Добавить строку"
+
+msgid "Add slides to the slider."
+msgstr "Добавьте слайды в слайдер."
+
+msgid "Add social links."
+msgstr "Добавьте ссылки на соцсети."
+
+msgid "Add tabs."
+msgstr "Добавьте вкладки."
+
+msgid "Add to Cart"
+msgstr "В корзину"
+
+msgid "Adjust layout in the Style tab."
+msgstr "Настройте оформление на вкладке «Стиль»."
+
+msgid "Admin bar"
+msgstr "Панель администратора"
+
+msgid "Advanced"
+msgstr "Дополнительно"
+
+msgid "Alignment"
+msgstr "Выравнивание"
+
+msgid "All categories"
+msgstr "Все категории"
+
+msgid "All pages"
+msgstr "Все страницы"
+
+msgid "All templates"
+msgstr "Все шаблоны"
+
+msgid "Alt Text (overrides media)"
+msgstr "Alt-текст (заменяет медиа)"
+
+msgid "Apply filters"
+msgstr "Применить фильтры"
+
+msgid "Arrows"
+msgstr "Стрелки"
+
+msgid "Article (posts)"
+msgstr "Статья (записи)"
+
+msgid "Ascending"
+msgstr "По возрастанию"
+
+msgid "Aspect ratio"
+msgstr "Соотношение сторон"
+
+msgid "Assets"
+msgstr "Ресурсы"
+
+msgid "Attribute taxonomy (e.g. pa_color)"
+msgstr "Таксономия атрибута (например, pa_color)"
+
+msgid "Authenticated users and the Loom editor remain available."
+msgstr "Авторизованные пользователи и редактор Loom остаются доступны."
+
+msgid "Autoplay"
+msgstr "Автопрокрутка"
+
+msgid "Background"
+msgstr "Фон"
+
+msgid "Bare"
+msgstr "Без фона"
+
+msgid "Basic"
+msgstr "Базовые"
+
+msgid "Block / Section"
+msgstr "Блок / Секция"
+
+msgid "Block template"
+msgstr "Блочный шаблон"
+
+msgid "Body code (after <body>)"
+msgstr "Код в начале body (после <body>)"
+
+msgid "Border radius"
+msgstr "Радиус скругления"
+
+msgid "Breadcrumbs"
+msgstr "Хлебные крошки"
+
+msgid "Builder"
+msgstr "Конструктор"
+
+msgid "Button"
+msgstr "Кнопка"
+
+msgid "Button link"
+msgstr "Ссылка кнопки"
+
+msgid "Button text"
+msgstr "Текст кнопки"
+
+msgid "CSS Classes"
+msgstr "CSS-классы"
+
+msgid "CSS ID"
+msgstr "CSS ID"
+
+msgid "Canonical URL"
+msgstr "Канонический URL"
+
+msgid "Caption"
+msgstr "Подпись"
+
+msgid "Cards"
+msgstr "Карточки"
+
+msgid "Carousel"
+msgstr "Карусель"
+
+msgid "Categories"
+msgstr "Категории"
+
+msgid "Category"
+msgstr "Категория"
+
+msgid "Category slug (posts only)"
+msgstr "Слаг категории (только записи)"
+
+msgid "Center"
+msgstr "По центру"
+
+msgid "Choices (one per line, value:Label)"
+msgstr "Варианты (по одному в строке, значение:Метка)"
+
+msgid "Choose Image"
+msgstr "Выбрать изображение"
+
+msgid "Click here"
+msgstr "Нажмите здесь"
+
+msgid "Code & metrics"
+msgstr "Код и метрики"
+
+msgid "Color"
+msgstr "Цвет"
+
+msgid "Column"
+msgstr "Колонка"
+
+msgid "Columns gap"
+msgstr "Отступ между колонками"
+
+msgid "Columns: desktop"
+msgstr "Колонки: десктоп"
+
+msgid "Columns: mobile"
+msgstr "Колонки: мобильный"
+
+msgid "Columns: tablet"
+msgstr "Колонки: планшет"
+
+msgid "Content"
+msgstr "Контент"
+
+msgid "Content width (px)"
+msgstr "Ширина контента (px)"
+
+msgid "Controls"
+msgstr "Элементы управления"
+
+msgid "Could not import: the file is not a valid Loom template export."
+msgstr "Не удалось импортировать: файл не является корректным экспортом шаблона Loom."
+
+msgid "Current page"
+msgstr "Текущая страница"
+
+msgid "Custom CSS"
+msgstr "Свой CSS"
+
+msgid "Custom image"
+msgstr "Своё изображение"
+
+msgid "Dashboard"
+msgstr "Панель"
+
+msgid "Dashed"
+msgstr "Пунктир"
+
+msgid "Dashicon name"
+msgstr "Имя Dashicon"
+
+msgid "Data"
+msgstr "Данные"
+
+msgid "Default share image"
+msgstr "Изображение для шеринга по умолчанию"
+
+msgid "Delay (ms)"
+msgstr "Задержка (мс)"
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid "Delete all Loom data when the plugin is deleted"
+msgstr "Удалить все данные Loom при удалении плагина"
+
+msgid "Descending"
+msgstr "По убыванию"
+
+msgid "Describe this feature in a sentence or two."
+msgstr "Опишите эту особенность одним-двумя предложениями."
+
+msgid "Desktop"
+msgstr "Десктоп"
+
+msgid "Disable REST API requests for logged-out visitors"
+msgstr "Отключить запросы REST API для неавторизованных посетителей"
+
+msgid "Discourage search engines (noindex)"
+msgstr "Скрыть от поисковых систем (noindex)"
+
+msgid "Display conditions"
+msgstr "Условия отображения"
+
+msgid "Divider"
+msgstr "Разделитель"
+
+msgid "Dots"
+msgstr "Точки"
+
+msgid "Dotted"
+msgstr "Точки"
+
+msgid "Double"
+msgstr "Двойная"
+
+msgid "Down"
+msgstr "Вниз"
+
+msgid "Drag a widget here"
+msgstr "Перетащите виджет сюда"
+
+msgid "Drag to move"
+msgstr "Перетащите, чтобы переместить"
+
+msgid "Duplicate"
+msgstr "Дублировать"
+
+msgid "Duration (ms)"
+msgstr "Длительность (мс)"
+
+msgid "Dynamic field"
+msgstr "Динамическое поле"
+
+msgid "Easing"
+msgstr "Сглаживание"
+
+msgid "Edit Field Group"
+msgstr "Редактировать группу полей"
+
+msgid "Edit Template"
+msgstr "Редактировать шаблон"
+
+msgid "Edit with Loom"
+msgstr "Редактировать в Loom"
+
+msgid "Editor"
+msgstr "Редактор"
+
+msgid "Effect"
+msgstr "Эффект"
+
+msgid "Enable"
+msgstr "Включить"
+
+msgid "Enabled schemas"
+msgstr "Включённые схемы"
+
+msgid "Enter a valid Vimeo URL or ID."
+msgstr "Укажите корректный URL или ID Vimeo."
+
+msgid "Enter a valid YouTube URL or ID."
+msgstr "Укажите корректный URL или ID YouTube."
+
+msgid "Enter a video file URL."
+msgstr "Укажите URL видеофайла."
+
+msgid "Entity type"
+msgstr "Тип сущности"
+
+msgid "Entrance animation"
+msgstr "Анимация появления"
+
+msgid "Excerpt words"
+msgstr "Слов в отрывке"
+
+msgid "Exit"
+msgstr "Выход"
+
+msgid "Export"
+msgstr "Экспорт"
+
+msgid "Export page"
+msgstr "Экспортировать страницу"
+
+msgid "Export section"
+msgstr "Экспортировать секцию"
+
+msgid "Extra robots.txt rules"
+msgstr "Дополнительные правила robots.txt"
+
+msgid "Fade"
+msgstr "Затухание"
+
+msgid "Featured only"
+msgstr "Только рекомендуемые"
+
+msgid "Field Group"
+msgstr "Группа полей"
+
+msgid "Field Groups"
+msgstr "Группы полей"
+
+msgid "Fields & Location"
+msgstr "Поля и расположение"
+
+msgid "Font size"
+msgstr "Размер шрифта"
+
+msgid "Font weight"
+msgstr "Насыщенность шрифта"
+
+msgid "Footer"
+msgstr "Подвал"
+
+msgid "Footer code (before </body>)"
+msgstr "Код в подвале (перед </body>)"
+
+msgid "Frontend assets"
+msgstr "Ресурсы фронтенда"
+
+msgid "Frontend cleanup"
+msgstr "Очистка фронтенда"
+
+msgid "Full"
+msgstr "Полный"
+
+msgid "Gallery"
+msgstr "Галерея"
+
+msgid "Gap (px)"
+msgstr "Отступ (px)"
+
+msgid "General"
+msgstr "Общие"
+
+msgid "Ghost"
+msgstr "Призрачная"
+
+msgid "Grid"
+msgstr "Сетка"
+
+msgid "HTML"
+msgstr "HTML"
+
+msgid "HTML Tag"
+msgstr "HTML-тег"
+
+msgid "HTML code"
+msgstr "HTML-код"
+
+msgid "Header"
+msgstr "Шапка"
+
+msgid "Header code (before </head>)"
+msgstr "Код в шапке (перед </head>)"
+
+msgid "Header/footer templates render where conditions match. Blocks are inserted via the Template widget or [loom_template id=\"…\"]."
+msgstr "Шаблоны шапки/подвала отображаются там, где совпадают условия. Блоки вставляются через виджет «Шаблон» или [loom_template id=\"…\"]."
+
+msgid "Heading"
+msgstr "Заголовок"
+
+msgid "Height (px)"
+msgstr "Высота (px)"
+
+msgid "Hide on desktop"
+msgstr "Скрыть на десктопе"
+
+msgid "Hide on mobile"
+msgstr "Скрыть на мобильном"
+
+msgid "Hide on tablet"
+msgstr "Скрыть на планшете"
+
+msgid "Hide the admin bar on the frontend"
+msgstr "Скрывать панель администратора на сайте"
+
+msgid "Home"
+msgstr "Главная"
+
+msgid "Home description"
+msgstr "Описание главной"
+
+msgid "Home title"
+msgstr "Заголовок главной"
+
+msgid "Horizontal"
+msgstr "Горизонтально"
+
+msgid "Hover animation"
+msgstr "Анимация при наведении"
+
+msgid "Icon Box"
+msgstr "Иконка с текстом"
+
+msgid "Icon box title"
+msgstr "Заголовок блока"
+
+msgid "Icon color"
+msgstr "Цвет иконки"
+
+msgid "Icon size (px)"
+msgstr "Размер иконки (px)"
+
+msgid "Icons"
+msgstr "Иконки"
+
+msgid "Image"
+msgstr "Изображение"
+
+msgid "Image Size"
+msgstr "Размер изображения"
+
+msgid "Image radius (px)"
+msgstr "Радиус изображения (px)"
+
+msgid "Images"
+msgstr "Изображения"
+
+msgid "Import"
+msgstr "Импорт"
+
+msgid "Import sections"
+msgstr "Импортировать секции"
+
+msgid "Import template"
+msgstr "Импортировать шаблон"
+
+msgid "Imported template"
+msgstr "Импортированный шаблон"
+
+msgid "Indexing"
+msgstr "Индексирование"
+
+msgid "Interval (ms)"
+msgstr "Интервал (мс)"
+
+msgid "Invalid layout file."
+msgstr "Некорректный файл макета."
+
+msgid "Items"
+msgstr "Элементы"
+
+msgid "Items: desktop"
+msgstr "Элементы: десктоп"
+
+msgid "Items: mobile"
+msgstr "Элементы: мобильный"
+
+msgid "Items: tablet"
+msgstr "Элементы: планшет"
+
+msgid "Label"
+msgstr "Метка"
+
+msgid "Large"
+msgstr "Большой"
+
+msgid "Layout"
+msgstr "Макет"
+
+msgid "Left"
+msgstr "Слева"
+
+msgid "Lightbox"
+msgstr "Лайтбокс"
+
+msgid "Link"
+msgstr "Ссылка"
+
+msgid "Link text"
+msgstr "Текст ссылки"
+
+msgid "Link to home"
+msgstr "Ссылка на главную"
+
+msgid "Load builder CSS/JS on every page"
+msgstr "Загружать CSS/JS конструктора на каждой странице"
+
+msgid "Logo"
+msgstr "Логотип"
+
+msgid "Loom"
+msgstr "Loom"
+
+msgid "Loom Builder"
+msgstr "Loom Builder"
+
+msgid "Loom Fields"
+msgstr "Поля Loom"
+
+msgid "Loom SEO"
+msgstr "Loom SEO"
+
+msgid "Loom Settings"
+msgstr "Настройки Loom"
+
+msgid "Loom Template"
+msgstr "Шаблон Loom"
+
+msgid "Loom Templates"
+msgstr "Шаблоны Loom"
+
+msgid "Loop"
+msgstr "Зацикливание"
+
+msgid "Loop animation"
+msgstr "Циклическая анимация"
+
+msgid "Margin"
+msgstr "Внешний отступ"
+
+msgid "Masonry"
+msgstr "Кладка"
+
+msgid "Max"
+msgstr "Макс"
+
+msgid "Max width"
+msgstr "Макс. ширина"
+
+msgid "Maximum width of the centered section content area."
+msgstr "Максимальная ширина центрированной области контента секции."
+
+msgid "Media"
+msgstr "Медиа"
+
+msgid "Medium"
+msgstr "Средний"
+
+msgid "Medium Large"
+msgstr "Средний большой"
+
+msgid "Menu"
+msgstr "Меню"
+
+msgid "Menu order"
+msgstr "Порядок в меню"
+
+msgid "Meta description"
+msgstr "Метаописание"
+
+msgid "Min"
+msgstr "Мин"
+
+msgid "Min height"
+msgstr "Мин. высота"
+
+msgid "Mobile"
+msgstr "Мобильный"
+
+msgid "Mobile breakpoint (px)"
+msgstr "Точка перелома для мобильного (px)"
+
+msgid "Muted"
+msgstr "Без звука"
+
+msgid "Name"
+msgstr "Имя"
+
+msgid "Nav Menu"
+msgstr "Меню навигации"
+
+msgid "Network"
+msgstr "Соцсеть"
+
+msgid "New Template"
+msgstr "Новый шаблон"
+
+msgid "Newest"
+msgstr "Новейшие"
+
+msgid "Next"
+msgstr "Далее"
+
+msgid "No image"
+msgstr "Нет изображения"
+
+msgid "No image selected"
+msgstr "Изображение не выбрано"
+
+msgid "No posts found."
+msgstr "Записи не найдены."
+
+msgid "No products found."
+msgstr "Товары не найдены."
+
+msgid "No templates found"
+msgstr "Шаблоны не найдены"
+
+msgid "No templates found in Trash"
+msgstr "В корзине шаблонов не найдено"
+
+msgid "None"
+msgstr "Нет"
+
+msgid "Not a Loom template."
+msgstr "Это не шаблон Loom."
+
+msgid "Number"
+msgstr "Число"
+
+msgid "Number of posts"
+msgstr "Количество записей"
+
+msgid "Off by default: assets load only on builder pages and where a header/footer template is active."
+msgstr "По умолчанию выключено: ресурсы загружаются только на страницах конструктора и там, где активен шаблон шапки/подвала."
+
+msgid "On sale only"
+msgstr "Только со скидкой"
+
+msgid "On uninstall"
+msgstr "При удалении"
+
+msgid "One URL per line (used for sameAs)."
+msgstr "По одному URL в строке (используется для sameAs)."
+
+msgid "One open at a time"
+msgstr "Только один открыт"
+
+msgid "Open first item"
+msgstr "Открыть первый пункт"
+
+msgid "Open in new tab"
+msgstr "Открывать в новой вкладке"
+
+msgid "Order"
+msgstr "Порядок"
+
+msgid "Order by"
+msgstr "Сортировать по"
+
+msgid "Organization"
+msgstr "Организация"
+
+msgid "Organization / Person"
+msgstr "Организация / Человек"
+
+msgid "Organization / Schema"
+msgstr "Организация / Схема"
+
+msgid "Outline"
+msgstr "Контурная"
+
+msgid "Overlay darkness (%)"
+msgstr "Затемнение оверлея (%)"
+
+msgid "Padding"
+msgstr "Внутренний отступ"
+
+msgid "Padding (CSS)"
+msgstr "Внутренний отступ (CSS)"
+
+msgid "Page"
+msgstr "Страница"
+
+msgid "Page not found"
+msgstr "Страница не найдена"
+
+msgid "Pages"
+msgstr "Страницы"
+
+msgid "Person"
+msgstr "Человек"
+
+msgid "Placeholder"
+msgstr "Подсказка"
+
+msgid "Popularity"
+msgstr "Популярность"
+
+msgid "Post type"
+msgstr "Тип записи"
+
+msgid "Poster image"
+msgstr "Постер"
+
+msgid "Posts"
+msgstr "Записи"
+
+msgid "Previous"
+msgstr "Назад"
+
+msgid "Price"
+msgstr "Цена"
+
+msgid "Price range"
+msgstr "Диапазон цен"
+
+msgid "Price: high to low"
+msgstr "Цена: по убыванию"
+
+msgid "Price: low to high"
+msgstr "Цена: по возрастанию"
+
+msgid "Product (WooCommerce)"
+msgstr "Товар (WooCommerce)"
+
+msgid "Product Filter"
+msgstr "Фильтр товаров"
+
+msgid "Product ID (blank = current)"
+msgstr "ID товара (пусто = текущий)"
+
+msgid "Product not found."
+msgstr "Товар не найден."
+
+msgid "Products"
+msgstr "Товары"
+
+msgid "Question"
+msgstr "Вопрос"
+
+msgid "REST API"
+msgstr "REST API"
+
+msgid "REST API access is disabled for logged-out visitors."
+msgstr "Доступ к REST API отключён для неавторизованных посетителей."
+
+msgid "Radius"
+msgstr "Скругление"
+
+msgid "Radius (px)"
+msgstr "Скругление (px)"
+
+msgid "Random"
+msgstr "Случайно"
+
+msgid "Rating"
+msgstr "Рейтинг"
+
+msgid "Redo"
+msgstr "Повторить"
+
+msgid "Remove"
+msgstr "Удалить"
+
+msgid "Remove generator, shortlink, RSD, WLW, REST, oEmbed and emoji frontend extras"
+msgstr "Удалить generator, shortlink, RSD, WLW, REST, oEmbed и emoji из фронтенда"
+
+msgid "Remove row"
+msgstr "Удалить строку"
+
+msgid "Removes builder layouts, templates, SEO meta and options. This cannot be undone."
+msgstr "Удаляет макеты конструктора, шаблоны, SEO-метаданные и настройки. Это нельзя отменить."
+
+msgid "Repeater"
+msgstr "Повторитель"
+
+msgid "Respect active filters"
+msgstr "Учитывать активные фильтры"
+
+msgid "Right"
+msgstr "Справа"
+
+msgid "Round"
+msgstr "Круг"
+
+msgid "SEO"
+msgstr "SEO"
+
+msgid "SEO title"
+msgstr "SEO-заголовок"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Save settings"
+msgstr "Сохранить настройки"
+
+msgid "Saved"
+msgstr "Сохранено"
+
+msgid "Saving..."
+msgstr "Сохранение..."
+
+msgid "Search"
+msgstr "Поиск"
+
+msgid "Search Templates"
+msgstr "Поиск шаблонов"
+
+msgid "Search results for \"%s\""
+msgstr "Результаты поиска по запросу «%s»"
+
+msgid "Search widget..."
+msgstr "Поиск виджета..."
+
+msgid "Search…"
+msgstr "Поиск…"
+
+msgid "Section"
+msgstr "Секция"
+
+msgid "Select"
+msgstr "Выбор"
+
+msgid "Select a block template."
+msgstr "Выберите блочный шаблон."
+
+msgid "Select a menu."
+msgstr "Выберите меню."
+
+msgid "Select an element to edit it."
+msgstr "Выберите элемент для редактирования."
+
+msgid "Select image"
+msgstr "Выбрать изображение"
+
+msgid "Self-hosted file"
+msgstr "Свой файл"
+
+msgid "Settings"
+msgstr "Настройки"
+
+msgid "Settings saved."
+msgstr "Настройки сохранены."
+
+msgid "Shape"
+msgstr "Форма"
+
+msgid "Share image"
+msgstr "Изображение для шеринга"
+
+msgid "Shop page"
+msgstr "Страница магазина"
+
+msgid "Shortcode"
+msgstr "Шорткод"
+
+msgid "Show date"
+msgstr "Показывать дату"
+
+msgid "Show excerpt"
+msgstr "Показывать отрывок"
+
+msgid "Show image"
+msgstr "Показывать изображение"
+
+msgid "Show price"
+msgstr "Показывать цену"
+
+msgid "Show tagline"
+msgstr "Показывать описание"
+
+msgid "Show this group on"
+msgstr "Показывать эту группу на"
+
+msgid "Site"
+msgstr "Сайт"
+
+msgid "Site Logo"
+msgstr "Логотип сайта"
+
+msgid "Site Title"
+msgstr "Название сайта"
+
+msgid "Sitemap & Robots"
+msgstr "Карта сайта и Robots"
+
+msgid "Slide"
+msgstr "Слайд"
+
+msgid "Slide title"
+msgstr "Заголовок слайда"
+
+msgid "Slider"
+msgstr "Слайдер"
+
+msgid "Slides"
+msgstr "Слайды"
+
+msgid "Snippets are printed on every page of the site. Use for analytics, verification tags and global styles."
+msgstr "Сниппеты выводятся на каждой странице сайта. Используйте для аналитики, тегов верификации и глобальных стилей."
+
+msgid "Social Icons"
+msgstr "Иконки соцсетей"
+
+msgid "Social profile URLs"
+msgstr "URL профилей в соцсетях"
+
+msgid "Solid"
+msgstr "Сплошная"
+
+msgid "Source"
+msgstr "Источник"
+
+msgid "Spacer"
+msgstr "Разделитель"
+
+msgid "Spacing (px)"
+msgstr "Отступ (px)"
+
+msgid "Square"
+msgstr "Квадрат"
+
+msgid "Start writing your text here. You can use paragraphs and basic formatting."
+msgstr "Начните писать текст здесь. Вы можете использовать абзацы и базовое форматирование."
+
+msgid "Style"
+msgstr "Стиль"
+
+msgid "Sub fields"
+msgstr "Вложенные поля"
+
+msgid "Submit to"
+msgstr "Отправлять на"
+
+msgid "Tab"
+msgstr "Вкладка"
+
+msgid "Tablet"
+msgstr "Планшет"
+
+msgid "Tablet breakpoint (px)"
+msgstr "Точка перелома для планшета (px)"
+
+msgid "Tabs"
+msgstr "Вкладки"
+
+msgid "Template"
+msgstr "Шаблон"
+
+msgid "Template Settings"
+msgstr "Настройки шаблона"
+
+msgid "Template imported as a draft."
+msgstr "Шаблон импортирован как черновик."
+
+msgid "Templates"
+msgstr "Шаблоны"
+
+msgid "Text"
+msgstr "Текст"
+
+msgid "Text Editor"
+msgstr "Текстовый редактор"
+
+msgid "Text align"
+msgstr "Выравнивание текста"
+
+msgid "Text color"
+msgstr "Цвет текста"
+
+msgid "Textarea"
+msgstr "Многострочное поле"
+
+msgid "Theme logo"
+msgstr "Логотип темы"
+
+msgid "Thickness (px)"
+msgstr "Толщина (px)"
+
+msgid "Thumbnail"
+msgstr "Миниатюра"
+
+msgid "Thumbnail size"
+msgstr "Размер миниатюры"
+
+msgid "Title"
+msgstr "Заголовок"
+
+msgid "Title separator"
+msgstr "Разделитель заголовка"
+
+msgid "True / False"
+msgstr "Да / Нет"
+
+msgid "Twitter @username"
+msgstr "Twitter @имя"
+
+msgid "Type"
+msgstr "Тип"
+
+msgid "Undo"
+msgstr "Отменить"
+
+msgid "Up"
+msgstr "Вверх"
+
+msgid "Vertical"
+msgstr "Вертикально"
+
+msgid "Video"
+msgstr "Видео"
+
+msgid "Video URL or ID"
+msgstr "URL или ID видео"
+
+msgid "View Template"
+msgstr "Просмотреть шаблон"
+
+msgid "Vimeo"
+msgstr "Vimeo"
+
+msgid "Visual page builder with a built-in SEO module. Open any page or post and click \"Edit with Loom\" to start building."
+msgstr "Визуальный конструктор страниц со встроенным SEO-модулем. Откройте любую страницу или запись и нажмите «Редактировать в Loom», чтобы начать."
+
+msgid "WebSite (+ search box)"
+msgstr "WebSite (+ строка поиска)"
+
+msgid "Widgets"
+msgstr "Виджеты"
+
+msgid "Width (%)"
+msgstr "Ширина (%)"
+
+msgid "Width (px)"
+msgstr "Ширина (px)"
+
+msgid "WooCommerce"
+msgstr "WooCommerce"
+
+msgid "WordPress head output"
+msgstr "Вывод в head WordPress"
+
+msgid "XML sitemap"
+msgstr "XML-карта сайта"
+
+msgid "Yes"
+msgstr "Да"
+
+msgid "You cannot edit this item."
+msgstr "Вы не можете редактировать этот элемент."
+
+msgid "You cannot export this template."
+msgstr "Вы не можете экспортировать этот шаблон."
+
+msgid "You cannot import templates."
+msgstr "Вы не можете импортировать шаблоны."
+
+msgid "You do not have permission to edit global code."
+msgstr "У вас нет прав для редактирования глобального кода."
+
+msgid "YouTube"
+msgstr "YouTube"
+
+msgid "Your page is empty."
+msgstr "Ваша страница пуста."
+
+msgid "— Select menu —"
+msgstr "— Выберите меню —"
+
+msgid "— Select template —"
+msgstr "— Выберите шаблон —"
+
+msgid "— Select —"
+msgstr "— Выберите —"
+
+msgid "— Static —"
+msgstr "— Статично —"
+

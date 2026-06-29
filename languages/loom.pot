@@ -1,0 +1,1123 @@
+# Loom Builder translation template.
+# Copyright (C) Loom.
+# This file is distributed under the same license as the Loom Builder plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Loom Builder 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language-Team: \n"
+"X-Domain: loom\n"
+
+msgid "Accordion"
+msgstr ""
+
+msgid "Add Field"
+msgstr ""
+
+msgid "Add Field Group"
+msgstr ""
+
+msgid "Add New Template"
+msgstr ""
+
+msgid "Add Rule"
+msgstr ""
+
+msgid "Add Section"
+msgstr ""
+
+msgid "Add Template"
+msgstr ""
+
+msgid "Add Your Heading Text Here"
+msgstr ""
+
+msgid "Add accordion items."
+msgstr ""
+
+msgid "Add images"
+msgstr ""
+
+msgid "Add images to the gallery."
+msgstr ""
+
+msgid "Add items to the carousel."
+msgstr ""
+
+msgid "Add row"
+msgstr ""
+
+msgid "Add slides to the slider."
+msgstr ""
+
+msgid "Add social links."
+msgstr ""
+
+msgid "Add tabs."
+msgstr ""
+
+msgid "Add to Cart"
+msgstr ""
+
+msgid "Adjust layout in the Style tab."
+msgstr ""
+
+msgid "Admin bar"
+msgstr ""
+
+msgid "Advanced"
+msgstr ""
+
+msgid "Alignment"
+msgstr ""
+
+msgid "All categories"
+msgstr ""
+
+msgid "All pages"
+msgstr ""
+
+msgid "All templates"
+msgstr ""
+
+msgid "Alt Text (overrides media)"
+msgstr ""
+
+msgid "Apply filters"
+msgstr ""
+
+msgid "Arrows"
+msgstr ""
+
+msgid "Article (posts)"
+msgstr ""
+
+msgid "Ascending"
+msgstr ""
+
+msgid "Aspect ratio"
+msgstr ""
+
+msgid "Assets"
+msgstr ""
+
+msgid "Attribute taxonomy (e.g. pa_color)"
+msgstr ""
+
+msgid "Authenticated users and the Loom editor remain available."
+msgstr ""
+
+msgid "Autoplay"
+msgstr ""
+
+msgid "Background"
+msgstr ""
+
+msgid "Bare"
+msgstr ""
+
+msgid "Basic"
+msgstr ""
+
+msgid "Block / Section"
+msgstr ""
+
+msgid "Block template"
+msgstr ""
+
+msgid "Body code (after <body>)"
+msgstr ""
+
+msgid "Border radius"
+msgstr ""
+
+msgid "Breadcrumbs"
+msgstr ""
+
+msgid "Builder"
+msgstr ""
+
+msgid "Button"
+msgstr ""
+
+msgid "Button link"
+msgstr ""
+
+msgid "Button text"
+msgstr ""
+
+msgid "CSS Classes"
+msgstr ""
+
+msgid "CSS ID"
+msgstr ""
+
+msgid "Canonical URL"
+msgstr ""
+
+msgid "Caption"
+msgstr ""
+
+msgid "Cards"
+msgstr ""
+
+msgid "Carousel"
+msgstr ""
+
+msgid "Categories"
+msgstr ""
+
+msgid "Category"
+msgstr ""
+
+msgid "Category slug (posts only)"
+msgstr ""
+
+msgid "Center"
+msgstr ""
+
+msgid "Choices (one per line, value:Label)"
+msgstr ""
+
+msgid "Choose Image"
+msgstr ""
+
+msgid "Click here"
+msgstr ""
+
+msgid "Code & metrics"
+msgstr ""
+
+msgid "Color"
+msgstr ""
+
+msgid "Column"
+msgstr ""
+
+msgid "Columns gap"
+msgstr ""
+
+msgid "Columns: desktop"
+msgstr ""
+
+msgid "Columns: mobile"
+msgstr ""
+
+msgid "Columns: tablet"
+msgstr ""
+
+msgid "Content"
+msgstr ""
+
+msgid "Content width (px)"
+msgstr ""
+
+msgid "Controls"
+msgstr ""
+
+msgid "Could not import: the file is not a valid Loom template export."
+msgstr ""
+
+msgid "Current page"
+msgstr ""
+
+msgid "Custom CSS"
+msgstr ""
+
+msgid "Custom image"
+msgstr ""
+
+msgid "Dashboard"
+msgstr ""
+
+msgid "Dashed"
+msgstr ""
+
+msgid "Dashicon name"
+msgstr ""
+
+msgid "Data"
+msgstr ""
+
+msgid "Default share image"
+msgstr ""
+
+msgid "Delay (ms)"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Delete all Loom data when the plugin is deleted"
+msgstr ""
+
+msgid "Descending"
+msgstr ""
+
+msgid "Describe this feature in a sentence or two."
+msgstr ""
+
+msgid "Desktop"
+msgstr ""
+
+msgid "Disable REST API requests for logged-out visitors"
+msgstr ""
+
+msgid "Discourage search engines (noindex)"
+msgstr ""
+
+msgid "Display conditions"
+msgstr ""
+
+msgid "Divider"
+msgstr ""
+
+msgid "Dots"
+msgstr ""
+
+msgid "Dotted"
+msgstr ""
+
+msgid "Double"
+msgstr ""
+
+msgid "Down"
+msgstr ""
+
+msgid "Drag a widget here"
+msgstr ""
+
+msgid "Drag to move"
+msgstr ""
+
+msgid "Duplicate"
+msgstr ""
+
+msgid "Duration (ms)"
+msgstr ""
+
+msgid "Dynamic field"
+msgstr ""
+
+msgid "Easing"
+msgstr ""
+
+msgid "Edit Field Group"
+msgstr ""
+
+msgid "Edit Template"
+msgstr ""
+
+msgid "Edit with Loom"
+msgstr ""
+
+msgid "Editor"
+msgstr ""
+
+msgid "Effect"
+msgstr ""
+
+msgid "Enable"
+msgstr ""
+
+msgid "Enabled schemas"
+msgstr ""
+
+msgid "Enter a valid Vimeo URL or ID."
+msgstr ""
+
+msgid "Enter a valid YouTube URL or ID."
+msgstr ""
+
+msgid "Enter a video file URL."
+msgstr ""
+
+msgid "Entity type"
+msgstr ""
+
+msgid "Entrance animation"
+msgstr ""
+
+msgid "Excerpt words"
+msgstr ""
+
+msgid "Exit"
+msgstr ""
+
+msgid "Export"
+msgstr ""
+
+msgid "Export page"
+msgstr ""
+
+msgid "Export section"
+msgstr ""
+
+msgid "Extra robots.txt rules"
+msgstr ""
+
+msgid "Fade"
+msgstr ""
+
+msgid "Featured only"
+msgstr ""
+
+msgid "Field Group"
+msgstr ""
+
+msgid "Field Groups"
+msgstr ""
+
+msgid "Fields & Location"
+msgstr ""
+
+msgid "Font size"
+msgstr ""
+
+msgid "Font weight"
+msgstr ""
+
+msgid "Footer"
+msgstr ""
+
+msgid "Footer code (before </body>)"
+msgstr ""
+
+msgid "Frontend assets"
+msgstr ""
+
+msgid "Frontend cleanup"
+msgstr ""
+
+msgid "Full"
+msgstr ""
+
+msgid "Gallery"
+msgstr ""
+
+msgid "Gap (px)"
+msgstr ""
+
+msgid "General"
+msgstr ""
+
+msgid "Ghost"
+msgstr ""
+
+msgid "Grid"
+msgstr ""
+
+msgid "HTML"
+msgstr ""
+
+msgid "HTML Tag"
+msgstr ""
+
+msgid "HTML code"
+msgstr ""
+
+msgid "Header"
+msgstr ""
+
+msgid "Header code (before </head>)"
+msgstr ""
+
+msgid "Header/footer templates render where conditions match. Blocks are inserted via the Template widget or [loom_template id=\"…\"]."
+msgstr ""
+
+msgid "Heading"
+msgstr ""
+
+msgid "Height (px)"
+msgstr ""
+
+msgid "Hide on desktop"
+msgstr ""
+
+msgid "Hide on mobile"
+msgstr ""
+
+msgid "Hide on tablet"
+msgstr ""
+
+msgid "Hide the admin bar on the frontend"
+msgstr ""
+
+msgid "Home"
+msgstr ""
+
+msgid "Home description"
+msgstr ""
+
+msgid "Home title"
+msgstr ""
+
+msgid "Horizontal"
+msgstr ""
+
+msgid "Hover animation"
+msgstr ""
+
+msgid "Icon Box"
+msgstr ""
+
+msgid "Icon box title"
+msgstr ""
+
+msgid "Icon color"
+msgstr ""
+
+msgid "Icon size (px)"
+msgstr ""
+
+msgid "Icons"
+msgstr ""
+
+msgid "Image"
+msgstr ""
+
+msgid "Image Size"
+msgstr ""
+
+msgid "Image radius (px)"
+msgstr ""
+
+msgid "Images"
+msgstr ""
+
+msgid "Import"
+msgstr ""
+
+msgid "Import sections"
+msgstr ""
+
+msgid "Import template"
+msgstr ""
+
+msgid "Imported template"
+msgstr ""
+
+msgid "Indexing"
+msgstr ""
+
+msgid "Interval (ms)"
+msgstr ""
+
+msgid "Invalid layout file."
+msgstr ""
+
+msgid "Items"
+msgstr ""
+
+msgid "Items: desktop"
+msgstr ""
+
+msgid "Items: mobile"
+msgstr ""
+
+msgid "Items: tablet"
+msgstr ""
+
+msgid "Label"
+msgstr ""
+
+msgid "Large"
+msgstr ""
+
+msgid "Layout"
+msgstr ""
+
+msgid "Left"
+msgstr ""
+
+msgid "Lightbox"
+msgstr ""
+
+msgid "Link"
+msgstr ""
+
+msgid "Link text"
+msgstr ""
+
+msgid "Link to home"
+msgstr ""
+
+msgid "Load builder CSS/JS on every page"
+msgstr ""
+
+msgid "Logo"
+msgstr ""
+
+msgid "Loom"
+msgstr ""
+
+msgid "Loom Builder"
+msgstr ""
+
+msgid "Loom Fields"
+msgstr ""
+
+msgid "Loom SEO"
+msgstr ""
+
+msgid "Loom Settings"
+msgstr ""
+
+msgid "Loom Template"
+msgstr ""
+
+msgid "Loom Templates"
+msgstr ""
+
+msgid "Loop"
+msgstr ""
+
+msgid "Loop animation"
+msgstr ""
+
+msgid "Margin"
+msgstr ""
+
+msgid "Masonry"
+msgstr ""
+
+msgid "Max"
+msgstr ""
+
+msgid "Max width"
+msgstr ""
+
+msgid "Maximum width of the centered section content area."
+msgstr ""
+
+msgid "Media"
+msgstr ""
+
+msgid "Medium"
+msgstr ""
+
+msgid "Medium Large"
+msgstr ""
+
+msgid "Menu"
+msgstr ""
+
+msgid "Menu order"
+msgstr ""
+
+msgid "Meta description"
+msgstr ""
+
+msgid "Min"
+msgstr ""
+
+msgid "Min height"
+msgstr ""
+
+msgid "Mobile"
+msgstr ""
+
+msgid "Mobile breakpoint (px)"
+msgstr ""
+
+msgid "Muted"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Nav Menu"
+msgstr ""
+
+msgid "Network"
+msgstr ""
+
+msgid "New Template"
+msgstr ""
+
+msgid "Newest"
+msgstr ""
+
+msgid "Next"
+msgstr ""
+
+msgid "No image"
+msgstr ""
+
+msgid "No image selected"
+msgstr ""
+
+msgid "No posts found."
+msgstr ""
+
+msgid "No products found."
+msgstr ""
+
+msgid "No templates found"
+msgstr ""
+
+msgid "No templates found in Trash"
+msgstr ""
+
+msgid "None"
+msgstr ""
+
+msgid "Not a Loom template."
+msgstr ""
+
+msgid "Number"
+msgstr ""
+
+msgid "Number of posts"
+msgstr ""
+
+msgid "Off by default: assets load only on builder pages and where a header/footer template is active."
+msgstr ""
+
+msgid "On sale only"
+msgstr ""
+
+msgid "On uninstall"
+msgstr ""
+
+msgid "One URL per line (used for sameAs)."
+msgstr ""
+
+msgid "One open at a time"
+msgstr ""
+
+msgid "Open first item"
+msgstr ""
+
+msgid "Open in new tab"
+msgstr ""
+
+msgid "Order"
+msgstr ""
+
+msgid "Order by"
+msgstr ""
+
+msgid "Organization"
+msgstr ""
+
+msgid "Organization / Person"
+msgstr ""
+
+msgid "Organization / Schema"
+msgstr ""
+
+msgid "Outline"
+msgstr ""
+
+msgid "Overlay darkness (%)"
+msgstr ""
+
+msgid "Padding"
+msgstr ""
+
+msgid "Padding (CSS)"
+msgstr ""
+
+msgid "Page"
+msgstr ""
+
+msgid "Page not found"
+msgstr ""
+
+msgid "Pages"
+msgstr ""
+
+msgid "Person"
+msgstr ""
+
+msgid "Placeholder"
+msgstr ""
+
+msgid "Popularity"
+msgstr ""
+
+msgid "Post type"
+msgstr ""
+
+msgid "Poster image"
+msgstr ""
+
+msgid "Posts"
+msgstr ""
+
+msgid "Previous"
+msgstr ""
+
+msgid "Price"
+msgstr ""
+
+msgid "Price range"
+msgstr ""
+
+msgid "Price: high to low"
+msgstr ""
+
+msgid "Price: low to high"
+msgstr ""
+
+msgid "Product (WooCommerce)"
+msgstr ""
+
+msgid "Product Filter"
+msgstr ""
+
+msgid "Product ID (blank = current)"
+msgstr ""
+
+msgid "Product not found."
+msgstr ""
+
+msgid "Products"
+msgstr ""
+
+msgid "Question"
+msgstr ""
+
+msgid "REST API"
+msgstr ""
+
+msgid "REST API access is disabled for logged-out visitors."
+msgstr ""
+
+msgid "Radius"
+msgstr ""
+
+msgid "Radius (px)"
+msgstr ""
+
+msgid "Random"
+msgstr ""
+
+msgid "Rating"
+msgstr ""
+
+msgid "Redo"
+msgstr ""
+
+msgid "Remove"
+msgstr ""
+
+msgid "Remove generator, shortlink, RSD, WLW, REST, oEmbed and emoji frontend extras"
+msgstr ""
+
+msgid "Remove row"
+msgstr ""
+
+msgid "Removes builder layouts, templates, SEO meta and options. This cannot be undone."
+msgstr ""
+
+msgid "Repeater"
+msgstr ""
+
+msgid "Respect active filters"
+msgstr ""
+
+msgid "Right"
+msgstr ""
+
+msgid "Round"
+msgstr ""
+
+msgid "SEO"
+msgstr ""
+
+msgid "SEO title"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Save settings"
+msgstr ""
+
+msgid "Saved"
+msgstr ""
+
+msgid "Saving..."
+msgstr ""
+
+msgid "Search"
+msgstr ""
+
+msgid "Search Templates"
+msgstr ""
+
+msgid "Search results for \"%s\""
+msgstr ""
+
+msgid "Search widget..."
+msgstr ""
+
+msgid "Search…"
+msgstr ""
+
+msgid "Section"
+msgstr ""
+
+msgid "Select"
+msgstr ""
+
+msgid "Select a block template."
+msgstr ""
+
+msgid "Select a menu."
+msgstr ""
+
+msgid "Select an element to edit it."
+msgstr ""
+
+msgid "Select image"
+msgstr ""
+
+msgid "Self-hosted file"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Settings saved."
+msgstr ""
+
+msgid "Shape"
+msgstr ""
+
+msgid "Share image"
+msgstr ""
+
+msgid "Shop page"
+msgstr ""
+
+msgid "Shortcode"
+msgstr ""
+
+msgid "Show date"
+msgstr ""
+
+msgid "Show excerpt"
+msgstr ""
+
+msgid "Show image"
+msgstr ""
+
+msgid "Show price"
+msgstr ""
+
+msgid "Show tagline"
+msgstr ""
+
+msgid "Show this group on"
+msgstr ""
+
+msgid "Site"
+msgstr ""
+
+msgid "Site Logo"
+msgstr ""
+
+msgid "Site Title"
+msgstr ""
+
+msgid "Sitemap & Robots"
+msgstr ""
+
+msgid "Slide"
+msgstr ""
+
+msgid "Slide title"
+msgstr ""
+
+msgid "Slider"
+msgstr ""
+
+msgid "Slides"
+msgstr ""
+
+msgid "Snippets are printed on every page of the site. Use for analytics, verification tags and global styles."
+msgstr ""
+
+msgid "Social Icons"
+msgstr ""
+
+msgid "Social profile URLs"
+msgstr ""
+
+msgid "Solid"
+msgstr ""
+
+msgid "Source"
+msgstr ""
+
+msgid "Spacer"
+msgstr ""
+
+msgid "Spacing (px)"
+msgstr ""
+
+msgid "Square"
+msgstr ""
+
+msgid "Start writing your text here. You can use paragraphs and basic formatting."
+msgstr ""
+
+msgid "Style"
+msgstr ""
+
+msgid "Sub fields"
+msgstr ""
+
+msgid "Submit to"
+msgstr ""
+
+msgid "Tab"
+msgstr ""
+
+msgid "Tablet"
+msgstr ""
+
+msgid "Tablet breakpoint (px)"
+msgstr ""
+
+msgid "Tabs"
+msgstr ""
+
+msgid "Template"
+msgstr ""
+
+msgid "Template Settings"
+msgstr ""
+
+msgid "Template imported as a draft."
+msgstr ""
+
+msgid "Templates"
+msgstr ""
+
+msgid "Text"
+msgstr ""
+
+msgid "Text Editor"
+msgstr ""
+
+msgid "Text align"
+msgstr ""
+
+msgid "Text color"
+msgstr ""
+
+msgid "Textarea"
+msgstr ""
+
+msgid "Theme logo"
+msgstr ""
+
+msgid "Thickness (px)"
+msgstr ""
+
+msgid "Thumbnail"
+msgstr ""
+
+msgid "Thumbnail size"
+msgstr ""
+
+msgid "Title"
+msgstr ""
+
+msgid "Title separator"
+msgstr ""
+
+msgid "True / False"
+msgstr ""
+
+msgid "Twitter @username"
+msgstr ""
+
+msgid "Type"
+msgstr ""
+
+msgid "Undo"
+msgstr ""
+
+msgid "Up"
+msgstr ""
+
+msgid "Vertical"
+msgstr ""
+
+msgid "Video"
+msgstr ""
+
+msgid "Video URL or ID"
+msgstr ""
+
+msgid "View Template"
+msgstr ""
+
+msgid "Vimeo"
+msgstr ""
+
+msgid "Visual page builder with a built-in SEO module. Open any page or post and click \"Edit with Loom\" to start building."
+msgstr ""
+
+msgid "WebSite (+ search box)"
+msgstr ""
+
+msgid "Widgets"
+msgstr ""
+
+msgid "Width (%)"
+msgstr ""
+
+msgid "Width (px)"
+msgstr ""
+
+msgid "WooCommerce"
+msgstr ""
+
+msgid "WordPress head output"
+msgstr ""
+
+msgid "XML sitemap"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "You cannot edit this item."
+msgstr ""
+
+msgid "You cannot export this template."
+msgstr ""
+
+msgid "You cannot import templates."
+msgstr ""
+
+msgid "You do not have permission to edit global code."
+msgstr ""
+
+msgid "YouTube"
+msgstr ""
+
+msgid "Your page is empty."
+msgstr ""
+
+msgid "— Select menu —"
+msgstr ""
+
+msgid "— Select template —"
+msgstr ""
+
+msgid "— Select —"
+msgstr ""
+
+msgid "— Static —"
+msgstr ""
+

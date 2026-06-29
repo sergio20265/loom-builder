@@ -1,0 +1,141 @@
+/**
+ * Loom Builder editor — Inspector (Content / Style / Advanced panels).
+ *
+ * @package Loom
+ */
+( function () {
+	'use strict';
+
+	var L = window.LoomEd;
+	if ( ! L ) { return; }
+
+	var el = L.el, Fragment = L.Fragment, t = L.t, clone = L.clone, widgetDef = L.widgetDef, c = L.controls, ContentControl = L.ContentControl;
+
+	function StylePanel( props ) {
+		var node = props.node, device = props.device, update = props.update;
+		var st = ( node.settings._style && node.settings._style[ device ] ) || {};
+		function setStyle( key, value ) {
+			update( function ( n ) {
+				var s = clone( n.settings );
+				if ( ! s._style ) { s._style = { desktop: {}, tablet: {}, mobile: {} }; }
+				if ( ! s._style[ device ] ) { s._style[ device ] = {}; }
+				if ( value === '' || value == null ) { delete s._style[ device ][ key ]; }
+				else { s._style[ device ][ key ] = value; }
+				return Object.assign( {}, n, { settings: s } );
+			} );
+		}
+		var isText = node.type === 'widget';
+		var isSection = node.type === 'section';
+		return el( Fragment, null,
+			el( 'h4', null, t.style || 'Style' ),
+			el( c.BoxControl, { label: t.padding || 'Padding', value: st.padding, onChange: function ( v ) { setStyle( 'padding', v ); } } ),
+			el( c.BoxControl, { label: t.margin || 'Margin', value: st.margin, onChange: function ( v ) { setStyle( 'margin', v ); } } ),
+			el( c.ColorControl, { label: t.background || 'Background', value: st.bgColor, onChange: function ( v ) { setStyle( 'bgColor', v ); } } ),
+			el( c.SelectControl, { label: t.textAlign || 'Text align', value: st.align || '', options: { '': '—', left: t.left || 'Left', center: t.center || 'Center', right: t.right || 'Right' }, onChange: function ( v ) { setStyle( 'align', v ); } } ),
+			isText ? el( c.ColorControl, { label: t.textColor || 'Text color', value: st.color, onChange: function ( v ) { setStyle( 'color', v ); } } ) : null,
+			isText ? el( c.RangeControl, { label: t.fontSize || 'Font size', value: st.fontSize, min: 8, max: 120, onChange: function ( v ) { setStyle( 'fontSize', v ); } } ) : null,
+			isText ? el( c.SelectControl, { label: t.fontWeight || 'Font weight', value: st.fontWeight || '', options: { '': '—', '300': '300', '400': '400', '500': '500', '600': '600', '700': '700', '800': '800', '900': '900' }, onChange: function ( v ) { setStyle( 'fontWeight', v ); } } ) : null,
+			el( c.RangeControl, { label: t.minHeight || 'Min height', value: st.minHeight, min: 0, max: 900, onChange: function ( v ) { setStyle( 'minHeight', v ); } } ),
+			el( c.RangeControl, { label: t.radius || 'Radius', value: st.radius, min: 0, max: 100, onChange: function ( v ) { setStyle( 'radius', v ); } } ),
+			isSection ? el( c.RangeControl, { label: t.maxWidth || 'Max width', value: st.maxWidth, min: 200, max: 1600, onChange: function ( v ) { setStyle( 'maxWidth', v ); } } ) : null,
+			isSection ? el( c.RangeControl, { label: t.columnsGap || 'Columns gap', value: st.gap, min: 0, max: 80, onChange: function ( v ) { setStyle( 'gap', v ); } } ) : null
+		);
+	}
+
+	function AdvancedPanel( props ) {
+		var node = props.node, update = props.update;
+		var adv = node.settings._advanced || {};
+		function setAdv( key, value ) {
+			update( function ( n ) {
+				var s = clone( n.settings );
+				if ( ! s._advanced ) { s._advanced = {}; }
+				s._advanced[ key ] = value;
+				return Object.assign( {}, n, { settings: s } );
+			} );
+		}
+		var none = t.none || 'None';
+		return el( Fragment, null,
+			el( 'h4', null, t.advanced || 'Advanced' ),
+			el( c.TextControl, { label: t.cssId || 'CSS ID', value: adv.cssId, onChange: function ( v ) { setAdv( 'cssId', v ); } } ),
+			el( c.TextControl, { label: t.cssClasses || 'CSS Classes', value: adv.cssClass, onChange: function ( v ) { setAdv( 'cssClass', v ); } } ),
+			el( c.SelectControl, { label: t.entranceAnimation || 'Entrance animation', value: adv.animation || '', options: {
+				'': none,
+				'fade': 'Fade', 'fade-up': 'Fade up', 'fade-down': 'Fade down', 'fade-left': 'Fade left', 'fade-right': 'Fade right',
+				'slide-up': 'Slide up', 'slide-down': 'Slide down', 'slide-left': 'Slide left', 'slide-right': 'Slide right',
+				'zoom-in': 'Zoom in', 'zoom-out': 'Zoom out', 'rotate': 'Rotate', 'blur': 'Blur', 'bounce': 'Bounce',
+				'flip-x': 'Flip X', 'flip-y': 'Flip Y'
+			}, onChange: function ( v ) { setAdv( 'animation', v ); } } ),
+			adv.animation ? el( c.RangeControl, { label: t.duration || 'Duration (ms)', value: adv.animationDuration || 600, min: 100, max: 3000, onChange: function ( v ) { setAdv( 'animationDuration', v ); } } ) : null,
+			adv.animation ? el( c.NumberControl, { label: t.delay || 'Delay (ms)', value: adv.animationDelay, onChange: function ( v ) { setAdv( 'animationDelay', v ); } } ) : null,
+			adv.animation ? el( c.SelectControl, { label: t.easing || 'Easing', value: adv.animationEasing || 'smooth', options: { 'smooth': 'Smooth', 'ease': 'Ease', 'ease-in': 'Ease in', 'ease-out': 'Ease out', 'ease-in-out': 'Ease in-out', 'linear': 'Linear', 'back': 'Back (overshoot)', 'spring': 'Spring' }, onChange: function ( v ) { setAdv( 'animationEasing', v ); } } ) : null,
+			el( c.SelectControl, { label: t.loopAnimation || 'Loop animation', value: adv.loopAnimation || '', options: { '': none, 'pulse': 'Pulse', 'float': 'Float', 'bounce': 'Bounce', 'spin': 'Spin', 'shake': 'Shake', 'swing': 'Swing' }, onChange: function ( v ) { setAdv( 'loopAnimation', v ); } } ),
+			el( c.SelectControl, { label: t.hoverAnimation || 'Hover animation', value: adv.hoverAnimation || '', options: { '': none, 'grow': 'Grow', 'shrink': 'Shrink', 'lift': 'Lift', 'rotate': 'Rotate', 'float': 'Float', 'pulse': 'Pulse', 'shadow': 'Shadow', 'bright': 'Brighten' }, onChange: function ( v ) { setAdv( 'hoverAnimation', v ); } } ),
+			el( c.ToggleControl, { label: t.hideDesktop || 'Hide on desktop', value: adv.hideDesktop, onChange: function ( v ) { setAdv( 'hideDesktop', v ); } } ),
+			el( c.ToggleControl, { label: t.hideTablet || 'Hide on tablet', value: adv.hideTablet, onChange: function ( v ) { setAdv( 'hideTablet', v ); } } ),
+			el( c.ToggleControl, { label: t.hideMobile || 'Hide on mobile', value: adv.hideMobile, onChange: function ( v ) { setAdv( 'hideMobile', v ); } } )
+		);
+	}
+
+	function Inspector( props ) {
+		var node = props.node;
+		var tab = props.tab, setTab = props.setTab;
+		if ( ! node ) {
+			return el( 'div', { className: 'loom-inspector loom-empty-inspector' }, el( 'p', null, t.selectElement || 'Select an element to edit it.' ) );
+		}
+		var def = node.type === 'widget' ? widgetDef( node.widget ) : null;
+		var title = def ? def.title : ( node.type === 'section' ? ( t.section || 'Section' ) : ( t.column || 'Column' ) );
+
+		function update( fn ) {
+			props.onChange( props.applyToNode( node.id, fn ) );
+		}
+		function setSetting( key, value ) {
+			update( function ( n ) {
+				var s = clone( n.settings ); s[ key ] = value; return Object.assign( {}, n, { settings: s } );
+			} );
+		}
+		function setMany( obj ) {
+			update( function ( n ) {
+				var s = Object.assign( clone( n.settings ), obj ); return Object.assign( {}, n, { settings: s } );
+			} );
+		}
+		function setDynamic( key, field ) {
+			update( function ( n ) {
+				var s = clone( n.settings );
+				if ( ! s._dynamic ) { s._dynamic = {}; }
+				if ( field ) { s._dynamic[ key ] = field; } else { delete s._dynamic[ key ]; }
+				return Object.assign( {}, n, { settings: s } );
+			} );
+		}
+
+		var contentControls = [];
+		if ( def && def.controls ) {
+			Object.keys( def.controls ).forEach( function ( name ) {
+				var ctl = def.controls[ name ];
+				if ( ( ctl.section || 'content' ) !== ( tab === 'content' ? 'content' : 'style' ) && tab !== 'content' && tab !== 'style' ) { return; }
+				if ( tab === 'content' && ( ctl.section || 'content' ) !== 'content' ) { return; }
+				if ( tab === 'style' && ( ctl.section || 'content' ) !== 'style' ) { return; }
+				contentControls.push( el( ContentControl, {
+					key: name, control: ctl, name: name, value: node.settings[ name ], node: node,
+					set: function ( v ) { setSetting( name, v ); }, setMany: setMany, setDynamic: setDynamic,
+				} ) );
+			} );
+		}
+
+		return el( 'div', { className: 'loom-inspector' },
+			el( 'div', { className: 'loom-inspector-head' }, title ),
+			el( 'div', { className: 'loom-tabs' },
+				[ 'content', 'style', 'advanced' ].map( function ( id ) {
+					return el( 'button', { key: id, className: 'loom-tab' + ( tab === id ? ' is-active' : '' ), onClick: function () { setTab( id ); } }, t[ id ] || id );
+				} )
+			),
+			el( 'div', { className: 'loom-inspector-body' },
+				tab === 'content' ? ( contentControls.length ? contentControls : el( 'p', { className: 'loom-muted' }, node.type === 'section' ? ( t.adjustLayout || 'Adjust layout in the Style tab.' ) : '' ) ) : null,
+				tab === 'style' ? el( Fragment, null, contentControls, el( StylePanel, { node: node, device: props.device, update: update } ) ) : null,
+				tab === 'advanced' ? el( AdvancedPanel, { node: node, update: update } ) : null
+			)
+		);
+	}
+
+	L.Inspector = Inspector;
+
+} )();

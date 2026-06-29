@@ -1,0 +1,311 @@
+/**
+ * Loom Builder frontend baseline styles.
+ *
+ * Minimal, unopinionated structure for the rendered layout. Per-node visual
+ * styling is emitted inline by the PHP CSS generator scoped to .loom-node-<id>.
+ */
+
+.loom-doc { width: 100%; }
+
+/* Structure */
+.loom-section { width: 100%; }
+.loom-section-inner { width: 100%; max-width: var( --loom-container-width, 1200px ); margin: 0 auto; display: flex; flex-wrap: wrap; }
+.loom-section > .loom-section-inner > .loom-column { flex: 1 1 0; min-width: 0; box-sizing: border-box; }
+
+/* Default columns gap when not overridden by node CSS */
+.loom-section-inner { gap: 20px; }
+
+/* Typography inherit so node-level controls win on text widgets */
+.loom-widget-heading .loom-heading { margin: 0; font: inherit; color: inherit; }
+.loom-widget-text .loom-text { font: inherit; color: inherit; }
+.loom-text p:first-child { margin-top: 0; }
+.loom-text p:last-child { margin-bottom: 0; }
+
+/* Video */
+.loom-video { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; overflow: hidden; }
+.loom-video iframe, .loom-video video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; object-fit: cover; }
+.loom-video-empty { padding: 20px 28px; color: #9aa0a6; background: #f3f4f6; border: 1px dashed #d1d5db; border-radius: 8px; text-align: center; }
+
+/* Custom HTML / shortcode wrappers stay transparent. */
+.loom-html, .loom-shortcode { width: 100%; }
+
+/* Image */
+.loom-image { margin: 0; }
+.loom-image img, .loom-image-el { max-width: 100%; height: auto; display: block; }
+.loom-image-caption { font-size: 13px; color: #6b7280; margin-top: 6px; }
+.loom-image-placeholder { display: inline-block; padding: 20px 28px; color: #9aa0a6; background: #f3f4f6; border: 1px dashed #d1d5db; border-radius: 8px; }
+
+/* Button */
+.loom-button { display: inline-block; text-decoration: none; font-weight: 600; line-height: 1.2; cursor: pointer; transition: opacity .15s, transform .15s; }
+.loom-button:hover { opacity: .9; transform: translateY(-1px); }
+
+/* Spacer */
+.loom-spacer { width: 100%; }
+
+/* ── Slider ──────────────────────────────────────────────────────────── */
+.loom-slider { position: relative; overflow: hidden; }
+.loom-slides { position: relative; height: var(--loom-slider-h, 480px); }
+.loom-slide { display: flex; align-items: center; justify-content: center; background-size: cover; background-position: center; color: #fff; text-align: center; padding: 20px; }
+.loom-slide-content { max-width: 760px; }
+.loom-slide-title { font-size: clamp(24px, 4vw, 48px); margin: 0 0 12px; }
+.loom-slide-text { font-size: clamp(15px, 2vw, 20px); margin: 0 0 20px; opacity: .95; }
+.loom-slider-arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 20; width: 44px; height: 44px; border: 0; border-radius: 50%; background: rgba(0,0,0,.4); color: #fff; font-size: 24px; cursor: pointer; transition: background .15s; }
+.loom-slider-arrow:hover { background: rgba(0,0,0,.65); }
+.loom-slider-prev { left: 16px; }
+.loom-slider-next { right: 16px; }
+.loom-slider-dots { position: absolute; bottom: 16px; left: 0; right: 0; z-index: 20; display: flex; gap: 8px; justify-content: center; }
+.loom-slider-dots .loom-dot { width: 10px; height: 10px; border-radius: 50%; border: 0; background: rgba(255,255,255,.5); cursor: pointer; padding: 0; }
+.loom-slider-dots .loom-dot.is-active { background: #fff; }
+.loom-slider-empty, .loom-carousel-empty, .loom-gallery-empty { padding: 40px; text-align: center; color: #9aa0a6; background: #f3f4f6; border: 1px dashed #d1d5db; border-radius: 8px; }
+
+/* ── Carousel ────────────────────────────────────────────────────────── */
+.loom-carousel { position: relative; }
+.loom-carousel-viewport { overflow: hidden; }
+.loom-carousel-track { display: flex; will-change: transform; }
+.loom-carousel-item { box-sizing: border-box; }
+.loom-carousel-item img { width: 100%; height: auto; display: block; object-fit: cover; }
+.loom-carousel-caption { padding: 8px 2px; font-size: 14px; color: #374151; text-align: center; }
+.loom-carousel-arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 5; width: 40px; height: 40px; border: 0; border-radius: 50%; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,.15); color: #111; font-size: 22px; cursor: pointer; }
+.loom-carousel-prev { left: -8px; }
+.loom-carousel-next { right: -8px; }
+.loom-carousel-dots { display: flex; gap: 8px; justify-content: center; margin-top: 14px; }
+.loom-carousel-dots .loom-dot { width: 9px; height: 9px; border-radius: 50%; border: 0; background: #cbd5e1; cursor: pointer; padding: 0; }
+.loom-carousel-dots .loom-dot.is-active { background: #2563eb; }
+
+/* ── Gallery ─────────────────────────────────────────────────────────── */
+.loom-gallery-grid { display: grid; grid-template-columns: repeat(var(--loom-cols-d, 3), 1fr); gap: var(--loom-gap, 12px); }
+.loom-gallery-masonry { columns: var(--loom-cols-d, 3); column-gap: var(--loom-gap, 12px); }
+.loom-gallery-masonry .loom-gallery-item { break-inside: avoid; margin-bottom: var(--loom-gap, 12px); display: block; }
+.loom-gallery-item { margin: 0; overflow: hidden; border-radius: var(--loom-radius, 8px); display: block; cursor: pointer; }
+.loom-gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .3s ease; }
+.loom-gallery-grid .loom-gallery-item img { aspect-ratio: 1 / 1; }
+.loom-gallery-item:hover img { transform: scale(1.05); }
+@media (max-width: 1024px) {
+	.loom-gallery-grid { grid-template-columns: repeat(var(--loom-cols-t, 2), 1fr); }
+	.loom-gallery-masonry { columns: var(--loom-cols-t, 2); }
+}
+@media (max-width: 767px) {
+	.loom-gallery-grid { grid-template-columns: repeat(var(--loom-cols-m, 1), 1fr); }
+	.loom-gallery-masonry { columns: var(--loom-cols-m, 1); }
+}
+
+/* ── WooCommerce: Products grid ──────────────────────────────────────── */
+.loom-products { display: grid; grid-template-columns: repeat(var(--loom-pcols-d, 4), 1fr); gap: 24px; }
+.loom-product { display: flex; flex-direction: column; gap: 8px; }
+.loom-product-thumb { display: block; overflow: hidden; border-radius: 10px; }
+.loom-product-thumb img { width: 100%; height: auto; display: block; transition: transform .3s ease; }
+.loom-product-thumb:hover img { transform: scale(1.05); }
+.loom-product-title { font-weight: 600; color: inherit; text-decoration: none; }
+.loom-product-title:hover { text-decoration: underline; }
+.loom-product-price { color: #111; font-weight: 700; }
+.loom-product-price del { color: #9aa0a6; font-weight: 400; margin-right: 6px; }
+.loom-product-cart .button, .loom-atc-btn { display: inline-block; background: #2563eb; color: #fff; padding: 8px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; border: 0; cursor: pointer; }
+.loom-product-cart .button:hover, .loom-atc-btn:hover { background: #1d4ed8; }
+.loom-products-empty, .loom-atc-empty { padding: 30px; text-align: center; color: #9aa0a6; }
+@media (max-width: 767px) { .loom-products { grid-template-columns: repeat(var(--loom-pcols-m, 2), 1fr); gap: 14px; } }
+
+/* Add to Cart */
+.loom-atc { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.loom-atc-price { font-size: 22px; font-weight: 700; }
+
+/* Product Filter */
+.loom-filter { display: flex; flex-direction: column; gap: 18px; }
+.loom-filter-group h4 { margin: 0 0 8px; font-size: 14px; }
+.loom-filter-opt { display: block; margin-bottom: 4px; cursor: pointer; }
+.loom-filter-price { display: flex; gap: 8px; }
+.loom-filter-price input { width: 100%; padding: 7px 9px; border: 1px solid #dcdcde; border-radius: 6px; }
+.loom-filter-submit { background: #111827; color: #fff; border: 0; padding: 10px 18px; border-radius: 8px; cursor: pointer; font-weight: 600; }
+
+/* ── Lightbox ────────────────────────────────────────────────────────── */
+.loom-lightbox { position: fixed; inset: 0; z-index: 100000; display: none; align-items: center; justify-content: center; background: rgba(0,0,0,.9); }
+.loom-lightbox.is-open { display: flex; }
+.loom-lb-stage { margin: 0; max-width: 92vw; max-height: 88vh; text-align: center; }
+.loom-lb-stage img { max-width: 92vw; max-height: 80vh; object-fit: contain; border-radius: 4px; }
+.loom-lb-stage figcaption { color: #fff; margin-top: 12px; font-size: 14px; }
+.loom-lb-close, .loom-lb-prev, .loom-lb-next { position: absolute; border: 0; background: rgba(255,255,255,.12); color: #fff; cursor: pointer; border-radius: 50%; }
+.loom-lb-close { top: 18px; right: 22px; width: 44px; height: 44px; font-size: 28px; }
+.loom-lb-prev, .loom-lb-next { top: 50%; transform: translateY(-50%); width: 52px; height: 52px; font-size: 30px; }
+.loom-lb-prev { left: 18px; }
+.loom-lb-next { right: 18px; }
+.loom-lb-close:hover, .loom-lb-prev:hover, .loom-lb-next:hover { background: rgba(255,255,255,.28); }
+
+/* Responsive visibility helpers */
+@media (max-width: 1024px) { .loom-hide-tablet { display: none !important; } }
+@media (max-width: 767px)  { .loom-hide-mobile { display: none !important; } }
+@media (min-width: 1025px) { .loom-hide-desktop { display: none !important; } }
+
+/* Stack columns on mobile */
+@media (max-width: 767px) {
+	.loom-section-inner { flex-direction: column; }
+	.loom-section > .loom-section-inner > .loom-column { flex-basis: 100% !important; width: 100% !important; }
+}
+
+/* ── Entrance animations (scroll-triggered by frontend.js) ───────────── */
+.loom-anim[data-loom-anim] { opacity: 0; will-change: transform, opacity; }
+.loom-anim.loom-in { opacity: 1; transform: none; animation-fill-mode: both; }
+
+/* Initial offsets (before reveal) keep elements where the keyframe begins. */
+.loom-anim[data-loom-anim="fade-up"]     { transform: translateY(40px); }
+.loom-anim[data-loom-anim="fade-down"]   { transform: translateY(-40px); }
+.loom-anim[data-loom-anim="fade-left"]   { transform: translateX(40px); }
+.loom-anim[data-loom-anim="fade-right"]  { transform: translateX(-40px); }
+.loom-anim[data-loom-anim="slide-up"]    { transform: translateY(90px); }
+.loom-anim[data-loom-anim="slide-down"]  { transform: translateY(-90px); }
+.loom-anim[data-loom-anim="slide-left"]  { transform: translateX(90px); }
+.loom-anim[data-loom-anim="slide-right"] { transform: translateX(-90px); }
+.loom-anim[data-loom-anim="zoom"],
+.loom-anim[data-loom-anim="zoom-in"]     { transform: scale(.85); }
+.loom-anim[data-loom-anim="zoom-out"]    { transform: scale(1.15); }
+.loom-anim[data-loom-anim="rotate"]      { transform: rotate(-12deg) scale(.9); }
+.loom-anim[data-loom-anim="blur"]        { filter: blur(14px); }
+.loom-anim[data-loom-anim="flip"],
+.loom-anim[data-loom-anim="flip-x"]      { transform: perspective(800px) rotateX(-90deg); }
+.loom-anim[data-loom-anim="flip-y"]      { transform: perspective(800px) rotateY(-90deg); }
+
+.loom-anim[data-loom-anim="fade"].loom-in        { animation-name: loom-fade; }
+.loom-anim[data-loom-anim="fade-up"].loom-in     { animation-name: loom-fade-up; }
+.loom-anim[data-loom-anim="fade-down"].loom-in   { animation-name: loom-fade-down; }
+.loom-anim[data-loom-anim="fade-left"].loom-in   { animation-name: loom-fade-left; }
+.loom-anim[data-loom-anim="fade-right"].loom-in  { animation-name: loom-fade-right; }
+.loom-anim[data-loom-anim="slide-up"].loom-in    { animation-name: loom-slide-up; }
+.loom-anim[data-loom-anim="slide-down"].loom-in  { animation-name: loom-slide-down; }
+.loom-anim[data-loom-anim="slide-left"].loom-in  { animation-name: loom-slide-left; }
+.loom-anim[data-loom-anim="slide-right"].loom-in { animation-name: loom-slide-right; }
+.loom-anim[data-loom-anim="zoom"].loom-in,
+.loom-anim[data-loom-anim="zoom-in"].loom-in     { animation-name: loom-zoom-in; }
+.loom-anim[data-loom-anim="zoom-out"].loom-in    { animation-name: loom-zoom-out; }
+.loom-anim[data-loom-anim="rotate"].loom-in      { animation-name: loom-rotate-in; }
+.loom-anim[data-loom-anim="blur"].loom-in        { animation-name: loom-blur-in; }
+.loom-anim[data-loom-anim="bounce"].loom-in      { animation-name: loom-bounce-in; }
+.loom-anim[data-loom-anim="flip"].loom-in,
+.loom-anim[data-loom-anim="flip-x"].loom-in      { animation-name: loom-flip-x; }
+.loom-anim[data-loom-anim="flip-y"].loom-in      { animation-name: loom-flip-y; }
+
+@keyframes loom-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes loom-fade-up { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: none; } }
+@keyframes loom-fade-down { from { opacity: 0; transform: translateY(-40px); } to { opacity: 1; transform: none; } }
+@keyframes loom-fade-left { from { opacity: 0; transform: translateX(40px); } to { opacity: 1; transform: none; } }
+@keyframes loom-fade-right { from { opacity: 0; transform: translateX(-40px); } to { opacity: 1; transform: none; } }
+@keyframes loom-slide-up { from { opacity: 0; transform: translateY(90px); } to { opacity: 1; transform: none; } }
+@keyframes loom-slide-down { from { opacity: 0; transform: translateY(-90px); } to { opacity: 1; transform: none; } }
+@keyframes loom-slide-left { from { opacity: 0; transform: translateX(90px); } to { opacity: 1; transform: none; } }
+@keyframes loom-slide-right { from { opacity: 0; transform: translateX(-90px); } to { opacity: 1; transform: none; } }
+@keyframes loom-zoom-in { from { opacity: 0; transform: scale(.85); } to { opacity: 1; transform: none; } }
+@keyframes loom-zoom-out { from { opacity: 0; transform: scale(1.15); } to { opacity: 1; transform: none; } }
+@keyframes loom-rotate-in { from { opacity: 0; transform: rotate(-12deg) scale(.9); } to { opacity: 1; transform: none; } }
+@keyframes loom-blur-in { from { opacity: 0; filter: blur(14px); } to { opacity: 1; filter: blur(0); } }
+@keyframes loom-bounce-in {
+	0% { opacity: 0; transform: scale(.3); }
+	50% { opacity: 1; transform: scale(1.05); }
+	70% { transform: scale(.92); }
+	100% { transform: scale(1); }
+}
+@keyframes loom-flip-x { from { opacity: 0; transform: perspective(800px) rotateX(-90deg); } to { opacity: 1; transform: none; } }
+@keyframes loom-flip-y { from { opacity: 0; transform: perspective(800px) rotateY(-90deg); } to { opacity: 1; transform: none; } }
+
+/* ── Continuous (loop) animations ────────────────────────────────────── */
+.loom-loop-pulse  { animation: loom-pulse 2s ease-in-out infinite; }
+.loom-loop-float  { animation: loom-float 3s ease-in-out infinite; }
+.loom-loop-bounce { animation: loom-bounce 2s ease infinite; }
+.loom-loop-spin   { animation: loom-spin 6s linear infinite; }
+.loom-loop-shake  { animation: loom-shake 3s ease-in-out infinite; }
+.loom-loop-swing  { animation: loom-swing 3s ease-in-out infinite; transform-origin: top center; }
+
+@keyframes loom-pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.06); } }
+@keyframes loom-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+@keyframes loom-bounce { 0%,20%,50%,80%,100% { transform: translateY(0); } 40% { transform: translateY(-16px); } 60% { transform: translateY(-8px); } }
+@keyframes loom-spin { to { transform: rotate(360deg); } }
+@keyframes loom-shake { 0%,90%,100% { transform: translateX(0); } 92% { transform: translateX(-6px); } 94% { transform: translateX(6px); } 96% { transform: translateX(-4px); } 98% { transform: translateX(4px); } }
+@keyframes loom-swing { 0%,100% { transform: rotate(0); } 25% { transform: rotate(4deg); } 75% { transform: rotate(-4deg); } }
+
+/* ── Hover animations ────────────────────────────────────────────────── */
+[class*="loom-hover-"] { transition: transform .3s ease, box-shadow .3s ease, filter .3s ease; }
+.loom-hover-grow:hover   { transform: scale(1.06); }
+.loom-hover-shrink:hover { transform: scale(.94); }
+.loom-hover-lift:hover   { transform: translateY(-8px); }
+.loom-hover-rotate:hover { transform: rotate(4deg); }
+.loom-hover-float:hover  { animation: loom-float 1.5s ease-in-out infinite; }
+.loom-hover-pulse:hover  { animation: loom-pulse 1s ease-in-out infinite; }
+.loom-hover-shadow:hover { box-shadow: 0 18px 40px rgba(0,0,0,.18); }
+.loom-hover-bright:hover { filter: brightness(1.12); }
+
+@media (prefers-reduced-motion: reduce) {
+	.loom-anim[data-loom-anim],
+	[class*="loom-loop-"],
+	[class*="loom-hover-"] { opacity: 1 !important; transform: none !important; filter: none !important; animation: none !important; }
+}
+
+/* --- Nav menu --- */
+.loom-menu-list { display: flex; gap: 22px; margin: 0; padding: 0; list-style: none; flex-wrap: wrap; align-items: center; }
+.loom-menu-vertical .loom-menu-list { flex-direction: column; align-items: flex-start; }
+.loom-menu-align-center .loom-menu-list { justify-content: center; }
+.loom-menu-align-right .loom-menu-list { justify-content: flex-end; }
+.loom-menu-list a { text-decoration: none; color: inherit; }
+.loom-menu-list .sub-menu { display: none; position: absolute; background: #fff; box-shadow: 0 8px 24px rgba(0,0,0,.12); padding: 8px 0; min-width: 180px; list-style: none; z-index: 50; }
+.loom-menu-list li { position: relative; }
+.loom-menu-list li:hover > .sub-menu { display: block; }
+.loom-menu-list .sub-menu a { display: block; padding: 6px 16px; }
+
+/* --- Site logo / title --- */
+.loom-site-logo img { display: block; }
+.loom-logo-text, .loom-site-title { font-weight: 700; font-size: 22px; }
+.loom-site-title a, .loom-site-logo a { text-decoration: none; color: inherit; }
+.loom-site-tagline { font-size: 13px; color: #6b7280; }
+
+/* --- Search --- */
+.loom-search-form { display: flex; gap: 6px; }
+.loom-search-input { flex: 1; min-width: 0; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 8px; }
+.loom-search-btn { padding: 8px 16px; border: none; border-radius: 8px; background: #2563eb; color: #fff; cursor: pointer; }
+
+/* --- Social icons --- */
+.loom-social { display: flex; flex-wrap: wrap; align-items: center; }
+.loom-social-link { display: inline-flex; align-items: center; justify-content: center; color: var(--loom-social-color, #2563eb); width: calc(var(--loom-social-size,22px) + 18px); height: calc(var(--loom-social-size,22px) + 18px); transition: opacity .2s, transform .2s; }
+.loom-social-bare .loom-social-link { width: auto; height: auto; }
+.loom-social-round .loom-social-link { border-radius: 50%; background: rgba(0,0,0,.06); }
+.loom-social-square .loom-social-link { border-radius: 8px; background: rgba(0,0,0,.06); }
+.loom-social-link:hover { transform: translateY(-2px); opacity: .85; }
+
+/* --- Divider --- */
+.loom-divider { box-sizing: border-box; }
+
+/* --- Icon box --- */
+.loom-icon-box-left { text-align: left; }
+.loom-icon-box-center { text-align: center; }
+.loom-icon-box-right { text-align: right; }
+.loom-icon-box-icon { display: inline-flex; align-items: center; justify-content: center; line-height: 1; }
+.loom-icon-box-title { margin: 12px 0 6px; }
+.loom-icon-box-text { margin: 0; color: #4b5563; }
+.loom-icon-box-link { text-decoration: none; color: inherit; display: block; }
+
+/* --- Accordion --- */
+.loom-accordion { border: 1px solid #e5e7eb; border-radius: 10px; overflow: hidden; }
+.loom-acc-item + .loom-acc-item { border-top: 1px solid #e5e7eb; }
+.loom-acc-head { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 18px; background: #fff; border: none; cursor: pointer; font-size: 16px; font-weight: 600; text-align: left; color: inherit; }
+.loom-acc-head:hover { background: #f9fafb; }
+.loom-acc-mark { width: 12px; height: 12px; position: relative; flex: none; }
+.loom-acc-mark::before, .loom-acc-mark::after { content: ""; position: absolute; background: currentColor; transition: transform .2s; }
+.loom-acc-mark::before { top: 5px; left: 0; width: 12px; height: 2px; }
+.loom-acc-mark::after { top: 0; left: 5px; width: 2px; height: 12px; }
+.loom-acc-item.is-open .loom-acc-mark::after { transform: scaleY(0); }
+.loom-acc-panel { padding: 0 18px; }
+.loom-acc-body { padding: 0 0 16px; color: #4b5563; }
+
+/* --- Tabs --- */
+.loom-tabs-nav { display: flex; flex-wrap: wrap; gap: 4px; border-bottom: 2px solid #e5e7eb; }
+.loom-tab-btn { padding: 10px 18px; border: none; background: none; cursor: pointer; font-size: 15px; font-weight: 600; color: #6b7280; border-bottom: 2px solid transparent; margin-bottom: -2px; }
+.loom-tab-btn.is-active { color: #2563eb; border-bottom-color: #2563eb; }
+.loom-tab-panel { padding: 18px 0; }
+
+/* --- Posts grid --- */
+.loom-posts { display: grid; grid-template-columns: repeat(var(--loom-cols-d,3), 1fr); gap: var(--loom-gap,24px); }
+.loom-post-card { display: flex; flex-direction: column; }
+.loom-post-thumb img { width: 100%; height: auto; border-radius: 10px; display: block; }
+.loom-post-title { margin: 12px 0 6px; font-size: 18px; }
+.loom-post-title a { text-decoration: none; color: inherit; }
+.loom-post-date { font-size: 13px; color: #9aa0a6; margin-bottom: 6px; }
+.loom-post-excerpt { margin: 0; color: #4b5563; }
+@media (max-width: 1024px) { .loom-posts { grid-template-columns: repeat(var(--loom-cols-t,2), 1fr); } }
+@media (max-width: 767px) { .loom-posts { grid-template-columns: repeat(var(--loom-cols-m,1), 1fr); } }
+
+/* Empty-state hints for widgets without content yet. */
+.loom-menu-empty, .loom-social-empty, .loom-accordion-empty, .loom-tabs-empty, .loom-posts-empty { padding: 16px 20px; color: #9aa0a6; background: #f3f4f6; border: 1px dashed #d1d5db; border-radius: 8px; text-align: center; }

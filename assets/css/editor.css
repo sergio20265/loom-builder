@@ -1,0 +1,163 @@
+/**
+ * Loom Builder editor UI styles. Scoped under .loom-app / fullscreen host.
+ */
+
+/* Full-screen host: hide admin chrome for an immersive editor. */
+body.loom-editor-fullscreen #adminmenumain,
+body.loom-editor-fullscreen #wpadminbar,
+body.loom-editor-fullscreen #wpfooter { display: none !important; }
+body.loom-editor-fullscreen #wpcontent,
+body.loom-editor-fullscreen #wpbody-content { margin: 0 !important; padding: 0 !important; }
+body.loom-editor-fullscreen #wpbody { padding-top: 0 !important; }
+body.loom-editor-fullscreen html.wp-toolbar { padding-top: 0 !important; }
+
+.loom-editor-root { position: fixed; inset: 0; z-index: 99999; background: #f0f0f1; }
+
+.loom-app { display: flex; flex-direction: column; height: 100vh; font: 13px/1.5 -apple-system, "Segoe UI", Roboto, sans-serif; color: #1e1e1e; }
+
+/* Top bar */
+.loom-topbar { display: flex; align-items: center; justify-content: space-between; height: 50px; padding: 0 14px; background: #fff; border-bottom: 1px solid #dcdcde; flex: 0 0 auto; }
+.loom-brand { display: flex; align-items: center; gap: 6px; font-weight: 700; color: #2563eb; }
+.loom-devices button { background: transparent; border: 0; padding: 6px 10px; cursor: pointer; color: #555; border-radius: 6px; }
+.loom-devices button.is-active { background: #e0e7ff; color: #2563eb; }
+.loom-history { display: flex; gap: 2px; }
+.loom-history button { background: transparent; border: 0; padding: 6px 8px; cursor: pointer; color: #555; border-radius: 6px; }
+.loom-history button:hover:not(:disabled) { background: #f0f0f1; color: #111; }
+.loom-history button:disabled { opacity: .35; cursor: default; }
+.loom-actions { display: flex; gap: 8px; align-items: center; }
+
+/* Body layout */
+.loom-body { display: flex; flex: 1 1 auto; min-height: 0; }
+.loom-left { width: 260px; flex: 0 0 260px; background: #fff; border-right: 1px solid #dcdcde; overflow-y: auto; }
+.loom-center { flex: 1 1 auto; overflow: auto; padding: 24px; background: #f0f0f1; }
+.loom-right { width: 300px; flex: 0 0 300px; background: #fff; border-left: 1px solid #dcdcde; overflow-y: auto; }
+
+/* Widget panel */
+.loom-search { width: calc(100% - 24px); margin: 12px; padding: 7px 10px; border: 1px solid #dcdcde; border-radius: 6px; }
+.loom-wcat-title { padding: 6px 12px; font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: #888; }
+.loom-wgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 0 12px 12px; }
+.loom-wcard { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 14px 6px; border: 1px solid #e5e7eb; border-radius: 8px; cursor: grab; background: #fff; text-align: center; transition: .15s; }
+.loom-wcard:hover { border-color: #2563eb; background: #f5f8ff; }
+.loom-wcard .dashicons { color: #2563eb; }
+.loom-wcard-label { font-size: 11px; color: #444; }
+
+/* Canvas */
+.loom-canvas { min-height: 100%; }
+.loom-canvas-frame { background: #fff; min-height: 80vh; box-shadow: 0 1px 12px rgba(0,0,0,.06); transition: width .2s; }
+.loom-canvas-empty { padding: 80px 20px; text-align: center; color: #9aa0a6; }
+.loom-add-section, .loom-add-col { display: block; width: 100%; margin: 12px 0; padding: 10px; border: 2px dashed #c7d2fe; background: #f5f8ff; color: #2563eb; border-radius: 8px; cursor: pointer; font-weight: 600; }
+.loom-add-col { margin: 8px 0 0; padding: 6px; font-size: 11px; }
+
+.loom-c-section { position: relative; outline: 1px dashed transparent; }
+.loom-c-section.is-selected { outline: 2px solid #2563eb; }
+.loom-c-columns { padding: 0 6px; }
+.loom-c-column { position: relative; outline: 1px dashed #e5e7eb; padding: 8px; }
+.loom-c-column.is-selected { outline: 2px solid #16a34a; }
+.loom-c-column.loom-drop { background: #ecfdf5; outline-color: #16a34a; }
+.loom-col-empty { padding: 24px 8px; text-align: center; color: #b0b4b9; font-size: 12px; border: 1px dashed #e5e7eb; }
+.loom-c-widget { position: relative; padding: 6px; outline: 1px dashed transparent; }
+.loom-c-widget.is-selected { outline: 2px solid #7c3aed; }
+.loom-c-widget:hover { outline-color: #d6bcfa; }
+
+.loom-node-toolbar { position: absolute; top: -1px; right: -1px; display: flex; gap: 2px; z-index: 5; }
+.loom-node-toolbar button { border: 0; background: #2563eb; color: #fff; width: 24px; height: 22px; cursor: pointer; font-size: 12px; line-height: 1; }
+.loom-node-toolbar button:last-child { background: #dc2626; }
+.loom-drag-handle { display: inline-flex; align-items: center; justify-content: center; background: #1e3a8a; color: #fff; width: 24px; height: 22px; cursor: grab; font-size: 12px; user-select: none; }
+.loom-drag-handle:active { cursor: grabbing; }
+
+/* Drop / reorder indicators */
+.loom-reorder-target { box-shadow: -3px 0 0 0 #2563eb inset, 0 -3px 0 0 #2563eb inset !important; }
+.loom-c-section.loom-reorder-target { box-shadow: 0 -4px 0 0 #2563eb inset !important; }
+
+/* Inspector */
+.loom-inspector-head { padding: 12px 14px; font-weight: 700; border-bottom: 1px solid #f0f0f1; }
+.loom-tabs { display: flex; border-bottom: 1px solid #dcdcde; }
+.loom-tab { flex: 1; padding: 10px; border: 0; background: transparent; cursor: pointer; color: #666; border-bottom: 2px solid transparent; }
+.loom-tab.is-active { color: #2563eb; border-bottom-color: #2563eb; font-weight: 600; }
+.loom-inspector-body { padding: 14px; }
+.loom-inspector-body h4 { margin: 16px 0 8px; font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: #888; }
+.loom-empty-inspector { padding: 30px 16px; color: #9aa0a6; text-align: center; }
+.loom-muted { color: #9aa0a6; }
+
+.loom-field { display: block; margin-bottom: 12px; }
+.loom-field-label { display: block; margin-bottom: 4px; font-size: 12px; color: #555; font-weight: 500; }
+.loom-field input[type=text], .loom-field input[type=url], .loom-field input[type=number], .loom-field select, .loom-field textarea { width: 100%; padding: 6px 8px; border: 1px solid #dcdcde; border-radius: 6px; box-sizing: border-box; }
+.loom-field textarea { font-family: ui-monospace, monospace; font-size: 12px; }
+.loom-toggle { display: flex; align-items: center; gap: 8px; }
+.loom-toggle input { width: auto; }
+.loom-color { display: flex; gap: 6px; align-items: center; }
+.loom-color input[type=color] { width: 34px; height: 30px; padding: 0; border: 1px solid #dcdcde; border-radius: 6px; }
+.loom-box { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
+.loom-box input { width: 100%; padding: 5px; border: 1px solid #dcdcde; border-radius: 6px; box-sizing: border-box; }
+.loom-media { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.loom-media-thumb { width: 44px; height: 44px; object-fit: cover; border-radius: 6px; }
+.loom-clear { border: 0; background: #f0f0f1; width: 24px; height: 24px; border-radius: 6px; cursor: pointer; }
+
+/* In-canvas widget preview baseline (mirrors frontend) */
+.loom-c-widget .loom-heading { margin: 0; }
+.loom-c-widget .loom-button { display: inline-block; text-decoration: none; cursor: default; }
+.loom-c-widget .loom-image img { max-width: 100%; height: auto; display: block; }
+.loom-image-placeholder { display: block; padding: 30px; text-align: center; color: #9aa0a6; background: #f8f9fb; border: 1px dashed #dcdcde; }
+
+/* Media-widget previews in canvas */
+.loom-prev-empty { padding: 36px; text-align: center; color: #9aa0a6; background: #f3f4f6; border: 1px dashed #d1d5db; border-radius: 8px; }
+.loom-prev-slider { position: relative; display: flex; align-items: center; justify-content: center; color: #fff; text-align: center; background-size: cover; background-position: center; border-radius: 6px; overflow: hidden; }
+.loom-prev-slide-content h2 { margin: 0 0 8px; font-size: 26px; }
+.loom-prev-slide-content p { margin: 0 0 12px; }
+.loom-prev-slide-content .loom-button { background: #2563eb; color: #fff; padding: 8px 18px; border-radius: 6px; }
+.loom-prev-badge { position: absolute; bottom: 10px; right: 12px; background: rgba(0,0,0,.5); color: #fff; padding: 2px 8px; border-radius: 20px; font-size: 11px; }
+.loom-prev-carousel { display: flex; gap: 10px; }
+.loom-prev-citem img { width: 100%; height: 90px; object-fit: cover; border-radius: 8px; display: block; }
+.loom-prev-ph { width: 100%; height: 90px; background: #e5e7eb; border-radius: 8px; }
+.loom-prev-cap { font-size: 11px; color: #555; text-align: center; margin-top: 4px; }
+.loom-prev-gallery { display: grid; }
+.loom-prev-gallery img { width: 100%; aspect-ratio: 1/1; object-fit: cover; }
+.loom-prev-products { display: grid; gap: 14px; position: relative; }
+.loom-prev-prod { display: flex; flex-direction: column; gap: 6px; }
+.loom-prev-prod .loom-prev-ph { height: 110px; }
+.loom-prev-pline { height: 10px; background: #e5e7eb; border-radius: 4px; width: 80%; }
+.loom-prev-pprice { font-weight: 700; color: #111; }
+.loom-prev-badge2, .loom-prev-fmeta { font-size: 11px; color: #6b7280; }
+.loom-prev-badge2 { position: absolute; top: -18px; right: 0; }
+.loom-prev-atc { display: flex; align-items: center; gap: 12px; }
+.loom-prev-filter { padding: 16px; border: 1px dashed #cbd5e1; border-radius: 8px; background: #f8fafc; }
+.loom-prev-filter strong { display: block; margin-bottom: 4px; }
+
+/* Repeater + gallery controls */
+.loom-repeater { display: flex; flex-direction: column; gap: 6px; }
+.loom-rep-row { border: 1px solid #e5e7eb; border-radius: 6px; overflow: hidden; }
+.loom-rep-head { display: flex; align-items: center; justify-content: space-between; background: #f8f9fb; }
+.loom-rep-toggle { flex: 1; text-align: left; border: 0; background: transparent; padding: 8px 10px; cursor: pointer; font-weight: 600; color: #374151; }
+.loom-rep-tools button { border: 0; background: transparent; cursor: pointer; padding: 6px; color: #6b7280; }
+.loom-rep-tools button:hover { color: #111; }
+.loom-rep-body { padding: 10px; border-top: 1px solid #eee; }
+.loom-rep-add { margin-top: 4px; width: 100%; }
+.loom-gallery-ctrl { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+.loom-gthumb { position: relative; width: 48px; height: 48px; }
+.loom-gthumb img { width: 48px; height: 48px; object-fit: cover; border-radius: 6px; display: block; }
+.loom-gthumb button { position: absolute; top: -6px; right: -6px; width: 18px; height: 18px; border: 0; border-radius: 50%; background: #dc2626; color: #fff; cursor: pointer; font-size: 11px; line-height: 1; padding: 0; }
+
+/* Dynamic field binding */
+.loom-dynamic { display: flex; align-items: center; gap: 6px; margin: -6px 0 12px; }
+.loom-dynamic-ic { color: #b0b4b9; }
+.loom-dynamic.is-bound .loom-dynamic-ic { color: #f59e0b; }
+.loom-dynamic select { flex: 1; padding: 4px 6px; border: 1px solid #e5e7eb; border-radius: 6px; font-size: 12px; color: #6b7280; }
+.loom-dynamic.is-bound select { border-color: #f59e0b; color: #b45309; background: #fffbeb; }
+
+/* Code field + new widget previews */
+.loom-code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; line-height: 1.5; white-space: pre; }
+.loom-prev-video { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; background: #1f2937; color: #cbd5e1; border-radius: 8px; min-height: 120px; }
+.loom-prev-play { font-size: 28px; opacity: .85; }
+
+/* New widget previews (builder canvas hints) */
+.loom-prev-accordion { border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden; }
+.loom-prev-acc-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; border-bottom: 1px solid #f1f5f9; font-size: 13px; }
+.loom-prev-acc-row:last-child { border-bottom: none; }
+.loom-prev-tabs-nav { display: flex; gap: 4px; border-bottom: 2px solid #e5e7eb; }
+.loom-prev-tab { padding: 6px 14px; font-size: 13px; color: #6b7280; border-bottom: 2px solid transparent; margin-bottom: -2px; }
+.loom-prev-tab.is-active { color: #2563eb; border-bottom-color: #2563eb; }
+.loom-prev-tab-body { padding: 12px 4px; font-size: 13px; color: #4b5563; }
+.loom-prev-search { display: flex; gap: 8px; align-items: center; padding: 8px 12px; border: 1px solid #e5e7eb; border-radius: 8px; color: #6b7280; }
+.loom-prev-search span:first-child { flex: 1; }
+.loom-prev-social { display: flex; gap: 8px; }
+.loom-prev-soc { width: 32px; height: 32px; border-radius: 50%; background: #eff6ff; color: #2563eb; display: inline-flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; text-transform: capitalize; }
