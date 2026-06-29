@@ -40,3 +40,6 @@ wp-config.php
 
 # Composer/npm lock files can be tracked when the project uses them.
 # This plugin currently has no package manager setup.
+
+# WordPress.org plugin readme is kept local
+readme.txt
