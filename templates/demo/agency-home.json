@@ -1,0 +1,553 @@
+{
+    "_loom":  "template",
+    "version":  "1.7.0",
+    "title":  "Demo: Agency Home Page",
+    "type":  "block",
+    "conditions":  [
+
+                   ],
+    "layout":  [
+                   {
+                       "children":  [
+                                        {
+                                            "children":  [
+                                                             {
+                                                                 "widget":  "heading",
+                                                                 "children":  [
+
+                                                                              ],
+                                                                 "id":  "demo-heading-1",
+                                                                 "type":  "widget",
+                                                                 "settings":  {
+                                                                                  "link":  "",
+                                                                                  "_advanced":  {
+
+                                                                                                },
+                                                                                  "_style":  {
+                                                                                                 "tablet":  {
+
+                                                                                                            },
+                                                                                                 "desktop":  {
+                                                                                                                 "color":  "#172554",
+                                                                                                                 "lineHeight":  "1.08",
+                                                                                                                 "fontWeight":  "800",
+                                                                                                                 "fontSize":  48
+                                                                                                             },
+                                                                                                 "mobile":  {
+
+                                                                                                            }
+                                                                                             },
+                                                                                  "tag":  "h1",
+                                                                                  "text":  "Strategy, design, and launch work in one focused sprint"
+                                                                              }
+                                                             },
+                                                             {
+                                                                 "widget":  "text",
+                                                                 "children":  [
+
+                                                                              ],
+                                                                 "id":  "demo-text-1",
+                                                                 "type":  "widget",
+                                                                 "settings":  {
+                                                                                  "content":  "\u003cp\u003eA compact agency homepage for studios, consultants, and productized service teams.\u003c/p\u003e",
+                                                                                  "_advanced":  {
+
+                                                                                                },
+                                                                                  "_style":  {
+                                                                                                 "tablet":  {
+
+                                                                                                            },
+                                                                                                 "desktop":  {
+                                                                                                                 "color":  "#475569",
+                                                                                                                 "lineHeight":  "1.7",
+                                                                                                                 "fontSize":  19
+                                                                                                             },
+                                                                                                 "mobile":  {
+
+                                                                                                            }
+                                                                                             }
+                                                                              }
+                                                             },
+                                                             {
+                                                                 "widget":  "button",
+                                                                 "children":  [
+
+                                                                              ],
+                                                                 "id":  "demo-button-1",
+                                                                 "type":  "widget",
+                                                                 "settings":  {
+                                                                                  "link":  "#contact",
+                                                                                  "style":  "solid",
+                                                                                  "_style":  {
+                                                                                                 "tablet":  {
+
+                                                                                                            },
+                                                                                                 "desktop":  {
+
+                                                                                                             },
+                                                                                                 "mobile":  {
+
+                                                                                                            }
+                                                                                             },
+                                                                                  "text":  "Plan a project",
+                                                                                  "_advanced":  {
+
+                                                                                                },
+                                                                                  "padding":  "13px 24px",
+                                                                                  "target":  false,
+                                                                                  "radius":  8,
+                                                                                  "bg":  "#0f766e",
+                                                                                  "fg":  "#ffffff"
+                                                                              }
+                                                             }
+                                                         ],
+                                            "id":  "demo-col-1",
+                                            "type":  "column",
+                                            "settings":  {
+                                                             "_advanced":  {
+
+                                                                           },
+                                                             "_style":  {
+                                                                            "tablet":  {
+
+                                                                                       },
+                                                                            "desktop":  {
+
+                                                                                        },
+                                                                            "mobile":  {
+
+                                                                                       }
+                                                                        }
+                                                         }
+                                        },
+                                        {
+                                            "children":  [
+                                                             {
+                                                                 "widget":  "icon_box",
+                                                                 "children":  [
+
+                                                                              ],
+                                                                 "id":  "demo-icon_box-1",
+                                                                 "type":  "widget",
+                                                                 "settings":  {
+                                                                                  "link":  "",
+                                                                                  "align":  "left",
+                                                                                  "text":  "Clarify the offer, audience, page map, and conversion path.",
+                                                                                  "_style":  {
+                                                                                                 "tablet":  {
+
+                                                                                                            },
+                                                                                                 "desktop":  {
+
+                                                                                                             },
+                                                                                                 "mobile":  {
+
+                                                                                                            }
+                                                                                             },
+                                                                                  "icon":  "lightbulb",
+                                                                                  "iconSize":  38,
+                                                                                  "iconColor":  "#0f766e",
+                                                                                  "_advanced":  {
+
+                                                                                                },
+                                                                                  "title":  "Discovery"
+                                                                              }
+                                                             },
+                                                             {
+                                                                 "widget":  "icon_box",
+                                                                 "children":  [
+
+                                                                              ],
+                                                                 "id":  "demo-icon_box-2",
+                                                                 "type":  "widget",
+                                                                 "settings":  {
+                                                                                  "link":  "",
+                                                                                  "align":  "left",
+                                                                                  "text":  "Build a restrained visual system with reusable Loom sections.",
+                                                                                  "_style":  {
+                                                                                                 "tablet":  {
+
+                                                                                                            },
+                                                                                                 "desktop":  {
+
+                                                                                                             },
+                                                                                                 "mobile":  {
+
+                                                                                                            }
+                                                                                             },
+                                                                                  "icon":  "art",
+                                                                                  "iconSize":  38,
+                                                                                  "iconColor":  "#2563eb",
+                                                                                  "_advanced":  {
+
+                                                                                                },
+                                                                                  "title":  "Design"
+                                                                              }
+                                                             },
+                                                             {
+                                                                 "widget":  "icon_box",
+                                                                 "children":  [
+
+                                                                              ],
+                                                                 "id":  "demo-icon_box-3",
+                                                                 "type":  "widget",
+                                                                 "settings":  {
+                                                                                  "link":  "",
+                                                                                  "align":  "left",
+                                                                                  "text":  "Publish fast, measure the result, and iterate from real traffic.",
+                                                                                  "_style":  {
+                                                                                                 "tablet":  {
+
+                                                                                                            },
+                                                                                                 "desktop":  {
+
+                                                                                                             },
+                                                                                                 "mobile":  {
+
+                                                                                                            }
+                                                                                             },
+                                                                                  "icon":  "yes-alt",
+                                                                                  "iconSize":  38,
+                                                                                  "iconColor":  "#7c3aed",
+                                                                                  "_advanced":  {
+
+                                                                                                },
+                                                                                  "title":  "Launch"
+                                                                              }
+                                                             }
+                                                         ],
+                                            "id":  "demo-col-2",
+                                            "type":  "column",
+                                            "settings":  {
+                                                             "_advanced":  {
+
+                                                                           },
+                                                             "_style":  {
+                                                                            "tablet":  {
+
+                                                                                       },
+                                                                            "desktop":  {
+                                                                                            "radius":  8,
+                                                                                            "bgColor":  "#ffffff",
+                                                                                            "padding":  {
+                                                                                                            "l":  28,
+                                                                                                            "t":  28,
+                                                                                                            "b":  28,
+                                                                                                            "r":  28
+                                                                                                        }
+                                                                                        },
+                                                                            "mobile":  {
+
+                                                                                       }
+                                                                        }
+                                                         }
+                                        }
+                                    ],
+                       "id":  "demo-section-1",
+                       "type":  "section",
+                       "settings":  {
+                                        "_advanced":  {
+
+                                                      },
+                                        "_style":  {
+                                                       "tablet":  {
+
+                                                                  },
+                                                       "desktop":  {
+                                                                       "gap":  42,
+                                                                       "bgColor":  "#ecfeff",
+                                                                       "padding":  {
+                                                                                       "l":  24,
+                                                                                       "t":  88,
+                                                                                       "b":  74,
+                                                                                       "r":  24
+                                                                                   }
+                                                                   },
+                                                       "mobile":  {
+
+                                                                  }
+                                                   }
+                                    }
+                   },
+                   {
+                       "children":  [
+                                        {
+                                            "children":  [
+                                                             {
+                                                                 "widget":  "heading",
+                                                                 "children":  [
+
+                                                                              ],
+                                                                 "id":  "demo-heading-2",
+                                                                 "type":  "widget",
+                                                                 "settings":  {
+                                                                                  "link":  "",
+                                                                                  "_advanced":  {
+
+                                                                                                },
+                                                                                  "_style":  {
+                                                                                                 "tablet":  {
+
+                                                                                                            },
+                                                                                                 "desktop":  {
+                                                                                                                 "color":  "#111827",
+                                                                                                                 "fontWeight":  "760",
+                                                                                                                 "fontSize":  34
+                                                                                                             },
+                                                                                                 "mobile":  {
+
+                                                                                                            }
+                                                                                             },
+                                                                                  "tag":  "h2",
+                                                                                  "text":  "Selected services"
+                                                                              }
+                                                             },
+                                                             {
+                                                                 "widget":  "text",
+                                                                 "children":  [
+
+                                                                              ],
+                                                                 "id":  "demo-text-2",
+                                                                 "type":  "widget",
+                                                                 "settings":  {
+                                                                                  "content":  "\u003cp\u003eLanding pages, website refreshes, WooCommerce setup, content structure, and SEO foundations.\u003c/p\u003e",
+                                                                                  "_advanced":  {
+
+                                                                                                },
+                                                                                  "_style":  {
+                                                                                                 "tablet":  {
+
+                                                                                                            },
+                                                                                                 "desktop":  {
+                                                                                                                 "fontSize":  18,
+                                                                                                                 "color":  "#4b5563"
+                                                                                                             },
+                                                                                                 "mobile":  {
+
+                                                                                                            }
+                                                                                             }
+                                                                              }
+                                                             }
+                                                         ],
+                                            "id":  "demo-col-3",
+                                            "type":  "column",
+                                            "settings":  {
+                                                             "_advanced":  {
+
+                                                                           },
+                                                             "_style":  {
+                                                                            "tablet":  {
+
+                                                                                       },
+                                                                            "desktop":  {
+
+                                                                                        },
+                                                                            "mobile":  {
+
+                                                                                       }
+                                                                        }
+                                                         }
+                                        },
+                                        {
+                                            "children":  [
+                                                             {
+                                                                 "widget":  "accordion",
+                                                                 "children":  [
+
+                                                                              ],
+                                                                 "id":  "demo-accordion-1",
+                                                                 "type":  "widget",
+                                                                 "settings":  {
+                                                                                  "single":  true,
+                                                                                  "firstOpen":  true,
+                                                                                  "_style":  {
+                                                                                                 "tablet":  {
+
+                                                                                                            },
+                                                                                                 "desktop":  {
+
+                                                                                                             },
+                                                                                                 "mobile":  {
+
+                                                                                                            }
+                                                                                             },
+                                                                                  "items":  [
+                                                                                                {
+                                                                                                    "content":  "Most small websites can start with a one-week layout and content sprint.",
+                                                                                                    "title":  "How long does a first launch take?"
+                                                                                                },
+                                                                                                {
+                                                                                                    "content":  "Yes. Loom includes product grids, add-to-cart widgets, filters, and product schema.",
+                                                                                                    "title":  "Can this work with WooCommerce?"
+                                                                                                },
+                                                                                                {
+                                                                                                    "content":  "No. The editor uses WordPress-native scripts and the frontend runtime is vanilla JavaScript.",
+                                                                                                    "title":  "Do we need a build pipeline?"
+                                                                                                }
+                                                                                            ],
+                                                                                  "_advanced":  {
+
+                                                                                                }
+                                                                              }
+                                                             }
+                                                         ],
+                                            "id":  "demo-col-4",
+                                            "type":  "column",
+                                            "settings":  {
+                                                             "_advanced":  {
+
+                                                                           },
+                                                             "_style":  {
+                                                                            "tablet":  {
+
+                                                                                       },
+                                                                            "desktop":  {
+
+                                                                                        },
+                                                                            "mobile":  {
+
+                                                                                       }
+                                                                        }
+                                                         }
+                                        }
+                                    ],
+                       "id":  "demo-section-2",
+                       "type":  "section",
+                       "settings":  {
+                                        "_advanced":  {
+
+                                                      },
+                                        "_style":  {
+                                                       "tablet":  {
+
+                                                                  },
+                                                       "desktop":  {
+                                                                       "padding":  {
+                                                                                       "l":  24,
+                                                                                       "t":  72,
+                                                                                       "b":  72,
+                                                                                       "r":  24
+                                                                                   },
+                                                                       "gap":  48
+                                                                   },
+                                                       "mobile":  {
+
+                                                                  }
+                                                   }
+                                    }
+                   },
+                   {
+                       "children":  [
+                                        {
+                                            "children":  [
+                                                             {
+                                                                 "widget":  "heading",
+                                                                 "children":  [
+
+                                                                              ],
+                                                                 "id":  "demo-heading-3",
+                                                                 "type":  "widget",
+                                                                 "settings":  {
+                                                                                  "link":  "",
+                                                                                  "_advanced":  {
+
+                                                                                                },
+                                                                                  "_style":  {
+                                                                                                 "tablet":  {
+
+                                                                                                            },
+                                                                                                 "desktop":  {
+                                                                                                                 "color":  "#111827",
+                                                                                                                 "align":  "center",
+                                                                                                                 "fontWeight":  "760",
+                                                                                                                 "fontSize":  36
+                                                                                                             },
+                                                                                                 "mobile":  {
+
+                                                                                                            }
+                                                                                             },
+                                                                                  "tag":  "h2",
+                                                                                  "text":  "Tell us what you want to launch"
+                                                                              }
+                                                             },
+                                                             {
+                                                                 "widget":  "button",
+                                                                 "children":  [
+
+                                                                              ],
+                                                                 "id":  "demo-button-2",
+                                                                 "type":  "widget",
+                                                                 "settings":  {
+                                                                                  "link":  "#contact",
+                                                                                  "style":  "solid",
+                                                                                  "_style":  {
+                                                                                                 "tablet":  {
+
+                                                                                                            },
+                                                                                                 "desktop":  {
+
+                                                                                                             },
+                                                                                                 "mobile":  {
+
+                                                                                                            }
+                                                                                             },
+                                                                                  "text":  "Start the brief",
+                                                                                  "_advanced":  {
+
+                                                                                                },
+                                                                                  "padding":  "13px 24px",
+                                                                                  "target":  false,
+                                                                                  "radius":  8,
+                                                                                  "bg":  "#0f766e",
+                                                                                  "fg":  "#ffffff"
+                                                                              }
+                                                             }
+                                                         ],
+                                            "id":  "demo-col-5",
+                                            "type":  "column",
+                                            "settings":  {
+                                                             "_advanced":  {
+
+                                                                           },
+                                                             "_style":  {
+                                                                            "tablet":  {
+
+                                                                                       },
+                                                                            "desktop":  {
+                                                                                            "maxWidth":  720
+                                                                                        },
+                                                                            "mobile":  {
+
+                                                                                       }
+                                                                        }
+                                                         }
+                                        }
+                                    ],
+                       "id":  "demo-section-3",
+                       "type":  "section",
+                       "settings":  {
+                                        "_advanced":  {
+
+                                                      },
+                                        "_style":  {
+                                                       "tablet":  {
+
+                                                                  },
+                                                       "desktop":  {
+                                                                       "align":  "center",
+                                                                       "bgColor":  "#f8fafc",
+                                                                       "padding":  {
+                                                                                       "l":  24,
+                                                                                       "t":  64,
+                                                                                       "b":  68,
+                                                                                       "r":  24
+                                                                                   }
+                                                                   },
+                                                       "mobile":  {
+
+                                                                  }
+                                                   }
+                                    }
+                   }
+               ]
+}

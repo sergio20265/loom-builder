@@ -1,0 +1,25 @@
+﻿name: Quality
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  static-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          coverage: none
+
+      - name: PHP syntax check
+        run: |
+          find . -name '*.php' -not -path './vendor/*' -print0 | xargs -0 -n1 php -l
+
+      - name: Validate demo templates
+        run: |
+          php -r '$dir="templates/demo"; foreach (glob($dir."/*.json") as $file) { $json=json_decode(file_get_contents($file), true); if (json_last_error() !== JSON_ERROR_NONE) { fwrite(STDERR, basename($file).": ".json_last_error_msg().PHP_EOL); exit(1); } foreach (["_loom","title","type","layout"] as $key) { if (!array_key_exists($key, $json)) { fwrite(STDERR, basename($file).": missing $key".PHP_EOL); exit(1); } } if ($json["_loom"] !== "template" || !is_array($json["layout"])) { fwrite(STDERR, basename($file).": invalid Loom template".PHP_EOL); exit(1); } echo basename($file)." ok".PHP_EOL; }'

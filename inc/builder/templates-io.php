@@ -144,17 +144,30 @@ function loom_handle_import_template() {
 		exit;
 	}
 
+	$limits = loom_layout_limits();
+	$size   = isset( $_FILES['loom_template_file']['size'] ) ? (int) $_FILES['loom_template_file']['size'] : 0; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+	if ( $size > (int) $limits['max_import_bytes'] ) {
+		wp_safe_redirect( add_query_arg( 'loom_import', 'error', $redirect ) );
+		exit;
+	}
+
 	$raw  = file_get_contents( $_FILES['loom_template_file']['tmp_name'] ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents, WordPress.Security.ValidatedSanitizedInput
 	$data = json_decode( (string) $raw, true );
 
-	if ( ! is_array( $data ) || ! isset( $data['_loom'] ) || 'template' !== $data['_loom'] ) {
+	if ( JSON_ERROR_NONE !== json_last_error() || ! is_array( $data ) || ! isset( $data['_loom'] ) || 'template' !== $data['_loom'] ) {
 		wp_safe_redirect( add_query_arg( 'loom_import', 'error', $redirect ) );
 		exit;
 	}
 
 	$title = isset( $data['title'] ) ? sanitize_text_field( $data['title'] ) : __( 'Imported template', 'loom' );
 	$type  = isset( $data['type'] ) && in_array( $data['type'], array( 'block', 'header', 'footer' ), true ) ? $data['type'] : 'block';
-	$tree  = isset( $data['layout'] ) && is_array( $data['layout'] ) ? loom_sanitize_tree( $data['layout'] ) : array();
+	$raw_tree = isset( $data['layout'] ) && is_array( $data['layout'] ) ? $data['layout'] : array();
+	$valid = loom_validate_tree_limits( $raw_tree );
+	if ( is_wp_error( $valid ) ) {
+		wp_safe_redirect( add_query_arg( 'loom_import', 'error', $redirect ) );
+		exit;
+	}
+	$tree = loom_sanitize_tree( $raw_tree );
 	$cond  = isset( $data['conditions'] ) && is_array( $data['conditions'] ) ? loom_template_sanitize_conditions( $data['conditions'] ) : array();
 
 	$post_id = wp_insert_post(

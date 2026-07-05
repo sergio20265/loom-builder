@@ -25,6 +25,67 @@ function loom_reserved_setting_keys() {
 }
 
 /**
+ * Layout safety limits used by REST preview/save and template imports.
+ *
+ * @return array<string,int>
+ */
+function loom_layout_limits() {
+	return (array) apply_filters(
+		'loom_layout_limits',
+		array(
+			'max_nodes'        => 500,
+			'max_depth'        => 24,
+			'max_repeater_rows' => 100,
+			'max_gallery_items' => 100,
+			'max_import_bytes' => 1048576,
+		)
+	);
+}
+
+/**
+ * Validate a raw layout tree before expensive sanitization/rendering.
+ *
+ * @param mixed $tree Raw layout tree.
+ * @return true|WP_Error
+ */
+function loom_validate_tree_limits( $tree ) {
+	if ( ! is_array( $tree ) ) {
+		return new WP_Error( 'loom_invalid_layout', __( 'Layout must be an array.', 'loom' ), array( 'status' => 400 ) );
+	}
+
+	$limits = loom_layout_limits();
+	$count  = 0;
+
+	$walk = static function ( $nodes, $depth ) use ( &$walk, &$count, $limits ) {
+		if ( $depth > (int) $limits['max_depth'] ) {
+			return new WP_Error( 'loom_layout_too_deep', __( 'Layout is too deeply nested.', 'loom' ), array( 'status' => 400 ) );
+		}
+
+		foreach ( (array) $nodes as $node ) {
+			if ( ! is_array( $node ) ) {
+				continue;
+			}
+
+			$count++;
+			if ( $count > (int) $limits['max_nodes'] ) {
+				return new WP_Error( 'loom_layout_too_large', __( 'Layout contains too many nodes.', 'loom' ), array( 'status' => 400 ) );
+			}
+
+			if ( ! empty( $node['children'] ) && is_array( $node['children'] ) ) {
+				$result = $walk( $node['children'], $depth + 1 );
+				if ( is_wp_error( $result ) ) {
+					return $result;
+				}
+			}
+		}
+
+		return true;
+	};
+
+	return $walk( $tree, 1 );
+}
+
+/**
  * Recursively sanitize a layout tree before persisting.
  *
  * Allows only known node types and widget ids; settings are validated against

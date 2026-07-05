@@ -1,0 +1,291 @@
+{
+    "_loom":  "template",
+    "version":  "1.7.0",
+    "title":  "Demo: Simple Footer",
+    "type":  "footer",
+    "conditions":  [
+                       {
+                           "operator":  "==",
+                           "value":  "",
+                           "param":  "entire_site"
+                       }
+                   ],
+    "layout":  [
+                   {
+                       "children":  [
+                                        {
+                                            "children":  [
+                                                             {
+                                                                 "widget":  "site_title",
+                                                                 "children":  [
+
+                                                                              ],
+                                                                 "id":  "demo-site_title-1",
+                                                                 "type":  "widget",
+                                                                 "settings":  {
+                                                                                  "link":  true,
+                                                                                  "_advanced":  {
+
+                                                                                                },
+                                                                                  "_style":  {
+                                                                                                 "tablet":  {
+
+                                                                                                            },
+                                                                                                 "desktop":  {
+                                                                                                                 "color":  "#ffffff",
+                                                                                                                 "fontWeight":  "800",
+                                                                                                                 "fontSize":  22
+                                                                                                             },
+                                                                                                 "mobile":  {
+
+                                                                                                            }
+                                                                                             },
+                                                                                  "tag":  "div",
+                                                                                  "showTagline":  true
+                                                                              }
+                                                             },
+                                                             {
+                                                                 "widget":  "text",
+                                                                 "children":  [
+
+                                                                              ],
+                                                                 "id":  "demo-text-1",
+                                                                 "type":  "widget",
+                                                                 "settings":  {
+                                                                                  "content":  "\u003cp\u003eReusable footer starter for Loom Canvas sites.\u003c/p\u003e",
+                                                                                  "_advanced":  {
+
+                                                                                                },
+                                                                                  "_style":  {
+                                                                                                 "tablet":  {
+
+                                                                                                            },
+                                                                                                 "desktop":  {
+                                                                                                                 "color":  "#cbd5e1"
+                                                                                                             },
+                                                                                                 "mobile":  {
+
+                                                                                                            }
+                                                                                             }
+                                                                              }
+                                                             }
+                                                         ],
+                                            "id":  "demo-col-1",
+                                            "type":  "column",
+                                            "settings":  {
+                                                             "_advanced":  {
+
+                                                                           },
+                                                             "_style":  {
+                                                                            "tablet":  {
+
+                                                                                       },
+                                                                            "desktop":  {
+
+                                                                                        },
+                                                                            "mobile":  {
+
+                                                                                       }
+                                                                        }
+                                                         }
+                                        },
+                                        {
+                                            "children":  [
+                                                             {
+                                                                 "widget":  "heading",
+                                                                 "children":  [
+
+                                                                              ],
+                                                                 "id":  "demo-heading-1",
+                                                                 "type":  "widget",
+                                                                 "settings":  {
+                                                                                  "link":  "",
+                                                                                  "_advanced":  {
+
+                                                                                                },
+                                                                                  "_style":  {
+                                                                                                 "tablet":  {
+
+                                                                                                            },
+                                                                                                 "desktop":  {
+                                                                                                                 "color":  "#ffffff",
+                                                                                                                 "fontWeight":  "700",
+                                                                                                                 "fontSize":  18
+                                                                                                             },
+                                                                                                 "mobile":  {
+
+                                                                                                            }
+                                                                                             },
+                                                                                  "tag":  "h3",
+                                                                                  "text":  "Navigate"
+                                                                              }
+                                                             },
+                                                             {
+                                                                 "widget":  "menu",
+                                                                 "children":  [
+
+                                                                              ],
+                                                                 "id":  "demo-menu-1",
+                                                                 "type":  "widget",
+                                                                 "settings":  {
+                                                                                  "menu":  "",
+                                                                                  "layout":  "vertical",
+                                                                                  "align":  "left",
+                                                                                  "_style":  {
+                                                                                                 "tablet":  {
+
+                                                                                                            },
+                                                                                                 "desktop":  {
+
+                                                                                                             },
+                                                                                                 "mobile":  {
+
+                                                                                                            }
+                                                                                             },
+                                                                                  "_advanced":  {
+
+                                                                                                }
+                                                                              }
+                                                             }
+                                                         ],
+                                            "id":  "demo-col-2",
+                                            "type":  "column",
+                                            "settings":  {
+                                                             "_advanced":  {
+
+                                                                           },
+                                                             "_style":  {
+                                                                            "tablet":  {
+
+                                                                                       },
+                                                                            "desktop":  {
+
+                                                                                        },
+                                                                            "mobile":  {
+
+                                                                                       }
+                                                                        }
+                                                         }
+                                        },
+                                        {
+                                            "children":  [
+                                                             {
+                                                                 "widget":  "heading",
+                                                                 "children":  [
+
+                                                                              ],
+                                                                 "id":  "demo-heading-2",
+                                                                 "type":  "widget",
+                                                                 "settings":  {
+                                                                                  "link":  "",
+                                                                                  "_advanced":  {
+
+                                                                                                },
+                                                                                  "_style":  {
+                                                                                                 "tablet":  {
+
+                                                                                                            },
+                                                                                                 "desktop":  {
+                                                                                                                 "color":  "#ffffff",
+                                                                                                                 "fontWeight":  "700",
+                                                                                                                 "fontSize":  18
+                                                                                                             },
+                                                                                                 "mobile":  {
+
+                                                                                                            }
+                                                                                             },
+                                                                                  "tag":  "h3",
+                                                                                  "text":  "Follow"
+                                                                              }
+                                                             },
+                                                             {
+                                                                 "widget":  "social",
+                                                                 "children":  [
+
+                                                                              ],
+                                                                 "id":  "demo-social-1",
+                                                                 "type":  "widget",
+                                                                 "settings":  {
+                                                                                  "shape":  "round",
+                                                                                  "size":  20,
+                                                                                  "items":  [
+                                                                                                {
+                                                                                                    "url":  "#",
+                                                                                                    "network":  "facebook"
+                                                                                                },
+                                                                                                {
+                                                                                                    "url":  "#",
+                                                                                                    "network":  "instagram"
+                                                                                                },
+                                                                                                {
+                                                                                                    "url":  "#",
+                                                                                                    "network":  "linkedin"
+                                                                                                }
+                                                                                            ],
+                                                                                  "gap":  10,
+                                                                                  "color":  "#ffffff",
+                                                                                  "_style":  {
+                                                                                                 "tablet":  {
+
+                                                                                                            },
+                                                                                                 "desktop":  {
+
+                                                                                                             },
+                                                                                                 "mobile":  {
+
+                                                                                                            }
+                                                                                             },
+                                                                                  "_advanced":  {
+
+                                                                                                }
+                                                                              }
+                                                             }
+                                                         ],
+                                            "id":  "demo-col-3",
+                                            "type":  "column",
+                                            "settings":  {
+                                                             "_advanced":  {
+
+                                                                           },
+                                                             "_style":  {
+                                                                            "tablet":  {
+
+                                                                                       },
+                                                                            "desktop":  {
+
+                                                                                        },
+                                                                            "mobile":  {
+
+                                                                                       }
+                                                                        }
+                                                         }
+                                        }
+                                    ],
+                       "id":  "demo-section-1",
+                       "type":  "section",
+                       "settings":  {
+                                        "_advanced":  {
+
+                                                      },
+                                        "_style":  {
+                                                       "tablet":  {
+
+                                                                  },
+                                                       "desktop":  {
+                                                                       "gap":  34,
+                                                                       "bgColor":  "#111827",
+                                                                       "padding":  {
+                                                                                       "l":  24,
+                                                                                       "t":  54,
+                                                                                       "b":  54,
+                                                                                       "r":  24
+                                                                                   }
+                                                                   },
+                                                       "mobile":  {
+
+                                                                  }
+                                                   }
+                                    }
+                   }
+               ]
+}

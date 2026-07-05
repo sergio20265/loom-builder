@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the Loom Builder plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Loom Builder 1.0.0\n"
+"Project-Id-Version: Loom Builder 1.7.0\n"
 "Report-Msgid-Bugs-To: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"

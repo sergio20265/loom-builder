@@ -161,3 +161,5 @@ body.loom-editor-fullscreen html.wp-toolbar { padding-top: 0 !important; }
 .loom-prev-search span:first-child { flex: 1; }
 .loom-prev-social { display: flex; gap: 8px; }
 .loom-prev-soc { width: 32px; height: 32px; border-radius: 50%; background: #eff6ff; color: #2563eb; display: inline-flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; text-transform: capitalize; }
+
+.loom-save-error { color: #b91c1c; font-size: 12px; max-width: 260px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

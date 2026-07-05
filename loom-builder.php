@@ -3,7 +3,7 @@
  * Plugin Name:       Loom Builder
  * Plugin URI:        https://forestloom.online/loom-builder
  * Description:       Visual drag and drop page builder for WordPress with a built-in SEO module. Build landing pages and full sites without code. No third-party dependencies.
- * Version:           1.0.0
+ * Version:           1.7.0
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Author:            Loom
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Core constants.
-define( 'LOOM_VERSION', '1.0.0' );
+define( 'LOOM_VERSION', '1.7.0' );
 define( 'LOOM_FILE', __FILE__ );
 define( 'LOOM_DIR', plugin_dir_path( __FILE__ ) );
 define( 'LOOM_URL', plugin_dir_url( __FILE__ ) );

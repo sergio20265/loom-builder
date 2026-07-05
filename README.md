@@ -201,6 +201,10 @@ languages/                Translation files
 
 No npm install, bundling, or build step is required.
 
+## Demo Templates
+
+Starter layouts live in `templates/demo/` and can be imported from **Loom > Templates**. The set includes SaaS, agency, portfolio, WooCommerce shop, header, and footer templates designed for the Loom Canvas theme.
+
 ## Extending Loom
 
 Custom widgets can be registered through the `loom_register_widgets` action:

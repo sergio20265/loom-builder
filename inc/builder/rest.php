@@ -89,6 +89,11 @@ function loom_rest_save_layout( WP_REST_Request $request ) {
 	$tree    = isset( $params['tree'] ) && is_array( $params['tree'] ) ? $params['tree'] : array();
 	$enabled = ! empty( $params['enabled'] );
 
+	$valid = loom_validate_tree_limits( $tree );
+	if ( is_wp_error( $valid ) ) {
+		return $valid;
+	}
+
 	$tree = loom_sanitize_tree( $tree );
 
 	update_post_meta( $post_id, '_loom_layout', wp_slash( wp_json_encode( $tree ) ) );
@@ -110,7 +115,12 @@ function loom_rest_save_layout( WP_REST_Request $request ) {
  */
 function loom_rest_render( WP_REST_Request $request ) {
 	$params = $request->get_json_params();
-	$tree   = isset( $params['tree'] ) && is_array( $params['tree'] ) ? loom_sanitize_tree( $params['tree'] ) : array();
+	$tree   = isset( $params['tree'] ) && is_array( $params['tree'] ) ? $params['tree'] : array();
+	$valid  = loom_validate_tree_limits( $tree );
+	if ( is_wp_error( $valid ) ) {
+		return $valid;
+	}
+	$tree = loom_sanitize_tree( $tree );
 
 	return rest_ensure_response(
 		array(

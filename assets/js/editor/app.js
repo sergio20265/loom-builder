@@ -24,8 +24,11 @@
 		var tb = useState( 'content' ); var tab = tb[ 0 ], setTab = tb[ 1 ];
 		var sc = useState( '' ); var search = sc[ 0 ], setSearch = sc[ 1 ];
 		var hv = useState( 0 ); var histVer = hv[ 0 ], setHistVer = hv[ 1 ];
+		var ds = useState( false ); var dirty = ds[ 0 ], setDirty = ds[ 1 ];
+		var er = useState( '' ); var saveError = er[ 0 ], setSaveError = er[ 1 ];
 
 		var treeRef = useRef( tree ); treeRef.current = tree;
+		var dirtyRef = useRef( dirty ); dirtyRef.current = dirty;
 		var undoRef = useRef( [] );
 		var redoRef = useRef( [] );
 		var dragRef = useRef( null );
@@ -37,6 +40,8 @@
 				setTree( res.tree && res.tree.length ? res.tree : [] );
 				setEnabled( !! res.enabled );
 				undoRef.current = []; redoRef.current = [];
+				setDirty( false );
+				setSaveError( '' );
 			} );
 		}, [] );
 
@@ -46,18 +51,27 @@
 			if ( undoRef.current.length > 60 ) { undoRef.current.shift(); }
 			redoRef.current = [];
 			setTree( next );
+			setDirty( true );
+			setSaveError( '' );
+			setSaveState( 'idle' );
 			setHistVer( function ( v ) { return v + 1; } );
 		}
 		function doUndo() {
 			if ( ! undoRef.current.length ) { return; }
 			redoRef.current.push( treeRef.current );
 			setTree( undoRef.current.pop() );
+			setDirty( true );
+			setSaveError( '' );
+			setSaveState( 'idle' );
 			setHistVer( function ( v ) { return v + 1; } );
 		}
 		function doRedo() {
 			if ( ! redoRef.current.length ) { return; }
 			undoRef.current.push( treeRef.current );
 			setTree( redoRef.current.pop() );
+			setDirty( true );
+			setSaveError( '' );
+			setSaveState( 'idle' );
 			setHistVer( function ( v ) { return v + 1; } );
 		}
 		actionsRef.current.undo = doUndo;
@@ -73,6 +87,16 @@
 			}
 			document.addEventListener( 'keydown', onKey );
 			return function () { document.removeEventListener( 'keydown', onKey ); };
+		}, [] );
+
+		useEffect( function () {
+			function beforeUnload( e ) {
+				if ( ! dirtyRef.current ) { return; }
+				e.preventDefault();
+				e.returnValue = '';
+			}
+			window.addEventListener( 'beforeunload', beforeUnload );
+			return function () { window.removeEventListener( 'beforeunload', beforeUnload ); };
 		}, [] );
 
 		function applyToNode( id, fn ) { return mapTree( tree, id, fn ); }
@@ -140,17 +164,29 @@
 			reader.readAsText( file );
 		}
 
+		function confirmExit( e ) {
+			if ( dirty && ! window.confirm( t.unsavedChanges || 'You have unsaved changes. Leave without saving?' ) ) {
+				e.preventDefault();
+			}
+		}
+
 		function save() {
 			setSaveState( 'saving' );
+			setSaveError( '' );
 			apiFetch( {
 				url: cfg.restUrl + '/layout/' + cfg.postId,
 				method: 'POST',
 				data: { tree: tree, enabled: true },
 			} ).then( function () {
 				setEnabled( true );
+				setDirty( false );
 				setSaveState( 'saved' );
 				setTimeout( function () { setSaveState( 'idle' ); }, 1500 );
-			} ).catch( function () { setSaveState( 'idle' ); } );
+			} ).catch( function ( err ) {
+				var msg = err && err.message ? err.message : ( t.saveError || 'Could not save. Please try again.' );
+				setSaveError( msg );
+				setSaveState( 'error' );
+			} );
 		}
 
 		var selectedNode = selectedId ? findNode( tree, selectedId ) : null;
@@ -178,10 +214,11 @@
 					el( 'input', { type: 'file', accept: 'application/json,.json', ref: fileRef, style: { display: 'none' }, onChange: function ( e ) { importFiles( e.target.files ); e.target.value = ''; } } ),
 					el( 'button', { className: 'button', title: t.importSections || 'Import sections', onClick: function () { fileRef.current && fileRef.current.click(); } }, el( 'span', { className: 'dashicons dashicons-upload' } ) ),
 					el( 'button', { className: 'button', title: t.exportPage || 'Export page', onClick: exportPage }, el( 'span', { className: 'dashicons dashicons-download' } ) ),
-					el( 'a', { className: 'button', href: 'post.php?post=' + cfg.postId + '&action=edit' }, t.exit || 'Exit' ),
+					el( 'a', { className: 'button', href: 'post.php?post=' + cfg.postId + '&action=edit', onClick: confirmExit }, t.exit || 'Exit' ),
 					el( 'button', { className: 'button button-primary', onClick: save, disabled: saveState === 'saving' },
-						saveState === 'saving' ? ( t.saving || 'Saving...' ) : ( saveState === 'saved' ? ( t.saved || 'Saved' ) : ( t.save || 'Save' ) )
-					)
+												saveState === 'saving' ? ( t.saving || 'Saving...' ) : ( saveState === 'saved' ? ( t.saved || 'Saved' ) : ( saveState === 'error' ? ( t.error || 'Error' ) : ( dirty ? ( t.unsaved || 'Unsaved' ) : ( t.save || 'Save' ) ) ) )
+										),
+										saveError ? el( 'span', { className: 'loom-save-error', role: 'alert' }, saveError ) : null
 				)
 			),
 			el( 'div', { className: 'loom-body' },
