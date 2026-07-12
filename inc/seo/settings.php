@@ -309,6 +309,7 @@ function loom_seo_render_meta_box( $post ) {
 			<div class="loom-value-input"><label><input type="checkbox" name="loom_seo_noindex" value="1"<?php checked( $noindex, '1' ); ?>> <?php esc_html_e( 'Discourage search engines (noindex)', 'loom' ); ?></label></div>
 		</div>
 	</div>
+	<?php loom_seo_render_assistant( $post ); ?>
 	<?php
 }
 

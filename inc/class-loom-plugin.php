@@ -77,6 +77,7 @@ final class Plugin {
 			'acf/meta-box.php',
 			'woocommerce/woocommerce.php',
 			'seo/settings.php',
+			'seo/assistant.php',
 			'hardening.php',
 			'seo/meta.php',
 			'seo/schema.php',
