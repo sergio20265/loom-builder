@@ -187,7 +187,18 @@ function loom_sanitize_node_settings( $settings, $widget_id ) {
 		$out['_dynamic'] = loom_sanitize_dynamic( $settings['_dynamic'] );
 	}
 
-	return $out;
+	/**
+	 * Filters sanitized node settings for optional Loom add-ons.
+	 *
+	 * Add-ons must sanitize and namespace any added data. This keeps their
+	 * metadata in the same validated layout payload without widening Free's
+	 * own setting schema.
+	 *
+	 * @param array  $out       Sanitized settings.
+	 * @param array  $settings  Raw node settings.
+	 * @param string $widget_id Widget id, or an empty string for containers.
+	 */
+	return apply_filters( 'loom_sanitized_node_settings', $out, $settings, $widget_id );
 }
 
 /**

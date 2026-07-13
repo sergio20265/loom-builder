@@ -103,6 +103,13 @@
 		function changeTree( next ) { commit( next ); }
 
 		function addSection() { commit( tree.concat( [ newSection() ] ) ); }
+		function insertSections( sections ) {
+			var added = Array.isArray( sections ) ? sections.filter( function ( node ) { return node && node.type === 'section'; } ) : [];
+			if ( ! added.length ) { return; }
+			commit( tree.concat( added ) );
+			setSelectedId( added[ 0 ].id );
+			setTab( 'content' );
+		}
 		function addColumn( sectionId ) {
 			commit( mapTree( tree, sectionId, function ( n ) { return Object.assign( {}, n, { children: n.children.concat( [ newColumn() ] ) } ); } ) );
 		}
@@ -202,7 +209,7 @@
 			el( 'div', { className: 'loom-topbar' },
 				el( 'div', { className: 'loom-brand' }, el( 'span', { className: 'dashicons dashicons-screenoptions' } ), 'Loom' ),
 				( L.editorTopbarActions || [] ).map( function ( render, index ) {
-					return render( { key: index, postId: cfg.postId } );
+					return render( { key: index, postId: cfg.postId, selectedNode: selectedNode, insertSections: insertSections } );
 				} ),
 				el( 'div', { className: 'loom-history' },
 					el( 'button', { title: ( t.undo || 'Undo' ) + ' (Ctrl+Z)', disabled: ! undoRef.current.length, onClick: doUndo }, el( 'span', { className: 'dashicons dashicons-undo' } ) ),
