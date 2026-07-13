@@ -22,6 +22,7 @@
  * section padding remains the source of vertical rhythm for the page. */
 .loom-has-header-template .wp-site-blocks > main { margin-top: 0 !important; }
 .loom-has-header-template .wp-site-blocks > main > .wp-block-group.has-global-padding:first-child { padding-top: 0 !important; }
+.loom-has-footer-template .wp-site-blocks > main > .wp-block-group.has-global-padding:first-child { padding-bottom: 0 !important; }
 
 /* Structure */
 .loom-section { width: 100%; }
