@@ -23,6 +23,7 @@
 		var sv = useState( 'idle' ); var saveState = sv[ 0 ], setSaveState = sv[ 1 ];
 		var tb = useState( 'content' ); var tab = tb[ 0 ], setTab = tb[ 1 ];
 		var sc = useState( '' ); var search = sc[ 0 ], setSearch = sc[ 1 ];
+		var lm = useState( 'widgets' ); var leftMode = lm[ 0 ], setLeftMode = lm[ 1 ];
 		var hv = useState( 0 ); var histVer = hv[ 0 ], setHistVer = hv[ 1 ];
 		var ds = useState( false ); var dirty = ds[ 0 ], setDirty = ds[ 1 ];
 		var er = useState( '' ); var saveError = er[ 0 ], setSaveError = er[ 1 ];
@@ -149,6 +150,21 @@
 			addWidget( targetCol.id, widgetId );
 		}
 		function deleteNode( id ) { commit( removeFromTree( tree, id ) ); if ( selectedId === id ) { setSelectedId( null ); } }
+		function moveSibling( id, direction ) {
+			var changed = false;
+			function move( nodes ) {
+				var index = nodes.findIndex( function ( node ) { return node.id === id; } );
+				if ( index !== -1 ) {
+					var nextIndex = index + direction;
+					if ( nextIndex < 0 || nextIndex >= nodes.length ) { return nodes; }
+					var copy = nodes.slice(), node = copy[ index ]; copy[ index ] = copy[ nextIndex ]; copy[ nextIndex ] = node; changed = true; return copy;
+				}
+				return nodes.map( function ( node ) {
+					return node.children && node.children.length ? Object.assign( {}, node, { children: move( node.children ) } ) : node;
+				} );
+			}
+			var next = move( tree ); if ( changed ) { commit( next ); }
+		}
 		function duplicateNode( id ) {
 			var walk = function ( nodes ) {
 				var res = [];
@@ -301,7 +317,11 @@
 			),
 			el( 'div', { className: 'loom-body' },
 				el( 'div', { className: 'loom-left' },
-					el( L.WidgetPanel, { search: search, setSearch: setSearch, onAdd: addWidgetSmart } )
+					el( 'div', { className: 'loom-left-tabs' },
+						el( 'button', { type: 'button', className: leftMode === 'widgets' ? 'is-active' : '', onClick: function () { setLeftMode( 'widgets' ); } }, el( 'span', { className: 'dashicons dashicons-screenoptions' } ), t.widgets || 'Widgets' ),
+						el( 'button', { type: 'button', className: leftMode === 'structure' ? 'is-active' : '', onClick: function () { setLeftMode( 'structure' ); } }, el( 'span', { className: 'dashicons dashicons-editor-ol' } ), t.structure || 'Structure' )
+					),
+					leftMode === 'widgets' ? el( L.WidgetPanel, { search: search, setSearch: setSearch, onAdd: addWidgetSmart } ) : el( L.StructurePanel, { tree: tree, selectedId: selectedId, onSelect: function ( id ) { setSelectedId( id ); setTab( 'content' ); }, onMove: moveSibling, onDuplicate: duplicateNode, onDelete: deleteNode } )
 				),
 				el( 'div', { className: 'loom-center' }, el( L.Canvas, canvasProps ) ),
 				el( 'div', { className: 'loom-right' },

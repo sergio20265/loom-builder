@@ -53,6 +53,10 @@ body.loom-editor-fullscreen html.wp-toolbar { padding-top: 0 !important; }
 .loom-right { width: 300px; flex: 0 0 300px; background: #fff; border-left: 1px solid #dcdcde; overflow-y: auto; }
 
 /* Widget panel */
+.loom-left-tabs { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid #dcdcde; position: sticky; top: 0; z-index: 2; background: #fff; }
+.loom-left-tabs button { display: inline-flex; gap: 5px; justify-content: center; align-items: center; border: 0; border-bottom: 2px solid transparent; background: #fff; color: #64748b; padding: 10px 6px; cursor: pointer; font-size: 12px; }
+.loom-left-tabs button .dashicons { font-size: 15px; width: 15px; height: 15px; }
+.loom-left-tabs button.is-active { color: #2563eb; border-bottom-color: #2563eb; font-weight: 600; }
 .loom-search { width: calc(100% - 24px); margin: 12px; padding: 7px 10px; border: 1px solid #dcdcde; border-radius: 6px; }
 .loom-wcat-title { padding: 6px 12px; font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: #888; }
 .loom-wgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 0 12px 12px; }
@@ -60,6 +64,27 @@ body.loom-editor-fullscreen html.wp-toolbar { padding-top: 0 !important; }
 .loom-wcard:hover { border-color: #2563eb; background: #f5f8ff; }
 .loom-wcard .dashicons { color: #2563eb; }
 .loom-wcard-label { font-size: 11px; color: #444; }
+
+/* Structure / layers panel */
+.loom-structure { padding: 8px 6px 18px; }
+.loom-structure-node { min-width: 0; }
+.loom-structure-children { margin-left: 12px; padding-left: 7px; border-left: 1px solid #e2e8f0; }
+.loom-structure-row { display: flex; align-items: center; gap: 5px; min-height: 32px; padding: 3px 4px; border-radius: 6px; cursor: pointer; color: #475569; }
+.loom-structure-row:hover { background: #f1f5f9; }
+.loom-structure-row.is-selected { background: #eff6ff; color: #1d4ed8; }
+.loom-structure-row > .dashicons { width: 16px; height: 16px; font-size: 16px; color: #64748b; }
+.loom-structure-toggle, .loom-structure-spacer { width: 18px; flex: 0 0 18px; }
+.loom-structure-toggle { height: 22px; border: 0; padding: 0; border-radius: 4px; background: transparent; color: #64748b; cursor: pointer; }
+.loom-structure-toggle:hover { background: #e2e8f0; }
+.loom-structure-toggle .dashicons { font-size: 14px; width: 14px; height: 14px; }
+.loom-structure-label { min-width: 0; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12px; }
+.loom-structure-actions { display: none; align-items: center; }
+.loom-structure-row:hover .loom-structure-actions, .loom-structure-row.is-selected .loom-structure-actions { display: inline-flex; }
+.loom-structure-actions button { width: 22px; height: 22px; border: 0; border-radius: 4px; padding: 0; background: transparent; color: #64748b; cursor: pointer; }
+.loom-structure-actions button:hover { background: #dbeafe; color: #1d4ed8; }
+.loom-structure-actions button.is-delete:hover { background: #fee2e2; color: #b91c1c; }
+.loom-structure-actions .dashicons { font-size: 14px; width: 14px; height: 14px; }
+.loom-structure-empty { padding: 24px 12px; color: #94a3b8; font-size: 12px; text-align: center; }
 
 /* Canvas */
 .loom-canvas { min-height: 100%; }

@@ -1440,6 +1440,15 @@ msgstr "vw"
 msgid "vh"
 msgstr "vh"
 
+msgid "Structure"
+msgstr "Структура"
+
+msgid "Expand"
+msgstr "Развернуть"
+
+msgid "Collapse"
+msgstr "Свернуть"
+
 msgid "YouTube"
 msgstr "YouTube"
 

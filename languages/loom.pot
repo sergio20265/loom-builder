@@ -1470,3 +1470,12 @@ msgstr ""
 
 msgid "vh"
 msgstr ""
+
+msgid "Structure"
+msgstr ""
+
+msgid "Expand"
+msgstr ""
+
+msgid "Collapse"
+msgstr ""

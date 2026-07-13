@@ -179,7 +179,7 @@ function loom_editor_page() {
 
 	// The editor ships as ordered modules sharing the window.LoomEd namespace:
 	// core first, then preview/controls, the Inspector and Canvas, the App last.
-	$editor_modules = array( 'core', 'preview', 'controls', 'inspector', 'canvas' );
+	$editor_modules = array( 'core', 'preview', 'controls', 'inspector', 'canvas', 'structure' );
 	$deps           = array( 'wp-element', 'wp-components', 'wp-api-fetch', 'wp-i18n' );
 
 	foreach ( $editor_modules as $module ) {
