@@ -43,8 +43,13 @@ function loom_css_prop_map() {
 			return $v ? 'background-color:' . $v . ';' : '';
 		},
 		'bgImage'       => static function ( $v ) {
-			$v = loom_css_url( $v );
-			return $v ? 'background-image:url("' . $v . '");background-size:cover;background-position:center;' : '';
+			// The bgSize sibling prop is folded in by loom_css_declarations()
+			// (a single prop's emitter never sees its neighbours), so this
+			// fallback only fires when bgImage is generated in isolation.
+			return loom_css_bg_image( $v, 'cover' );
+		},
+		'bgSize'        => static function () {
+			return ''; // Combined into bgImage's declaration, see loom_css_declarations().
 		},
 		'color'         => static function ( $v ) {
 			$v = loom_css_color( $v );
@@ -187,7 +192,14 @@ function loom_css_length( $v, $allow_negative = false, array $keywords = array()
 		if ( ! $allow_negative && $num < 0 ) {
 			return '';
 		}
-		return rtrim( rtrim( (string) $num, '0' ), '.' ) . 'px';
+		// Trim trailing zeros from a *decimal* remainder only (10.50 -> 10.5) —
+		// applying rtrim('0') to the whole string also ate whole numbers that
+		// end in zero (10 -> 1, 100 -> 1), corrupting almost any round value.
+		$str = (string) $num;
+		if ( false !== strpos( $str, '.' ) ) {
+			$str = rtrim( rtrim( $str, '0' ), '.' );
+		}
+		return $str . 'px';
 	}
 	$sign = $allow_negative ? '-?' : '';
 	if ( preg_match( '/^' . $sign . '\d+(?:\.\d+)?(?:px|%|em|rem|vw|vh)$/', $v ) ) {
@@ -239,6 +251,22 @@ function loom_css_url( $v ) {
 		return '';
 	}
 	return str_replace( array( '\\', '"', "'", '(', ')', "\r", "\n" ), '', $v );
+}
+
+/**
+ * Build the background-image declaration, folding in the bgSize sibling prop.
+ *
+ * @param mixed  $v            Raw image URL.
+ * @param string $default_size Fallback size when bgSize is not set.
+ * @return string
+ */
+function loom_css_bg_image( $v, $default_size = 'cover' ) {
+	$v = loom_css_url( $v );
+	if ( ! $v ) {
+		return '';
+	}
+	$size = in_array( $default_size, array( 'cover', 'contain', 'auto' ), true ) ? $default_size : 'cover';
+	return 'background-image:url("' . $v . '");background-size:' . $size . ';background-position:center;';
 }
 
 /**
@@ -300,6 +328,13 @@ function loom_css_declarations( $props ) {
 		if ( '' === $value || null === $value ) {
 			continue;
 		}
+		if ( 'bgSize' === $key ) {
+			continue; // Folded into 'bgImage' below; not a standalone declaration.
+		}
+		if ( 'bgImage' === $key ) {
+			$out .= loom_css_bg_image( $value, isset( $props['bgSize'] ) ? $props['bgSize'] : 'cover' );
+			continue;
+		}
 		if ( isset( $map[ $key ] ) ) {
 			$out .= call_user_func( $map[ $key ], $value );
 		}
@@ -325,12 +360,28 @@ function loom_generate_css( array $tree, $prefix = '' ) {
 			if ( empty( $node['id'] ) ) {
 				continue;
 			}
-			$sel   = $prefix . '.loom-node-' . preg_replace( '/[^a-zA-Z0-9_-]/', '', $node['id'] );
-			$style = isset( $node['settings']['_style'] ) ? $node['settings']['_style'] : array();
+			$sel      = $prefix . '.loom-node-' . preg_replace( '/[^a-zA-Z0-9_-]/', '', $node['id'] );
+			$style    = isset( $node['settings']['_style'] ) ? $node['settings']['_style'] : array();
+			$node_type = isset( $node['type'] ) ? $node['type'] : '';
+			$is_section = 'section' === $node_type;
+			$is_widget  = 'widget' === $node_type;
 
-			$d = loom_css_declarations( isset( $style['desktop'] ) ? $style['desktop'] : array() );
-			$t = loom_css_declarations( isset( $style['tablet'] ) ? $style['tablet'] : array() );
-			$m = loom_css_declarations( isset( $style['mobile'] ) ? $style['mobile'] : array() );
+			// "maxWidth" on a section means the *content* width, not the outer
+			// section box (which stays full-bleed for background color/image) —
+			// it is redirected below, so exclude it from the generic emission.
+			// A widget's "justify"/"valign" (content alignment) target its own
+			// root element, not the outer .loom-node wrapper — also redirected.
+			if ( $is_section ) {
+				$skip = array( 'maxWidth' );
+			} elseif ( $is_widget ) {
+				$skip = array( 'justify', 'valign' );
+			} else {
+				$skip = array();
+			}
+
+			$d = loom_css_declarations( array_diff_key( isset( $style['desktop'] ) ? (array) $style['desktop'] : array(), array_flip( $skip ) ) );
+			$t = loom_css_declarations( array_diff_key( isset( $style['tablet'] ) ? (array) $style['tablet'] : array(), array_flip( $skip ) ) );
+			$m = loom_css_declarations( array_diff_key( isset( $style['mobile'] ) ? (array) $style['mobile'] : array(), array_flip( $skip ) ) );
 
 			if ( $d ) {
 				$desktop .= $sel . '{' . $d . '}';
@@ -342,15 +393,46 @@ function loom_generate_css( array $tree, $prefix = '' ) {
 				$mobile .= $sel . '{' . $m . '}';
 			}
 
-			// Layout values apply to the section's inner flex container, not the
-			// outer section element. This keeps desktop/tablet/mobile behaviour in sync.
-			if ( isset( $node['type'] ) && 'section' === $node['type'] ) {
-				$layout = array( 'gap', 'justify', 'valign', 'direction' );
+			// Layout values (and content width) apply to the section's inner flex
+			// container, not the outer section element. Keeps desktop/tablet/mobile
+			// behaviour in sync and lets the outer box stay full-bleed.
+			if ( $is_section ) {
+				$layout = array( 'gap', 'justify', 'valign', 'direction', 'maxWidth' );
 				foreach ( array( 'desktop' => &$desktop, 'tablet' => &$tablet, 'mobile' => &$mobile ) as $device => &$target ) {
 					$props = isset( $style[ $device ] ) && is_array( $style[ $device ] ) ? array_intersect_key( $style[ $device ], array_flip( $layout ) ) : array();
 					$css   = loom_css_declarations( $props );
 					if ( $css ) {
 						$target .= $sel . '>.loom-section-inner{' . $css . '}';
+					}
+				}
+				unset( $target );
+			}
+
+			// A column's "width" pins its flex-basis (the row default is an equal
+			// 1 1 0 split), so it needs !important to beat that structural rule
+			// regardless of selector specificity — same technique already used by
+			// the mobile stacking override in frontend.css.
+			if ( isset( $node['type'] ) && 'column' === $node['type'] ) {
+				foreach ( array( 'desktop' => &$desktop, 'tablet' => &$tablet, 'mobile' => &$mobile ) as $device => &$target ) {
+					$raw = isset( $style[ $device ]['width'] ) ? $style[ $device ]['width'] : '';
+					$w   = loom_css_length( $raw, false );
+					if ( $w ) {
+						$target .= $sel . '{flex-grow:0 !important;flex-shrink:0 !important;flex-basis:' . $w . ' !important;width:' . $w . ' !important;}';
+					}
+				}
+				unset( $target );
+			}
+
+			// A widget's content alignment targets its own root element (the
+			// widget's own markup, the single child of the .loom-node wrapper)
+			// rather than the wrapper itself, which is never a flex container.
+			if ( $is_widget ) {
+				$layout = array( 'justify', 'valign' );
+				foreach ( array( 'desktop' => &$desktop, 'tablet' => &$tablet, 'mobile' => &$mobile ) as $device => &$target ) {
+					$props = isset( $style[ $device ] ) && is_array( $style[ $device ] ) ? array_intersect_key( $style[ $device ], array_flip( $layout ) ) : array();
+					$css   = loom_css_declarations( $props );
+					if ( $css ) {
+						$target .= $sel . '>*{' . $css . '}';
 					}
 				}
 				unset( $target );

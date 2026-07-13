@@ -162,7 +162,12 @@ function loom_render_post( $post_id ) {
 		return '';
 	}
 	$css  = loom_generate_css( $tree );
-	$html = '<div class="loom-doc loom-doc-' . (int) $post_id . '">' . loom_render_tree( $tree ) . '</div>';
+	// "alignfull" opts this wrapper out of block themes' own content-width cap
+	// (theme.json layout constraints target `.is-layout-constrained > *` and
+	// explicitly exclude .alignfull) — otherwise every Loom section, however
+	// its own width is configured, is squeezed inside the theme's ~640-840px
+	// content column and full-bleed sections/sliders are simply impossible.
+	$html = '<div class="loom-doc alignfull loom-doc-' . (int) $post_id . '">' . loom_render_tree( $tree ) . '</div>';
 
 	if ( $css ) {
 		// Inline the scoped CSS so a cached page is self-contained.

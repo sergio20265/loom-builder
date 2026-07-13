@@ -39,7 +39,16 @@ function loom_template_meta_box( $post ) {
 
 	$type       = get_post_meta( $post->ID, '_loom_template_type', true );
 	$conditions = get_post_meta( $post->ID, '_loom_template_conditions', true );
-	$type       = $type ? $type : 'block';
+
+	// Pre-select the type on a brand-new template opened from the editor's
+	// "+ New header/footer" quick link (?loom_type=header|footer).
+	if ( ! $type && 'auto-draft' === $post->post_status && isset( $_GET['loom_type'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		$requested = sanitize_key( wp_unslash( $_GET['loom_type'] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		if ( in_array( $requested, array( 'header', 'footer' ), true ) ) {
+			$type = $requested;
+		}
+	}
+	$type = $type ? $type : 'block';
 
 	$post_types = array();
 	foreach ( get_post_types( array( 'public' => true ), 'objects' ) as $pt ) {

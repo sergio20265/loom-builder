@@ -228,10 +228,10 @@
 		var s = {};
 		if ( ! props ) { return s; }
 		if ( props.bgColor ) { s.backgroundColor = props.bgColor; }
-		if ( props.bgImage ) { s.backgroundImage = 'url(' + props.bgImage + ')'; s.backgroundSize = 'cover'; s.backgroundPosition = 'center'; }
+		if ( props.bgImage ) { s.backgroundImage = 'url(' + props.bgImage + ')'; s.backgroundSize = props.bgSize || 'cover'; s.backgroundPosition = 'center'; }
 		if ( props.color ) { s.color = props.color; }
 		if ( props.align ) { s.textAlign = props.align; }
-		if ( props.maxWidth ) { s.maxWidth = props.maxWidth + 'px'; s.marginLeft = 'auto'; s.marginRight = 'auto'; }
+		if ( props.maxWidth ) { s.maxWidth = /[a-z%]$/i.test( String( props.maxWidth ) ) ? props.maxWidth : props.maxWidth + 'px'; s.marginLeft = 'auto'; s.marginRight = 'auto'; }
 		if ( props.minHeight ) { s.minHeight = props.minHeight + 'px'; }
 		if ( props.radius ) { s.borderRadius = props.radius + 'px'; }
 		if ( props.fontSize ) { s.fontSize = props.fontSize + 'px'; }

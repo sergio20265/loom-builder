@@ -26,6 +26,10 @@
 		var hv = useState( 0 ); var histVer = hv[ 0 ], setHistVer = hv[ 1 ];
 		var ds = useState( false ); var dirty = ds[ 0 ], setDirty = ds[ 1 ];
 		var er = useState( '' ); var saveError = er[ 0 ], setSaveError = er[ 1 ];
+		var hf = useState( false ); var hfOpen = hf[ 0 ], setHfOpen = hf[ 1 ];
+		var hfl = useState( null ); var hfList = hfl[ 0 ], setHfList = hfl[ 1 ];
+		var hfb = useState( false ); var hfLoading = hfb[ 0 ], setHfLoading = hfb[ 1 ];
+		var mo = useState( false ); var moreOpen = mo[ 0 ], setMoreOpen = mo[ 1 ];
 
 		var treeRef = useRef( tree ); treeRef.current = tree;
 		var dirtyRef = useRef( dirty ); dirtyRef.current = dirty;
@@ -118,6 +122,13 @@
 		function addColumn( sectionId ) {
 			commit( mapTree( tree, sectionId, function ( n ) { return Object.assign( {}, n, { children: n.children.concat( [ newColumn() ] ) } ); } ) );
 		}
+		// A "nested section" is just an ordinary section placed inside a column
+		// instead of at the page root — it reuses every existing section
+		// feature (columns, background, content width) as a container/row.
+		function addNestedSection( columnId ) {
+			commit( mapTree( tree, columnId, function ( n ) { return Object.assign( {}, n, { children: n.children.concat( [ newSection() ] ) } ); } ) );
+			setTab( 'content' );
+		}
 		function addWidget( columnId, widgetId ) {
 			var w = newWidget( widgetId );
 			commit( mapTree( tree, columnId, function ( n ) { return Object.assign( {}, n, { children: n.children.concat( [ w ] ) } ); } ) );
@@ -176,6 +187,21 @@
 			reader.readAsText( file );
 		}
 
+		// Lazily loads the header/footer template list the first time the
+		// quick-access panel is opened, then just toggles it afterwards.
+		function toggleTemplates() {
+			var next = ! hfOpen;
+			setHfOpen( next );
+			if ( next && ! hfList && ! hfLoading ) {
+				setHfLoading( true );
+				apiFetch( { url: cfg.restUrl + '/templates' } ).then( function ( res ) {
+					setHfList( res || { header: [], footer: [] } );
+				} ).catch( function () {
+					setHfList( { header: [], footer: [] } );
+				} ).then( function () { setHfLoading( false ); } );
+			}
+		}
+
 		function confirmExit( e ) {
 			if ( dirty && ! window.confirm( t.unsavedChanges || 'You have unsaved changes. Leave without saving?' ) ) {
 				e.preventDefault();
@@ -206,6 +232,7 @@
 		var canvasProps = {
 			tree: tree, device: device, selectedId: selectedId, dragRef: dragRef,
 			onSelect: setSelectedId, onAddSection: addSection, onAddColumn: addColumn,
+			onAddNestedSection: addNestedSection,
 			onAddWidget: addWidget, onDelete: deleteNode, onDuplicate: duplicateNode,
 			onExport: exportNode, onMoveBefore: moveBefore, onMoveInto: moveIntoColumn,
 		};
@@ -213,9 +240,45 @@
 		return el( 'div', { className: 'loom-app' },
 			el( 'div', { className: 'loom-topbar' },
 				el( 'div', { className: 'loom-brand' }, el( 'span', { className: 'dashicons dashicons-screenoptions' } ), 'Loom' ),
-				( L.editorTopbarActions || [] ).map( function ( render, index ) {
-					return render( { key: index, postId: cfg.postId, tree: tree, selectedNode: selectedNode, insertSections: insertSections, replaceTree: replaceTree } );
-				} ),
+				el( 'div', { className: 'loom-quicklinks' },
+					el( 'button', { type: 'button', className: 'button', title: t.headerFooter || 'Header / Footer', onClick: toggleTemplates },
+						el( 'span', { className: 'dashicons dashicons-align-center' } ),
+						el( 'span', { className: 'loom-quicklinks-label' }, t.headerFooter || 'Header / Footer' )
+					),
+					hfOpen ? el( 'div', { className: 'loom-quicklinks-panel' },
+						hfLoading ? el( 'p', { className: 'loom-muted' }, '…' ) : [ 'header', 'footer' ].map( function ( type ) {
+							var items = hfList && hfList[ type ] ? hfList[ type ] : [];
+							return el( 'div', { key: type, className: 'loom-quicklinks-group' },
+								el( 'h4', null, type === 'header' ? ( t.header || 'Header' ) : ( t.footer || 'Footer' ) ),
+								items.length ? items.map( function ( item ) {
+									return el( 'a', {
+										key: item.id,
+										className: 'loom-quicklinks-item',
+										href: cfg.adminUrl + '?page=loom-editor&post=' + item.id,
+										onClick: confirmExit,
+									},
+										item.title,
+										'draft' === item.status ? el( 'span', { className: 'loom-quicklinks-draft' }, t.draft || 'Draft' ) : null
+									);
+								} ) : el( 'p', { className: 'loom-muted' }, t.noTemplates || 'None yet.' ),
+								el( 'a', { className: 'loom-quicklinks-new', href: cfg.newTemplateUrl + '&loom_type=' + type },
+									'+ ' + ( type === 'header' ? ( t.newHeader || 'New header' ) : ( t.newFooter || 'New footer' ) )
+								)
+							);
+						} ),
+						el( 'a', { className: 'loom-quicklinks-all', href: cfg.templatesUrl }, t.allTemplates || 'All templates' )
+					) : null
+				),
+				( L.editorTopbarActions && L.editorTopbarActions.length ) ? el( 'div', { className: 'loom-more' },
+					el( 'button', { type: 'button', className: 'button', title: t.moreTools || 'More tools', onClick: function () { setMoreOpen( ! moreOpen ); } },
+						el( 'span', { className: 'dashicons dashicons-ellipsis' } )
+					),
+					el( 'div', { className: 'loom-more-panel' + ( moreOpen ? ' is-open' : '' ) },
+						L.editorTopbarActions.map( function ( render, index ) {
+							return render( { key: index, postId: cfg.postId, tree: tree, selectedNode: selectedNode, insertSections: insertSections, replaceTree: replaceTree } );
+						} )
+					)
+				) : null,
 				el( 'div', { className: 'loom-history' },
 					el( 'button', { title: ( t.undo || 'Undo' ) + ' (Ctrl+Z)', disabled: ! undoRef.current.length, onClick: doUndo }, el( 'span', { className: 'dashicons dashicons-undo' } ) ),
 					el( 'button', { title: ( t.redo || 'Redo' ) + ' (Ctrl+Shift+Z)', disabled: ! redoRef.current.length, onClick: doRedo }, el( 'span', { className: 'dashicons dashicons-redo' } ) )

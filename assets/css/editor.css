@@ -26,6 +26,26 @@ body.loom-editor-fullscreen html.wp-toolbar { padding-top: 0 !important; }
 .loom-history button:disabled { opacity: .35; cursor: default; }
 .loom-actions { display: flex; gap: 8px; align-items: center; }
 
+/* Header/Footer quick access + "More tools" overflow menu */
+.loom-quicklinks, .loom-more { position: relative; }
+.loom-quicklinks-label { margin-left: 4px; }
+.loom-quicklinks-panel, .loom-more-panel.is-open {
+	position: absolute; top: calc(100% + 6px); left: 0; z-index: 20;
+	background: #fff; border: 1px solid #dcdcde; border-radius: 8px;
+	box-shadow: 0 6px 20px rgba(0,0,0,.12); padding: 12px;
+}
+.loom-quicklinks-panel { min-width: 220px; }
+.loom-quicklinks-group + .loom-quicklinks-group { margin-top: 12px; }
+.loom-quicklinks-group h4 { margin: 0 0 6px; font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: #888; }
+.loom-quicklinks-item { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 6px 8px; border-radius: 6px; color: #1e1e1e; text-decoration: none; }
+.loom-quicklinks-item:hover { background: #f0f0f1; }
+.loom-quicklinks-draft { font-size: 10px; color: #b45309; background: #fef3c7; border-radius: 10px; padding: 1px 7px; }
+.loom-quicklinks-new { display: block; margin-top: 4px; padding: 6px 8px; border-radius: 6px; color: #2563eb; text-decoration: none; }
+.loom-quicklinks-new:hover { background: #f0f0f1; }
+.loom-quicklinks-all { display: block; margin-top: 10px; padding-top: 10px; border-top: 1px solid #f0f0f1; text-align: center; color: #555; text-decoration: none; }
+.loom-more-panel { display: none; flex-wrap: wrap; gap: 6px; align-items: center; }
+.loom-more-panel.is-open { display: flex; width: max-content; max-width: 320px; }
+
 /* Body layout */
 .loom-body { display: flex; flex: 1 1 auto; min-height: 0; }
 .loom-left { width: 260px; flex: 0 0 260px; background: #fff; border-right: 1px solid #dcdcde; overflow-y: auto; }
@@ -45,8 +65,10 @@ body.loom-editor-fullscreen html.wp-toolbar { padding-top: 0 !important; }
 .loom-canvas { min-height: 100%; }
 .loom-canvas-frame { background: #fff; min-height: 80vh; box-shadow: 0 1px 12px rgba(0,0,0,.06); transition: width .2s; }
 .loom-canvas-empty { padding: 80px 20px; text-align: center; color: #9aa0a6; }
-.loom-add-section, .loom-add-col { display: block; width: 100%; margin: 12px 0; padding: 10px; border: 2px dashed #c7d2fe; background: #f5f8ff; color: #2563eb; border-radius: 8px; cursor: pointer; font-weight: 600; }
+.loom-add-section, .loom-add-col, .loom-add-nested-section { display: block; width: 100%; margin: 12px 0; padding: 10px; border: 2px dashed #c7d2fe; background: #f5f8ff; color: #2563eb; border-radius: 8px; cursor: pointer; font-weight: 600; }
 .loom-add-col { margin: 8px 0 0; padding: 6px; font-size: 11px; }
+.loom-add-nested-section { margin: 6px 0 0; padding: 5px; font-size: 10px; border-style: dotted; opacity: .75; }
+.loom-add-nested-section:hover { opacity: 1; }
 
 .loom-c-section { position: relative; outline: 1px dashed transparent; }
 .loom-c-section.is-selected { outline: 2px solid #2563eb; }
@@ -59,13 +81,31 @@ body.loom-editor-fullscreen html.wp-toolbar { padding-top: 0 !important; }
 .loom-c-widget.is-selected { outline: 2px solid #7c3aed; }
 .loom-c-widget:hover { outline-color: #d6bcfa; }
 
-.loom-node-toolbar { position: absolute; top: -1px; right: -1px; display: flex; gap: 2px; z-index: 5; }
-.loom-node-toolbar button { border: 0; background: #2563eb; color: #fff; width: 24px; height: 22px; cursor: pointer; font-size: 12px; line-height: 1; }
-.loom-node-toolbar .loom-node-tool:hover { background: #1d4ed8; }
-.loom-node-toolbar .loom-node-delete { border: 1px solid #dc2626; background: #fff; color: #b91c1c; }
-.loom-node-toolbar .loom-node-delete:hover { background: #fef2f2; }
-.loom-drag-handle { display: inline-flex; align-items: center; justify-content: center; background: #1e3a8a; color: #fff; width: 24px; height: 22px; cursor: grab; font-size: 12px; user-select: none; }
+.loom-node-toolbar {
+	position: absolute; top: -13px; right: 10px; z-index: 5;
+	display: flex; align-items: center; gap: 3px;
+	padding: 3px;
+	background: rgba(17, 24, 39, .92);
+	backdrop-filter: blur(6px);
+	border-radius: 8px;
+	box-shadow: 0 4px 14px rgba(0,0,0,.2), 0 0 0 1px rgba(255,255,255,.06) inset;
+}
+.loom-node-toolbar button,
+.loom-drag-handle {
+	display: inline-flex; align-items: center; justify-content: center;
+	width: 26px; height: 26px;
+	border: 0; border-radius: 5px;
+	background: transparent; color: #d1d5db;
+	cursor: pointer; font-size: 13px; line-height: 1;
+	transition: background .15s ease, color .15s ease;
+}
+.loom-node-toolbar button .dashicons,
+.loom-drag-handle .dashicons { font-size: 15px; width: 15px; height: 15px; }
+.loom-node-toolbar .loom-node-tool:hover,
+.loom-drag-handle:hover { background: rgba(255,255,255,.14); color: #fff; }
+.loom-drag-handle { cursor: grab; user-select: none; }
 .loom-drag-handle:active { cursor: grabbing; }
+.loom-node-toolbar .loom-node-delete:hover { background: rgba(248,113,113,.22); color: #fca5a5; }
 
 /* Drop / reorder indicators */
 .loom-reorder-target { box-shadow: -3px 0 0 0 #2563eb inset, 0 -3px 0 0 #2563eb inset !important; }

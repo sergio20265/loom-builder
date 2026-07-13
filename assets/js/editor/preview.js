@@ -163,6 +163,80 @@
 					el( 'strong', null, '⛃ Product Filter' ),
 					el( 'div', { className: 'loom-prev-fmeta' }, [ s.showCategories ? 'Categories' : null, s.showPrice ? 'Price' : null, s.attribute || null ].filter( Boolean ).join(' · ') || 'Configure in Content' )
 				);
+			case 'icon_list':
+				var ilItems = Array.isArray( s.items ) ? s.items : [];
+				if ( ! ilItems.length ) { return el( 'div', { className: 'loom-prev-empty' }, '☰ Icon List — add items' ); }
+				return el( 'ul', { className: 'loom-icon-list loom-icon-list-' + ( s.layout || 'vertical' ), style: { gap: ( s.gap || 10 ) + 'px', '--loom-icon-list-color': s.iconColor || '#2563eb', '--loom-icon-list-size': ( s.iconSize || 18 ) + 'px' } },
+					ilItems.map( function ( it, i ) {
+						return el( 'li', { key: i, className: 'loom-icon-list-item' },
+							el( 'span', { className: 'loom-icon-list-icon dashicons dashicons-' + ( it.icon || 'yes' ) } ),
+							el( 'span', { className: 'loom-icon-list-text' }, it.text || '' )
+						);
+					} )
+				);
+			case 'counter':
+				return el( 'div', { className: 'loom-counter loom-counter-' + ( s.align || 'center' ) },
+					el( 'span', { className: 'loom-counter-number', style: { color: s.color || '#111111', fontSize: ( s.size || 48 ) + 'px' } },
+						el( 'span', null, s.prefix || '' ), el( 'span', null, s.number || 0 ), el( 'span', null, s.suffix || '' )
+					),
+					s.label ? el( 'div', { className: 'loom-counter-label' }, s.label ) : null
+				);
+			case 'progress_bar':
+				var pbPercent = Math.max( 0, Math.min( 100, parseInt( s.percent, 10 ) || 0 ) );
+				return el( 'div', { className: 'loom-progress' },
+					el( 'div', { className: 'loom-progress-head' },
+						el( 'span', { className: 'loom-progress-label' }, s.label || '' ),
+						s.showPercent !== false ? el( 'span', { className: 'loom-progress-percent' }, pbPercent + '%' ) : null
+					),
+					el( 'div', { className: 'loom-progress-track', style: { height: ( s.height || 10 ) + 'px', background: s.trackColor || '#e5e7eb' } },
+						el( 'div', { className: 'loom-progress-fill', style: { width: pbPercent + '%', height: ( s.height || 10 ) + 'px', background: s.barColor || '#2563eb' } } )
+					)
+				);
+			case 'testimonial':
+				var tRating = Math.max( 0, Math.min( 5, parseInt( s.rating, 10 ) || 0 ) );
+				return el( 'div', { className: 'loom-testimonial loom-testimonial-' + ( s.style || 'card' ) },
+					s.showRating !== false ? el( 'span', { className: 'loom-testimonial-stars' }, [ 1, 2, 3, 4, 5 ].map( function ( i ) {
+						return el( 'span', { key: i, className: 'dashicons dashicons-star-' + ( i <= tRating ? 'filled' : 'empty' ) } );
+					} ) ) : null,
+					s.text ? el( 'p', { className: 'loom-testimonial-text' }, s.text ) : null,
+					el( 'div', { className: 'loom-testimonial-meta' },
+						s.avatar && s.avatar.url ? el( 'img', { className: 'loom-testimonial-avatar', src: s.avatar.url } ) : null,
+						el( 'div', { className: 'loom-testimonial-who' },
+							s.name ? el( 'div', { className: 'loom-testimonial-name' }, s.name ) : null,
+							s.role ? el( 'div', { className: 'loom-testimonial-role' }, s.role ) : null
+						)
+					)
+				);
+			case 'alert':
+				var alertIcons = { info: 'info', success: 'yes-alt', warning: 'warning', error: 'dismiss' };
+				return el( 'div', { className: 'loom-alert loom-alert-' + ( s.type || 'info' ) },
+					s.icon !== false ? el( 'span', { className: 'loom-alert-icon dashicons dashicons-' + ( alertIcons[ s.type ] || 'info' ) } ) : null,
+					el( 'div', { className: 'loom-alert-text' }, s.text || '' ),
+					s.dismissible ? el( 'button', { type: 'button', className: 'loom-alert-dismiss' }, '×' ) : null
+				);
+			case 'blockquote':
+				return el( 'blockquote', { className: 'loom-blockquote loom-blockquote-' + ( s.style || 'default' ) },
+					el( 'p', null, s.text || '' ),
+					s.author ? el( 'footer', { className: 'loom-blockquote-cite' }, el( 'cite', null, s.author + ( s.source ? ', ' + s.source : '' ) ) ) : null
+				);
+			case 'table':
+				var tblRows = Array.isArray( s.rows ) ? s.rows : [];
+				if ( ! tblRows.length ) { return el( 'div', { className: 'loom-prev-empty' }, '▦ Table — add rows' ); }
+				return el( 'table', { className: 'loom-table' + ( s.striped !== false ? ' is-striped' : '' ) + ( s.bordered !== false ? ' is-bordered' : '' ) },
+					el( 'tbody', null, tblRows.map( function ( row, i ) {
+						var cells = ( row.cells || '' ).split( '|' ).map( function ( c ) { return c.trim(); } );
+						var Tag = ( 0 === i && s.headerRow !== false ) ? 'th' : 'td';
+						return el( 'tr', { key: i }, cells.map( function ( cell, j ) { return el( Tag, { key: j }, cell ); } ) );
+					} ) )
+				);
+			case 'star_rating':
+				var srRating = Math.max( 0, Math.min( 5, parseInt( s.rating, 10 ) || 0 ) );
+				return el( 'div', { className: 'loom-star-rating', style: { '--loom-star-color': s.color || '#f59e0b', '--loom-star-size': ( s.size || 20 ) + 'px' } },
+					el( 'span', { className: 'loom-star-rating-stars' }, [ 1, 2, 3, 4, 5 ].map( function ( i ) {
+						return el( 'span', { key: i, className: 'dashicons dashicons-star-' + ( i <= srRating ? 'filled' : 'empty' ) } );
+					} ) ),
+					s.label ? el( 'span', { className: 'loom-star-rating-label' }, s.label ) : null
+				);
 			default:
 				var def = widgetDef( node.widget );
 				return el( 'div', { className: 'loom-unknown' }, ( def && def.title ) || node.widget );

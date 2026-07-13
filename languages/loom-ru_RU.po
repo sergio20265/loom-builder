@@ -1,15 +1,16 @@
 # Russian translation for Loom Builder.
 # Copyright (C) Loom.
 msgid ""
-msgstr ""
-"Project-Id-Version: Loom Builder 1.7.0\n"
-"Report-Msgid-Bugs-To: \n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Language: ru_RU\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
-"X-Domain: loom\n"
+msgstr "Project-Id-Version: Loom Builder 1.7.0\nReport-Msgid-Bugs-To: \nMIME-Version: 1.0\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 8bit\nLanguage: ru_RU\nPlural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\nX-Domain: loom\n"
+
+msgid "%d images have no alt attribute."
+msgstr "У %d изображений отсутствует атрибут alt."
+
+msgid "%d out of 5"
+msgstr "%d из 5"
+
+msgid "A quick audit of this page. It does not generate or change content."
+msgstr "Быстрый аудит этой страницы. Он не создаёт и не изменяет контент."
 
 msgid "Accordion"
 msgstr "Аккордеон"
@@ -47,6 +48,9 @@ msgstr "Добавьте изображения в галерею."
 msgid "Add items to the carousel."
 msgstr "Добавьте элементы в карусель."
 
+msgid "Add list items."
+msgstr "Добавьте пункты списка."
+
 msgid "Add row"
 msgstr "Добавить строку"
 
@@ -55,6 +59,9 @@ msgstr "Добавьте слайды в слайдер."
 
 msgid "Add social links."
 msgstr "Добавьте ссылки на соцсети."
+
+msgid "Add table rows."
+msgstr "Добавьте строки таблицы."
 
 msgid "Add tabs."
 msgstr "Добавьте вкладки."
@@ -71,6 +78,9 @@ msgstr "Панель администратора"
 msgid "Advanced"
 msgstr "Дополнительно"
 
+msgid "Alert"
+msgstr "Уведомление"
+
 msgid "Alignment"
 msgstr "Выравнивание"
 
@@ -85,6 +95,12 @@ msgstr "Все шаблоны"
 
 msgid "Alt Text (overrides media)"
 msgstr "Alt-текст (заменяет медиа)"
+
+msgid "Animate on scroll"
+msgstr "Анимировать при прокрутке"
+
+msgid "Animation duration (ms)"
+msgstr "Длительность анимации (мс)"
 
 msgid "Apply filters"
 msgstr "Применить фильтры"
@@ -110,11 +126,29 @@ msgstr "Таксономия атрибута (например, pa_color)"
 msgid "Authenticated users and the Loom editor remain available."
 msgstr "Авторизованные пользователи и редактор Loom остаются доступны."
 
+msgid "Author"
+msgstr "Автор"
+
+msgid "Auto"
+msgstr "Авто"
+
 msgid "Autoplay"
 msgstr "Автопрокрутка"
 
+msgid "Avatar"
+msgstr "Аватар"
+
 msgid "Background"
 msgstr "Фон"
+
+msgid "Background image"
+msgstr "Фоновое изображение"
+
+msgid "Background size"
+msgstr "Размер фона"
+
+msgid "Bar color"
+msgstr "Цвет полосы"
 
 msgid "Bare"
 msgstr "Без фона"
@@ -128,11 +162,20 @@ msgstr "Блок / Секция"
 msgid "Block template"
 msgstr "Блочный шаблон"
 
+msgid "Blockquote"
+msgstr "Цитата"
+
 msgid "Body code (after <body>)"
 msgstr "Код в начале body (после <body>)"
 
 msgid "Border radius"
 msgstr "Радиус скругления"
+
+msgid "Bordered"
+msgstr "С рамкой"
+
+msgid "Bottom"
+msgstr "Снизу"
 
 msgid "Breadcrumbs"
 msgstr "Хлебные крошки"
@@ -149,6 +192,9 @@ msgstr "Ссылка кнопки"
 msgid "Button text"
 msgstr "Текст кнопки"
 
+msgid "CEO, Acme Inc."
+msgstr "Генеральный директор, Acme Inc."
+
 msgid "CSS Classes"
 msgstr "CSS-классы"
 
@@ -160,6 +206,9 @@ msgstr "Канонический URL"
 
 msgid "Caption"
 msgstr "Подпись"
+
+msgid "Card"
+msgstr "Карточка"
 
 msgid "Cards"
 msgstr "Карточки"
@@ -175,6 +224,9 @@ msgstr "Категория"
 
 msgid "Category slug (posts only)"
 msgstr "Слаг категории (только записи)"
+
+msgid "Cells (separate with |)"
+msgstr "Ячейки (через |)"
 
 msgid "Center"
 msgstr "По центру"
@@ -197,8 +249,26 @@ msgstr "Цвет"
 msgid "Column"
 msgstr "Колонка"
 
+msgid "Column A"
+msgstr "Колонка A"
+
+msgid "Column B"
+msgstr "Колонка B"
+
+msgid "Column width % (0 = auto)"
+msgstr "Ширина колонки % (0 = авто)"
+
 msgid "Columns gap"
 msgstr "Отступ между колонками"
+
+msgid "Columns horizontal alignment"
+msgstr "Горизонтальное выравнивание колонок"
+
+msgid "Columns layout"
+msgstr "Расположение колонок"
+
+msgid "Columns vertical alignment"
+msgstr "Вертикальное выравнивание колонок"
 
 msgid "Columns: desktop"
 msgstr "Колонки: десктоп"
@@ -209,8 +279,20 @@ msgstr "Колонки: мобильный"
 msgid "Columns: tablet"
 msgstr "Колонки: планшет"
 
+msgid "Contain"
+msgstr "Вписать"
+
 msgid "Content"
 msgstr "Контент"
+
+msgid "Content horizontal alignment"
+msgstr "Горизонтальное выравнивание контента"
+
+msgid "Content vertical alignment"
+msgstr "Вертикальное выравнивание контента"
+
+msgid "Content width"
+msgstr "Ширина контента"
 
 msgid "Content width (px)"
 msgstr "Ширина контента (px)"
@@ -221,8 +303,23 @@ msgstr "Элементы управления"
 msgid "Could not import: the file is not a valid Loom template export."
 msgstr "Не удалось импортировать: файл не является корректным экспортом шаблона Loom."
 
+msgid "Could not save. Please try again."
+msgstr "Не удалось сохранить. Попробуйте ещё раз."
+
+msgid "Counter"
+msgstr "Счётчик"
+
+msgid "Cover"
+msgstr "Заполнение"
+
 msgid "Current page"
 msgstr "Текущая страница"
+
+msgid "Custom (%) / full width"
+msgstr "Свой (%) / на всю ширину"
+
+msgid "Custom (px)"
+msgstr "Свой (px)"
 
 msgid "Custom CSS"
 msgstr "Свой CSS"
@@ -241,6 +338,9 @@ msgstr "Имя Dashicon"
 
 msgid "Data"
 msgstr "Данные"
+
+msgid "Default"
+msgstr "По умолчанию"
 
 msgid "Default share image"
 msgstr "Изображение для шеринга по умолчанию"
@@ -269,6 +369,12 @@ msgstr "Отключить запросы REST API для неавторизов
 msgid "Discourage search engines (noindex)"
 msgstr "Скрыть от поисковых систем (noindex)"
 
+msgid "Dismiss"
+msgstr "Закрыть"
+
+msgid "Dismissible"
+msgstr "Можно закрыть"
+
 msgid "Display conditions"
 msgstr "Условия отображения"
 
@@ -286,6 +392,9 @@ msgstr "Двойная"
 
 msgid "Down"
 msgstr "Вниз"
+
+msgid "Draft"
+msgstr "Черновик"
 
 msgid "Drag a widget here"
 msgstr "Перетащите виджет сюда"
@@ -326,6 +435,9 @@ msgstr "Включить"
 msgid "Enabled schemas"
 msgstr "Включённые схемы"
 
+msgid "End"
+msgstr "В конец"
+
 msgid "Enter a valid Vimeo URL or ID."
 msgstr "Укажите корректный URL или ID Vimeo."
 
@@ -340,6 +452,9 @@ msgstr "Тип сущности"
 
 msgid "Entrance animation"
 msgstr "Анимация появления"
+
+msgid "Error"
+msgstr "Ошибка"
 
 msgid "Excerpt words"
 msgstr "Слов в отрывке"
@@ -373,6 +488,9 @@ msgstr "Группы полей"
 
 msgid "Fields & Location"
 msgstr "Поля и расположение"
+
+msgid "First row is header"
+msgstr "Первая строка — заголовок"
 
 msgid "Font size"
 msgstr "Размер шрифта"
@@ -419,8 +537,14 @@ msgstr "HTML-тег"
 msgid "HTML code"
 msgstr "HTML-код"
 
+msgid "Happy clients"
+msgstr "Довольных клиентов"
+
 msgid "Header"
 msgstr "Шапка"
+
+msgid "Header / Footer"
+msgstr "Шапка / Подвал"
 
 msgid "Header code (before </head>)"
 msgstr "Код в шапке (перед </head>)"
@@ -430,6 +554,12 @@ msgstr "Шаблоны шапки/подвала отображаются там
 
 msgid "Heading"
 msgstr "Заголовок"
+
+msgid "Heading hierarchy jumps from %1$s to %2$s. Do not skip levels."
+msgstr "Иерархия заголовков переходит с %1$s на %2$s. Не пропускайте уровни."
+
+msgid "Headings"
+msgstr "Заголовки"
 
 msgid "Height (px)"
 msgstr "Высота (px)"
@@ -458,11 +588,17 @@ msgstr "Заголовок главной"
 msgid "Horizontal"
 msgstr "Горизонтально"
 
+msgid "Horizontal alignment"
+msgstr "Горизонтальное выравнивание"
+
 msgid "Hover animation"
 msgstr "Анимация при наведении"
 
 msgid "Icon Box"
 msgstr "Иконка с текстом"
+
+msgid "Icon List"
+msgstr "Список с иконками"
 
 msgid "Icon box title"
 msgstr "Заголовок блока"
@@ -481,6 +617,9 @@ msgstr "Изображение"
 
 msgid "Image Size"
 msgstr "Размер изображения"
+
+msgid "Image alt text is repeated: %s."
+msgstr "Alt-текст изображений повторяется: %s."
 
 msgid "Image radius (px)"
 msgstr "Радиус изображения (px)"
@@ -503,6 +642,12 @@ msgstr "Импортированный шаблон"
 msgid "Indexing"
 msgstr "Индексирование"
 
+msgid "Info"
+msgstr "Инфо"
+
+msgid "Internal links"
+msgstr "Внутренние ссылки"
+
 msgid "Interval (ms)"
 msgstr "Интервал (мс)"
 
@@ -520,6 +665,9 @@ msgstr "Элементы: мобильный"
 
 msgid "Items: tablet"
 msgstr "Элементы: планшет"
+
+msgid "Jane Doe"
+msgstr "Анна Иванова"
 
 msgid "Label"
 msgstr "Метка"
@@ -544,6 +692,9 @@ msgstr "Текст ссылки"
 
 msgid "Link to home"
 msgstr "Ссылка на главную"
+
+msgid "List item"
+msgstr "Пункт списка"
 
 msgid "Load builder CSS/JS on every page"
 msgstr "Загружать CSS/JS конструктора на каждой странице"
@@ -611,6 +762,12 @@ msgstr "Порядок в меню"
 msgid "Meta description"
 msgstr "Метаописание"
 
+msgid "Meta description is %d characters; aim for 120–160."
+msgstr "Длина meta description — %d символов; ориентир — 120–160."
+
+msgid "Meta description is missing."
+msgstr "Meta description не задан."
+
 msgid "Min"
 msgstr "Мин"
 
@@ -622,6 +779,9 @@ msgstr "Мобильный"
 
 msgid "Mobile breakpoint (px)"
 msgstr "Точка перелома для мобильного (px)"
+
+msgid "More tools"
+msgstr "Ещё инструменты"
 
 msgid "Muted"
 msgstr "Без звука"
@@ -638,6 +798,12 @@ msgstr "Соцсеть"
 msgid "New Template"
 msgstr "Новый шаблон"
 
+msgid "New footer"
+msgstr "Новый подвал"
+
+msgid "New header"
+msgstr "Новая шапка"
+
 msgid "Newest"
 msgstr "Новейшие"
 
@@ -649,6 +815,9 @@ msgstr "Нет изображения"
 
 msgid "No image selected"
 msgstr "Изображение не выбрано"
+
+msgid "No issues found in the checked items."
+msgstr "По проверенным пунктам проблем не найдено."
 
 msgid "No posts found."
 msgstr "Записи не найдены."
@@ -665,14 +834,23 @@ msgstr "В корзине шаблонов не найдено"
 msgid "None"
 msgstr "Нет"
 
+msgid "None yet."
+msgstr "Пока нет."
+
 msgid "Not a Loom template."
 msgstr "Это не шаблон Loom."
 
 msgid "Number"
 msgstr "Число"
 
+msgid "Number color"
+msgstr "Цвет числа"
+
 msgid "Number of posts"
 msgstr "Количество записей"
+
+msgid "Number size (px)"
+msgstr "Размер числа (px)"
 
 msgid "Off by default: assets load only on builder pages and where a header/footer template is active."
 msgstr "По умолчанию выключено: ресурсы загружаются только на страницах конструктора и там, где активен шаблон шапки/подвала."
@@ -731,11 +909,17 @@ msgstr "Страница не найдена"
 msgid "Pages"
 msgstr "Страницы"
 
+msgid "Percent"
+msgstr "Проценты"
+
 msgid "Person"
 msgstr "Человек"
 
 msgid "Placeholder"
 msgstr "Подсказка"
+
+msgid "Plain"
+msgstr "Простой"
 
 msgid "Popularity"
 msgstr "Популярность"
@@ -748,6 +932,9 @@ msgstr "Постер"
 
 msgid "Posts"
 msgstr "Записи"
+
+msgid "Prefix"
+msgstr "Префикс"
 
 msgid "Previous"
 msgstr "Назад"
@@ -779,8 +966,14 @@ msgstr "Товар не найден."
 msgid "Products"
 msgstr "Товары"
 
+msgid "Progress Bar"
+msgstr "Прогресс-бар"
+
 msgid "Question"
 msgstr "Вопрос"
+
+msgid "Quote"
+msgstr "Цитата"
 
 msgid "REST API"
 msgstr "REST API"
@@ -824,11 +1017,23 @@ msgstr "Учитывать активные фильтры"
 msgid "Right"
 msgstr "Справа"
 
+msgid "Role / company"
+msgstr "Роль / компания"
+
 msgid "Round"
 msgstr "Круг"
 
+msgid "Row"
+msgstr "В ряд"
+
+msgid "Rows"
+msgstr "Строки"
+
 msgid "SEO"
 msgstr "SEO"
+
+msgid "SEO Assistant"
+msgstr "SEO-помощник"
 
 msgid "SEO title"
 msgstr "SEO-заголовок"
@@ -905,11 +1110,20 @@ msgstr "Показывать дату"
 msgid "Show excerpt"
 msgstr "Показывать отрывок"
 
+msgid "Show icon"
+msgstr "Показывать иконку"
+
 msgid "Show image"
 msgstr "Показывать изображение"
 
+msgid "Show percent"
+msgstr "Показывать проценты"
+
 msgid "Show price"
 msgstr "Показывать цену"
+
+msgid "Show rating"
+msgstr "Показывать рейтинг"
 
 msgid "Show tagline"
 msgstr "Показывать описание"
@@ -926,8 +1140,14 @@ msgstr "Логотип сайта"
 msgid "Site Title"
 msgstr "Название сайта"
 
+msgid "Site default"
+msgstr "По умолчанию сайта"
+
 msgid "Sitemap & Robots"
 msgstr "Карта сайта и Robots"
+
+msgid "Skill"
+msgstr "Навык"
 
 msgid "Slide"
 msgstr "Слайд"
@@ -956,6 +1176,9 @@ msgstr "Сплошная"
 msgid "Source"
 msgstr "Источник"
 
+msgid "Space between"
+msgstr "По краям"
+
 msgid "Spacer"
 msgstr "Разделитель"
 
@@ -965,8 +1188,29 @@ msgstr "Отступ (px)"
 msgid "Square"
 msgstr "Квадрат"
 
+msgid "Stack"
+msgstr "Столбец"
+
+msgid "Star Rating"
+msgstr "Рейтинг звёздами"
+
+msgid "Star color"
+msgstr "Цвет звёзд"
+
+msgid "Star size (px)"
+msgstr "Размер звезды (px)"
+
+msgid "Start"
+msgstr "В начало"
+
 msgid "Start writing your text here. You can use paragraphs and basic formatting."
 msgstr "Начните писать текст здесь. Вы можете использовать абзацы и базовое форматирование."
+
+msgid "Stretch"
+msgstr "Растянуть"
+
+msgid "Striped rows"
+msgstr "Полосатые строки"
 
 msgid "Style"
 msgstr "Стиль"
@@ -977,8 +1221,17 @@ msgstr "Вложенные поля"
 msgid "Submit to"
 msgstr "Отправлять на"
 
+msgid "Success"
+msgstr "Успех"
+
+msgid "Suffix"
+msgstr "Суффикс"
+
 msgid "Tab"
 msgstr "Вкладка"
+
+msgid "Table"
+msgstr "Таблица"
 
 msgid "Tablet"
 msgstr "Планшет"
@@ -1001,6 +1254,9 @@ msgstr "Шаблон импортирован как черновик."
 msgid "Templates"
 msgstr "Шаблоны"
 
+msgid "Testimonial"
+msgstr "Отзыв"
+
 msgid "Text"
 msgstr "Текст"
 
@@ -1016,11 +1272,44 @@ msgstr "Цвет текста"
 msgid "Textarea"
 msgstr "Многострочное поле"
 
+msgid "The SEO title is too long (%d characters; aim for 60 or fewer)."
+msgstr "SEO title слишком длинный (%d символов; ориентир — до 60)."
+
+msgid "The SEO title is too short (%d characters; aim for 30–60)."
+msgstr "SEO title слишком короткий (%d символов; ориентир — 30–60)."
+
+msgid "The best way to predict the future is to create it."
+msgstr "Лучший способ предсказать будущее — создать его."
+
+msgid "The content is short (%d words). Add useful detail where it helps the reader."
+msgstr "Контент короткий (%d слов). Добавьте полезные подробности там, где они помогут читателю."
+
 msgid "Theme logo"
 msgstr "Логотип темы"
 
+msgid "There are %d H1 headings. Use one main H1 per page."
+msgstr "Обнаружено H1: %d. На странице должен быть один основной H1."
+
+msgid "There are only %d internal links. Add relevant links to other pages."
+msgstr "Внутренних ссылок только %d. Добавьте релевантные ссылки на другие страницы."
+
+msgid "There is no H1 heading in the Loom page content."
+msgstr "В содержимом страницы Loom нет заголовка H1."
+
+msgid "There is no H2 heading on this page."
+msgstr "На странице нет заголовка H2."
+
 msgid "Thickness (px)"
 msgstr "Толщина (px)"
+
+msgid "This is an alert message."
+msgstr "Это текст уведомления."
+
+msgid "This page may compete with: %s."
+msgstr "Эта страница может конкурировать с: %s."
+
+msgid "This product changed how we work."
+msgstr "Этот продукт изменил то, как мы работаем."
 
 msgid "Thumbnail"
 msgstr "Миниатюра"
@@ -1034,6 +1323,12 @@ msgstr "Заголовок"
 msgid "Title separator"
 msgstr "Разделитель заголовка"
 
+msgid "Top"
+msgstr "Сверху"
+
+msgid "Track color"
+msgstr "Цвет фона полосы"
+
 msgid "True / False"
 msgstr "Да / Нет"
 
@@ -1046,11 +1341,23 @@ msgstr "Тип"
 msgid "Undo"
 msgstr "Отменить"
 
+msgid "Unsaved"
+msgstr "Не сохранено"
+
 msgid "Up"
 msgstr "Вверх"
 
+msgid "Value 1"
+msgstr "Значение 1"
+
+msgid "Value 2"
+msgstr "Значение 2"
+
 msgid "Vertical"
 msgstr "Вертикально"
+
+msgid "Vertical alignment"
+msgstr "Вертикальное выравнивание"
 
 msgid "Video"
 msgstr "Видео"
@@ -1066,6 +1373,9 @@ msgstr "Vimeo"
 
 msgid "Visual page builder with a built-in SEO module. Open any page or post and click \"Edit with Loom\" to start building."
 msgstr "Визуальный конструктор страниц со встроенным SEO-модулем. Откройте любую страницу или запись и нажмите «Редактировать в Loom», чтобы начать."
+
+msgid "Warning"
+msgstr "Внимание"
 
 msgid "WebSite (+ search box)"
 msgstr "WebSite (+ строка поиска)"
@@ -1103,6 +1413,9 @@ msgstr "Вы не можете импортировать шаблоны."
 msgid "You do not have permission to edit global code."
 msgstr "У вас нет прав для редактирования глобального кода."
 
+msgid "You have unsaved changes. Leave without saving?"
+msgstr "Есть несохранённые изменения. Покинуть страницу без сохранения?"
+
 msgid "YouTube"
 msgstr "YouTube"
 
@@ -1121,104 +1434,8 @@ msgstr "— Выберите —"
 msgid "— Static —"
 msgstr "— Статично —"
 
-msgid "SEO Assistant"
-msgstr "SEO-помощник"
-
-msgid "A quick audit of this page. It does not generate or change content."
-msgstr "Быстрый аудит этой страницы. Он не создаёт и не изменяет контент."
-
-msgid "No issues found in the checked items."
-msgstr "По проверенным пунктам проблем не найдено."
-
-msgid "There is no H1 heading in the Loom page content."
-msgstr "В содержимом страницы Loom нет заголовка H1."
-
-msgid "There are %d H1 headings. Use one main H1 per page."
-msgstr "Обнаружено H1: %d. На странице должен быть один основной H1."
-
-msgid "There is no H2 heading on this page."
-msgstr "На странице нет заголовка H2."
-
-msgid "Heading hierarchy jumps from %1$s to %2$s. Do not skip levels."
-msgstr "Иерархия заголовков переходит с %1$s на %2$s. Не пропускайте уровни."
-
-msgid "%d images have no alt attribute."
-msgstr "У %d изображений отсутствует атрибут alt."
-
-msgid "Image alt text is repeated: %s."
-msgstr "Alt-текст изображений повторяется: %s."
-
-msgid "The SEO title is too short (%d characters; aim for 30–60)."
-msgstr "SEO title слишком короткий (%d символов; ориентир — 30–60)."
-
-msgid "The SEO title is too long (%d characters; aim for 60 or fewer)."
-msgstr "SEO title слишком длинный (%d символов; ориентир — до 60)."
-
-msgid "Meta description is missing."
-msgstr "Meta description не задан."
-
-msgid "Meta description is %d characters; aim for 120–160."
-msgstr "Длина meta description — %d символов; ориентир — 120–160."
-
-msgid "The content is short (%d words). Add useful detail where it helps the reader."
-msgstr "Контент короткий (%d слов). Добавьте полезные подробности там, где они помогут читателю."
-
-msgid "There are only %d internal links. Add relevant links to other pages."
-msgstr "Внутренних ссылок только %d. Добавьте релевантные ссылки на другие страницы."
-
-msgid "This page may compete with: %s."
-msgstr "Эта страница может конкурировать с: %s."
-
-msgid "Headings"
-msgstr "Заголовки"
-
-msgid "Internal links"
-msgstr "Внутренние ссылки"
-
 msgid "%d word · %d min"
 msgid_plural "%d words · %d min"
 msgstr[0] "%d слово · %d мин"
 msgstr[1] "%d слова · %d мин"
 msgstr[2] "%d слов · %d мин"
-
-msgid "Background image"
-msgstr "Фоновое изображение"
-
-msgid "Columns layout"
-msgstr "Расположение колонок"
-
-msgid "Row"
-msgstr "В ряд"
-
-msgid "Stack"
-msgstr "Столбец"
-
-msgid "Columns horizontal alignment"
-msgstr "Горизонтальное выравнивание колонок"
-
-msgid "Columns vertical alignment"
-msgstr "Вертикальное выравнивание колонок"
-
-msgid "Horizontal alignment"
-msgstr "Горизонтальное выравнивание"
-
-msgid "Vertical alignment"
-msgstr "Вертикальное выравнивание"
-
-msgid "Start"
-msgstr "В начало"
-
-msgid "End"
-msgstr "В конец"
-
-msgid "Space between"
-msgstr "По краям"
-
-msgid "Stretch"
-msgstr "Растянуть"
-
-msgid "Top"
-msgstr "Сверху"
-
-msgid "Bottom"
-msgstr "Снизу"

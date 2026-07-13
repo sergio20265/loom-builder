@@ -6,6 +6,11 @@
  */
 
 .loom-doc { width: 100%; }
+/* "width:100%" resolves against the parent's *content* box (padding
+ * excluded), which fights the negative-margin breakout that .alignfull
+ * relies on (see render.php) — width:auto lets the margins do the work
+ * and the wrapper actually reaches the viewport edge. */
+.loom-doc.alignfull { width: auto; }
 
 /* Structure */
 .loom-section { width: 100%; }
@@ -308,4 +313,66 @@
 @media (max-width: 767px) { .loom-posts { grid-template-columns: repeat(var(--loom-cols-m,1), 1fr); } }
 
 /* Empty-state hints for widgets without content yet. */
-.loom-menu-empty, .loom-social-empty, .loom-accordion-empty, .loom-tabs-empty, .loom-posts-empty { padding: 16px 20px; color: #9aa0a6; background: #f3f4f6; border: 1px dashed #d1d5db; border-radius: 8px; text-align: center; }
+.loom-menu-empty, .loom-social-empty, .loom-accordion-empty, .loom-tabs-empty, .loom-posts-empty,
+.loom-icon-list-empty, .loom-table-empty { padding: 16px 20px; color: #9aa0a6; background: #f3f4f6; border: 1px dashed #d1d5db; border-radius: 8px; text-align: center; }
+
+/* --- Icon list --- */
+.loom-icon-list { display: flex; flex-direction: column; margin: 0; padding: 0; list-style: none; }
+.loom-icon-list-horizontal { flex-direction: row; flex-wrap: wrap; align-items: center; }
+.loom-icon-list-item { display: flex; align-items: center; gap: 8px; }
+.loom-icon-list-icon { color: var(--loom-icon-list-color, #2563eb); font-size: var(--loom-icon-list-size, 18px); width: var(--loom-icon-list-size, 18px); height: var(--loom-icon-list-size, 18px); flex: none; }
+.loom-icon-list-link { display: flex; align-items: center; gap: 8px; text-decoration: none; color: inherit; }
+
+/* --- Counter --- */
+.loom-counter-left { text-align: left; }
+.loom-counter-center { text-align: center; }
+.loom-counter-right { text-align: right; }
+.loom-counter-number { display: inline-flex; font-weight: 700; line-height: 1.1; }
+.loom-counter-label { margin-top: 6px; color: #6b7280; }
+
+/* --- Progress bar --- */
+.loom-progress-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; font-size: 14px; }
+.loom-progress-percent { font-weight: 600; }
+.loom-progress-track { width: 100%; border-radius: 999px; overflow: hidden; }
+.loom-progress-fill { border-radius: 999px; transition: width 1.1s cubic-bezier(.25,.46,.45,.94); }
+
+/* --- Testimonial --- */
+.loom-testimonial { display: flex; flex-direction: column; gap: 12px; }
+.loom-testimonial-card { padding: 28px; border: 1px solid #e5e7eb; border-radius: 12px; background: #fff; }
+.loom-testimonial-stars { display: flex; gap: 2px; color: #f59e0b; }
+.loom-testimonial-text { margin: 0; font-size: 17px; line-height: 1.6; color: #374151; }
+.loom-testimonial-meta { display: flex; align-items: center; gap: 12px; }
+.loom-testimonial-avatar { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; display: block; }
+.loom-testimonial-name { font-weight: 700; }
+.loom-testimonial-role { font-size: 13px; color: #6b7280; }
+
+/* --- Alert --- */
+.loom-alert { display: flex; align-items: flex-start; gap: 10px; padding: 14px 16px; border-radius: 8px; border: 1px solid transparent; }
+.loom-alert-icon { flex: none; margin-top: 1px; }
+.loom-alert-text { flex: 1; }
+.loom-alert-dismiss { flex: none; background: none; border: 0; cursor: pointer; font-size: 18px; line-height: 1; color: inherit; opacity: .6; padding: 0 2px; }
+.loom-alert-dismiss:hover { opacity: 1; }
+.loom-alert-info { background: #eff6ff; border-color: #bfdbfe; color: #1e40af; }
+.loom-alert-success { background: #f0fdf4; border-color: #bbf7d0; color: #166534; }
+.loom-alert-warning { background: #fffbeb; border-color: #fde68a; color: #92400e; }
+.loom-alert-error { background: #fef2f2; border-color: #fecaca; color: #991b1b; }
+
+/* --- Blockquote --- */
+.loom-blockquote { margin: 0; padding: 0; border: 0; }
+.loom-blockquote p { margin: 0 0 10px; font-size: 18px; line-height: 1.6; font-style: italic; }
+.loom-blockquote-cite cite { font-style: normal; font-weight: 600; color: #6b7280; }
+.loom-blockquote-large p { font-size: 26px; line-height: 1.4; }
+.loom-blockquote-bordered { padding-left: 20px; border-left: 4px solid #2563eb; }
+
+/* --- Table --- */
+.loom-table { width: 100%; border-collapse: collapse; }
+.loom-table th, .loom-table td { padding: 10px 14px; text-align: left; }
+.loom-table thead th { background: #f3f4f6; font-weight: 700; }
+.loom-table.is-bordered th, .loom-table.is-bordered td { border: 1px solid #e5e7eb; }
+.loom-table.is-striped tbody tr:nth-child(even) { background: #f9fafb; }
+
+/* --- Star rating --- */
+.loom-star-rating { display: inline-flex; align-items: center; gap: 8px; }
+.loom-star-rating-stars { display: inline-flex; gap: 2px; color: var(--loom-star-color, #f59e0b); font-size: var(--loom-star-size, 20px); }
+.loom-star-rating-stars .dashicons { font-size: var(--loom-star-size, 20px); width: var(--loom-star-size, 20px); height: var(--loom-star-size, 20px); }
+.loom-star-rating-label { color: #6b7280; font-size: 14px; }

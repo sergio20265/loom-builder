@@ -1221,3 +1221,228 @@ msgstr ""
 
 msgid "Bottom"
 msgstr ""
+
+msgid "%d out of 5"
+msgstr ""
+
+msgid "Add list items."
+msgstr ""
+
+msgid "Add table rows."
+msgstr ""
+
+msgid "Alert"
+msgstr ""
+
+msgid "Animate on scroll"
+msgstr ""
+
+msgid "Animation duration (ms)"
+msgstr ""
+
+msgid "Author"
+msgstr ""
+
+msgid "Avatar"
+msgstr ""
+
+msgid "Bar color"
+msgstr ""
+
+msgid "Blockquote"
+msgstr ""
+
+msgid "Bordered"
+msgstr ""
+
+msgid "Card"
+msgstr ""
+
+msgid "Cells (separate with |)"
+msgstr ""
+
+msgid "CEO, Acme Inc."
+msgstr ""
+
+msgid "Column A"
+msgstr ""
+
+msgid "Column B"
+msgstr ""
+
+msgid "Column width % (0 = auto)"
+msgstr ""
+
+msgid "Content width"
+msgstr ""
+
+msgid "Could not save. Please try again."
+msgstr ""
+
+msgid "Counter"
+msgstr ""
+
+msgid "Custom (%) / full width"
+msgstr ""
+
+msgid "Custom (px)"
+msgstr ""
+
+msgid "Default"
+msgstr ""
+
+msgid "Dismiss"
+msgstr ""
+
+msgid "Dismissible"
+msgstr ""
+
+msgid "Draft"
+msgstr ""
+
+msgid "Error"
+msgstr ""
+
+msgid "First row is header"
+msgstr ""
+
+msgid "Happy clients"
+msgstr ""
+
+msgid "Header / Footer"
+msgstr ""
+
+msgid "Icon List"
+msgstr ""
+
+msgid "Info"
+msgstr ""
+
+msgid "Jane Doe"
+msgstr ""
+
+msgid "List item"
+msgstr ""
+
+msgid "More tools"
+msgstr ""
+
+msgid "New footer"
+msgstr ""
+
+msgid "New header"
+msgstr ""
+
+msgid "None yet."
+msgstr ""
+
+msgid "Number color"
+msgstr ""
+
+msgid "Number size (px)"
+msgstr ""
+
+msgid "Percent"
+msgstr ""
+
+msgid "Plain"
+msgstr ""
+
+msgid "Prefix"
+msgstr ""
+
+msgid "Progress Bar"
+msgstr ""
+
+msgid "Quote"
+msgstr ""
+
+msgid "Role / company"
+msgstr ""
+
+msgid "Rows"
+msgstr ""
+
+msgid "Show icon"
+msgstr ""
+
+msgid "Show percent"
+msgstr ""
+
+msgid "Show rating"
+msgstr ""
+
+msgid "Site default"
+msgstr ""
+
+msgid "Skill"
+msgstr ""
+
+msgid "Star color"
+msgstr ""
+
+msgid "Star Rating"
+msgstr ""
+
+msgid "Star size (px)"
+msgstr ""
+
+msgid "Striped rows"
+msgstr ""
+
+msgid "Success"
+msgstr ""
+
+msgid "Suffix"
+msgstr ""
+
+msgid "Table"
+msgstr ""
+
+msgid "Testimonial"
+msgstr ""
+
+msgid "The best way to predict the future is to create it."
+msgstr ""
+
+msgid "This is an alert message."
+msgstr ""
+
+msgid "This product changed how we work."
+msgstr ""
+
+msgid "Track color"
+msgstr ""
+
+msgid "Unsaved"
+msgstr ""
+
+msgid "Value 1"
+msgstr ""
+
+msgid "Value 2"
+msgstr ""
+
+msgid "Warning"
+msgstr ""
+
+msgid "You have unsaved changes. Leave without saving?"
+msgstr ""
+
+msgid "Background size"
+msgstr ""
+
+msgid "Cover"
+msgstr ""
+
+msgid "Contain"
+msgstr ""
+
+msgid "Auto"
+msgstr ""
+
+msgid "Content vertical alignment"
+msgstr ""
+
+msgid "Content horizontal alignment"
+msgstr ""

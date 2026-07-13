@@ -397,6 +397,100 @@
 
 	loom.register( 'tabs', initTabs );
 
+	// --- Counter ---------------------------------------------------------------
+
+	function initCounters( root ) {
+		var boxes = root.querySelectorAll( '[data-loom-counter]' );
+		if ( ! boxes.length ) { return; }
+
+		function run( box ) {
+			var target = parseFloat( box.getAttribute( 'data-value' ) ) || 0;
+			var duration = parseInt( box.getAttribute( 'data-duration' ), 10 ) || 2000;
+			var valueEl = box.querySelector( '.loom-counter-value' );
+			if ( ! valueEl ) { return; }
+			var isInt = target === Math.round( target );
+			var start = null;
+
+			function step( ts ) {
+				if ( start === null ) { start = ts; }
+				var progress = Math.min( 1, ( ts - start ) / duration );
+				var current = target * progress;
+				valueEl.textContent = isInt ? Math.round( current ) : current.toFixed( 1 );
+				if ( progress < 1 ) { window.requestAnimationFrame( step ); }
+			}
+			window.requestAnimationFrame( step );
+		}
+
+		if ( ! ( 'IntersectionObserver' in window ) ) {
+			boxes.forEach( run );
+			return;
+		}
+
+		var io = new IntersectionObserver( function ( entries ) {
+			entries.forEach( function ( entry ) {
+				if ( ! entry.isIntersecting ) { return; }
+				run( entry.target );
+				io.unobserve( entry.target );
+			} );
+		}, { threshold: 0.4 } );
+
+		boxes.forEach( function ( box ) { io.observe( box ); } );
+	}
+
+	loom.register( 'counter', initCounters );
+
+	// --- Progress bar ------------------------------------------------------------
+
+	function initProgressBars( root ) {
+		var boxes = root.querySelectorAll( '[data-loom-progress]' );
+		if ( ! boxes.length ) { return; }
+
+		function fill( box ) {
+			var percent = parseInt( box.getAttribute( 'data-percent' ), 10 ) || 0;
+			var track = box.querySelector( '.loom-progress-fill' );
+			if ( track ) { track.style.width = percent + '%'; }
+		}
+
+		var animated = [];
+		boxes.forEach( function ( box ) {
+			if ( box.getAttribute( 'data-animate' ) === '1' ) { animated.push( box ); }
+		} );
+		if ( ! animated.length ) { return; }
+
+		if ( ! ( 'IntersectionObserver' in window ) ) {
+			animated.forEach( fill );
+			return;
+		}
+
+		var io = new IntersectionObserver( function ( entries ) {
+			entries.forEach( function ( entry ) {
+				if ( ! entry.isIntersecting ) { return; }
+				fill( entry.target );
+				io.unobserve( entry.target );
+			} );
+		}, { threshold: 0.3 } );
+
+		animated.forEach( function ( box ) { io.observe( box ); } );
+	}
+
+	loom.register( 'progress', initProgressBars );
+
+	// --- Alert dismiss -------------------------------------------------------
+
+	function initAlerts( root ) {
+		root.querySelectorAll( '[data-loom-alert]' ).forEach( function ( box ) {
+			if ( box.dataset.loomReady ) { return; }
+			box.dataset.loomReady = '1';
+			var btn = box.querySelector( '.loom-alert-dismiss' );
+			if ( ! btn ) { return; }
+			btn.addEventListener( 'click', function () {
+				box.style.display = 'none';
+			} );
+		} );
+	}
+
+	loom.register( 'alert', initAlerts );
+
 	// --- Boot ----------------------------------------------------------------
 
 	function boot() {

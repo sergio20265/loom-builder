@@ -47,21 +47,34 @@
 			}
 		}
 
-		var handle = el( 'span', { className: 'loom-drag-handle', draggable: true, title: t.dragMove || 'Drag to move', onDragStart: startDrag, onDragEnd: endDrag, onClick: function ( e ) { e.stopPropagation(); } }, '✥' );
+		var handle = el( 'span', { className: 'loom-drag-handle', draggable: true, title: t.dragMove || 'Drag to move', onDragStart: startDrag, onDragEnd: endDrag, onClick: function ( e ) { e.stopPropagation(); } }, el( 'span', { className: 'dashicons dashicons-move' } ) );
 		var toolbar = selected ? el( 'div', { className: 'loom-node-toolbar' },
 			handle,
-			node.type === 'section' ? el( 'button', { className: 'loom-node-tool', title: t.exportSection || 'Export section', onClick: function ( e ) { e.stopPropagation(); props.onExport( node.id ); } }, '⤓' ) : null,
-			el( 'button', { className: 'loom-node-tool', title: t.duplicate, onClick: function ( e ) { e.stopPropagation(); props.onDuplicate( node.id ); } }, '⎘' ),
-			el( 'button', { className: 'loom-node-delete', title: t.delete, onClick: function ( e ) { e.stopPropagation(); props.onDelete( node.id ); } }, '🗑' )
+			node.type === 'section' ? el( 'button', { type: 'button', className: 'loom-node-tool', title: t.exportSection || 'Export section', onClick: function ( e ) { e.stopPropagation(); props.onExport( node.id ); } }, el( 'span', { className: 'dashicons dashicons-download' } ) ) : null,
+			el( 'button', { type: 'button', className: 'loom-node-tool', title: t.duplicate, onClick: function ( e ) { e.stopPropagation(); props.onDuplicate( node.id ); } }, el( 'span', { className: 'dashicons dashicons-admin-page' } ) ),
+			el( 'button', { type: 'button', className: 'loom-node-tool loom-node-delete', title: t.delete, onClick: function ( e ) { e.stopPropagation(); props.onDelete( node.id ); } }, el( 'span', { className: 'dashicons dashicons-trash' } ) )
 		) : null;
 
 		if ( node.type === 'section' ) {
+			// Content width sizes the inner columns wrapper only — the outer
+			// section box stays full-bleed so background color/image can span
+			// edge-to-edge while the content itself is boxed (or full width).
+			var outerStyle = Object.assign( {}, style );
+			delete outerStyle.maxWidth;
+			delete outerStyle.marginLeft;
+			delete outerStyle.marginRight;
+			var innerStyle = { display: 'flex', gap: style.gap || '20px', alignItems: style.alignItems || 'stretch', justifyContent: style.justifyContent || 'flex-start', flexDirection: style.flexDirection || ( device === 'mobile' ? 'column' : 'row' ) };
+			if ( style.maxWidth ) {
+				innerStyle.maxWidth = style.maxWidth;
+				innerStyle.marginLeft = style.marginLeft || 'auto';
+				innerStyle.marginRight = style.marginRight || 'auto';
+			}
 			return el( 'section', {
-				className: 'loom-c-section' + ( selected ? ' is-selected' : '' ), style: style, onClick: selectThis,
+				className: 'loom-c-section' + ( selected ? ' is-selected' : '' ), style: outerStyle, onClick: selectThis,
 				onDragOver: reorderOver, onDragLeave: reorderLeave, onDrop: reorderDrop,
 			},
 				toolbar,
-				el( 'div', { className: 'loom-c-columns', style: { display: 'flex', gap: style.gap || '20px', alignItems: style.alignItems || 'stretch', justifyContent: style.justifyContent || 'flex-start', flexDirection: style.flexDirection || ( device === 'mobile' ? 'column' : 'row' ) } },
+				el( 'div', { className: 'loom-c-columns', style: innerStyle },
 					node.children.map( function ( col ) {
 						return el( NodeView, Object.assign( {}, props, { key: col.id, node: col } ) );
 					} )
@@ -71,9 +84,11 @@
 		}
 
 		if ( node.type === 'column' ) {
+			var colStyle = Object.assign( { display: 'flex', flexDirection: 'column', flex: '1 1 0', minHeight: '40px' }, style );
+			if ( style.width ) { colStyle.flex = '0 0 ' + style.width; }
 			return el( 'div', {
 				className: 'loom-c-column' + ( selected ? ' is-selected' : '' ),
-				style: Object.assign( { display: 'flex', flexDirection: 'column', flex: '1 1 0', minHeight: '40px' }, style ),
+				style: colStyle,
 				onClick: selectThis,
 				onDragOver: function ( e ) {
 					var d = dragRef && dragRef.current;
@@ -94,17 +109,26 @@
 				toolbar,
 				node.children.length ? node.children.map( function ( w ) {
 					return el( NodeView, Object.assign( {}, props, { key: w.id, node: w } ) );
-				} ) : el( 'div', { className: 'loom-col-empty' }, t.empty || 'Drag a widget here' )
+				} ) : el( 'div', { className: 'loom-col-empty' }, t.empty || 'Drag a widget here' ),
+				el( 'button', { className: 'loom-add-nested-section', onClick: function ( e ) { e.stopPropagation(); props.onAddNestedSection( node.id ); } }, '+ ' + ( t.row || 'Row' ) )
 			);
 		}
 
-		// widget
+		// widget — content alignment (justify/valign) targets the inner wrapper,
+		// mirroring the frontend's `.loom-node-{id}>*` redirect (generator.php),
+		// since the outer .loom-c-widget box is never itself a flex container.
+		var widgetOuterStyle = Object.assign( {}, style );
+		delete widgetOuterStyle.justifyContent;
+		delete widgetOuterStyle.alignItems;
+		var widgetInnerStyle = { justifyContent: style.justifyContent, alignItems: style.alignItems };
+		if ( style.justifyContent || style.alignItems ) { widgetInnerStyle.display = 'flex'; widgetInnerStyle.flexDirection = 'column'; }
+
 		return el( 'div', {
-			className: 'loom-c-widget' + ( selected ? ' is-selected' : '' ), style: style, onClick: selectThis,
+			className: 'loom-c-widget' + ( selected ? ' is-selected' : '' ), style: widgetOuterStyle, onClick: selectThis,
 			onDragOver: reorderOver, onDragLeave: reorderLeave, onDrop: reorderDrop,
 		},
 			toolbar,
-			el( 'div', { className: 'loom-c-widget-inner' }, widgetPreview( node ) )
+			el( 'div', { className: 'loom-c-widget-inner', style: widgetInnerStyle }, widgetPreview( node ) )
 		);
 	}
 

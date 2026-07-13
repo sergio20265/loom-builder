@@ -32,7 +32,13 @@ function loom_register_rest_routes() {
 				'callback'            => 'loom_rest_get_layout',
 				'permission_callback' => $can_edit,
 				'args'                => array(
-					'id' => array( 'validate_callback' => 'is_numeric' ),
+					// A bare 'is_numeric' string would crash on PHP 8+: WP core calls
+					// validate_callback with 3 args, but the builtin only accepts 1.
+					'id' => array(
+						'validate_callback' => static function ( $value ) {
+							return is_numeric( $value );
+						},
+					),
 				),
 			),
 			array(
@@ -40,7 +46,13 @@ function loom_register_rest_routes() {
 				'callback'            => 'loom_rest_save_layout',
 				'permission_callback' => $can_edit,
 				'args'                => array(
-					'id' => array( 'validate_callback' => 'is_numeric' ),
+					// A bare 'is_numeric' string would crash on PHP 8+: WP core calls
+					// validate_callback with 3 args, but the builtin only accepts 1.
+					'id' => array(
+						'validate_callback' => static function ( $value ) {
+							return is_numeric( $value );
+						},
+					),
 				),
 			),
 		)
@@ -57,6 +69,53 @@ function loom_register_rest_routes() {
 			},
 		)
 	);
+
+	register_rest_route(
+		'loom/v1',
+		'/templates',
+		array(
+			'methods'             => WP_REST_Server::READABLE,
+			'callback'            => 'loom_rest_get_templates',
+			'permission_callback' => static function () {
+				return current_user_can( 'edit_posts' );
+			},
+		)
+	);
+}
+
+/**
+ * List header and footer templates for the editor's quick-access menu.
+ *
+ * @return WP_REST_Response
+ */
+function loom_rest_get_templates() {
+	$out = array(
+		'header' => array(),
+		'footer' => array(),
+	);
+
+	foreach ( array_keys( $out ) as $type ) {
+		$posts = get_posts(
+			array(
+				'post_type'      => 'loom_template',
+				'post_status'    => array( 'publish', 'draft' ),
+				'numberposts'    => -1,
+				'meta_key'       => '_loom_template_type', // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
+				'meta_value'     => $type, // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value
+				'orderby'        => 'title',
+				'order'          => 'ASC',
+			)
+		);
+		foreach ( $posts as $post ) {
+			$out[ $type ][] = array(
+				'id'     => $post->ID,
+				'title'  => $post->post_title ? $post->post_title : ( '#' . $post->ID ),
+				'status' => $post->post_status,
+			);
+		}
+	}
+
+	return rest_ensure_response( $out );
 }
 
 /**
