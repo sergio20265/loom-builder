@@ -1179,3 +1179,45 @@ msgid "%d word · %d min"
 msgid_plural "%d words · %d min"
 msgstr[0] ""
 msgstr[1] ""
+
+msgid "Background image"
+msgstr ""
+
+msgid "Columns layout"
+msgstr ""
+
+msgid "Row"
+msgstr ""
+
+msgid "Stack"
+msgstr ""
+
+msgid "Columns horizontal alignment"
+msgstr ""
+
+msgid "Columns vertical alignment"
+msgstr ""
+
+msgid "Horizontal alignment"
+msgstr ""
+
+msgid "Vertical alignment"
+msgstr ""
+
+msgid "Start"
+msgstr ""
+
+msgid "End"
+msgstr ""
+
+msgid "Space between"
+msgstr ""
+
+msgid "Stretch"
+msgstr ""
+
+msgid "Top"
+msgstr ""
+
+msgid "Bottom"
+msgstr ""

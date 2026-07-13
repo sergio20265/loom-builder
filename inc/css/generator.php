@@ -98,6 +98,10 @@ function loom_css_prop_map() {
 			$v = loom_css_keyword( $v, array( 'stretch', 'flex-start', 'center', 'flex-end', 'baseline', 'start', 'end' ) );
 			return $v ? 'align-items:' . $v . ';' : '';
 		},
+		'direction'     => static function ( $v ) {
+			$v = loom_css_keyword( $v, array( 'row', 'column' ) );
+			return $v ? 'flex-direction:' . $v . ';' : '';
+		},
 		'padding'       => static function ( $v ) {
 			return loom_css_box( 'padding', $v );
 		},
@@ -326,6 +330,20 @@ function loom_generate_css( array $tree, $prefix = '' ) {
 			}
 			if ( $m ) {
 				$mobile .= $sel . '{' . $m . '}';
+			}
+
+			// Layout values apply to the section's inner flex container, not the
+			// outer section element. This keeps desktop/tablet/mobile behaviour in sync.
+			if ( isset( $node['type'] ) && 'section' === $node['type'] ) {
+				$layout = array( 'gap', 'justify', 'valign', 'direction' );
+				foreach ( array( 'desktop' => &$desktop, 'tablet' => &$tablet, 'mobile' => &$mobile ) as $device => &$target ) {
+					$props = isset( $style[ $device ] ) && is_array( $style[ $device ] ) ? array_intersect_key( $style[ $device ], array_flip( $layout ) ) : array();
+					$css   = loom_css_declarations( $props );
+					if ( $css ) {
+						$target .= $sel . '>.loom-section-inner{' . $css . '}';
+					}
+				}
+				unset( $target );
 			}
 
 			if ( ! empty( $node['children'] ) && is_array( $node['children'] ) ) {

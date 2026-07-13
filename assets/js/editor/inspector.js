@@ -26,11 +26,14 @@
 		}
 		var isText = node.type === 'widget';
 		var isSection = node.type === 'section';
+		var isColumn = node.type === 'column';
+		var isContainer = isSection || isColumn;
 		return el( Fragment, null,
 			el( 'h4', null, t.style || 'Style' ),
 			el( c.BoxControl, { label: t.padding || 'Padding', value: st.padding, onChange: function ( v ) { setStyle( 'padding', v ); } } ),
 			el( c.BoxControl, { label: t.margin || 'Margin', value: st.margin, onChange: function ( v ) { setStyle( 'margin', v ); } } ),
 			el( c.ColorControl, { label: t.background || 'Background', value: st.bgColor, onChange: function ( v ) { setStyle( 'bgColor', v ); } } ),
+			isContainer ? el( c.MediaControl, { label: t.backgroundImage || 'Background image', value: st.bgImage, preview: st.bgImage, onChange: function ( media ) { setStyle( 'bgImage', media.url ); }, onClear: function () { setStyle( 'bgImage', '' ); } } ) : null,
 			el( c.SelectControl, { label: t.textAlign || 'Text align', value: st.align || '', options: { '': '—', left: t.left || 'Left', center: t.center || 'Center', right: t.right || 'Right' }, onChange: function ( v ) { setStyle( 'align', v ); } } ),
 			isText ? el( c.ColorControl, { label: t.textColor || 'Text color', value: st.color, onChange: function ( v ) { setStyle( 'color', v ); } } ) : null,
 			isText ? el( c.RangeControl, { label: t.fontSize || 'Font size', value: st.fontSize, min: 8, max: 120, onChange: function ( v ) { setStyle( 'fontSize', v ); } } ) : null,
@@ -38,7 +41,12 @@
 			el( c.RangeControl, { label: t.minHeight || 'Min height', value: st.minHeight, min: 0, max: 900, onChange: function ( v ) { setStyle( 'minHeight', v ); } } ),
 			el( c.RangeControl, { label: t.radius || 'Radius', value: st.radius, min: 0, max: 100, onChange: function ( v ) { setStyle( 'radius', v ); } } ),
 			isSection ? el( c.RangeControl, { label: t.maxWidth || 'Max width', value: st.maxWidth, min: 200, max: 1600, onChange: function ( v ) { setStyle( 'maxWidth', v ); } } ) : null,
-			isSection ? el( c.RangeControl, { label: t.columnsGap || 'Columns gap', value: st.gap, min: 0, max: 80, onChange: function ( v ) { setStyle( 'gap', v ); } } ) : null
+			isSection ? el( c.RangeControl, { label: t.columnsGap || 'Columns gap', value: st.gap, min: 0, max: 80, onChange: function ( v ) { setStyle( 'gap', v ); } } ) : null,
+			isSection ? el( c.SelectControl, { label: t.columnsLayout || 'Columns layout', value: st.direction || ( device === 'mobile' ? 'column' : 'row' ), options: { row: t.columnsRow || 'Row', column: t.columnsStack || 'Stack' }, onChange: function ( v ) { setStyle( 'direction', v ); } } ) : null,
+			isSection ? el( c.SelectControl, { label: t.columnsHorizontal || 'Columns horizontal alignment', value: st.justify || 'flex-start', options: { 'flex-start': t.alignStart || 'Start', center: t.center || 'Center', 'flex-end': t.alignEnd || 'End', 'space-between': t.alignSpaceBetween || 'Space between' }, onChange: function ( v ) { setStyle( 'justify', v ); } } ) : null,
+			isSection ? el( c.SelectControl, { label: t.columnsVertical || 'Columns vertical alignment', value: st.valign || 'stretch', options: { stretch: t.alignStretch || 'Stretch', 'flex-start': t.alignTop || 'Top', center: t.center || 'Center', 'flex-end': t.alignBottom || 'Bottom' }, onChange: function ( v ) { setStyle( 'valign', v ); } } ) : null,
+			isColumn ? el( c.SelectControl, { label: t.horizontalAlign || 'Horizontal alignment', value: st.valign || 'stretch', options: { stretch: t.alignStretch || 'Stretch', 'flex-start': t.alignStart || 'Start', center: t.center || 'Center', 'flex-end': t.alignEnd || 'End' }, onChange: function ( v ) { setStyle( 'valign', v ); } } ) : null,
+			isColumn ? el( c.SelectControl, { label: t.verticalAlign || 'Vertical alignment', value: st.justify || 'flex-start', options: { 'flex-start': t.alignStart || 'Start', center: t.center || 'Center', 'flex-end': t.alignEnd || 'End', 'space-between': t.alignSpaceBetween || 'Space between' }, onChange: function ( v ) { setStyle( 'justify', v ); } } ) : null
 		);
 	}
 

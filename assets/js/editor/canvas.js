@@ -50,9 +50,9 @@
 		var handle = el( 'span', { className: 'loom-drag-handle', draggable: true, title: t.dragMove || 'Drag to move', onDragStart: startDrag, onDragEnd: endDrag, onClick: function ( e ) { e.stopPropagation(); } }, '✥' );
 		var toolbar = selected ? el( 'div', { className: 'loom-node-toolbar' },
 			handle,
-			node.type === 'section' ? el( 'button', { title: t.exportSection || 'Export section', onClick: function ( e ) { e.stopPropagation(); props.onExport( node.id ); } }, '⤓' ) : null,
-			el( 'button', { title: t.duplicate, onClick: function ( e ) { e.stopPropagation(); props.onDuplicate( node.id ); } }, '⎘' ),
-			el( 'button', { title: t.delete, onClick: function ( e ) { e.stopPropagation(); props.onDelete( node.id ); } }, '🗑' )
+			node.type === 'section' ? el( 'button', { className: 'loom-node-tool', title: t.exportSection || 'Export section', onClick: function ( e ) { e.stopPropagation(); props.onExport( node.id ); } }, '⤓' ) : null,
+			el( 'button', { className: 'loom-node-tool', title: t.duplicate, onClick: function ( e ) { e.stopPropagation(); props.onDuplicate( node.id ); } }, '⎘' ),
+			el( 'button', { className: 'loom-node-delete', title: t.delete, onClick: function ( e ) { e.stopPropagation(); props.onDelete( node.id ); } }, '🗑' )
 		) : null;
 
 		if ( node.type === 'section' ) {
@@ -61,7 +61,7 @@
 				onDragOver: reorderOver, onDragLeave: reorderLeave, onDrop: reorderDrop,
 			},
 				toolbar,
-				el( 'div', { className: 'loom-c-columns', style: { display: 'flex', gap: style.gap || '20px', alignItems: style.alignItems || 'stretch' } },
+				el( 'div', { className: 'loom-c-columns', style: { display: 'flex', gap: style.gap || '20px', alignItems: style.alignItems || 'stretch', justifyContent: style.justifyContent || 'flex-start', flexDirection: style.flexDirection || ( device === 'mobile' ? 'column' : 'row' ) } },
 					node.children.map( function ( col ) {
 						return el( NodeView, Object.assign( {}, props, { key: col.id, node: col } ) );
 					} )
@@ -73,7 +73,7 @@
 		if ( node.type === 'column' ) {
 			return el( 'div', {
 				className: 'loom-c-column' + ( selected ? ' is-selected' : '' ),
-				style: Object.assign( { flex: '1 1 0', minHeight: '40px' }, style ),
+				style: Object.assign( { display: 'flex', flexDirection: 'column', flex: '1 1 0', minHeight: '40px' }, style ),
 				onClick: selectThis,
 				onDragOver: function ( e ) {
 					var d = dragRef && dragRef.current;

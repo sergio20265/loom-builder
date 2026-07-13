@@ -1180,3 +1180,45 @@ msgid_plural "%d words · %d min"
 msgstr[0] "%d слово · %d мин"
 msgstr[1] "%d слова · %d мин"
 msgstr[2] "%d слов · %d мин"
+
+msgid "Background image"
+msgstr "Фоновое изображение"
+
+msgid "Columns layout"
+msgstr "Расположение колонок"
+
+msgid "Row"
+msgstr "В ряд"
+
+msgid "Stack"
+msgstr "Столбец"
+
+msgid "Columns horizontal alignment"
+msgstr "Горизонтальное выравнивание колонок"
+
+msgid "Columns vertical alignment"
+msgstr "Вертикальное выравнивание колонок"
+
+msgid "Horizontal alignment"
+msgstr "Горизонтальное выравнивание"
+
+msgid "Vertical alignment"
+msgstr "Вертикальное выравнивание"
+
+msgid "Start"
+msgstr "В начало"
+
+msgid "End"
+msgstr "В конец"
+
+msgid "Space between"
+msgstr "По краям"
+
+msgid "Stretch"
+msgstr "Растянуть"
+
+msgid "Top"
+msgstr "Сверху"
+
+msgid "Bottom"
+msgstr "Снизу"

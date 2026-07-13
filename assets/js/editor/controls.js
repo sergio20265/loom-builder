@@ -90,7 +90,7 @@
 		return el( Field, { label: p.label }, el( 'span', { className: 'loom-media' },
 			p.preview ? el( 'img', { src: p.preview, className: 'loom-media-thumb' } ) : null,
 			el( 'button', { type: 'button', className: 'button', onClick: open }, t.selectMedia || 'Select image' ),
-			p.value ? el( 'button', { type: 'button', className: 'loom-clear', onClick: function () { p.onChange( { id: 0, url: '', alt: '' } ); } }, '×' ) : null
+			p.value ? el( 'button', { type: 'button', className: 'loom-clear', onClick: function () { p.onClear ? p.onClear() : p.onChange( { id: 0, url: '', alt: '' } ); } }, '×' ) : null
 		) );
 	}
 

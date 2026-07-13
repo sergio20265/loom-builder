@@ -212,7 +212,7 @@ function loom_seo_image_field( $name, $value ) {
 	echo '<input type="hidden" name="' . esc_attr( $name ) . '" value="' . esc_attr( (string) $value ) . '" class="loom-image-id">';
 	echo '<div class="loom-image-thumb">' . $img . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	echo '<button type="button" class="button loom-image-pick">' . esc_html__( 'Select image', 'loom' ) . '</button> ';
-	echo '<button type="button" class="button-link loom-image-clear">' . esc_html__( 'Remove', 'loom' ) . '</button>';
+	echo '<button type="button" class="button loom-image-clear">' . esc_html__( 'Remove', 'loom' ) . '</button>';
 	echo '</div>';
 }
 

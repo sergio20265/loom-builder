@@ -230,6 +230,7 @@
 		if ( props.gap ) { s.gap = props.gap + 'px'; }
 		if ( props.justify ) { s.justifyContent = props.justify; }
 		if ( props.valign ) { s.alignItems = props.valign; }
+		if ( props.direction ) { s.flexDirection = props.direction; }
 		var p = L.box( props.padding ); if ( p ) { s.padding = p; }
 		var m = L.box( props.margin ); if ( m ) { s.margin = m; }
 		return s;
