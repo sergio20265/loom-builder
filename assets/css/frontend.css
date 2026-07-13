@@ -13,6 +13,11 @@
  * and the wrapper actually reaches the viewport edge. */
 .loom-doc.alignfull { width: auto; }
 
+/* When a Loom Header/Footer is active in a block theme, the template part
+ * supplied by the theme would otherwise render beside it as a duplicate. */
+.loom-has-header-template .wp-site-blocks > header.wp-block-template-part { display: none; }
+.loom-has-footer-template .wp-site-blocks > footer.wp-block-template-part { display: none; }
+
 /* Structure */
 .loom-section { width: 100%; }
 .loom-section-inner { width: 100%; max-width: var( --loom-container-width, 1200px ); min-width: 0; margin: 0 auto; display: flex; flex-wrap: wrap; }

@@ -282,6 +282,31 @@ function loom_footer() {
 	loom_render_position( 'footer' );
 }
 
+/**
+ * Mark block-theme pages that are using Loom site templates.
+ *
+ * A block theme renders its own header/footer template parts after
+ * wp_body_open(). The fallback renderer below therefore needs a small,
+ * explicit compatibility hook to prevent two site headers or footers from
+ * appearing together. Classic themes are left untouched.
+ *
+ * @param string[] $classes Existing body classes.
+ * @return string[]
+ */
+function loom_template_body_classes( $classes ) {
+	if ( ! function_exists( 'wp_is_block_theme' ) || ! wp_is_block_theme() ) {
+		return $classes;
+	}
+	if ( loom_get_active_templates( 'header' ) ) {
+		$classes[] = 'loom-has-header-template';
+	}
+	if ( loom_get_active_templates( 'footer' ) ) {
+		$classes[] = 'loom-has-footer-template';
+	}
+	return $classes;
+}
+add_filter( 'body_class', 'loom_template_body_classes' );
+
 // Fallback injection for themes that do not call loom_header()/loom_footer().
 add_action(
 	'wp_body_open',
