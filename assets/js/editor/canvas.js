@@ -80,7 +80,7 @@
 				toolbar,
 				el( 'div', { className: 'loom-c-columns', style: innerStyle },
 					node.children.map( function ( col ) {
-						return el( NodeView, Object.assign( {}, props, { key: col.id, node: col } ) );
+						return el( NodeView, Object.assign( {}, props, { key: col.id, node: col, mobileStack: defaultMobileStack } ) );
 					} )
 				),
 				el( 'button', { className: 'loom-add-col', onClick: function ( e ) { e.stopPropagation(); props.onAddColumn( node.id ); } }, '+ ' + ( t.column || 'Column' ) )
@@ -89,7 +89,15 @@
 
 		if ( node.type === 'column' ) {
 			var colStyle = Object.assign( { display: 'flex', flexDirection: 'column', flex: '1 1 0', minHeight: '40px' }, style );
-			if ( style.width ) { colStyle.flexBasis = style.width; colStyle.width = style.width; }
+			if ( props.mobileStack ) {
+				// A column inherits `flex: 1 1 0` for desktop rows. In a vertical
+				// mobile stack that would make its main-size zero and its widgets
+				// overlap, so mirror the frontend's one-column flow instead.
+				colStyle.flex = '0 0 auto';
+				colStyle.flexBasis = '100%';
+				colStyle.width = '100%';
+				colStyle.maxWidth = '100%';
+			} else if ( style.width ) { colStyle.flexBasis = style.width; colStyle.width = style.width; }
 			return el( 'div', {
 				className: 'loom-c-column' + ( selected ? ' is-selected' : '' ),
 				style: colStyle,
