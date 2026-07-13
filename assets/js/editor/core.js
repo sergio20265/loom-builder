@@ -35,6 +35,10 @@
 	L.apiFetch = wp.apiFetch;
 	L.cfg = cfg;
 	L.t = cfg.i18n || {};
+	L.editorTopbarActions = [];
+	L.registerTopbarAction = function ( render ) {
+		if ( typeof render === 'function' ) { L.editorTopbarActions.push( render ); }
+	};
 
 	// ---- helpers ----------------------------------------------------------
 

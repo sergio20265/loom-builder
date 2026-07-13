@@ -201,6 +201,9 @@
 		return el( 'div', { className: 'loom-app' },
 			el( 'div', { className: 'loom-topbar' },
 				el( 'div', { className: 'loom-brand' }, el( 'span', { className: 'dashicons dashicons-screenoptions' } ), 'Loom' ),
+				( L.editorTopbarActions || [] ).map( function ( render, index ) {
+					return render( { key: index, postId: cfg.postId } );
+				} ),
 				el( 'div', { className: 'loom-history' },
 					el( 'button', { title: ( t.undo || 'Undo' ) + ' (Ctrl+Z)', disabled: ! undoRef.current.length, onClick: doUndo }, el( 'span', { className: 'dashicons dashicons-undo' } ) ),
 					el( 'button', { title: ( t.redo || 'Redo' ) + ' (Ctrl+Shift+Z)', disabled: ! redoRef.current.length, onClick: doRedo }, el( 'span', { className: 'dashicons dashicons-redo' } ) )

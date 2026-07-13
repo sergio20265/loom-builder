@@ -56,7 +56,7 @@ function loom_enqueue_frontend() {
 function loom_get_editor_config( $post_id ) {
 	$registry = \Loom\Builder\Registry::instance();
 
-	return array(
+	$config = array(
 		'postId'      => (int) $post_id,
 		'restUrl'     => esc_url_raw( rest_url( 'loom/v1' ) ),
 		'nonce'       => wp_create_nonce( 'wp_rest' ),
@@ -141,4 +141,12 @@ function loom_get_editor_config( $post_id ) {
 			'hideMobile'        => __( 'Hide on mobile', 'loom' ),
 		),
 	);
+
+	/**
+	 * Filter the editor configuration supplied to Loom add-ons.
+	 *
+	 * @param array $config  Editor configuration.
+	 * @param int   $post_id Edited post ID.
+	 */
+	return (array) apply_filters( 'loom_editor_config', $config, (int) $post_id );
 }

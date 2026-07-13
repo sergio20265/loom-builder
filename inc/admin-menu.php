@@ -179,7 +179,7 @@ function loom_editor_page() {
 
 	// The editor ships as ordered modules sharing the window.LoomEd namespace:
 	// core first, then preview/controls, the Inspector and Canvas, the App last.
-	$editor_modules = array( 'core', 'preview', 'controls', 'inspector', 'canvas', 'app' );
+	$editor_modules = array( 'core', 'preview', 'controls', 'inspector', 'canvas' );
 	$deps           = array( 'wp-element', 'wp-components', 'wp-api-fetch', 'wp-i18n' );
 
 	foreach ( $editor_modules as $module ) {
@@ -196,6 +196,24 @@ function loom_editor_page() {
 
 	// The config rides on the first module; every later module reads it.
 	wp_localize_script( 'loom-editor-core', 'LoomConfig', $config );
+
+	/**
+	 * Let add-ons enqueue editor modules after the base Inspector is available.
+	 * They may append their handle through `loom_editor_app_dependencies` so the
+	 * module is guaranteed to load before the App mounts.
+	 *
+	 * @param int $post_id Edited post ID.
+	 */
+	do_action( 'loom_editor_enqueue_assets', $post_id );
+
+	$deps = (array) apply_filters( 'loom_editor_app_dependencies', $deps, $post_id );
+	wp_enqueue_script(
+		'loom-editor-app',
+		LOOM_URL . 'assets/js/editor/app.js',
+		$deps,
+		LOOM_VERSION,
+		true
+	);
 
 	echo '<div id="loom-editor-root" class="loom-editor-root"></div>';
 }
