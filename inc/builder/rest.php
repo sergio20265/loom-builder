@@ -99,6 +99,18 @@ function loom_rest_save_layout( WP_REST_Request $request ) {
 	update_post_meta( $post_id, '_loom_layout', wp_slash( wp_json_encode( $tree ) ) );
 	update_post_meta( $post_id, '_loom_enabled', $enabled ? 1 : 0 );
 
+	/**
+	 * Fires after a valid Loom layout is stored through the editor REST API.
+	 *
+	 * Add-ons can retain revision snapshots or evaluate page budgets without
+	 * duplicating the editor's security and sanitization path.
+	 *
+	 * @param int   $post_id Edited post id.
+	 * @param array $tree    Sanitized layout tree.
+	 * @param bool  $enabled Builder enabled state.
+	 */
+	do_action( 'loom_layout_saved', $post_id, $tree, $enabled );
+
 	return rest_ensure_response(
 		array(
 			'saved'   => true,
