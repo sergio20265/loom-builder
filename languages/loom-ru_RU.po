@@ -1121,3 +1121,62 @@ msgstr "— Выберите —"
 msgid "— Static —"
 msgstr "— Статично —"
 
+msgid "SEO Assistant"
+msgstr "SEO-помощник"
+
+msgid "A quick audit of this page. It does not generate or change content."
+msgstr "Быстрый аудит этой страницы. Он не создаёт и не изменяет контент."
+
+msgid "No issues found in the checked items."
+msgstr "По проверенным пунктам проблем не найдено."
+
+msgid "There is no H1 heading in the Loom page content."
+msgstr "В содержимом страницы Loom нет заголовка H1."
+
+msgid "There are %d H1 headings. Use one main H1 per page."
+msgstr "Обнаружено H1: %d. На странице должен быть один основной H1."
+
+msgid "There is no H2 heading on this page."
+msgstr "На странице нет заголовка H2."
+
+msgid "Heading hierarchy jumps from %1$s to %2$s. Do not skip levels."
+msgstr "Иерархия заголовков переходит с %1$s на %2$s. Не пропускайте уровни."
+
+msgid "%d images have no alt attribute."
+msgstr "У %d изображений отсутствует атрибут alt."
+
+msgid "Image alt text is repeated: %s."
+msgstr "Alt-текст изображений повторяется: %s."
+
+msgid "The SEO title is too short (%d characters; aim for 30–60)."
+msgstr "SEO title слишком короткий (%d символов; ориентир — 30–60)."
+
+msgid "The SEO title is too long (%d characters; aim for 60 or fewer)."
+msgstr "SEO title слишком длинный (%d символов; ориентир — до 60)."
+
+msgid "Meta description is missing."
+msgstr "Meta description не задан."
+
+msgid "Meta description is %d characters; aim for 120–160."
+msgstr "Длина meta description — %d символов; ориентир — 120–160."
+
+msgid "The content is short (%d words). Add useful detail where it helps the reader."
+msgstr "Контент короткий (%d слов). Добавьте полезные подробности там, где они помогут читателю."
+
+msgid "There are only %d internal links. Add relevant links to other pages."
+msgstr "Внутренних ссылок только %d. Добавьте релевантные ссылки на другие страницы."
+
+msgid "This page may compete with: %s."
+msgstr "Эта страница может конкурировать с: %s."
+
+msgid "Headings"
+msgstr "Заголовки"
+
+msgid "Internal links"
+msgstr "Внутренние ссылки"
+
+msgid "%d word · %d min"
+msgid_plural "%d words · %d min"
+msgstr[0] "%d слово · %d мин"
+msgstr[1] "%d слова · %d мин"
+msgstr[2] "%d слов · %d мин"

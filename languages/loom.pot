@@ -1121,3 +1121,61 @@ msgstr ""
 msgid "— Static —"
 msgstr ""
 
+msgid "SEO Assistant"
+msgstr ""
+
+msgid "A quick audit of this page. It does not generate or change content."
+msgstr ""
+
+msgid "No issues found in the checked items."
+msgstr ""
+
+msgid "There is no H1 heading in the Loom page content."
+msgstr ""
+
+msgid "There are %d H1 headings. Use one main H1 per page."
+msgstr ""
+
+msgid "There is no H2 heading on this page."
+msgstr ""
+
+msgid "Heading hierarchy jumps from %1$s to %2$s. Do not skip levels."
+msgstr ""
+
+msgid "%d images have no alt attribute."
+msgstr ""
+
+msgid "Image alt text is repeated: %s."
+msgstr ""
+
+msgid "The SEO title is too short (%d characters; aim for 30–60)."
+msgstr ""
+
+msgid "The SEO title is too long (%d characters; aim for 60 or fewer)."
+msgstr ""
+
+msgid "Meta description is missing."
+msgstr ""
+
+msgid "Meta description is %d characters; aim for 120–160."
+msgstr ""
+
+msgid "The content is short (%d words). Add useful detail where it helps the reader."
+msgstr ""
+
+msgid "There are only %d internal links. Add relevant links to other pages."
+msgstr ""
+
+msgid "This page may compete with: %s."
+msgstr ""
+
+msgid "Headings"
+msgstr ""
+
+msgid "Internal links"
+msgstr ""
+
+msgid "%d word · %d min"
+msgid_plural "%d words · %d min"
+msgstr[0] ""
+msgstr[1] ""
