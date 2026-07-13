@@ -39,6 +39,10 @@
 	L.registerTopbarAction = function ( render ) {
 		if ( typeof render === 'function' ) { L.editorTopbarActions.push( render ); }
 	};
+	L.styleExtensions = [];
+	L.registerStyleControl = function ( render ) {
+		if ( typeof render === 'function' ) { L.styleExtensions.push( render ); }
+	};
 
 	// ---- helpers ----------------------------------------------------------
 

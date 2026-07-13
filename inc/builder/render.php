@@ -120,6 +120,13 @@ function loom_render_node( $node ) {
 	switch ( $type ) {
 		case 'section':
 			$inner = '<div class="loom-section-inner">' . loom_render_tree( $children ) . '</div>';
+			/**
+			 * Filters a rendered section's inner markup for Loom add-ons.
+			 *
+			 * @param string $inner Rendered inner markup.
+			 * @param array  $node  Section node data.
+			 */
+			$inner = (string) apply_filters( 'loom_section_inner', $inner, $node );
 			return '<section' . $id_attr . $class_attr . $anim_attr . '>' . $inner . '</section>';
 
 		case 'column':

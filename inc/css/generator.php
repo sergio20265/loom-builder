@@ -37,7 +37,7 @@ function loom_breakpoints() {
  * @return array<string,callable>
  */
 function loom_css_prop_map() {
-	return array(
+	$map = array(
 		'bgColor'       => static function ( $v ) {
 			$v = loom_css_color( $v );
 			return $v ? 'background-color:' . $v . ';' : '';
@@ -109,6 +109,16 @@ function loom_css_prop_map() {
 			return loom_css_box( 'margin', $v );
 		},
 	);
+
+	/**
+	 * Filters the supported responsive style properties.
+	 *
+	 * Add-ons may register non-CSS values too. Their emitters can return an
+	 * empty string and consume the stored value while rendering markup.
+	 *
+	 * @param array<string,callable> $map Style property emitters.
+	 */
+	return apply_filters( 'loom_css_prop_map', $map );
 }
 
 /**

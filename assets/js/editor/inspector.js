@@ -46,7 +46,10 @@
 			isSection ? el( c.SelectControl, { label: t.columnsHorizontal || 'Columns horizontal alignment', value: st.justify || 'flex-start', options: { 'flex-start': t.alignStart || 'Start', center: t.center || 'Center', 'flex-end': t.alignEnd || 'End', 'space-between': t.alignSpaceBetween || 'Space between' }, onChange: function ( v ) { setStyle( 'justify', v ); } } ) : null,
 			isSection ? el( c.SelectControl, { label: t.columnsVertical || 'Columns vertical alignment', value: st.valign || 'stretch', options: { stretch: t.alignStretch || 'Stretch', 'flex-start': t.alignTop || 'Top', center: t.center || 'Center', 'flex-end': t.alignBottom || 'Bottom' }, onChange: function ( v ) { setStyle( 'valign', v ); } } ) : null,
 			isColumn ? el( c.SelectControl, { label: t.horizontalAlign || 'Horizontal alignment', value: st.valign || 'stretch', options: { stretch: t.alignStretch || 'Stretch', 'flex-start': t.alignStart || 'Start', center: t.center || 'Center', 'flex-end': t.alignEnd || 'End' }, onChange: function ( v ) { setStyle( 'valign', v ); } } ) : null,
-			isColumn ? el( c.SelectControl, { label: t.verticalAlign || 'Vertical alignment', value: st.justify || 'flex-start', options: { 'flex-start': t.alignStart || 'Start', center: t.center || 'Center', 'flex-end': t.alignEnd || 'End', 'space-between': t.alignSpaceBetween || 'Space between' }, onChange: function ( v ) { setStyle( 'justify', v ); } } ) : null
+			isColumn ? el( c.SelectControl, { label: t.verticalAlign || 'Vertical alignment', value: st.justify || 'flex-start', options: { 'flex-start': t.alignStart || 'Start', center: t.center || 'Center', 'flex-end': t.alignEnd || 'End', 'space-between': t.alignSpaceBetween || 'Space between' }, onChange: function ( v ) { setStyle( 'justify', v ); } } ) : null,
+			( L.styleExtensions || [] ).map( function ( render, index ) {
+				return render( { key: index, node: node, device: device, style: st, setStyle: setStyle } );
+			} )
 		);
 	}
 
