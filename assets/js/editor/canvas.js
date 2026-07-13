@@ -60,10 +60,14 @@
 			// section box stays full-bleed so background color/image can span
 			// edge-to-edge while the content itself is boxed (or full width).
 			var outerStyle = Object.assign( {}, style );
+			var rawStyles = ( node.settings && node.settings._style ) || {};
+			// Frontend CSS stacks columns on mobile unless a mobile direction is
+			// explicitly set. Desktop `row` must not override this preview default.
+			var defaultMobileStack = device === 'mobile' && !( rawStyles.mobile && rawStyles.mobile.direction );
 			delete outerStyle.maxWidth;
 			delete outerStyle.marginLeft;
 			delete outerStyle.marginRight;
-			var innerStyle = { display: 'flex', gap: style.gap || '20px', alignItems: style.alignItems || 'stretch', justifyContent: style.justifyContent || 'flex-start', flexDirection: style.flexDirection || ( device === 'mobile' ? 'column' : 'row' ) };
+			var innerStyle = { display: 'flex', gap: style.gap || '20px', alignItems: style.alignItems || 'stretch', justifyContent: style.justifyContent || 'flex-start', flexDirection: defaultMobileStack ? 'column' : ( style.flexDirection || 'row' ) };
 			if ( style.maxWidth ) {
 				innerStyle.maxWidth = style.maxWidth;
 				innerStyle.marginLeft = style.marginLeft || 'auto';
