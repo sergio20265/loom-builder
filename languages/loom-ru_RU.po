@@ -1416,6 +1416,30 @@ msgstr "У вас нет прав для редактирования глоба
 msgid "You have unsaved changes. Leave without saving?"
 msgstr "Есть несохранённые изменения. Покинуть страницу без сохранения?"
 
+msgid "Column basis"
+msgstr "Базис колонки"
+
+msgid "Flex grow"
+msgstr "Рост flex"
+
+msgid "Flex shrink"
+msgstr "Сжатие flex"
+
+msgid "Clear"
+msgstr "Очистить"
+
+msgid "px"
+msgstr "px"
+
+msgid "%"
+msgstr "%"
+
+msgid "vw"
+msgstr "vw"
+
+msgid "vh"
+msgstr "vh"
+
 msgid "YouTube"
 msgstr "YouTube"
 

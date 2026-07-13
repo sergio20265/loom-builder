@@ -232,14 +232,16 @@
 		if ( props.color ) { s.color = props.color; }
 		if ( props.align ) { s.textAlign = props.align; }
 		if ( props.maxWidth ) { s.maxWidth = /[a-z%]$/i.test( String( props.maxWidth ) ) ? props.maxWidth : props.maxWidth + 'px'; s.marginLeft = 'auto'; s.marginRight = 'auto'; }
-		if ( props.minHeight ) { s.minHeight = props.minHeight + 'px'; }
+		if ( props.minHeight ) { s.minHeight = /[a-z%]$/i.test( String( props.minHeight ) ) ? props.minHeight : props.minHeight + 'px'; }
 		if ( props.radius ) { s.borderRadius = props.radius + 'px'; }
 		if ( props.fontSize ) { s.fontSize = props.fontSize + 'px'; }
 		if ( props.fontWeight ) { s.fontWeight = props.fontWeight; }
 		if ( props.lineHeight ) { s.lineHeight = props.lineHeight; }
 		if ( props.letterSpacing ) { s.letterSpacing = props.letterSpacing + 'px'; }
-		if ( props.width ) { s.width = props.width; }
-		if ( props.gap ) { s.gap = props.gap + 'px'; }
+		if ( props.width ) { s.width = /[a-z%]$/i.test( String( props.width ) ) ? props.width : props.width + 'px'; }
+		if ( props.gap ) { s.gap = /[a-z%]$/i.test( String( props.gap ) ) ? props.gap : props.gap + 'px'; }
+		if ( props.flexGrow != null ) { s.flexGrow = props.flexGrow; }
+		if ( props.flexShrink != null ) { s.flexShrink = props.flexShrink; }
 		if ( props.justify ) { s.justifyContent = props.justify; }
 		if ( props.valign ) { s.alignItems = props.valign; }
 		if ( props.direction ) { s.flexDirection = props.direction; }

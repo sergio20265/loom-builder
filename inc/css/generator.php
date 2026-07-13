@@ -95,6 +95,14 @@ function loom_css_prop_map() {
 			$v = loom_css_length( $v, false );
 			return $v ? 'gap:' . $v . ';' : '';
 		},
+		'flexGrow'      => static function ( $v ) {
+			$v = is_numeric( $v ) ? (float) $v : -1;
+			return $v >= 0 && $v <= 10 ? 'flex-grow:' . $v . ';' : '';
+		},
+		'flexShrink'    => static function ( $v ) {
+			$v = is_numeric( $v ) ? (float) $v : -1;
+			return $v >= 0 && $v <= 10 ? 'flex-shrink:' . $v . ';' : '';
+		},
 		'justify'       => static function ( $v ) {
 			$v = loom_css_keyword( $v, array( 'flex-start', 'center', 'flex-end', 'space-between', 'space-around', 'space-evenly', 'start', 'end' ) );
 			return $v ? 'justify-content:' . $v . ';' : '';
@@ -417,7 +425,7 @@ function loom_generate_css( array $tree, $prefix = '' ) {
 					$raw = isset( $style[ $device ]['width'] ) ? $style[ $device ]['width'] : '';
 					$w   = loom_css_length( $raw, false );
 					if ( $w ) {
-						$target .= $sel . '{flex-grow:0 !important;flex-shrink:0 !important;flex-basis:' . $w . ' !important;width:' . $w . ' !important;}';
+						$target .= $sel . '{flex-basis:' . $w . ' !important;width:' . $w . ' !important;}';
 					}
 				}
 				unset( $target );

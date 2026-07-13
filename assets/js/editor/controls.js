@@ -39,6 +39,45 @@
 		return el( Field, { label: p.label + ( p.value || p.value === 0 ? ' (' + p.value + ')' : '' ) }, el( 'input', { type: 'range', min: p.min != null ? p.min : 0, max: p.max != null ? p.max : 100, value: p.value || 0, onChange: function ( e ) { p.onChange( Number( e.target.value ) ); } } ) );
 	}
 
+	/**
+	 * CSS dimension input for layout values. Unlike a range slider it does not
+	 * hide useful responsive units behind an arbitrary upper bound.
+	 */
+	function DimensionControl( p ) {
+		var raw = p.value == null ? '' : String( p.value ).trim();
+		var match = raw.match( /^(-?(?:\d+|\d*\.\d+))(px|%|vw|vh|em|rem)$/i );
+		var defaultUnit = ( p.units && p.units[ 0 ] ) || 'px';
+		var number = match ? match[ 1 ] : ( raw && raw !== 'auto' ? raw : '' );
+		var unit = match ? match[ 2 ].toLowerCase() : ( raw === 'auto' ? 'auto' : defaultUnit );
+		var units = p.units || [ 'px', '%', 'vw', 'vh' ];
+		var labels = {
+			px: t.unitPx || 'px',
+			'%': t.unitPercent || '%',
+			vw: t.unitVw || 'vw',
+			vh: t.unitVh || 'vh',
+			em: 'em', rem: 'rem', auto: t.unitAuto || 'Auto'
+		};
+
+		function apply( nextNumber, nextUnit ) {
+			if ( nextUnit === 'auto' ) { p.onChange( 'auto' ); return; }
+			if ( nextNumber === '' || nextNumber == null ) { p.onChange( '' ); return; }
+			p.onChange( String( nextNumber ) + nextUnit );
+		}
+
+		return el( Field, { label: p.label },
+			el( 'span', { className: 'loom-dimension' },
+				el( 'input', { type: 'number', step: '0.1', value: number, placeholder: '0', disabled: unit === 'auto', onChange: function ( e ) { apply( e.target.value, unit ); } } ),
+				el( 'select', { value: unit, onChange: function ( e ) { apply( number, e.target.value ); } },
+					units.map( function ( key ) { return el( 'option', { key: key, value: key }, labels[ key ] || key ); } )
+				),
+				raw ? el( 'button', { type: 'button', className: 'loom-clear', title: t.clear || 'Clear', onClick: function () { p.onChange( '' ); } }, '×' ) : null
+			),
+			p.presets && p.presets.length ? el( 'span', { className: 'loom-dimension-presets' }, p.presets.map( function ( preset ) {
+				return el( 'button', { key: preset.value, type: 'button', onClick: function () { p.onChange( preset.value ); } }, preset.label || preset.value );
+			} ) ) : null
+		);
+	}
+
 	function ColorControl( p ) {
 		return el( Field, { label: p.label }, el( 'span', { className: 'loom-color' },
 			el( 'input', { type: 'color', value: p.value || '#000000', onChange: function ( e ) { p.onChange( e.target.value ); } } ),
@@ -274,6 +313,7 @@
 		CodeControl: CodeControl,
 		NumberControl: NumberControl,
 		RangeControl: RangeControl,
+		DimensionControl: DimensionControl,
 		ColorControl: ColorControl,
 		SelectControl: SelectControl,
 		ToggleControl: ToggleControl,

@@ -131,6 +131,11 @@ body.loom-editor-fullscreen html.wp-toolbar { padding-top: 0 !important; }
 .loom-color input[type=color] { width: 34px; height: 30px; padding: 0; border: 1px solid #dcdcde; border-radius: 6px; }
 .loom-box { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
 .loom-box input { width: 100%; padding: 5px; border: 1px solid #dcdcde; border-radius: 6px; box-sizing: border-box; }
+.loom-dimension { display: grid; grid-template-columns: minmax(0, 1fr) 68px 24px; gap: 4px; align-items: center; }
+.loom-dimension input, .loom-dimension select { width: 100%; min-width: 0; }
+.loom-dimension-presets { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 5px; }
+.loom-dimension-presets button { border: 1px solid #c7d2fe; border-radius: 5px; background: #f5f8ff; color: #2563eb; padding: 2px 6px; font-size: 11px; cursor: pointer; }
+.loom-dimension-presets button:hover { background: #e0e7ff; }
 .loom-media { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .loom-media-thumb { width: 44px; height: 44px; object-fit: cover; border-radius: 6px; }
 .loom-clear { border: 0; background: #f0f0f1; width: 24px; height: 24px; border-radius: 6px; cursor: pointer; }

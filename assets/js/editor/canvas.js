@@ -85,7 +85,7 @@
 
 		if ( node.type === 'column' ) {
 			var colStyle = Object.assign( { display: 'flex', flexDirection: 'column', flex: '1 1 0', minHeight: '40px' }, style );
-			if ( style.width ) { colStyle.flex = '0 0 ' + style.width; }
+			if ( style.width ) { colStyle.flexBasis = style.width; colStyle.width = style.width; }
 			return el( 'div', {
 				className: 'loom-c-column' + ( selected ? ' is-selected' : '' ),
 				style: colStyle,

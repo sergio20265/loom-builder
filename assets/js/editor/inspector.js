@@ -11,43 +11,6 @@
 
 	var el = L.el, Fragment = L.Fragment, t = L.t, clone = L.clone, widgetDef = L.widgetDef, c = L.controls, ContentControl = L.ContentControl;
 
-	/**
-	 * Section content width: site default, or a custom px / % value (100% is
-	 * an edge-to-edge "full width" section). The outer section box always
-	 * stays full-bleed for backgrounds; this only sizes the inner content.
-	 */
-	function SectionWidthControl( props ) {
-		var raw = props.value || '';
-		var unit = raw.indexOf( '%' ) !== -1 ? 'pct' : ( raw ? 'px' : '' );
-		var num = raw ? parseFloat( raw ) : ( unit === 'pct' ? 100 : 1200 );
-
-		function setMode( mode ) {
-			if ( ! mode ) { props.setStyle( 'maxWidth', '' ); }
-			else if ( mode === 'px' ) { props.setStyle( 'maxWidth', ( unit === 'pct' ? 1200 : num ) + 'px' ); }
-			else { props.setStyle( 'maxWidth', ( unit === 'px' ? 100 : num ) + '%' ); }
-		}
-
-		return el( Fragment, null,
-			el( c.SelectControl, {
-				label: t.contentWidth || 'Content width',
-				value: unit,
-				options: {
-					'': t.contentWidthDefault || 'Site default',
-					px: t.contentWidthPx || 'Custom (px)',
-					pct: t.contentWidthPct || 'Custom (%) / full width',
-				},
-				onChange: setMode,
-			} ),
-			unit ? el( c.RangeControl, {
-				label: t.maxWidth || 'Max width',
-				value: num,
-				min: unit === 'pct' ? 10 : 200,
-				max: unit === 'pct' ? 100 : 2400,
-				onChange: function ( v ) { props.setStyle( 'maxWidth', v + ( unit === 'pct' ? '%' : 'px' ) ); },
-			} ) : null
-		);
-	}
-
 	function StylePanel( props ) {
 		var node = props.node, device = props.device, update = props.update;
 		var st = ( node.settings._style && node.settings._style[ device ] ) || {};
@@ -76,14 +39,16 @@
 			isText ? el( c.ColorControl, { label: t.textColor || 'Text color', value: st.color, onChange: function ( v ) { setStyle( 'color', v ); } } ) : null,
 			isText ? el( c.RangeControl, { label: t.fontSize || 'Font size', value: st.fontSize, min: 8, max: 120, onChange: function ( v ) { setStyle( 'fontSize', v ); } } ) : null,
 			isText ? el( c.SelectControl, { label: t.fontWeight || 'Font weight', value: st.fontWeight || '', options: { '': '—', '300': '300', '400': '400', '500': '500', '600': '600', '700': '700', '800': '800', '900': '900' }, onChange: function ( v ) { setStyle( 'fontWeight', v ); } } ) : null,
-			el( c.RangeControl, { label: t.minHeight || 'Min height', value: st.minHeight, min: 0, max: 900, onChange: function ( v ) { setStyle( 'minHeight', v ); } } ),
+			isContainer ? el( c.DimensionControl, { label: t.minHeight || 'Min height', value: st.minHeight, units: [ 'px', 'vh', 'vw', '%' ], presets: [ { value: '50vh' }, { value: '100vh' } ], onChange: function ( v ) { setStyle( 'minHeight', v ); } } ) : el( c.RangeControl, { label: t.minHeight || 'Min height', value: st.minHeight, min: 0, max: 900, onChange: function ( v ) { setStyle( 'minHeight', v ); } } ),
 			el( c.RangeControl, { label: t.radius || 'Radius', value: st.radius, min: 0, max: 100, onChange: function ( v ) { setStyle( 'radius', v ); } } ),
-			isSection ? el( SectionWidthControl, { value: st.maxWidth, setStyle: setStyle } ) : null,
-			isSection ? el( c.RangeControl, { label: t.columnsGap || 'Columns gap', value: st.gap, min: 0, max: 80, onChange: function ( v ) { setStyle( 'gap', v ); } } ) : null,
+			isSection ? el( c.DimensionControl, { label: t.contentWidth || 'Content width', value: st.maxWidth, units: [ 'px', '%', 'vw' ], presets: [ { value: '100%' }, { value: '100vw' } ], onChange: function ( v ) { setStyle( 'maxWidth', v ); } } ) : null,
+			isSection ? el( c.DimensionControl, { label: t.columnsGap || 'Columns gap', value: st.gap, units: [ 'px', '%', 'vw', 'vh' ], onChange: function ( v ) { setStyle( 'gap', v ); } } ) : null,
 			isSection ? el( c.SelectControl, { label: t.columnsLayout || 'Columns layout', value: st.direction || ( device === 'mobile' ? 'column' : 'row' ), options: { row: t.columnsRow || 'Row', column: t.columnsStack || 'Stack' }, onChange: function ( v ) { setStyle( 'direction', v ); } } ) : null,
 			isSection ? el( c.SelectControl, { label: t.columnsHorizontal || 'Columns horizontal alignment', value: st.justify || 'flex-start', options: { 'flex-start': t.alignStart || 'Start', center: t.center || 'Center', 'flex-end': t.alignEnd || 'End', 'space-between': t.alignSpaceBetween || 'Space between' }, onChange: function ( v ) { setStyle( 'justify', v ); } } ) : null,
 			isSection ? el( c.SelectControl, { label: t.columnsVertical || 'Columns vertical alignment', value: st.valign || 'stretch', options: { stretch: t.alignStretch || 'Stretch', 'flex-start': t.alignTop || 'Top', center: t.center || 'Center', 'flex-end': t.alignBottom || 'Bottom' }, onChange: function ( v ) { setStyle( 'valign', v ); } } ) : null,
-			isColumn ? el( c.RangeControl, { label: t.columnWidth || 'Column width % (0 = auto)', value: st.width ? parseFloat( st.width ) : 0, min: 0, max: 90, onChange: function ( v ) { setStyle( 'width', v > 0 ? v + '%' : '' ); } } ) : null,
+			isColumn ? el( c.DimensionControl, { label: t.columnBasis || 'Column basis', value: st.width, units: [ '%', 'px', 'vw' ], presets: [ { value: '50%' }, { value: '100%' } ], onChange: function ( v ) { setStyle( 'width', v ); } } ) : null,
+			isColumn ? el( c.RangeControl, { label: t.flexGrow || 'Flex grow', value: st.flexGrow, min: 0, max: 10, onChange: function ( v ) { setStyle( 'flexGrow', v ); } } ) : null,
+			isColumn ? el( c.RangeControl, { label: t.flexShrink || 'Flex shrink', value: st.flexShrink, min: 0, max: 10, onChange: function ( v ) { setStyle( 'flexShrink', v ); } } ) : null,
 			isColumn ? el( c.SelectControl, { label: t.horizontalAlign || 'Horizontal alignment', value: st.valign || 'stretch', options: { stretch: t.alignStretch || 'Stretch', 'flex-start': t.alignStart || 'Start', center: t.center || 'Center', 'flex-end': t.alignEnd || 'End' }, onChange: function ( v ) { setStyle( 'valign', v ); } } ) : null,
 			isColumn ? el( c.SelectControl, { label: t.verticalAlign || 'Vertical alignment', value: st.justify || 'flex-start', options: { 'flex-start': t.alignStart || 'Start', center: t.center || 'Center', 'flex-end': t.alignEnd || 'End', 'space-between': t.alignSpaceBetween || 'Space between' }, onChange: function ( v ) { setStyle( 'justify', v ); } } ) : null,
 			// Some widgets (Testimonial, Alert, Contact Form, Team Member...) lay

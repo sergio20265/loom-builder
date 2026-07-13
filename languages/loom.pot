@@ -1446,3 +1446,27 @@ msgstr ""
 
 msgid "Content horizontal alignment"
 msgstr ""
+
+msgid "Column basis"
+msgstr ""
+
+msgid "Flex grow"
+msgstr ""
+
+msgid "Flex shrink"
+msgstr ""
+
+msgid "Clear"
+msgstr ""
+
+msgid "px"
+msgstr ""
+
+msgid "%"
+msgstr ""
+
+msgid "vw"
+msgstr ""
+
+msgid "vh"
+msgstr ""
