@@ -5,7 +5,8 @@
  * styling is emitted inline by the PHP CSS generator scoped to .loom-node-<id>.
  */
 
-.loom-doc { width: 100%; }
+.loom-doc { width: 100%; max-width: 100%; }
+.loom-doc, .loom-doc *, .loom-doc *::before, .loom-doc *::after { box-sizing: border-box; }
 /* "width:100%" resolves against the parent's *content* box (padding
  * excluded), which fights the negative-margin breakout that .alignfull
  * relies on (see render.php) — width:auto lets the margins do the work
@@ -13,9 +14,9 @@
 .loom-doc.alignfull { width: auto; }
 
 /* Structure */
-.loom-section { width: 100%; }
-.loom-section-inner { width: 100%; max-width: var( --loom-container-width, 1200px ); margin: 0 auto; display: flex; flex-wrap: wrap; }
-.loom-section > .loom-section-inner > .loom-column { display: flex; flex-direction: column; flex: 1 1 0; min-width: 0; box-sizing: border-box; }
+.loom-section { width: 100%; max-width: 100%; }
+.loom-section-inner { width: 100%; max-width: var( --loom-container-width, 1200px ); min-width: 0; margin: 0 auto; display: flex; flex-wrap: wrap; }
+.loom-section > .loom-section-inner > .loom-column { display: flex; flex-direction: column; flex: 1 1 0; min-width: 0; max-width: 100%; box-sizing: border-box; }
 
 /* Default columns gap when not overridden by node CSS */
 .loom-section-inner { gap: 20px; }

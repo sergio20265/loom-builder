@@ -64,6 +64,7 @@ body.loom-editor-fullscreen html.wp-toolbar { padding-top: 0 !important; }
 /* Canvas */
 .loom-canvas { min-height: 100%; }
 .loom-canvas-frame { background: #fff; min-height: 80vh; box-shadow: 0 1px 12px rgba(0,0,0,.06); transition: width .2s; }
+.loom-canvas-frame, .loom-canvas-frame *, .loom-canvas-frame *::before, .loom-canvas-frame *::after { box-sizing: border-box; }
 .loom-canvas-empty { padding: 80px 20px; text-align: center; color: #9aa0a6; }
 .loom-add-section, .loom-add-col, .loom-add-nested-section { display: block; width: 100%; margin: 12px 0; padding: 10px; border: 2px dashed #c7d2fe; background: #f5f8ff; color: #2563eb; border-radius: 8px; cursor: pointer; font-weight: 600; }
 .loom-add-col { margin: 8px 0 0; padding: 6px; font-size: 11px; }
