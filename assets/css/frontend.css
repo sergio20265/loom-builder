@@ -17,6 +17,11 @@
  * supplied by the theme would otherwise render beside it as a duplicate. */
 .loom-has-header-template .wp-site-blocks > header.wp-block-template-part { display: none; }
 .loom-has-footer-template .wp-site-blocks > footer.wp-block-template-part { display: none; }
+/* Full-site block themes reserve a large top rhythm for their own header.
+ * Once Loom replaces that header, remove only that shell spacing — Loom
+ * section padding remains the source of vertical rhythm for the page. */
+.loom-has-header-template .wp-site-blocks > main { margin-top: 0 !important; }
+.loom-has-header-template .wp-site-blocks > main > .wp-block-group.has-global-padding:first-child { padding-top: 0 !important; }
 
 /* Structure */
 .loom-section { width: 100%; }
