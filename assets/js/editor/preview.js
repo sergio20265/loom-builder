@@ -16,6 +16,11 @@
 
 	L.widgetPreview = function widgetPreview( node ) {
 		var s = node.settings || {};
+		var extensions = L.widgetPreviewExtensions || [];
+		for ( var i = 0; i < extensions.length; i++ ) {
+			var extensionPreview = extensions[ i ]( node );
+			if ( extensionPreview ) { return extensionPreview; }
+		}
 		switch ( node.widget ) {
 			case 'heading':
 				var tag = s.tag || 'h2';

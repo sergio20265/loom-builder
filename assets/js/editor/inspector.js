@@ -132,6 +132,10 @@
 			} );
 		}
 
+		var extensionControls = ( L.contentExtensions || [] ).map( function ( render, index ) {
+			return render( { key: index, node: node, setSetting: setSetting, setMany: setMany } );
+		} );
+
 		return el( 'div', { className: 'loom-inspector' },
 			el( 'div', { className: 'loom-inspector-head' }, title ),
 			el( 'div', { className: 'loom-tabs' },
@@ -140,7 +144,7 @@
 				} )
 			),
 			el( 'div', { className: 'loom-inspector-body' },
-				tab === 'content' ? ( contentControls.length ? contentControls : el( 'p', { className: 'loom-muted' }, node.type === 'section' ? ( t.adjustLayout || 'Adjust layout in the Style tab.' ) : '' ) ) : null,
+				tab === 'content' ? el( Fragment, null, contentControls.length ? contentControls : ( node.type === 'section' ? el( 'p', { className: 'loom-muted' }, t.adjustLayout || 'Adjust layout in the Style tab.' ) : null ), extensionControls ) : null,
 				tab === 'style' ? el( Fragment, null, contentControls, el( StylePanel, { node: node, device: props.device, update: update } ) ) : null,
 				tab === 'advanced' ? el( AdvancedPanel, { node: node, update: update } ) : null
 			)

@@ -43,6 +43,14 @@
 	L.registerStyleControl = function ( render ) {
 		if ( typeof render === 'function' ) { L.styleExtensions.push( render ); }
 	};
+	L.contentExtensions = [];
+	L.registerContentControl = function ( render ) {
+		if ( typeof render === 'function' ) { L.contentExtensions.push( render ); }
+	};
+	L.widgetPreviewExtensions = [];
+	L.registerWidgetPreview = function ( render ) {
+		if ( typeof render === 'function' ) { L.widgetPreviewExtensions.push( render ); }
+	};
 
 	// ---- helpers ----------------------------------------------------------
 
