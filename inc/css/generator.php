@@ -170,6 +170,9 @@ function loom_css_color( $v ) {
 	if ( sanitize_hex_color( $v ) ) {
 		return sanitize_hex_color( $v );
 	}
+	if ( preg_match( '/^var\(--loom-pro-(?:primary|secondary|accent|surface|surface-alt|text|muted|border|on-primary)\)$/', $v ) ) {
+		return $v;
+	}
 	if ( in_array( strtolower( $v ), array( 'transparent', 'currentcolor', 'inherit' ), true ) ) {
 		return strtolower( $v );
 	}
