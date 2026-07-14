@@ -239,7 +239,7 @@
 			case 'imageobj': return el( ImageObjControl, { label: c.label, value: p.value, onChange: p.onChange } );
 			case 'select': return el( SelectControl, { label: c.label, value: p.value, options: c.options, onChange: p.onChange } );
 			case 'toggle': return el( ToggleControl, { label: c.label, value: p.value, onChange: p.onChange } );
-			case 'color': return el( ColorControl, { label: c.label, value: p.value, onChange: p.onChange } );
+			case 'color': return el( ( L.controls && L.controls.ColorControl ) || ColorControl, { label: c.label, value: p.value, onChange: p.onChange } );
 			default: return el( TextControl, { label: c.label, value: p.value, onChange: p.onChange } );
 		}
 	}
@@ -268,7 +268,7 @@
 			case 'richtext': base = el( TextareaControl, { label: c.label + ' (HTML)', value: val, onChange: set } ); break;
 			case 'number': base = el( NumberControl, { label: c.label, value: val, onChange: set } ); break;
 			case 'range': base = el( RangeControl, { label: c.label, value: val, min: c.min, max: c.max, onChange: set } ); break;
-			case 'color': base = el( ColorControl, { label: c.label, value: val, onChange: set } ); break;
+			case 'color': base = el( ( L.controls && L.controls.ColorControl ) || ColorControl, { label: c.label, value: val, onChange: set } ); break;
 			case 'select': base = el( SelectControl, { label: c.label, value: val, options: c.options, onChange: set } ); break;
 			case 'toggle': base = el( ToggleControl, { label: c.label, value: val, onChange: set } ); break;
 			case 'url': base = el( UrlControl, { label: c.label, value: val, onChange: set } ); break;
