@@ -167,7 +167,7 @@ body.loom-editor-fullscreen html.wp-toolbar { padding-top: 0 !important; }
 .loom-clear { border: 0; background: #f0f0f1; width: 24px; height: 24px; border-radius: 6px; cursor: pointer; }
 
 /* In-canvas widget preview baseline (mirrors frontend) */
-.loom-c-widget .loom-heading { margin: 0; }
+.loom-c-widget .loom-heading { margin: 0; color: inherit; }
 .loom-c-widget .loom-button { display: inline-block; text-decoration: none; cursor: default; }
 .loom-c-widget .loom-image img { max-width: 100%; height: auto; display: block; }
 .loom-image-placeholder { display: block; padding: 30px; text-align: center; color: #9aa0a6; background: #f8f9fb; border: 1px dashed #dcdcde; }
