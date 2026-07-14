@@ -283,20 +283,16 @@ function loom_footer() {
 }
 
 /**
- * Mark block-theme pages that are using Loom site templates.
+ * Mark pages that are using Loom site templates.
  *
- * A block theme renders its own header/footer template parts after
- * wp_body_open(). The fallback renderer below therefore needs a small,
- * explicit compatibility hook to prevent two site headers or footers from
- * appearing together. Classic themes are left untouched.
+ * The fallback renderer injects Loom templates independently from the theme.
+ * These classes let the frontend stylesheet suppress the corresponding theme
+ * chrome for both block and classic themes, preventing duplicate site parts.
  *
  * @param string[] $classes Existing body classes.
  * @return string[]
  */
 function loom_template_body_classes( $classes ) {
-	if ( ! function_exists( 'wp_is_block_theme' ) || ! wp_is_block_theme() ) {
-		return $classes;
-	}
 	if ( loom_get_active_templates( 'header' ) ) {
 		$classes[] = 'loom-has-header-template';
 	}

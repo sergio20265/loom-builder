@@ -13,10 +13,33 @@
  * and the wrapper actually reaches the viewport edge. */
 .loom-doc.alignfull { width: auto; }
 
-/* When a Loom Header/Footer is active in a block theme, the template part
- * supplied by the theme would otherwise render beside it as a duplicate. */
-.loom-has-header-template .wp-site-blocks > header.wp-block-template-part { display: none; }
-.loom-has-footer-template .wp-site-blocks > footer.wp-block-template-part { display: none; }
+/* A Loom Header/Footer replaces the matching site chrome. Themes use several
+ * common wrappers, so cover block, classic and page-builder conventions while
+ * leaving the generated .loom-template itself untouched. */
+.loom-has-header-template :where(
+	.wp-site-blocks > header.wp-block-template-part,
+	.wp-block-template-part[class*="header"],
+	#masthead, #site-header, #header, .site-header,
+	.et-l--header, [data-elementor-type="header"]
+),
+body.loom-has-header-template > header,
+body.loom-has-header-template > #page > header,
+body.loom-has-header-template > .site > header {
+	display: none !important;
+}
+.loom-has-footer-template :where(
+	.wp-site-blocks > footer.wp-block-template-part,
+	.wp-block-template-part[class*="footer"],
+	#colophon, #site-footer, #footer, .site-footer,
+	.et-l--footer, [data-elementor-type="footer"]
+) { display: none !important; }
+body.loom-has-footer-template > footer,
+body.loom-has-footer-template > #page > footer,
+body.loom-has-footer-template > .site > footer { display: none !important; }
+/* A custom theme may call loom_header()/loom_footer() inside its own semantic
+ * wrapper. Keep that wrapper visible: the Loom template is then its content. */
+.loom-has-header-template header:has(> .loom-template),
+.loom-has-footer-template footer:has(> .loom-template) { display: block !important; }
 /* Full-site block themes reserve a large top rhythm for their own header.
  * Once Loom replaces that header, remove only that shell spacing — Loom
  * section padding remains the source of vertical rhythm for the page. */
