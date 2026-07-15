@@ -112,34 +112,34 @@ function loom_code_user_can() {
  */
 function loom_code_render_tab() {
 	if ( ! loom_code_user_can() ) {
-		echo '<p>' . esc_html__( 'You do not have permission to edit global code.', 'loom' ) . '</p>';
+		echo '<p>' . esc_html__( 'You do not have permission to edit global code.', 'loom-builder' ) . '</p>';
 		return;
 	}
 
 	if ( isset( $_POST['loom_code_save'] ) && check_admin_referer( 'loom_code_save', 'loom_code_nonce' ) ) {
 		loom_code_handle_save();
-		echo '<div class="notice notice-success is-dismissible"><p>' . esc_html__( 'Settings saved.', 'loom' ) . '</p></div>';
+		echo '<div class="notice notice-success is-dismissible"><p>' . esc_html__( 'Settings saved.', 'loom-builder' ) . '</p></div>';
 	}
 
 	$c = loom_code_all();
 	?>
 	<form method="post">
 		<?php wp_nonce_field( 'loom_code_save', 'loom_code_nonce' ); ?>
-		<p class="description"><?php esc_html_e( 'Snippets are printed on every page of the site. Use for analytics, verification tags and global styles.', 'loom' ); ?></p>
+		<p class="description"><?php esc_html_e( 'Snippets are printed on every page of the site. Use for analytics, verification tags and global styles.', 'loom-builder' ); ?></p>
 
-		<h2><?php esc_html_e( 'Header code (before </head>)', 'loom' ); ?></h2>
+		<h2><?php esc_html_e( 'Header code (before </head>)', 'loom-builder' ); ?></h2>
 		<textarea name="loom_code[head]" rows="6" class="large-text code" spellcheck="false" placeholder="<!-- Yandex.Metrica / Google Analytics / verification -->"><?php echo esc_textarea( $c['head'] ); ?></textarea>
 
-		<h2><?php esc_html_e( 'Body code (after <body>)', 'loom' ); ?></h2>
+		<h2><?php esc_html_e( 'Body code (after <body>)', 'loom-builder' ); ?></h2>
 		<textarea name="loom_code[body]" rows="5" class="large-text code" spellcheck="false" placeholder="<!-- e.g. GTM noscript -->"><?php echo esc_textarea( $c['body'] ); ?></textarea>
 
-		<h2><?php esc_html_e( 'Footer code (before </body>)', 'loom' ); ?></h2>
+		<h2><?php esc_html_e( 'Footer code (before </body>)', 'loom-builder' ); ?></h2>
 		<textarea name="loom_code[footer]" rows="5" class="large-text code" spellcheck="false"><?php echo esc_textarea( $c['footer'] ); ?></textarea>
 
-		<h2><?php esc_html_e( 'Custom CSS', 'loom' ); ?></h2>
+		<h2><?php esc_html_e( 'Custom CSS', 'loom-builder' ); ?></h2>
 		<textarea name="loom_code[css]" rows="8" class="large-text code" spellcheck="false" placeholder=".my-class { color: #2563eb; }"><?php echo esc_textarea( $c['css'] ); ?></textarea>
 
-		<p class="submit"><button type="submit" name="loom_code_save" value="1" class="button button-primary"><?php esc_html_e( 'Save settings', 'loom' ); ?></button></p>
+		<p class="submit"><button type="submit" name="loom_code_save" value="1" class="button button-primary"><?php esc_html_e( 'Save settings', 'loom-builder' ); ?></button></p>
 	</form>
 	<?php
 }

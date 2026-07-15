@@ -21,7 +21,7 @@ add_action( 'add_meta_boxes', 'loom_group_meta_boxes' );
 function loom_group_meta_boxes() {
 	add_meta_box(
 		'loom-group-builder',
-		__( 'Fields & Location', 'loom' ),
+		__( 'Fields & Location', 'loom-builder' ),
 		'loom_group_meta_box',
 		'loom_field_group',
 		'normal',
@@ -66,15 +66,15 @@ function loom_group_meta_box( $post ) {
 			'postTypes'  => $post_types,
 			'templates'  => $templates,
 			'i18n'       => array(
-				'addField'   => __( 'Add Field', 'loom' ),
-				'addRule'    => __( 'Add Rule', 'loom' ),
-				'label'      => __( 'Label', 'loom' ),
-				'name'       => __( 'Name', 'loom' ),
-				'type'       => __( 'Type', 'loom' ),
-				'choices'    => __( 'Choices (one per line, value:Label)', 'loom' ),
-				'subFields'  => __( 'Sub fields', 'loom' ),
-				'location'   => __( 'Show this group on', 'loom' ),
-				'remove'     => __( 'Remove', 'loom' ),
+				'addField'   => __( 'Add Field', 'loom-builder' ),
+				'addRule'    => __( 'Add Rule', 'loom-builder' ),
+				'label'      => __( 'Label', 'loom-builder' ),
+				'name'       => __( 'Name', 'loom-builder' ),
+				'type'       => __( 'Type', 'loom-builder' ),
+				'choices'    => __( 'Choices (one per line, value:Label)', 'loom-builder' ),
+				'subFields'  => __( 'Sub fields', 'loom-builder' ),
+				'location'   => __( 'Show this group on', 'loom-builder' ),
+				'remove'     => __( 'Remove', 'loom-builder' ),
 			),
 		)
 	);

@@ -32,54 +32,54 @@ add_action(
 		$registry->register(
 			array(
 				'id'       => 'posts',
-				'title'    => __( 'Posts', 'loom' ),
+				'title'    => __( 'Posts', 'loom-builder' ),
 				'icon'     => 'admin-post',
 				'category' => 'basic',
 				'controls' => array(
 					'postType'    => array(
 						'type'    => 'select',
-						'label'   => __( 'Post type', 'loom' ),
+						'label'   => __( 'Post type', 'loom-builder' ),
 						'default' => 'post',
 						'options' => loom_post_type_choices(),
 						'section' => 'content',
 					),
 					'category'    => array(
 						'type'    => 'text',
-						'label'   => __( 'Category slug (posts only)', 'loom' ),
+						'label'   => __( 'Category slug (posts only)', 'loom-builder' ),
 						'default' => '',
 						'section' => 'content',
 					),
-					'count'       => array( 'type' => 'number', 'label' => __( 'Number of posts', 'loom' ), 'default' => 6, 'section' => 'content' ),
-					'colsD'       => array( 'type' => 'range', 'label' => __( 'Columns: desktop', 'loom' ), 'default' => 3, 'min' => 1, 'max' => 6, 'section' => 'content' ),
-					'colsT'       => array( 'type' => 'range', 'label' => __( 'Columns: tablet', 'loom' ), 'default' => 2, 'min' => 1, 'max' => 4, 'section' => 'content' ),
-					'colsM'       => array( 'type' => 'range', 'label' => __( 'Columns: mobile', 'loom' ), 'default' => 1, 'min' => 1, 'max' => 3, 'section' => 'content' ),
+					'count'       => array( 'type' => 'number', 'label' => __( 'Number of posts', 'loom-builder' ), 'default' => 6, 'section' => 'content' ),
+					'colsD'       => array( 'type' => 'range', 'label' => __( 'Columns: desktop', 'loom-builder' ), 'default' => 3, 'min' => 1, 'max' => 6, 'section' => 'content' ),
+					'colsT'       => array( 'type' => 'range', 'label' => __( 'Columns: tablet', 'loom-builder' ), 'default' => 2, 'min' => 1, 'max' => 4, 'section' => 'content' ),
+					'colsM'       => array( 'type' => 'range', 'label' => __( 'Columns: mobile', 'loom-builder' ), 'default' => 1, 'min' => 1, 'max' => 3, 'section' => 'content' ),
 					'orderby'     => array(
 						'type'    => 'select',
-						'label'   => __( 'Order by', 'loom' ),
+						'label'   => __( 'Order by', 'loom-builder' ),
 						'default' => 'date',
 						'options' => array(
-							'date'       => __( 'Newest', 'loom' ),
-							'title'      => __( 'Title', 'loom' ),
-							'menu_order' => __( 'Menu order', 'loom' ),
-							'rand'       => __( 'Random', 'loom' ),
+							'date'       => __( 'Newest', 'loom-builder' ),
+							'title'      => __( 'Title', 'loom-builder' ),
+							'menu_order' => __( 'Menu order', 'loom-builder' ),
+							'rand'       => __( 'Random', 'loom-builder' ),
 						),
 						'section' => 'content',
 					),
 					'order'       => array(
 						'type'    => 'select',
-						'label'   => __( 'Order', 'loom' ),
+						'label'   => __( 'Order', 'loom-builder' ),
 						'default' => 'DESC',
 						'options' => array(
-							'DESC' => __( 'Descending', 'loom' ),
-							'ASC'  => __( 'Ascending', 'loom' ),
+							'DESC' => __( 'Descending', 'loom-builder' ),
+							'ASC'  => __( 'Ascending', 'loom-builder' ),
 						),
 						'section' => 'content',
 					),
-					'showImage'   => array( 'type' => 'toggle', 'label' => __( 'Show image', 'loom' ), 'default' => true, 'section' => 'content' ),
-					'showDate'    => array( 'type' => 'toggle', 'label' => __( 'Show date', 'loom' ), 'default' => true, 'section' => 'content' ),
-					'showExcerpt' => array( 'type' => 'toggle', 'label' => __( 'Show excerpt', 'loom' ), 'default' => true, 'section' => 'content' ),
-					'excerptWords' => array( 'type' => 'number', 'label' => __( 'Excerpt words', 'loom' ), 'default' => 20, 'section' => 'content' ),
-					'gap'         => array( 'type' => 'range', 'label' => __( 'Gap (px)', 'loom' ), 'default' => 24, 'min' => 0, 'max' => 60, 'section' => 'style' ),
+					'showImage'   => array( 'type' => 'toggle', 'label' => __( 'Show image', 'loom-builder' ), 'default' => true, 'section' => 'content' ),
+					'showDate'    => array( 'type' => 'toggle', 'label' => __( 'Show date', 'loom-builder' ), 'default' => true, 'section' => 'content' ),
+					'showExcerpt' => array( 'type' => 'toggle', 'label' => __( 'Show excerpt', 'loom-builder' ), 'default' => true, 'section' => 'content' ),
+					'excerptWords' => array( 'type' => 'number', 'label' => __( 'Excerpt words', 'loom-builder' ), 'default' => 20, 'section' => 'content' ),
+					'gap'         => array( 'type' => 'range', 'label' => __( 'Gap (px)', 'loom-builder' ), 'default' => 24, 'min' => 0, 'max' => 60, 'section' => 'style' ),
 				),
 				'render'   => 'loom_render_posts',
 			)
@@ -115,7 +115,7 @@ function loom_render_posts( $s ) {
 
 	$query = new WP_Query( $args );
 	if ( ! $query->have_posts() ) {
-		return '<div class="loom-posts-empty">' . esc_html__( 'No posts found.', 'loom' ) . '</div>';
+		return '<div class="loom-posts-empty">' . esc_html__( 'No posts found.', 'loom-builder' ) . '</div>';
 	}
 
 	$cols_d = max( 1, (int) $s['colsD'] );

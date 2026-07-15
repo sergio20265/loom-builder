@@ -16,26 +16,26 @@ add_action(
 		$registry->register(
 			array(
 				'id'       => 'table',
-				'title'    => __( 'Table', 'loom' ),
+				'title'    => __( 'Table', 'loom-builder' ),
 				'icon'     => 'editor-table',
 				'category' => 'basic',
 				'controls' => array(
 					'rows'      => array(
 						'type'       => 'repeater',
-						'label'      => __( 'Rows', 'loom' ),
+						'label'      => __( 'Rows', 'loom-builder' ),
 						'section'    => 'content',
 						'titleField' => 'cells',
 						'fields'     => array(
-							'cells' => array( 'type' => 'text', 'label' => __( 'Cells (separate with |)', 'loom' ), 'default' => '' ),
+							'cells' => array( 'type' => 'text', 'label' => __( 'Cells (separate with |)', 'loom-builder' ), 'default' => '' ),
 						),
 						'default'    => array(
-							array( 'cells' => __( 'Column A', 'loom' ) . ' | ' . __( 'Column B', 'loom' ) ),
-							array( 'cells' => __( 'Value 1', 'loom' ) . ' | ' . __( 'Value 2', 'loom' ) ),
+							array( 'cells' => __( 'Column A', 'loom-builder' ) . ' | ' . __( 'Column B', 'loom-builder' ) ),
+							array( 'cells' => __( 'Value 1', 'loom-builder' ) . ' | ' . __( 'Value 2', 'loom-builder' ) ),
 						),
 					),
-					'headerRow' => array( 'type' => 'toggle', 'label' => __( 'First row is header', 'loom' ), 'default' => true, 'section' => 'content' ),
-					'striped'   => array( 'type' => 'toggle', 'label' => __( 'Striped rows', 'loom' ), 'default' => true, 'section' => 'content' ),
-					'bordered'  => array( 'type' => 'toggle', 'label' => __( 'Bordered', 'loom' ), 'default' => true, 'section' => 'content' ),
+					'headerRow' => array( 'type' => 'toggle', 'label' => __( 'First row is header', 'loom-builder' ), 'default' => true, 'section' => 'content' ),
+					'striped'   => array( 'type' => 'toggle', 'label' => __( 'Striped rows', 'loom-builder' ), 'default' => true, 'section' => 'content' ),
+					'bordered'  => array( 'type' => 'toggle', 'label' => __( 'Bordered', 'loom-builder' ), 'default' => true, 'section' => 'content' ),
 				),
 				'render'   => 'loom_render_table',
 			)
@@ -52,7 +52,7 @@ add_action(
 function loom_render_table( $s ) {
 	$rows = isset( $s['rows'] ) && is_array( $s['rows'] ) ? $s['rows'] : array();
 	if ( empty( $rows ) ) {
-		return '<div class="loom-table-empty">' . esc_html__( 'Add table rows.', 'loom' ) . '</div>';
+		return '<div class="loom-table-empty">' . esc_html__( 'Add table rows.', 'loom-builder' ) . '</div>';
 	}
 
 	$header = ! empty( $s['headerRow'] );

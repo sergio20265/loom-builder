@@ -74,7 +74,7 @@ function loom_render_settings_page() {
 	// Save.
 	if ( isset( $_POST['loom_seo_save'] ) && check_admin_referer( 'loom_seo_save', 'loom_seo_nonce' ) ) {
 		loom_seo_handle_save();
-		echo '<div class="notice notice-success is-dismissible"><p>' . esc_html__( 'Settings saved.', 'loom' ) . '</p></div>';
+		echo '<div class="notice notice-success is-dismissible"><p>' . esc_html__( 'Settings saved.', 'loom-builder' ) . '</p></div>';
 	}
 
 	$s = loom_seo_all();
@@ -85,66 +85,66 @@ function loom_render_settings_page() {
 		<form method="post">
 			<?php wp_nonce_field( 'loom_seo_save', 'loom_seo_nonce' ); ?>
 
-			<h2><?php esc_html_e( 'General', 'loom' ); ?></h2>
+			<h2><?php esc_html_e( 'General', 'loom-builder' ); ?></h2>
 			<table class="form-table" role="presentation">
 				<tr>
-					<th><label for="separator"><?php esc_html_e( 'Title separator', 'loom' ); ?></label></th>
+					<th><label for="separator"><?php esc_html_e( 'Title separator', 'loom-builder' ); ?></label></th>
 					<td><input type="text" id="separator" name="loom_seo[separator]" value="<?php echo esc_attr( $s['separator'] ); ?>" class="small-text"></td>
 				</tr>
 				<tr>
-					<th><label for="home_title"><?php esc_html_e( 'Home title', 'loom' ); ?></label></th>
+					<th><label for="home_title"><?php esc_html_e( 'Home title', 'loom-builder' ); ?></label></th>
 					<td><input type="text" id="home_title" name="loom_seo[home_title]" value="<?php echo esc_attr( $s['home_title'] ); ?>" class="large-text" placeholder="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"></td>
 				</tr>
 				<tr>
-					<th><label for="home_description"><?php esc_html_e( 'Home description', 'loom' ); ?></label></th>
+					<th><label for="home_description"><?php esc_html_e( 'Home description', 'loom-builder' ); ?></label></th>
 					<td><textarea id="home_description" name="loom_seo[home_description]" rows="2" class="large-text"><?php echo esc_textarea( $s['home_description'] ); ?></textarea></td>
 				</tr>
 				<tr>
-					<th><label for="default_og"><?php esc_html_e( 'Default share image', 'loom' ); ?></label></th>
+					<th><label for="default_og"><?php esc_html_e( 'Default share image', 'loom-builder' ); ?></label></th>
 					<td><?php loom_seo_image_field( 'loom_seo[default_og]', $s['default_og'] ); ?></td>
 				</tr>
 				<tr>
-					<th><label for="twitter"><?php esc_html_e( 'Twitter @username', 'loom' ); ?></label></th>
+					<th><label for="twitter"><?php esc_html_e( 'Twitter @username', 'loom-builder' ); ?></label></th>
 					<td><input type="text" id="twitter" name="loom_seo[twitter]" value="<?php echo esc_attr( $s['twitter'] ); ?>" class="regular-text" placeholder="@brand"></td>
 				</tr>
 			</table>
 
-			<h2><?php esc_html_e( 'Organization / Schema', 'loom' ); ?></h2>
+			<h2><?php esc_html_e( 'Organization / Schema', 'loom-builder' ); ?></h2>
 			<table class="form-table" role="presentation">
 				<tr>
-					<th><?php esc_html_e( 'Entity type', 'loom' ); ?></th>
+					<th><?php esc_html_e( 'Entity type', 'loom-builder' ); ?></th>
 					<td>
 						<select name="loom_seo[org_type]">
-							<option value="Organization" <?php selected( $s['org_type'], 'Organization' ); ?>><?php esc_html_e( 'Organization', 'loom' ); ?></option>
-							<option value="Person" <?php selected( $s['org_type'], 'Person' ); ?>><?php esc_html_e( 'Person', 'loom' ); ?></option>
+							<option value="Organization" <?php selected( $s['org_type'], 'Organization' ); ?>><?php esc_html_e( 'Organization', 'loom-builder' ); ?></option>
+							<option value="Person" <?php selected( $s['org_type'], 'Person' ); ?>><?php esc_html_e( 'Person', 'loom-builder' ); ?></option>
 						</select>
 					</td>
 				</tr>
 				<tr>
-					<th><label for="org_name"><?php esc_html_e( 'Name', 'loom' ); ?></label></th>
+					<th><label for="org_name"><?php esc_html_e( 'Name', 'loom-builder' ); ?></label></th>
 					<td><input type="text" id="org_name" name="loom_seo[org_name]" value="<?php echo esc_attr( $s['org_name'] ); ?>" class="regular-text" placeholder="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"></td>
 				</tr>
 				<tr>
-					<th><?php esc_html_e( 'Logo', 'loom' ); ?></th>
+					<th><?php esc_html_e( 'Logo', 'loom-builder' ); ?></th>
 					<td><?php loom_seo_image_field( 'loom_seo[org_logo]', $s['org_logo'] ); ?></td>
 				</tr>
 				<tr>
-					<th><label for="social_profiles"><?php esc_html_e( 'Social profile URLs', 'loom' ); ?></label></th>
+					<th><label for="social_profiles"><?php esc_html_e( 'Social profile URLs', 'loom-builder' ); ?></label></th>
 					<td>
 						<textarea id="social_profiles" name="loom_seo[social_profiles]" rows="4" class="large-text" placeholder="https://facebook.com/...&#10;https://instagram.com/..."><?php echo esc_textarea( $s['social_profiles'] ); ?></textarea>
-						<p class="description"><?php esc_html_e( 'One URL per line (used for sameAs).', 'loom' ); ?></p>
+						<p class="description"><?php esc_html_e( 'One URL per line (used for sameAs).', 'loom-builder' ); ?></p>
 					</td>
 				</tr>
 				<tr>
-					<th><?php esc_html_e( 'Enabled schemas', 'loom' ); ?></th>
+					<th><?php esc_html_e( 'Enabled schemas', 'loom-builder' ); ?></th>
 					<td>
 						<?php
 						$schemas = array(
-							'schema_org'        => __( 'Organization / Person', 'loom' ),
-							'schema_website'    => __( 'WebSite (+ search box)', 'loom' ),
-							'schema_breadcrumb' => __( 'Breadcrumbs', 'loom' ),
-							'schema_article'    => __( 'Article (posts)', 'loom' ),
-							'schema_product'    => __( 'Product (WooCommerce)', 'loom' ),
+							'schema_org'        => __( 'Organization / Person', 'loom-builder' ),
+							'schema_website'    => __( 'WebSite (+ search box)', 'loom-builder' ),
+							'schema_breadcrumb' => __( 'Breadcrumbs', 'loom-builder' ),
+							'schema_article'    => __( 'Article (posts)', 'loom-builder' ),
+							'schema_product'    => __( 'Product (WooCommerce)', 'loom-builder' ),
 						);
 						foreach ( $schemas as $key => $label ) {
 							echo '<label style="display:block;margin-bottom:4px"><input type="checkbox" name="loom_seo[' . esc_attr( $key ) . ']" value="1"' . checked( $s[ $key ], 1, false ) . '> ' . esc_html( $label ) . '</label>';
@@ -154,47 +154,47 @@ function loom_render_settings_page() {
 				</tr>
 			</table>
 
-			<h2><?php esc_html_e( 'Sitemap & Robots', 'loom' ); ?></h2>
+			<h2><?php esc_html_e( 'Sitemap & Robots', 'loom-builder' ); ?></h2>
 			<table class="form-table" role="presentation">
 				<tr>
-					<th><?php esc_html_e( 'XML sitemap', 'loom' ); ?></th>
+					<th><?php esc_html_e( 'XML sitemap', 'loom-builder' ); ?></th>
 					<td>
-						<label><input type="checkbox" name="loom_seo[enable_sitemap]" value="1"<?php checked( $s['enable_sitemap'], 1 ); ?>> <?php esc_html_e( 'Enable', 'loom' ); ?></label>
+						<label><input type="checkbox" name="loom_seo[enable_sitemap]" value="1"<?php checked( $s['enable_sitemap'], 1 ); ?>> <?php esc_html_e( 'Enable', 'loom-builder' ); ?></label>
 						<?php if ( $s['enable_sitemap'] ) : ?>
 							<p class="description"><a href="<?php echo esc_url( home_url( '/sitemap.xml' ) ); ?>" target="_blank"><?php echo esc_html( home_url( '/sitemap.xml' ) ); ?></a></p>
 						<?php endif; ?>
 					</td>
 				</tr>
 				<tr>
-					<th><label for="robots_extra"><?php esc_html_e( 'Extra robots.txt rules', 'loom' ); ?></label></th>
+					<th><label for="robots_extra"><?php esc_html_e( 'Extra robots.txt rules', 'loom-builder' ); ?></label></th>
 					<td><textarea id="robots_extra" name="loom_seo[robots_extra]" rows="4" class="large-text" placeholder="Disallow: /private/"><?php echo esc_textarea( $s['robots_extra'] ); ?></textarea></td>
 				</tr>
 			</table>
 
-			<h2><?php esc_html_e( 'Frontend cleanup', 'loom' ); ?></h2>
+			<h2><?php esc_html_e( 'Frontend cleanup', 'loom-builder' ); ?></h2>
 			<table class="form-table" role="presentation">
 				<tr>
-					<th><?php esc_html_e( 'Admin bar', 'loom' ); ?></th>
+					<th><?php esc_html_e( 'Admin bar', 'loom-builder' ); ?></th>
 					<td>
-						<label><input type="checkbox" name="loom_seo[hide_admin_bar]" value="1"<?php checked( $s['hide_admin_bar'], 1 ); ?>> <?php esc_html_e( 'Hide the admin bar on the frontend', 'loom' ); ?></label>
+						<label><input type="checkbox" name="loom_seo[hide_admin_bar]" value="1"<?php checked( $s['hide_admin_bar'], 1 ); ?>> <?php esc_html_e( 'Hide the admin bar on the frontend', 'loom-builder' ); ?></label>
 					</td>
 				</tr>
 				<tr>
-					<th><?php esc_html_e( 'REST API', 'loom' ); ?></th>
+					<th><?php esc_html_e( 'REST API', 'loom-builder' ); ?></th>
 					<td>
-						<label><input type="checkbox" name="loom_seo[disable_rest]" value="1"<?php checked( $s['disable_rest'], 1 ); ?>> <?php esc_html_e( 'Disable REST API requests for logged-out visitors', 'loom' ); ?></label>
-						<p class="description"><?php esc_html_e( 'Authenticated users and the Loom editor remain available.', 'loom' ); ?></p>
+						<label><input type="checkbox" name="loom_seo[disable_rest]" value="1"<?php checked( $s['disable_rest'], 1 ); ?>> <?php esc_html_e( 'Disable REST API requests for logged-out visitors', 'loom-builder' ); ?></label>
+						<p class="description"><?php esc_html_e( 'Authenticated users and the Loom editor remain available.', 'loom-builder' ); ?></p>
 					</td>
 				</tr>
 				<tr>
-					<th><?php esc_html_e( 'WordPress head output', 'loom' ); ?></th>
+					<th><?php esc_html_e( 'WordPress head output', 'loom-builder' ); ?></th>
 					<td>
-						<label><input type="checkbox" name="loom_seo[cleanup_wp_head]" value="1"<?php checked( $s['cleanup_wp_head'], 1 ); ?>> <?php esc_html_e( 'Remove generator, shortlink, RSD, WLW, REST, oEmbed and emoji frontend extras', 'loom' ); ?></label>
+						<label><input type="checkbox" name="loom_seo[cleanup_wp_head]" value="1"<?php checked( $s['cleanup_wp_head'], 1 ); ?>> <?php esc_html_e( 'Remove generator, shortlink, RSD, WLW, REST, oEmbed and emoji frontend extras', 'loom-builder' ); ?></label>
 					</td>
 				</tr>
 			</table>
 
-			<p class="submit"><button type="submit" name="loom_seo_save" value="1" class="button button-primary"><?php esc_html_e( 'Save settings', 'loom' ); ?></button></p>
+			<p class="submit"><button type="submit" name="loom_seo_save" value="1" class="button button-primary"><?php esc_html_e( 'Save settings', 'loom-builder' ); ?></button></p>
 		</form>
 	<?php
 }
@@ -211,8 +211,8 @@ function loom_seo_image_field( $name, $value ) {
 	echo '<div class="loom-field-image" data-loom-image>';
 	echo '<input type="hidden" name="' . esc_attr( $name ) . '" value="' . esc_attr( (string) $value ) . '" class="loom-image-id">';
 	echo '<div class="loom-image-thumb">' . $img . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-	echo '<button type="button" class="button loom-image-pick">' . esc_html__( 'Select image', 'loom' ) . '</button> ';
-	echo '<button type="button" class="button loom-image-clear">' . esc_html__( 'Remove', 'loom' ) . '</button>';
+	echo '<button type="button" class="button loom-image-pick">' . esc_html__( 'Select image', 'loom-builder' ) . '</button> ';
+	echo '<button type="button" class="button loom-image-clear">' . esc_html__( 'Remove', 'loom-builder' ) . '</button>';
 	echo '</div>';
 }
 
@@ -266,7 +266,7 @@ function loom_seo_add_meta_box( $post_type ) {
 	if ( ! $pt || empty( $pt->public ) ) {
 		return;
 	}
-	add_meta_box( 'loom-seo', __( 'Loom SEO', 'loom' ), 'loom_seo_render_meta_box', $post_type, 'normal', 'low' );
+	add_meta_box( 'loom-seo', __( 'Loom SEO', 'loom-builder' ), 'loom_seo_render_meta_box', $post_type, 'normal', 'low' );
 }
 
 /**
@@ -289,24 +289,24 @@ function loom_seo_render_meta_box( $post ) {
 	?>
 	<div class="loom-values">
 		<div class="loom-value-row">
-			<label class="loom-value-label"><?php esc_html_e( 'SEO title', 'loom' ); ?></label>
+			<label class="loom-value-label"><?php esc_html_e( 'SEO title', 'loom-builder' ); ?></label>
 			<div class="loom-value-input"><input type="text" name="loom_seo_title" value="<?php echo esc_attr( $title ); ?>" class="widefat" placeholder="<?php echo esc_attr( get_the_title( $post ) ); ?>"></div>
 		</div>
 		<div class="loom-value-row">
-			<label class="loom-value-label"><?php esc_html_e( 'Meta description', 'loom' ); ?></label>
+			<label class="loom-value-label"><?php esc_html_e( 'Meta description', 'loom-builder' ); ?></label>
 			<div class="loom-value-input"><textarea name="loom_seo_desc" rows="3" class="widefat"><?php echo esc_textarea( $desc ); ?></textarea></div>
 		</div>
 		<div class="loom-value-row">
-			<label class="loom-value-label"><?php esc_html_e( 'Canonical URL', 'loom' ); ?></label>
+			<label class="loom-value-label"><?php esc_html_e( 'Canonical URL', 'loom-builder' ); ?></label>
 			<div class="loom-value-input"><input type="url" name="loom_seo_canonical" value="<?php echo esc_attr( $canonical ); ?>" class="widefat" placeholder="<?php echo esc_attr( get_permalink( $post ) ); ?>"></div>
 		</div>
 		<div class="loom-value-row">
-			<label class="loom-value-label"><?php esc_html_e( 'Share image', 'loom' ); ?></label>
+			<label class="loom-value-label"><?php esc_html_e( 'Share image', 'loom-builder' ); ?></label>
 			<div class="loom-value-input"><?php loom_seo_image_field( 'loom_seo_og', $og ); ?></div>
 		</div>
 		<div class="loom-value-row">
-			<label class="loom-value-label"><?php esc_html_e( 'Indexing', 'loom' ); ?></label>
-			<div class="loom-value-input"><label><input type="checkbox" name="loom_seo_noindex" value="1"<?php checked( $noindex, '1' ); ?>> <?php esc_html_e( 'Discourage search engines (noindex)', 'loom' ); ?></label></div>
+			<label class="loom-value-label"><?php esc_html_e( 'Indexing', 'loom-builder' ); ?></label>
+			<div class="loom-value-input"><label><input type="checkbox" name="loom_seo_noindex" value="1"<?php checked( $noindex, '1' ); ?>> <?php esc_html_e( 'Discourage search engines (noindex)', 'loom-builder' ); ?></label></div>
 		</div>
 	</div>
 	<?php loom_seo_render_assistant( $post ); ?>

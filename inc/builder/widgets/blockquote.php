@@ -15,21 +15,21 @@ add_action(
 		$registry->register(
 			array(
 				'id'       => 'blockquote',
-				'title'    => __( 'Blockquote', 'loom' ),
+				'title'    => __( 'Blockquote', 'loom-builder' ),
 				'icon'     => 'format-quote',
 				'category' => 'basic',
 				'controls' => array(
-					'text'   => array( 'type' => 'textarea', 'label' => __( 'Quote', 'loom' ), 'default' => __( 'The best way to predict the future is to create it.', 'loom' ), 'section' => 'content' ),
-					'author' => array( 'type' => 'text', 'label' => __( 'Author', 'loom' ), 'default' => '', 'section' => 'content' ),
-					'source' => array( 'type' => 'text', 'label' => __( 'Source', 'loom' ), 'default' => '', 'section' => 'content' ),
+					'text'   => array( 'type' => 'textarea', 'label' => __( 'Quote', 'loom-builder' ), 'default' => __( 'The best way to predict the future is to create it.', 'loom-builder' ), 'section' => 'content' ),
+					'author' => array( 'type' => 'text', 'label' => __( 'Author', 'loom-builder' ), 'default' => '', 'section' => 'content' ),
+					'source' => array( 'type' => 'text', 'label' => __( 'Source', 'loom-builder' ), 'default' => '', 'section' => 'content' ),
 					'style'  => array(
 						'type'    => 'select',
-						'label'   => __( 'Style', 'loom' ),
+						'label'   => __( 'Style', 'loom-builder' ),
 						'default' => 'default',
 						'options' => array(
-							'default'  => __( 'Default', 'loom' ),
-							'large'    => __( 'Large', 'loom' ),
-							'bordered' => __( 'Bordered', 'loom' ),
+							'default'  => __( 'Default', 'loom-builder' ),
+							'large'    => __( 'Large', 'loom-builder' ),
+							'bordered' => __( 'Bordered', 'loom-builder' ),
 						),
 						'section' => 'content',
 					),

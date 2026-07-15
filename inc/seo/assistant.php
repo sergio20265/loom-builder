@@ -21,8 +21,8 @@ function loom_seo_render_assistant( $post ) {
 	$metrics = loom_seo_assistant_metrics( $post, $html );
 	?>
 	<div class="loom-seo-assistant" style="margin-top:20px;padding-top:16px;border-top:1px solid #dcdcde;">
-		<h3 style="margin:0 0 5px;"><?php esc_html_e( 'SEO Assistant', 'loom' ); ?></h3>
-		<p class="description" style="margin-top:0;"><?php esc_html_e( 'A quick audit of this page. It does not generate or change content.', 'loom' ); ?></p>
+		<h3 style="margin:0 0 5px;"><?php esc_html_e( 'SEO Assistant', 'loom-builder' ); ?></h3>
+		<p class="description" style="margin-top:0;"><?php esc_html_e( 'A quick audit of this page. It does not generate or change content.', 'loom-builder' ); ?></p>
 		<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:14px 0;">
 			<?php foreach ( $metrics as $metric ) : ?>
 				<div style="padding:9px;background:#f6f7f7;border:1px solid #dcdcde;border-radius:3px;">
@@ -32,7 +32,7 @@ function loom_seo_render_assistant( $post ) {
 			<?php endforeach; ?>
 		</div>
 		<?php if ( empty( $issues ) ) : ?>
-			<p style="margin:12px 0 0;color:#008a20;"><span class="dashicons dashicons-yes-alt" aria-hidden="true"></span> <?php esc_html_e( 'No issues found in the checked items.', 'loom' ); ?></p>
+			<p style="margin:12px 0 0;color:#008a20;"><span class="dashicons dashicons-yes-alt" aria-hidden="true"></span> <?php esc_html_e( 'No issues found in the checked items.', 'loom-builder' ); ?></p>
 		<?php else : ?>
 			<ul style="margin:12px 0 0;list-style:none;">
 				<?php foreach ( $issues as $issue ) : ?>
@@ -64,22 +64,22 @@ function loom_seo_assistant_issues( $post, $html = null ) {
 	$headings = loom_seo_assistant_headings( $html );
 	$is_builder_page = function_exists( 'loom_is_enabled' ) && loom_is_enabled( $post->ID );
 	if ( $is_builder_page && empty( $headings['counts']['h1'] ) ) {
-		$issues[] = esc_html__( 'There is no H1 heading in the Loom page content.', 'loom' );
+		$issues[] = esc_html__( 'There is no H1 heading in the Loom page content.', 'loom-builder' );
 	}
 	if ( $headings['counts']['h1'] > 1 ) {
 		$issues[] = sprintf(
 			/* translators: %d: number of H1 headings. */
-			esc_html__( 'There are %d H1 headings. Use one main H1 per page.', 'loom' ),
+			esc_html__( 'There are %d H1 headings. Use one main H1 per page.', 'loom-builder' ),
 			$headings['counts']['h1']
 		);
 	}
 	if ( 0 === loom_seo_assistant_tag_count( $html, 'h2' ) ) {
-		$issues[] = esc_html__( 'There is no H2 heading on this page.', 'loom' );
+		$issues[] = esc_html__( 'There is no H2 heading on this page.', 'loom-builder' );
 	}
 	if ( ! empty( $headings['jump'] ) ) {
 		$issues[] = sprintf(
 			/* translators: 1: previous heading level, 2: skipped-to heading level. */
-			esc_html__( 'Heading hierarchy jumps from %1$s to %2$s. Do not skip levels.', 'loom' ),
+			esc_html__( 'Heading hierarchy jumps from %1$s to %2$s. Do not skip levels.', 'loom-builder' ),
 			$headings['jump'][0],
 			$headings['jump'][1]
 		);
@@ -90,7 +90,7 @@ function loom_seo_assistant_issues( $post, $html = null ) {
 	if ( $image_stats['missing'] > 0 ) {
 		$issues[] = sprintf(
 			/* translators: %d: images without an alt attribute. */
-			esc_html__( '%d images have no alt attribute.', 'loom' ),
+			esc_html__( '%d images have no alt attribute.', 'loom-builder' ),
 			$image_stats['missing']
 		);
 	}
@@ -98,7 +98,7 @@ function loom_seo_assistant_issues( $post, $html = null ) {
 		$examples = array_slice( $duplicate_alts, 0, 2 );
 		$issues[] = sprintf(
 			/* translators: %s: duplicate alt text examples. */
-			esc_html__( 'Image alt text is repeated: %s.', 'loom' ),
+			esc_html__( 'Image alt text is repeated: %s.', 'loom-builder' ),
 			esc_html( implode( ', ', $examples ) )
 		);
 	}
@@ -109,13 +109,13 @@ function loom_seo_assistant_issues( $post, $html = null ) {
 	if ( $title_length < 30 ) {
 		$issues[] = sprintf(
 			/* translators: %d: title length in characters. */
-			esc_html__( 'The SEO title is too short (%d characters; aim for 30–60).', 'loom' ),
+			esc_html__( 'The SEO title is too short (%d characters; aim for 30–60).', 'loom-builder' ),
 			$title_length
 		);
 	} elseif ( $title_length > 60 ) {
 		$issues[] = sprintf(
 			/* translators: %d: title length in characters. */
-			esc_html__( 'The SEO title is too long (%d characters; aim for 60 or fewer).', 'loom' ),
+			esc_html__( 'The SEO title is too long (%d characters; aim for 60 or fewer).', 'loom-builder' ),
 			loom_seo_assistant_length( $title )
 		);
 	}
@@ -123,11 +123,11 @@ function loom_seo_assistant_issues( $post, $html = null ) {
 	$description = get_post_meta( $post->ID, '_loom_seo_desc', true );
 	$description_length = loom_seo_assistant_length( $description );
 	if ( 0 === $description_length ) {
-		$issues[] = esc_html__( 'Meta description is missing.', 'loom' );
+		$issues[] = esc_html__( 'Meta description is missing.', 'loom-builder' );
 	} elseif ( $description_length < 120 || $description_length > 160 ) {
 		$issues[] = sprintf(
 			/* translators: %d: meta description length in characters. */
-			esc_html__( 'Meta description is %d characters; aim for 120–160.', 'loom' ),
+			esc_html__( 'Meta description is %d characters; aim for 120–160.', 'loom-builder' ),
 			$description_length
 		);
 	}
@@ -136,7 +136,7 @@ function loom_seo_assistant_issues( $post, $html = null ) {
 	if ( $word_count < 300 ) {
 		$issues[] = sprintf(
 			/* translators: %d: words in the page content. */
-			esc_html__( 'The content is short (%d words). Add useful detail where it helps the reader.', 'loom' ),
+			esc_html__( 'The content is short (%d words). Add useful detail where it helps the reader.', 'loom-builder' ),
 			$word_count
 		);
 	}
@@ -145,7 +145,7 @@ function loom_seo_assistant_issues( $post, $html = null ) {
 	if ( $internal_links < 2 ) {
 		$issues[] = sprintf(
 			/* translators: %d: internal links found on the page. */
-			esc_html__( 'There are only %d internal links. Add relevant links to other pages.', 'loom' ),
+			esc_html__( 'There are only %d internal links. Add relevant links to other pages.', 'loom-builder' ),
 			$internal_links
 		);
 	}
@@ -158,7 +158,7 @@ function loom_seo_assistant_issues( $post, $html = null ) {
 		}
 		$issues[] = sprintf(
 			/* translators: %s: links to potentially competing pages. */
-			__( 'This page may compete with: %s.', 'loom' ),
+			__( 'This page may compete with: %s.', 'loom-builder' ),
 			implode( ', ', $links )
 		);
 	}
@@ -183,27 +183,27 @@ function loom_seo_assistant_metrics( $post, $html ) {
 
 	return array(
 		array(
-			'label' => __( 'SEO title', 'loom' ),
+			'label' => __( 'SEO title', 'loom-builder' ),
 			'value' => sprintf( '%d / 60', loom_seo_assistant_length( $title ) ),
 			'color' => loom_seo_assistant_length( $title ) >= 30 && loom_seo_assistant_length( $title ) <= 60 ? '#008a20' : '#d63638',
 		),
 		array(
-			'label' => __( 'Meta description', 'loom' ),
+			'label' => __( 'Meta description', 'loom-builder' ),
 			'value' => sprintf( '%d / 160', loom_seo_assistant_length( $description ) ),
 			'color' => loom_seo_assistant_length( $description ) >= 120 && loom_seo_assistant_length( $description ) <= 160 ? '#008a20' : '#d63638',
 		),
 		array(
-			'label' => __( 'Content', 'loom' ),
-			'value' => sprintf( _n( '%d word · %d min', '%d words · %d min', $words, 'loom' ), $words, $minutes ),
+			'label' => __( 'Content', 'loom-builder' ),
+			'value' => sprintf( _n( '%d word · %d min', '%d words · %d min', $words, 'loom-builder' ), $words, $minutes ),
 			'color' => $words >= 300 ? '#008a20' : '#d63638',
 		),
 		array(
-			'label' => __( 'Headings', 'loom' ),
+			'label' => __( 'Headings', 'loom-builder' ),
 			'value' => sprintf( 'H1: %d · H2: %d · H3: %d', $headings['counts']['h1'], $headings['counts']['h2'], $headings['counts']['h3'] ),
 			'color' => '#1d2327',
 		),
 		array(
-			'label' => __( 'Internal links', 'loom' ),
+			'label' => __( 'Internal links', 'loom-builder' ),
 			'value' => (string) loom_seo_assistant_internal_link_count( $html ),
 			'color' => loom_seo_assistant_internal_link_count( $html ) >= 2 ? '#008a20' : '#d63638',
 		),

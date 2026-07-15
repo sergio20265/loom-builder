@@ -15,23 +15,23 @@ add_action(
 		$registry->register(
 			array(
 				'id'       => 'accordion',
-				'title'    => __( 'Accordion', 'loom' ),
+				'title'    => __( 'Accordion', 'loom-builder' ),
 				'icon'     => 'editor-justify',
 				'category' => 'basic',
 				'controls' => array(
 					'items'     => array(
 						'type'       => 'repeater',
-						'label'      => __( 'Items', 'loom' ),
+						'label'      => __( 'Items', 'loom-builder' ),
 						'section'    => 'content',
 						'titleField' => 'title',
 						'fields'     => array(
-							'title'   => array( 'type' => 'text', 'label' => __( 'Title', 'loom' ), 'default' => __( 'Question', 'loom' ) ),
-							'content' => array( 'type' => 'textarea', 'label' => __( 'Content', 'loom' ), 'default' => '' ),
+							'title'   => array( 'type' => 'text', 'label' => __( 'Title', 'loom-builder' ), 'default' => __( 'Question', 'loom-builder' ) ),
+							'content' => array( 'type' => 'textarea', 'label' => __( 'Content', 'loom-builder' ), 'default' => '' ),
 						),
 						'default'    => array(),
 					),
-					'firstOpen' => array( 'type' => 'toggle', 'label' => __( 'Open first item', 'loom' ), 'default' => true, 'section' => 'content' ),
-					'single'    => array( 'type' => 'toggle', 'label' => __( 'One open at a time', 'loom' ), 'default' => true, 'section' => 'content' ),
+					'firstOpen' => array( 'type' => 'toggle', 'label' => __( 'Open first item', 'loom-builder' ), 'default' => true, 'section' => 'content' ),
+					'single'    => array( 'type' => 'toggle', 'label' => __( 'One open at a time', 'loom-builder' ), 'default' => true, 'section' => 'content' ),
 				),
 				'render'   => 'loom_render_accordion',
 			)
@@ -48,7 +48,7 @@ add_action(
 function loom_render_accordion( $s ) {
 	$items = isset( $s['items'] ) && is_array( $s['items'] ) ? $s['items'] : array();
 	if ( empty( $items ) ) {
-		return '<div class="loom-accordion-empty">' . esc_html__( 'Add accordion items.', 'loom' ) . '</div>';
+		return '<div class="loom-accordion-empty">' . esc_html__( 'Add accordion items.', 'loom-builder' ) . '</div>';
 	}
 
 	$single = ! empty( $s['single'] ) ? '1' : '0';

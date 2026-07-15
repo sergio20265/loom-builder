@@ -51,9 +51,9 @@ function loom_seo_title_parts() {
 		$base = get_the_author_meta( 'display_name', get_queried_object_id() );
 	} elseif ( is_search() ) {
 		/* translators: %s: search query. */
-		$base = sprintf( __( 'Search results for "%s"', 'loom' ), get_search_query() );
+		$base = sprintf( __( 'Search results for "%s"', 'loom-builder' ), get_search_query() );
 	} elseif ( is_404() ) {
-		$base = __( 'Page not found', 'loom' );
+		$base = __( 'Page not found', 'loom-builder' );
 	} elseif ( is_archive() ) {
 		$base = get_the_archive_title();
 	}

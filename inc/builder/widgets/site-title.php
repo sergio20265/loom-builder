@@ -15,13 +15,13 @@ add_action(
 		$registry->register(
 			array(
 				'id'       => 'site_title',
-				'title'    => __( 'Site Title', 'loom' ),
+				'title'    => __( 'Site Title', 'loom-builder' ),
 				'icon'     => 'admin-site',
 				'category' => 'site',
 				'controls' => array(
 					'tag'         => array(
 						'type'    => 'select',
-						'label'   => __( 'HTML Tag', 'loom' ),
+						'label'   => __( 'HTML Tag', 'loom-builder' ),
 						'default' => 'span',
 						'options' => array(
 							'h1'   => 'H1',
@@ -34,13 +34,13 @@ add_action(
 					),
 					'showTagline' => array(
 						'type'    => 'toggle',
-						'label'   => __( 'Show tagline', 'loom' ),
+						'label'   => __( 'Show tagline', 'loom-builder' ),
 						'default' => false,
 						'section' => 'content',
 					),
 					'link'        => array(
 						'type'    => 'toggle',
-						'label'   => __( 'Link to home', 'loom' ),
+						'label'   => __( 'Link to home', 'loom-builder' ),
 						'default' => true,
 						'section' => 'content',
 					),

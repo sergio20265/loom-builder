@@ -15,13 +15,13 @@ add_action(
 		$registry->register(
 			array(
 				'id'       => 'spacer',
-				'title'    => __( 'Spacer', 'loom' ),
+				'title'    => __( 'Spacer', 'loom-builder' ),
 				'icon'     => 'image-flip-vertical',
 				'category' => 'layout',
 				'controls' => array(
 					'height' => array(
 						'type'    => 'range',
-						'label'   => __( 'Height (px)', 'loom' ),
+						'label'   => __( 'Height (px)', 'loom-builder' ),
 						'default' => 50,
 						'min'     => 0,
 						'max'     => 400,

@@ -15,29 +15,29 @@ add_action(
 		$registry->register(
 			array(
 				'id'       => 'site_logo',
-				'title'    => __( 'Site Logo', 'loom' ),
+				'title'    => __( 'Site Logo', 'loom-builder' ),
 				'icon'     => 'admin-home',
 				'category' => 'site',
 				'controls' => array(
 					'source' => array(
 						'type'    => 'select',
-						'label'   => __( 'Source', 'loom' ),
+						'label'   => __( 'Source', 'loom-builder' ),
 						'default' => 'site',
 						'options' => array(
-							'site'   => __( 'Theme logo', 'loom' ),
-							'custom' => __( 'Custom image', 'loom' ),
+							'site'   => __( 'Theme logo', 'loom-builder' ),
+							'custom' => __( 'Custom image', 'loom-builder' ),
 						),
 						'section' => 'content',
 					),
 					'image'  => array(
 						'type'    => 'imageobj',
-						'label'   => __( 'Custom image', 'loom' ),
+						'label'   => __( 'Custom image', 'loom-builder' ),
 						'default' => array(),
 						'section' => 'content',
 					),
 					'width'  => array(
 						'type'    => 'range',
-						'label'   => __( 'Width (px)', 'loom' ),
+						'label'   => __( 'Width (px)', 'loom-builder' ),
 						'default' => 120,
 						'min'     => 20,
 						'max'     => 480,
@@ -45,7 +45,7 @@ add_action(
 					),
 					'link'   => array(
 						'type'    => 'toggle',
-						'label'   => __( 'Link to home', 'loom' ),
+						'label'   => __( 'Link to home', 'loom-builder' ),
 						'default' => true,
 						'section' => 'content',
 					),

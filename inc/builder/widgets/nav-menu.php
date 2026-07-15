@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return array<string,string>
  */
 function loom_menu_choices() {
-	$out   = array( '' => __( '— Select menu —', 'loom' ) );
+	$out   = array( '' => __( '— Select menu —', 'loom-builder' ) );
 	$menus = wp_get_nav_menus();
 	foreach ( $menus as $menu ) {
 		$out[ (string) $menu->term_id ] = $menu->name;
@@ -30,35 +30,35 @@ add_action(
 		$registry->register(
 			array(
 				'id'       => 'menu',
-				'title'    => __( 'Nav Menu', 'loom' ),
+				'title'    => __( 'Nav Menu', 'loom-builder' ),
 				'icon'     => 'menu',
 				'category' => 'site',
 				'controls' => array(
 					'menu'   => array(
 						'type'    => 'select',
-						'label'   => __( 'Menu', 'loom' ),
+						'label'   => __( 'Menu', 'loom-builder' ),
 						'default' => '',
 						'options' => loom_menu_choices(),
 						'section' => 'content',
 					),
 					'layout' => array(
 						'type'    => 'select',
-						'label'   => __( 'Layout', 'loom' ),
+						'label'   => __( 'Layout', 'loom-builder' ),
 						'default' => 'horizontal',
 						'options' => array(
-							'horizontal' => __( 'Horizontal', 'loom' ),
-							'vertical'   => __( 'Vertical', 'loom' ),
+							'horizontal' => __( 'Horizontal', 'loom-builder' ),
+							'vertical'   => __( 'Vertical', 'loom-builder' ),
 						),
 						'section' => 'content',
 					),
 					'align'  => array(
 						'type'    => 'select',
-						'label'   => __( 'Alignment', 'loom' ),
+						'label'   => __( 'Alignment', 'loom-builder' ),
 						'default' => 'left',
 						'options' => array(
-							'left'   => __( 'Left', 'loom' ),
-							'center' => __( 'Center', 'loom' ),
-							'right'  => __( 'Right', 'loom' ),
+							'left'   => __( 'Left', 'loom-builder' ),
+							'center' => __( 'Center', 'loom-builder' ),
+							'right'  => __( 'Right', 'loom-builder' ),
 						),
 						'section' => 'content',
 					),
@@ -78,7 +78,7 @@ add_action(
 function loom_render_menu( $s ) {
 	$menu_id = isset( $s['menu'] ) ? (int) $s['menu'] : 0;
 	if ( ! $menu_id ) {
-		return '<div class="loom-menu-empty">' . esc_html__( 'Select a menu.', 'loom' ) . '</div>';
+		return '<div class="loom-menu-empty">' . esc_html__( 'Select a menu.', 'loom-builder' ) . '</div>';
 	}
 
 	$layout = in_array( isset( $s['layout'] ) ? $s['layout'] : '', array( 'horizontal', 'vertical' ), true ) ? $s['layout'] : 'horizontal';

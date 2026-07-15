@@ -15,18 +15,18 @@ add_action(
 		$registry->register(
 			array(
 				'id'       => 'tabs',
-				'title'    => __( 'Tabs', 'loom' ),
+				'title'    => __( 'Tabs', 'loom-builder' ),
 				'icon'     => 'index-card',
 				'category' => 'basic',
 				'controls' => array(
 					'items' => array(
 						'type'       => 'repeater',
-						'label'      => __( 'Tabs', 'loom' ),
+						'label'      => __( 'Tabs', 'loom-builder' ),
 						'section'    => 'content',
 						'titleField' => 'title',
 						'fields'     => array(
-							'title'   => array( 'type' => 'text', 'label' => __( 'Title', 'loom' ), 'default' => __( 'Tab', 'loom' ) ),
-							'content' => array( 'type' => 'textarea', 'label' => __( 'Content', 'loom' ), 'default' => '' ),
+							'title'   => array( 'type' => 'text', 'label' => __( 'Title', 'loom-builder' ), 'default' => __( 'Tab', 'loom-builder' ) ),
+							'content' => array( 'type' => 'textarea', 'label' => __( 'Content', 'loom-builder' ), 'default' => '' ),
 						),
 						'default'    => array(),
 					),
@@ -46,7 +46,7 @@ add_action(
 function loom_render_tabs( $s ) {
 	$items = isset( $s['items'] ) && is_array( $s['items'] ) ? $s['items'] : array();
 	if ( empty( $items ) ) {
-		return '<div class="loom-tabs-empty">' . esc_html__( 'Add tabs.', 'loom' ) . '</div>';
+		return '<div class="loom-tabs-empty">' . esc_html__( 'Add tabs.', 'loom-builder' ) . '</div>';
 	}
 
 	$nav    = '<div class="loom-tabs-nav" role="tablist">';

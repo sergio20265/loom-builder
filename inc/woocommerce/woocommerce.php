@@ -68,7 +68,7 @@ function loom_wc_category_choices() {
 			'number'     => 200,
 		)
 	);
-	$out = array( '' => __( 'All categories', 'loom' ) );
+	$out = array( '' => __( 'All categories', 'loom-builder' ) );
 	if ( is_array( $terms ) ) {
 		foreach ( $terms as $term ) {
 			$out[ $term->slug ] = $term->name . ' (' . $term->count . ')';

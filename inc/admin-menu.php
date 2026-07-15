@@ -20,8 +20,8 @@ add_action( 'admin_menu', 'loom_admin_menu' );
  */
 function loom_admin_menu() {
 	add_menu_page(
-		__( 'Loom Builder', 'loom' ),
-		__( 'Loom', 'loom' ),
+		__( 'Loom Builder', 'loom-builder' ),
+		__( 'Loom', 'loom-builder' ),
 		'edit_posts',
 		'loom-builder',
 		'loom_dashboard_page',
@@ -31,8 +31,8 @@ function loom_admin_menu() {
 
 	add_submenu_page(
 		'loom-builder',
-		__( 'Loom Builder', 'loom' ),
-		__( 'Dashboard', 'loom' ),
+		__( 'Loom Builder', 'loom-builder' ),
+		__( 'Dashboard', 'loom-builder' ),
 		'edit_posts',
 		'loom-builder',
 		'loom_dashboard_page'
@@ -40,8 +40,8 @@ function loom_admin_menu() {
 
 	add_submenu_page(
 		'loom-builder',
-		__( 'Settings', 'loom' ),
-		__( 'Settings', 'loom' ),
+		__( 'Settings', 'loom-builder' ),
+		__( 'Settings', 'loom-builder' ),
 		'manage_options',
 		'loom-settings',
 		'loom_settings_page'
@@ -53,8 +53,8 @@ function loom_admin_menu() {
 	// remove_submenu_page(), which would break direct access to the page.
 	add_submenu_page(
 		'loom-builder',
-		__( 'Edit with Loom', 'loom' ),
-		__( 'Editor', 'loom' ),
+		__( 'Edit with Loom', 'loom-builder' ),
+		__( 'Editor', 'loom-builder' ),
 		'edit_posts',
 		'loom-editor',
 		'loom_editor_page'
@@ -81,24 +81,24 @@ function loom_dashboard_page() {
 	$templates = wp_count_posts( 'loom_template' );
 	?>
 	<div class="wrap">
-		<h1><span class="dashicons dashicons-screenoptions" style="font-size:30px;height:30px;width:30px;margin-right:8px;color:#2563eb;"></span><?php esc_html_e( 'Loom Builder', 'loom' ); ?></h1>
-		<p style="color:#666;max-width:720px;"><?php esc_html_e( 'Visual page builder with a built-in SEO module. Open any page or post and click "Edit with Loom" to start building.', 'loom' ); ?></p>
+		<h1><span class="dashicons dashicons-screenoptions" style="font-size:30px;height:30px;width:30px;margin-right:8px;color:#2563eb;"></span><?php esc_html_e( 'Loom Builder', 'loom-builder' ); ?></h1>
+		<p style="color:#666;max-width:720px;"><?php esc_html_e( 'Visual page builder with a built-in SEO module. Open any page or post and click "Edit with Loom" to start building.', 'loom-builder' ); ?></p>
 
 		<div style="display:flex;gap:20px;margin-top:20px;flex-wrap:wrap;">
 			<div style="background:#fff;border:1px solid #dcdcde;border-radius:8px;padding:20px 24px;min-width:200px;">
-				<h3 style="margin:0 0 6px;font-size:13px;color:#888;text-transform:uppercase;letter-spacing:.04em;"><?php esc_html_e( 'Pages', 'loom' ); ?></h3>
+				<h3 style="margin:0 0 6px;font-size:13px;color:#888;text-transform:uppercase;letter-spacing:.04em;"><?php esc_html_e( 'Pages', 'loom-builder' ); ?></h3>
 				<span style="font-size:34px;font-weight:700;color:#2563eb;"><?php echo (int) $pages->publish; ?></span>
 				<div style="margin-top:12px;">
-					<a href="<?php echo esc_url( admin_url( 'edit.php?post_type=page' ) ); ?>" class="button"><?php esc_html_e( 'All pages', 'loom' ); ?></a>
-					<a href="<?php echo esc_url( admin_url( 'post-new.php?post_type=page' ) ); ?>" class="button button-primary" style="margin-left:6px;">+ <?php esc_html_e( 'Page', 'loom' ); ?></a>
+					<a href="<?php echo esc_url( admin_url( 'edit.php?post_type=page' ) ); ?>" class="button"><?php esc_html_e( 'All pages', 'loom-builder' ); ?></a>
+					<a href="<?php echo esc_url( admin_url( 'post-new.php?post_type=page' ) ); ?>" class="button button-primary" style="margin-left:6px;">+ <?php esc_html_e( 'Page', 'loom-builder' ); ?></a>
 				</div>
 			</div>
 			<div style="background:#fff;border:1px solid #dcdcde;border-radius:8px;padding:20px 24px;min-width:200px;">
-				<h3 style="margin:0 0 6px;font-size:13px;color:#888;text-transform:uppercase;letter-spacing:.04em;"><?php esc_html_e( 'Templates', 'loom' ); ?></h3>
+				<h3 style="margin:0 0 6px;font-size:13px;color:#888;text-transform:uppercase;letter-spacing:.04em;"><?php esc_html_e( 'Templates', 'loom-builder' ); ?></h3>
 				<span style="font-size:34px;font-weight:700;color:#16a34a;"><?php echo (int) $templates->publish; ?></span>
 				<div style="margin-top:12px;">
-					<a href="<?php echo esc_url( admin_url( 'edit.php?post_type=loom_template' ) ); ?>" class="button"><?php esc_html_e( 'All templates', 'loom' ); ?></a>
-					<a href="<?php echo esc_url( admin_url( 'post-new.php?post_type=loom_template' ) ); ?>" class="button button-primary" style="margin-left:6px;">+ <?php esc_html_e( 'Template', 'loom' ); ?></a>
+					<a href="<?php echo esc_url( admin_url( 'edit.php?post_type=loom_template' ) ); ?>" class="button"><?php esc_html_e( 'All templates', 'loom-builder' ); ?></a>
+					<a href="<?php echo esc_url( admin_url( 'post-new.php?post_type=loom_template' ) ); ?>" class="button button-primary" style="margin-left:6px;">+ <?php esc_html_e( 'Template', 'loom-builder' ); ?></a>
 				</div>
 			</div>
 		</div>
@@ -112,12 +112,12 @@ function loom_dashboard_page() {
  * @return void
  */
 function loom_settings_page() {
-	$tabs = array( 'builder' => __( 'Builder', 'loom' ) );
+	$tabs = array( 'builder' => __( 'Builder', 'loom-builder' ) );
 	if ( function_exists( 'loom_code_render_tab' ) && current_user_can( 'unfiltered_html' ) ) {
-		$tabs['code'] = __( 'Code & metrics', 'loom' );
+		$tabs['code'] = __( 'Code & metrics', 'loom-builder' );
 	}
 	if ( function_exists( 'loom_render_settings_page' ) ) {
-		$tabs['seo'] = __( 'SEO', 'loom' );
+		$tabs['seo'] = __( 'SEO', 'loom-builder' );
 	}
 
 	$active = isset( $_GET['tab'] ) ? sanitize_key( wp_unslash( $_GET['tab'] ) ) : 'builder'; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
@@ -126,7 +126,7 @@ function loom_settings_page() {
 	}
 	?>
 	<div class="wrap">
-		<h1><?php esc_html_e( 'Loom Settings', 'loom' ); ?></h1>
+		<h1><?php esc_html_e( 'Loom Settings', 'loom-builder' ); ?></h1>
 		<h2 class="nav-tab-wrapper">
 			<?php
 			foreach ( $tabs as $slug => $label ) {
@@ -167,7 +167,7 @@ function loom_settings_page() {
 function loom_editor_page() {
 	$post_id = isset( $_GET['post'] ) ? (int) $_GET['post'] : 0; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 	if ( ! $post_id || ! current_user_can( 'edit_post', $post_id ) ) {
-		wp_die( esc_html__( 'You cannot edit this item.', 'loom' ) );
+		wp_die( esc_html__( 'You cannot edit this item.', 'loom-builder' ) );
 	}
 
 	$config = loom_get_editor_config( $post_id );
@@ -237,7 +237,7 @@ function loom_edit_button_submitbox() {
 	);
 	echo '<div style="padding:10px 0;text-align:center;">';
 	echo '<a href="' . esc_url( $url ) . '" class="button button-primary button-hero" style="width:100%;text-align:center;background:#2563eb;border-color:#1d4ed8;">';
-	echo '<span class="dashicons dashicons-screenoptions" style="margin:4px 4px 0 0;"></span>' . esc_html__( 'Edit with Loom', 'loom' );
+	echo '<span class="dashicons dashicons-screenoptions" style="margin:4px 4px 0 0;"></span>' . esc_html__( 'Edit with Loom', 'loom-builder' );
 	echo '</a></div>';
 }
 add_action( 'post_submitbox_misc_actions', 'loom_edit_button_submitbox' );
@@ -258,7 +258,7 @@ function loom_edit_row_action( $actions, $post ) {
 			),
 			admin_url( 'admin.php' )
 		);
-		$actions['loom_edit'] = '<a href="' . esc_url( $url ) . '">' . esc_html__( 'Edit with Loom', 'loom' ) . '</a>';
+		$actions['loom_edit'] = '<a href="' . esc_url( $url ) . '">' . esc_html__( 'Edit with Loom', 'loom-builder' ) . '</a>';
 	}
 	return $actions;
 }

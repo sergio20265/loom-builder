@@ -15,43 +15,43 @@ add_action(
 		$registry->register(
 			array(
 				'id'       => 'image',
-				'title'    => __( 'Image', 'loom' ),
+				'title'    => __( 'Image', 'loom-builder' ),
 				'icon'     => 'format-image',
 				'category' => 'media',
 				'controls' => array(
 					'id'      => array(
 						'type'    => 'image',
-						'label'   => __( 'Choose Image', 'loom' ),
+						'label'   => __( 'Choose Image', 'loom-builder' ),
 						'default' => 0,
 						'section' => 'content',
 					),
 					'size'    => array(
 						'type'    => 'select',
-						'label'   => __( 'Image Size', 'loom' ),
+						'label'   => __( 'Image Size', 'loom-builder' ),
 						'default' => 'large',
 						'options' => array(
-							'thumbnail' => __( 'Thumbnail', 'loom' ),
-							'medium'    => __( 'Medium', 'loom' ),
-							'large'     => __( 'Large', 'loom' ),
-							'full'      => __( 'Full', 'loom' ),
+							'thumbnail' => __( 'Thumbnail', 'loom-builder' ),
+							'medium'    => __( 'Medium', 'loom-builder' ),
+							'large'     => __( 'Large', 'loom-builder' ),
+							'full'      => __( 'Full', 'loom-builder' ),
 						),
 						'section' => 'content',
 					),
 					'alt'     => array(
 						'type'    => 'text',
-						'label'   => __( 'Alt Text (overrides media)', 'loom' ),
+						'label'   => __( 'Alt Text (overrides media)', 'loom-builder' ),
 						'default' => '',
 						'section' => 'content',
 					),
 					'link'    => array(
 						'type'    => 'url',
-						'label'   => __( 'Link', 'loom' ),
+						'label'   => __( 'Link', 'loom-builder' ),
 						'default' => '',
 						'section' => 'content',
 					),
 					'caption' => array(
 						'type'    => 'text',
-						'label'   => __( 'Caption', 'loom' ),
+						'label'   => __( 'Caption', 'loom-builder' ),
 						'default' => '',
 						'section' => 'content',
 					),
@@ -83,7 +83,7 @@ function loom_render_image( $s ) {
 		$img = '<img class="loom-image-el" src="' . esc_url( $s['url'] ) . '" alt="' . esc_attr( $s['alt'] ) . '" loading="lazy">';
 	} else {
 		// Placeholder so the widget is visible before a media item is set.
-		$img = '<span class="loom-image-placeholder">' . esc_html__( 'No image selected', 'loom' ) . '</span>';
+		$img = '<span class="loom-image-placeholder">' . esc_html__( 'No image selected', 'loom-builder' ) . '</span>';
 	}
 
 	if ( ! empty( $s['link'] ) && $img ) {

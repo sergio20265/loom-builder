@@ -16,13 +16,13 @@ add_action(
 		$registry->register(
 			array(
 				'id'       => 'html',
-				'title'    => __( 'HTML', 'loom' ),
+				'title'    => __( 'HTML', 'loom-builder' ),
 				'icon'     => 'editor-code',
 				'category' => 'basic',
 				'controls' => array(
 					'code' => array(
 						'type'    => 'code',
-						'label'   => __( 'HTML code', 'loom' ),
+						'label'   => __( 'HTML code', 'loom-builder' ),
 						'default' => '',
 						'section' => 'content',
 					),

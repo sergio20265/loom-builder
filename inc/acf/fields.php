@@ -31,16 +31,16 @@ const LOOM_FIELD_PREFIX = 'loom_';
  */
 function loom_field_types() {
 	return array(
-		'text'       => __( 'Text', 'loom' ),
-		'textarea'   => __( 'Textarea', 'loom' ),
-		'number'     => __( 'Number', 'loom' ),
-		'select'     => __( 'Select', 'loom' ),
-		'true_false' => __( 'True / False', 'loom' ),
-		'color'      => __( 'Color', 'loom' ),
-		'image'      => __( 'Image', 'loom' ),
-		'gallery'    => __( 'Gallery', 'loom' ),
-		'link'       => __( 'Link', 'loom' ),
-		'repeater'   => __( 'Repeater', 'loom' ),
+		'text'       => __( 'Text', 'loom-builder' ),
+		'textarea'   => __( 'Textarea', 'loom-builder' ),
+		'number'     => __( 'Number', 'loom-builder' ),
+		'select'     => __( 'Select', 'loom-builder' ),
+		'true_false' => __( 'True / False', 'loom-builder' ),
+		'color'      => __( 'Color', 'loom-builder' ),
+		'image'      => __( 'Image', 'loom-builder' ),
+		'gallery'    => __( 'Gallery', 'loom-builder' ),
+		'link'       => __( 'Link', 'loom-builder' ),
+		'repeater'   => __( 'Repeater', 'loom-builder' ),
 	);
 }
 
@@ -74,14 +74,14 @@ function loom_render_field_input( $field, $value ) {
 
 		case 'select':
 			$out  = '<select id="' . $id . '" name="' . $name . '">';
-			$out .= '<option value="">' . esc_html__( '— Select —', 'loom' ) . '</option>';
+			$out .= '<option value="">' . esc_html__( '— Select —', 'loom-builder' ) . '</option>';
 			foreach ( loom_parse_choices( $field ) as $val => $label ) {
 				$out .= '<option value="' . esc_attr( $val ) . '"' . selected( (string) $value, (string) $val, false ) . '>' . esc_html( $label ) . '</option>';
 			}
 			return $out . '</select>';
 
 		case 'true_false':
-			return '<label><input type="checkbox" id="' . $id . '" name="' . $name . '" value="1"' . checked( (string) $value, '1', false ) . '> ' . esc_html__( 'Yes', 'loom' ) . '</label>';
+			return '<label><input type="checkbox" id="' . $id . '" name="' . $name . '" value="1"' . checked( (string) $value, '1', false ) . '> ' . esc_html__( 'Yes', 'loom-builder' ) . '</label>';
 
 		case 'color':
 			return '<input type="color" id="' . $id . '" name="' . $name . '" value="' . esc_attr( $value ? $value : '#000000' ) . '"> '
@@ -92,8 +92,8 @@ function loom_render_field_input( $field, $value ) {
 			return '<div class="loom-field-image" data-loom-image>'
 				. '<input type="hidden" name="' . $name . '" value="' . esc_attr( (string) $value ) . '" class="loom-image-id">'
 				. '<div class="loom-image-thumb">' . $img . '</div>'
-				. '<button type="button" class="button loom-image-pick">' . esc_html__( 'Select image', 'loom' ) . '</button> '
-				. '<button type="button" class="button-link loom-image-clear">' . esc_html__( 'Remove', 'loom' ) . '</button>'
+				. '<button type="button" class="button loom-image-pick">' . esc_html__( 'Select image', 'loom-builder' ) . '</button> '
+				. '<button type="button" class="button-link loom-image-clear">' . esc_html__( 'Remove', 'loom-builder' ) . '</button>'
 				. '</div>';
 
 		case 'gallery':
@@ -105,7 +105,7 @@ function loom_render_field_input( $field, $value ) {
 			return '<div class="loom-field-gallery" data-loom-gallery>'
 				. '<input type="hidden" name="' . $name . '" value="' . esc_attr( implode( ',', array_map( 'intval', $ids ) ) ) . '" class="loom-gallery-ids">'
 				. '<div class="loom-gallery-thumbs">' . $thumb . '</div>'
-				. '<button type="button" class="button loom-gallery-pick">' . esc_html__( 'Add images', 'loom' ) . '</button>'
+				. '<button type="button" class="button loom-gallery-pick">' . esc_html__( 'Add images', 'loom-builder' ) . '</button>'
 				. '</div>';
 
 		case 'link':
@@ -115,8 +115,8 @@ function loom_render_field_input( $field, $value ) {
 			$tgt  = ! empty( $link['target'] );
 			return '<div class="loom-field-link">'
 				. '<input type="url" name="' . $name . '[url]" value="' . esc_attr( $url ) . '" placeholder="https://" class="widefat"> '
-				. '<input type="text" name="' . $name . '[text]" value="' . esc_attr( $text ) . '" placeholder="' . esc_attr__( 'Link text', 'loom' ) . '" class="widefat" style="margin-top:4px"> '
-				. '<label style="display:block;margin-top:4px"><input type="checkbox" name="' . $name . '[target]" value="1"' . checked( $tgt, true, false ) . '> ' . esc_html__( 'Open in new tab', 'loom' ) . '</label>'
+				. '<input type="text" name="' . $name . '[text]" value="' . esc_attr( $text ) . '" placeholder="' . esc_attr__( 'Link text', 'loom-builder' ) . '" class="widefat" style="margin-top:4px"> '
+				. '<label style="display:block;margin-top:4px"><input type="checkbox" name="' . $name . '[target]" value="1"' . checked( $tgt, true, false ) . '> ' . esc_html__( 'Open in new tab', 'loom-builder' ) . '</label>'
 				. '</div>';
 
 		case 'repeater':
@@ -150,13 +150,13 @@ function loom_render_repeater_input( $field, $value ) {
 				$out .= '<textarea name="' . $sname . '" rows="2" class="widefat">' . esc_textarea( (string) $sval ) . '</textarea>';
 			} elseif ( 'image' === $sf['type'] ) {
 				$img  = $sval ? wp_get_attachment_image( (int) $sval, 'thumbnail' ) : '';
-				$out .= '<span class="loom-field-image" data-loom-image><input type="hidden" name="' . $sname . '" value="' . esc_attr( (string) $sval ) . '" class="loom-image-id"><span class="loom-image-thumb">' . $img . '</span><button type="button" class="button loom-image-pick">' . esc_html__( 'Image', 'loom' ) . '</button></span>';
+				$out .= '<span class="loom-field-image" data-loom-image><input type="hidden" name="' . $sname . '" value="' . esc_attr( (string) $sval ) . '" class="loom-image-id"><span class="loom-image-thumb">' . $img . '</span><button type="button" class="button loom-image-pick">' . esc_html__( 'Image', 'loom-builder' ) . '</button></span>';
 			} else {
 				$out .= '<input type="text" name="' . $sname . '" value="' . esc_attr( (string) $sval ) . '" class="widefat">';
 			}
 			$out .= '</p>';
 		}
-		$out .= '</div><button type="button" class="button-link loom-rep-remove">× ' . esc_html__( 'Remove row', 'loom' ) . '</button></div>';
+		$out .= '</div><button type="button" class="button-link loom-rep-remove">× ' . esc_html__( 'Remove row', 'loom-builder' ) . '</button></div>';
 		return $out;
 	};
 
@@ -168,7 +168,7 @@ function loom_render_repeater_input( $field, $value ) {
 
 	// Hidden template for JS-cloned new rows (index __i__).
 	$out .= '<script type="text/html" class="loom-rep-tpl">' . $render_row( '__i__', array() ) . '</script>';
-	$out .= '<button type="button" class="button loom-rep-add">+ ' . esc_html__( 'Add row', 'loom' ) . '</button>';
+	$out .= '<button type="button" class="button loom-rep-add">+ ' . esc_html__( 'Add row', 'loom-builder' ) . '</button>';
 	$out .= '</div>';
 	return $out;
 }

@@ -35,19 +35,19 @@ add_action(
 		$registry->register(
 			array(
 				'id'       => 'social',
-				'title'    => __( 'Social Icons', 'loom' ),
+				'title'    => __( 'Social Icons', 'loom-builder' ),
 				'icon'     => 'share',
 				'category' => 'site',
 				'controls' => array(
 					'items' => array(
 						'type'       => 'repeater',
-						'label'      => __( 'Icons', 'loom' ),
+						'label'      => __( 'Icons', 'loom-builder' ),
 						'section'    => 'content',
 						'titleField' => 'network',
 						'fields'     => array(
 							'network' => array(
 								'type'    => 'select',
-								'label'   => __( 'Network', 'loom' ),
+								'label'   => __( 'Network', 'loom-builder' ),
 								'default' => 'facebook',
 								'options' => array(
 									'facebook'  => 'Facebook',
@@ -62,24 +62,24 @@ add_action(
 									'email'     => 'Email',
 								),
 							),
-							'url'     => array( 'type' => 'url', 'label' => __( 'Link', 'loom' ), 'default' => '' ),
+							'url'     => array( 'type' => 'url', 'label' => __( 'Link', 'loom-builder' ), 'default' => '' ),
 						),
 						'default'    => array(),
 					),
-					'size'  => array( 'type' => 'range', 'label' => __( 'Icon size (px)', 'loom' ), 'default' => 22, 'min' => 12, 'max' => 48, 'section' => 'content' ),
-					'gap'   => array( 'type' => 'range', 'label' => __( 'Gap (px)', 'loom' ), 'default' => 10, 'min' => 0, 'max' => 40, 'section' => 'content' ),
+					'size'  => array( 'type' => 'range', 'label' => __( 'Icon size (px)', 'loom-builder' ), 'default' => 22, 'min' => 12, 'max' => 48, 'section' => 'content' ),
+					'gap'   => array( 'type' => 'range', 'label' => __( 'Gap (px)', 'loom-builder' ), 'default' => 10, 'min' => 0, 'max' => 40, 'section' => 'content' ),
 					'shape' => array(
 						'type'    => 'select',
-						'label'   => __( 'Shape', 'loom' ),
+						'label'   => __( 'Shape', 'loom-builder' ),
 						'default' => 'round',
 						'options' => array(
-							'bare'   => __( 'Bare', 'loom' ),
-							'round'  => __( 'Round', 'loom' ),
-							'square' => __( 'Square', 'loom' ),
+							'bare'   => __( 'Bare', 'loom-builder' ),
+							'round'  => __( 'Round', 'loom-builder' ),
+							'square' => __( 'Square', 'loom-builder' ),
 						),
 						'section' => 'content',
 					),
-					'color' => array( 'type' => 'color', 'label' => __( 'Icon color', 'loom' ), 'default' => '#2563eb', 'section' => 'style' ),
+					'color' => array( 'type' => 'color', 'label' => __( 'Icon color', 'loom-builder' ), 'default' => '#2563eb', 'section' => 'style' ),
 				),
 				'render'   => 'loom_render_social',
 			)
@@ -96,7 +96,7 @@ add_action(
 function loom_render_social( $s ) {
 	$items = isset( $s['items'] ) && is_array( $s['items'] ) ? $s['items'] : array();
 	if ( empty( $items ) ) {
-		return '<div class="loom-social-empty">' . esc_html__( 'Add social links.', 'loom' ) . '</div>';
+		return '<div class="loom-social-empty">' . esc_html__( 'Add social links.', 'loom-builder' ) . '</div>';
 	}
 
 	$paths = loom_social_paths();

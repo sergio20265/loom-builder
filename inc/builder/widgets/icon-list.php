@@ -15,41 +15,41 @@ add_action(
 		$registry->register(
 			array(
 				'id'       => 'icon_list',
-				'title'    => __( 'Icon List', 'loom' ),
+				'title'    => __( 'Icon List', 'loom-builder' ),
 				'icon'     => 'menu-alt',
 				'category' => 'basic',
 				'controls' => array(
 					'items'     => array(
 						'type'       => 'repeater',
-						'label'      => __( 'Items', 'loom' ),
+						'label'      => __( 'Items', 'loom-builder' ),
 						'section'    => 'content',
 						'titleField' => 'text',
 						'fields'     => array(
-							'icon' => array( 'type' => 'text', 'label' => __( 'Dashicon name', 'loom' ), 'default' => 'yes' ),
-							'text' => array( 'type' => 'text', 'label' => __( 'Text', 'loom' ), 'default' => __( 'List item', 'loom' ) ),
-							'link' => array( 'type' => 'url', 'label' => __( 'Link', 'loom' ), 'default' => '' ),
+							'icon' => array( 'type' => 'text', 'label' => __( 'Dashicon name', 'loom-builder' ), 'default' => 'yes' ),
+							'text' => array( 'type' => 'text', 'label' => __( 'Text', 'loom-builder' ), 'default' => __( 'List item', 'loom-builder' ) ),
+							'link' => array( 'type' => 'url', 'label' => __( 'Link', 'loom-builder' ), 'default' => '' ),
 						),
 						'default'    => array(
 							array(
 								'icon' => 'yes',
-								'text' => __( 'List item', 'loom' ),
+								'text' => __( 'List item', 'loom-builder' ),
 								'link' => '',
 							),
 						),
 					),
 					'layout'    => array(
 						'type'    => 'select',
-						'label'   => __( 'Layout', 'loom' ),
+						'label'   => __( 'Layout', 'loom-builder' ),
 						'default' => 'vertical',
 						'options' => array(
-							'vertical'   => __( 'Vertical', 'loom' ),
-							'horizontal' => __( 'Horizontal', 'loom' ),
+							'vertical'   => __( 'Vertical', 'loom-builder' ),
+							'horizontal' => __( 'Horizontal', 'loom-builder' ),
 						),
 						'section' => 'content',
 					),
-					'gap'       => array( 'type' => 'range', 'label' => __( 'Gap (px)', 'loom' ), 'default' => 10, 'min' => 0, 'max' => 40, 'section' => 'content' ),
-					'iconSize'  => array( 'type' => 'range', 'label' => __( 'Icon size (px)', 'loom' ), 'default' => 18, 'min' => 12, 'max' => 40, 'section' => 'content' ),
-					'iconColor' => array( 'type' => 'color', 'label' => __( 'Icon color', 'loom' ), 'default' => '#2563eb', 'section' => 'style' ),
+					'gap'       => array( 'type' => 'range', 'label' => __( 'Gap (px)', 'loom-builder' ), 'default' => 10, 'min' => 0, 'max' => 40, 'section' => 'content' ),
+					'iconSize'  => array( 'type' => 'range', 'label' => __( 'Icon size (px)', 'loom-builder' ), 'default' => 18, 'min' => 12, 'max' => 40, 'section' => 'content' ),
+					'iconColor' => array( 'type' => 'color', 'label' => __( 'Icon color', 'loom-builder' ), 'default' => '#2563eb', 'section' => 'style' ),
 				),
 				'render'   => 'loom_render_icon_list',
 			)
@@ -66,7 +66,7 @@ add_action(
 function loom_render_icon_list( $s ) {
 	$items = isset( $s['items'] ) && is_array( $s['items'] ) ? $s['items'] : array();
 	if ( empty( $items ) ) {
-		return '<div class="loom-icon-list-empty">' . esc_html__( 'Add list items.', 'loom' ) . '</div>';
+		return '<div class="loom-icon-list-empty">' . esc_html__( 'Add list items.', 'loom-builder' ) . '</div>';
 	}
 
 	$layout = ( isset( $s['layout'] ) && 'horizontal' === $s['layout'] ) ? 'horizontal' : 'vertical';

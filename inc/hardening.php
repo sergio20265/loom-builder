@@ -44,7 +44,7 @@ add_filter(
 
 		return new WP_Error(
 			'rest_forbidden',
-			__( 'REST API access is disabled for logged-out visitors.', 'loom' ),
+			__( 'REST API access is disabled for logged-out visitors.', 'loom-builder' ),
 			array( 'status' => 401 )
 		);
 	}

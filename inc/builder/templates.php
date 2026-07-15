@@ -25,7 +25,7 @@ add_action( 'add_meta_boxes', 'loom_template_meta_boxes' );
  * @return void
  */
 function loom_template_meta_boxes() {
-	add_meta_box( 'loom-template-settings', __( 'Template Settings', 'loom' ), 'loom_template_meta_box', 'loom_template', 'side', 'high' );
+	add_meta_box( 'loom-template-settings', __( 'Template Settings', 'loom-builder' ), 'loom_template_meta_box', 'loom_template', 'side', 'high' );
 }
 
 /**
@@ -70,17 +70,17 @@ function loom_template_meta_box( $post ) {
 	);
 	?>
 	<p>
-		<label for="loom_template_type"><strong><?php esc_html_e( 'Type', 'loom' ); ?></strong></label><br>
+		<label for="loom_template_type"><strong><?php esc_html_e( 'Type', 'loom-builder' ); ?></strong></label><br>
 		<select id="loom_template_type" name="loom_template_type" style="width:100%">
-			<option value="block"<?php selected( $type, 'block' ); ?>><?php esc_html_e( 'Block / Section', 'loom' ); ?></option>
-			<option value="header"<?php selected( $type, 'header' ); ?>><?php esc_html_e( 'Header', 'loom' ); ?></option>
-			<option value="footer"<?php selected( $type, 'footer' ); ?>><?php esc_html_e( 'Footer', 'loom' ); ?></option>
+			<option value="block"<?php selected( $type, 'block' ); ?>><?php esc_html_e( 'Block / Section', 'loom-builder' ); ?></option>
+			<option value="header"<?php selected( $type, 'header' ); ?>><?php esc_html_e( 'Header', 'loom-builder' ); ?></option>
+			<option value="footer"<?php selected( $type, 'footer' ); ?>><?php esc_html_e( 'Footer', 'loom-builder' ); ?></option>
 		</select>
 	</p>
-	<p><strong><?php esc_html_e( 'Display conditions', 'loom' ); ?></strong></p>
+	<p><strong><?php esc_html_e( 'Display conditions', 'loom-builder' ); ?></strong></p>
 	<div id="loom-tpl-conditions"></div>
 	<input type="hidden" name="loom_template_conditions" id="loom_template_conditions" value="<?php echo esc_attr( $conditions ? $conditions : '[]' ); ?>">
-	<p class="description"><?php esc_html_e( 'Header/footer templates render where conditions match. Blocks are inserted via the Template widget or [loom_template id="…"].', 'loom' ); ?></p>
+	<p class="description"><?php esc_html_e( 'Header/footer templates render where conditions match. Blocks are inserted via the Template widget or [loom_template id="…"].', 'loom-builder' ); ?></p>
 	<?php
 }
 
@@ -346,7 +346,7 @@ function loom_template_shortcode( $atts ) {
  * @return array<string,string>
  */
 function loom_block_template_choices() {
-	$out   = array( '' => __( '— Select template —', 'loom' ) );
+	$out   = array( '' => __( '— Select template —', 'loom-builder' ) );
 	$posts = get_posts(
 		array(
 			'post_type'      => 'loom_template',
@@ -370,13 +370,13 @@ add_action(
 		$registry->register(
 			array(
 				'id'       => 'template',
-				'title'    => __( 'Template', 'loom' ),
+				'title'    => __( 'Template', 'loom-builder' ),
 				'icon'     => 'layout',
 				'category' => 'layout',
 				'controls' => array(
 					'template_id' => array(
 						'type'    => 'select',
-						'label'   => __( 'Block template', 'loom' ),
+						'label'   => __( 'Block template', 'loom-builder' ),
 						'default' => '',
 						'options' => loom_block_template_choices(),
 						'section' => 'content',
@@ -397,7 +397,7 @@ add_action(
 function loom_render_template_widget( $s ) {
 	$id = isset( $s['template_id'] ) ? (int) $s['template_id'] : 0;
 	if ( ! $id ) {
-		return '<div class="loom-template-empty">' . esc_html__( 'Select a block template.', 'loom' ) . '</div>';
+		return '<div class="loom-template-empty">' . esc_html__( 'Select a block template.', 'loom-builder' ) . '</div>';
 	}
 	return loom_render_template( $id );
 }

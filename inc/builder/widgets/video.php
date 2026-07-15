@@ -16,30 +16,30 @@ add_action(
 		$registry->register(
 			array(
 				'id'       => 'video',
-				'title'    => __( 'Video', 'loom' ),
+				'title'    => __( 'Video', 'loom-builder' ),
 				'icon'     => 'video-alt3',
 				'category' => 'media',
 				'controls' => array(
 					'source'   => array(
 						'type'    => 'select',
-						'label'   => __( 'Source', 'loom' ),
+						'label'   => __( 'Source', 'loom-builder' ),
 						'default' => 'youtube',
 						'options' => array(
-							'youtube' => __( 'YouTube', 'loom' ),
-							'vimeo'   => __( 'Vimeo', 'loom' ),
-							'file'    => __( 'Self-hosted file', 'loom' ),
+							'youtube' => __( 'YouTube', 'loom-builder' ),
+							'vimeo'   => __( 'Vimeo', 'loom-builder' ),
+							'file'    => __( 'Self-hosted file', 'loom-builder' ),
 						),
 						'section' => 'content',
 					),
 					'url'      => array(
 						'type'    => 'text',
-						'label'   => __( 'Video URL or ID', 'loom' ),
+						'label'   => __( 'Video URL or ID', 'loom-builder' ),
 						'default' => '',
 						'section' => 'content',
 					),
 					'aspect'   => array(
 						'type'    => 'select',
-						'label'   => __( 'Aspect ratio', 'loom' ),
+						'label'   => __( 'Aspect ratio', 'loom-builder' ),
 						'default' => '16:9',
 						'options' => array(
 							'16:9' => '16:9',
@@ -51,14 +51,14 @@ add_action(
 					),
 					'poster'   => array(
 						'type'    => 'imageobj',
-						'label'   => __( 'Poster image', 'loom' ),
+						'label'   => __( 'Poster image', 'loom-builder' ),
 						'default' => array(),
 						'section' => 'content',
 					),
-					'autoplay' => array( 'type' => 'toggle', 'label' => __( 'Autoplay', 'loom' ), 'default' => false, 'section' => 'content' ),
-					'loop'     => array( 'type' => 'toggle', 'label' => __( 'Loop', 'loom' ), 'default' => false, 'section' => 'content' ),
-					'muted'    => array( 'type' => 'toggle', 'label' => __( 'Muted', 'loom' ), 'default' => false, 'section' => 'content' ),
-					'controls' => array( 'type' => 'toggle', 'label' => __( 'Controls', 'loom' ), 'default' => true, 'section' => 'content' ),
+					'autoplay' => array( 'type' => 'toggle', 'label' => __( 'Autoplay', 'loom-builder' ), 'default' => false, 'section' => 'content' ),
+					'loop'     => array( 'type' => 'toggle', 'label' => __( 'Loop', 'loom-builder' ), 'default' => false, 'section' => 'content' ),
+					'muted'    => array( 'type' => 'toggle', 'label' => __( 'Muted', 'loom-builder' ), 'default' => false, 'section' => 'content' ),
+					'controls' => array( 'type' => 'toggle', 'label' => __( 'Controls', 'loom-builder' ), 'default' => true, 'section' => 'content' ),
 				),
 				'render'   => 'loom_render_video',
 			)
@@ -128,7 +128,7 @@ function loom_render_video( $s ) {
 	if ( 'youtube' === $source ) {
 		$id = loom_video_youtube_id( $url );
 		if ( ! $id ) {
-			return '<div class="loom-video-empty">' . esc_html__( 'Enter a valid YouTube URL or ID.', 'loom' ) . '</div>';
+			return '<div class="loom-video-empty">' . esc_html__( 'Enter a valid YouTube URL or ID.', 'loom-builder' ) . '</div>';
 		}
 		$params = array(
 			'rel'            => 0,
@@ -149,11 +149,11 @@ function loom_render_video( $s ) {
 			$params['controls'] = 0;
 		}
 		$src   = 'https://www.youtube-nocookie.com/embed/' . $id . '?' . http_build_query( $params );
-		$inner = '<iframe src="' . esc_url( $src ) . '" title="' . esc_attr__( 'Video', 'loom' ) . '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>';
+		$inner = '<iframe src="' . esc_url( $src ) . '" title="' . esc_attr__( 'Video', 'loom-builder' ) . '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>';
 	} elseif ( 'vimeo' === $source ) {
 		$id = loom_video_vimeo_id( $url );
 		if ( ! $id ) {
-			return '<div class="loom-video-empty">' . esc_html__( 'Enter a valid Vimeo URL or ID.', 'loom' ) . '</div>';
+			return '<div class="loom-video-empty">' . esc_html__( 'Enter a valid Vimeo URL or ID.', 'loom-builder' ) . '</div>';
 		}
 		$params = array();
 		if ( $autoplay ) {
@@ -167,10 +167,10 @@ function loom_render_video( $s ) {
 			$params['loop'] = 1;
 		}
 		$src   = 'https://player.vimeo.com/video/' . $id . ( $params ? '?' . http_build_query( $params ) : '' );
-		$inner = '<iframe src="' . esc_url( $src ) . '" title="' . esc_attr__( 'Video', 'loom' ) . '" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>';
+		$inner = '<iframe src="' . esc_url( $src ) . '" title="' . esc_attr__( 'Video', 'loom-builder' ) . '" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>';
 	} else {
 		if ( ! $url ) {
-			return '<div class="loom-video-empty">' . esc_html__( 'Enter a video file URL.', 'loom' ) . '</div>';
+			return '<div class="loom-video-empty">' . esc_html__( 'Enter a video file URL.', 'loom-builder' ) . '</div>';
 		}
 		$attrs  = $controls ? ' controls' : '';
 		$attrs .= $autoplay ? ' autoplay' : '';

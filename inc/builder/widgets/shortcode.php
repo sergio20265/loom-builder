@@ -15,13 +15,13 @@ add_action(
 		$registry->register(
 			array(
 				'id'       => 'shortcode',
-				'title'    => __( 'Shortcode', 'loom' ),
+				'title'    => __( 'Shortcode', 'loom-builder' ),
 				'icon'     => 'shortcode',
 				'category' => 'basic',
 				'controls' => array(
 					'shortcode' => array(
 						'type'    => 'textarea',
-						'label'   => __( 'Shortcode', 'loom' ),
+						'label'   => __( 'Shortcode', 'loom-builder' ),
 						'default' => '',
 						'section' => 'content',
 					),

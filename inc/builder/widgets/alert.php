@@ -16,25 +16,25 @@ add_action(
 		$registry->register(
 			array(
 				'id'       => 'alert',
-				'title'    => __( 'Alert', 'loom' ),
+				'title'    => __( 'Alert', 'loom-builder' ),
 				'icon'     => 'warning',
 				'category' => 'basic',
 				'controls' => array(
 					'type'        => array(
 						'type'    => 'select',
-						'label'   => __( 'Type', 'loom' ),
+						'label'   => __( 'Type', 'loom-builder' ),
 						'default' => 'info',
 						'options' => array(
-							'info'    => __( 'Info', 'loom' ),
-							'success' => __( 'Success', 'loom' ),
-							'warning' => __( 'Warning', 'loom' ),
-							'error'   => __( 'Error', 'loom' ),
+							'info'    => __( 'Info', 'loom-builder' ),
+							'success' => __( 'Success', 'loom-builder' ),
+							'warning' => __( 'Warning', 'loom-builder' ),
+							'error'   => __( 'Error', 'loom-builder' ),
 						),
 						'section' => 'content',
 					),
-					'text'        => array( 'type' => 'textarea', 'label' => __( 'Text', 'loom' ), 'default' => __( 'This is an alert message.', 'loom' ), 'section' => 'content' ),
-					'icon'        => array( 'type' => 'toggle', 'label' => __( 'Show icon', 'loom' ), 'default' => true, 'section' => 'content' ),
-					'dismissible' => array( 'type' => 'toggle', 'label' => __( 'Dismissible', 'loom' ), 'default' => false, 'section' => 'content' ),
+					'text'        => array( 'type' => 'textarea', 'label' => __( 'Text', 'loom-builder' ), 'default' => __( 'This is an alert message.', 'loom-builder' ), 'section' => 'content' ),
+					'icon'        => array( 'type' => 'toggle', 'label' => __( 'Show icon', 'loom-builder' ), 'default' => true, 'section' => 'content' ),
+					'dismissible' => array( 'type' => 'toggle', 'label' => __( 'Dismissible', 'loom-builder' ), 'default' => false, 'section' => 'content' ),
 				),
 				'render'   => 'loom_render_alert',
 			)
@@ -73,7 +73,7 @@ function loom_render_alert( $s ) {
 	}
 	$out .= '<div class="loom-alert-text">' . esc_html( $s['text'] ) . '</div>';
 	if ( ! empty( $s['dismissible'] ) ) {
-		$out .= '<button type="button" class="loom-alert-dismiss" aria-label="' . esc_attr__( 'Dismiss', 'loom' ) . '">&times;</button>';
+		$out .= '<button type="button" class="loom-alert-dismiss" aria-label="' . esc_attr__( 'Dismiss', 'loom-builder' ) . '">&times;</button>';
 	}
 	$out .= '</div>';
 

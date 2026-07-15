@@ -16,38 +16,38 @@ add_action(
 		$registry->register(
 			array(
 				'id'       => 'slider',
-				'title'    => __( 'Slider', 'loom' ),
+				'title'    => __( 'Slider', 'loom-builder' ),
 				'icon'     => 'images-alt2',
 				'category' => 'media',
 				'controls' => array(
 					'slides'   => array(
 						'type'    => 'repeater',
-						'label'   => __( 'Slides', 'loom' ),
+						'label'   => __( 'Slides', 'loom-builder' ),
 						'section' => 'content',
 						'titleField' => 'title',
 						'fields'  => array(
-							'image'   => array( 'type' => 'imageobj', 'label' => __( 'Image', 'loom' ), 'default' => array() ),
-							'title'   => array( 'type' => 'text', 'label' => __( 'Title', 'loom' ), 'default' => __( 'Slide title', 'loom' ) ),
-							'text'    => array( 'type' => 'textarea', 'label' => __( 'Text', 'loom' ), 'default' => '' ),
-							'btnText' => array( 'type' => 'text', 'label' => __( 'Button text', 'loom' ), 'default' => '' ),
-							'btnLink' => array( 'type' => 'url', 'label' => __( 'Button link', 'loom' ), 'default' => '' ),
+							'image'   => array( 'type' => 'imageobj', 'label' => __( 'Image', 'loom-builder' ), 'default' => array() ),
+							'title'   => array( 'type' => 'text', 'label' => __( 'Title', 'loom-builder' ), 'default' => __( 'Slide title', 'loom-builder' ) ),
+							'text'    => array( 'type' => 'textarea', 'label' => __( 'Text', 'loom-builder' ), 'default' => '' ),
+							'btnText' => array( 'type' => 'text', 'label' => __( 'Button text', 'loom-builder' ), 'default' => '' ),
+							'btnLink' => array( 'type' => 'url', 'label' => __( 'Button link', 'loom-builder' ), 'default' => '' ),
 						),
 						'default' => array(),
 					),
 					'effect'   => array(
 						'type'    => 'select',
-						'label'   => __( 'Effect', 'loom' ),
+						'label'   => __( 'Effect', 'loom-builder' ),
 						'default' => 'slide',
 						'options' => array(
-							'slide' => __( 'Slide', 'loom' ),
-							'fade'  => __( 'Fade', 'loom' ),
-							'cards' => __( 'Cards', 'loom' ),
+							'slide' => __( 'Slide', 'loom-builder' ),
+							'fade'  => __( 'Fade', 'loom-builder' ),
+							'cards' => __( 'Cards', 'loom-builder' ),
 						),
 						'section' => 'content',
 					),
 					'height'   => array(
 						'type'    => 'range',
-						'label'   => __( 'Height (px)', 'loom' ),
+						'label'   => __( 'Height (px)', 'loom-builder' ),
 						'default' => 480,
 						'min'     => 160,
 						'max'     => 900,
@@ -55,31 +55,31 @@ add_action(
 					),
 					'autoplay' => array(
 						'type'    => 'toggle',
-						'label'   => __( 'Autoplay', 'loom' ),
+						'label'   => __( 'Autoplay', 'loom-builder' ),
 						'default' => true,
 						'section' => 'content',
 					),
 					'interval' => array(
 						'type'    => 'number',
-						'label'   => __( 'Interval (ms)', 'loom' ),
+						'label'   => __( 'Interval (ms)', 'loom-builder' ),
 						'default' => 5000,
 						'section' => 'content',
 					),
 					'arrows'   => array(
 						'type'    => 'toggle',
-						'label'   => __( 'Arrows', 'loom' ),
+						'label'   => __( 'Arrows', 'loom-builder' ),
 						'default' => true,
 						'section' => 'content',
 					),
 					'dots'     => array(
 						'type'    => 'toggle',
-						'label'   => __( 'Dots', 'loom' ),
+						'label'   => __( 'Dots', 'loom-builder' ),
 						'default' => true,
 						'section' => 'content',
 					),
 					'overlay'  => array(
 						'type'    => 'range',
-						'label'   => __( 'Overlay darkness (%)', 'loom' ),
+						'label'   => __( 'Overlay darkness (%)', 'loom-builder' ),
 						'default' => 35,
 						'min'     => 0,
 						'max'     => 90,
@@ -101,7 +101,7 @@ add_action(
 function loom_render_slider( $s ) {
 	$slides = isset( $s['slides'] ) && is_array( $s['slides'] ) ? $s['slides'] : array();
 	if ( empty( $slides ) ) {
-		return '<div class="loom-slider-empty">' . esc_html__( 'Add slides to the slider.', 'loom' ) . '</div>';
+		return '<div class="loom-slider-empty">' . esc_html__( 'Add slides to the slider.', 'loom-builder' ) . '</div>';
 	}
 
 	$effect   = in_array( $s['effect'], array( 'slide', 'fade', 'cards' ), true ) ? $s['effect'] : 'slide';
@@ -144,8 +144,8 @@ function loom_render_slider( $s ) {
 	$out .= '</div>'; // .loom-slides
 
 	if ( $arrows && count( $slides ) > 1 ) {
-		$out .= '<button class="loom-slider-arrow loom-slider-prev" aria-label="' . esc_attr__( 'Previous', 'loom' ) . '">&#8249;</button>';
-		$out .= '<button class="loom-slider-arrow loom-slider-next" aria-label="' . esc_attr__( 'Next', 'loom' ) . '">&#8250;</button>';
+		$out .= '<button class="loom-slider-arrow loom-slider-prev" aria-label="' . esc_attr__( 'Previous', 'loom-builder' ) . '">&#8249;</button>';
+		$out .= '<button class="loom-slider-arrow loom-slider-next" aria-label="' . esc_attr__( 'Next', 'loom-builder' ) . '">&#8250;</button>';
 	}
 	if ( $dots && count( $slides ) > 1 ) {
 		$out .= '<div class="loom-slider-dots"></div>';

@@ -99,7 +99,7 @@ final class Plugin {
 		add_action(
 			'init',
 			static function () {
-				load_plugin_textdomain( 'loom', false, dirname( plugin_basename( LOOM_FILE ) ) . '/languages' );
+				load_plugin_textdomain( 'loom-builder', false, dirname( plugin_basename( LOOM_FILE ) ) . '/languages' );
 			}
 		);
 	}

@@ -18,17 +18,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 function loom_register_post_types() {
 
 	$labels = array(
-		'name'               => __( 'Loom Templates', 'loom' ),
-		'singular_name'      => __( 'Loom Template', 'loom' ),
-		'add_new'            => __( 'Add Template', 'loom' ),
-		'add_new_item'       => __( 'Add New Template', 'loom' ),
-		'edit_item'          => __( 'Edit Template', 'loom' ),
-		'new_item'           => __( 'New Template', 'loom' ),
-		'view_item'          => __( 'View Template', 'loom' ),
-		'search_items'       => __( 'Search Templates', 'loom' ),
-		'not_found'          => __( 'No templates found', 'loom' ),
-		'not_found_in_trash' => __( 'No templates found in Trash', 'loom' ),
-		'menu_name'          => __( 'Templates', 'loom' ),
+		'name'               => __( 'Loom Templates', 'loom-builder' ),
+		'singular_name'      => __( 'Loom Template', 'loom-builder' ),
+		'add_new'            => __( 'Add Template', 'loom-builder' ),
+		'add_new_item'       => __( 'Add New Template', 'loom-builder' ),
+		'edit_item'          => __( 'Edit Template', 'loom-builder' ),
+		'new_item'           => __( 'New Template', 'loom-builder' ),
+		'view_item'          => __( 'View Template', 'loom-builder' ),
+		'search_items'       => __( 'Search Templates', 'loom-builder' ),
+		'not_found'          => __( 'No templates found', 'loom-builder' ),
+		'not_found_in_trash' => __( 'No templates found in Trash', 'loom-builder' ),
+		'menu_name'          => __( 'Templates', 'loom-builder' ),
 	);
 
 	register_post_type(

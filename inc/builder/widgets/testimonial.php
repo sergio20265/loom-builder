@@ -15,23 +15,23 @@ add_action(
 		$registry->register(
 			array(
 				'id'       => 'testimonial',
-				'title'    => __( 'Testimonial', 'loom' ),
+				'title'    => __( 'Testimonial', 'loom-builder' ),
 				'icon'     => 'testimonial',
 				'category' => 'basic',
 				'controls' => array(
-					'avatar'     => array( 'type' => 'imageobj', 'label' => __( 'Avatar', 'loom' ), 'default' => array(), 'section' => 'content' ),
-					'text'       => array( 'type' => 'textarea', 'label' => __( 'Quote', 'loom' ), 'default' => __( 'This product changed how we work.', 'loom' ), 'section' => 'content' ),
-					'name'       => array( 'type' => 'text', 'label' => __( 'Name', 'loom' ), 'default' => __( 'Jane Doe', 'loom' ), 'section' => 'content' ),
-					'role'       => array( 'type' => 'text', 'label' => __( 'Role / company', 'loom' ), 'default' => __( 'CEO, Acme Inc.', 'loom' ), 'section' => 'content' ),
-					'showRating' => array( 'type' => 'toggle', 'label' => __( 'Show rating', 'loom' ), 'default' => true, 'section' => 'content' ),
-					'rating'     => array( 'type' => 'range', 'label' => __( 'Rating', 'loom' ), 'default' => 5, 'min' => 0, 'max' => 5, 'section' => 'content' ),
+					'avatar'     => array( 'type' => 'imageobj', 'label' => __( 'Avatar', 'loom-builder' ), 'default' => array(), 'section' => 'content' ),
+					'text'       => array( 'type' => 'textarea', 'label' => __( 'Quote', 'loom-builder' ), 'default' => __( 'This product changed how we work.', 'loom-builder' ), 'section' => 'content' ),
+					'name'       => array( 'type' => 'text', 'label' => __( 'Name', 'loom-builder' ), 'default' => __( 'Jane Doe', 'loom-builder' ), 'section' => 'content' ),
+					'role'       => array( 'type' => 'text', 'label' => __( 'Role / company', 'loom-builder' ), 'default' => __( 'CEO, Acme Inc.', 'loom-builder' ), 'section' => 'content' ),
+					'showRating' => array( 'type' => 'toggle', 'label' => __( 'Show rating', 'loom-builder' ), 'default' => true, 'section' => 'content' ),
+					'rating'     => array( 'type' => 'range', 'label' => __( 'Rating', 'loom-builder' ), 'default' => 5, 'min' => 0, 'max' => 5, 'section' => 'content' ),
 					'style'      => array(
 						'type'    => 'select',
-						'label'   => __( 'Style', 'loom' ),
+						'label'   => __( 'Style', 'loom-builder' ),
 						'default' => 'card',
 						'options' => array(
-							'card'  => __( 'Card', 'loom' ),
-							'plain' => __( 'Plain', 'loom' ),
+							'card'  => __( 'Card', 'loom-builder' ),
+							'plain' => __( 'Plain', 'loom-builder' ),
 						),
 						'section' => 'content',
 					),
@@ -50,7 +50,7 @@ add_action(
  */
 function loom_testimonial_stars( $rating ) {
 	$rating = max( 0, min( 5, (int) $rating ) );
-	$out    = '<span class="loom-testimonial-stars" aria-label="' . esc_attr( sprintf( /* translators: %d: rating out of 5. */ __( '%d out of 5', 'loom' ), $rating ) ) . '">';
+	$out    = '<span class="loom-testimonial-stars" aria-label="' . esc_attr( sprintf( /* translators: %d: rating out of 5. */ __( '%d out of 5', 'loom-builder' ), $rating ) ) . '">';
 	for ( $i = 1; $i <= 5; $i++ ) {
 		$out .= '<span class="dashicons dashicons-star-' . ( $i <= $rating ? 'filled' : 'empty' ) . '"></span>';
 	}

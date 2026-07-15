@@ -15,19 +15,19 @@ add_action(
 		$registry->register(
 			array(
 				'id'       => 'heading',
-				'title'    => __( 'Heading', 'loom' ),
+				'title'    => __( 'Heading', 'loom-builder' ),
 				'icon'     => 'heading',
 				'category' => 'basic',
 				'controls' => array(
 					'text' => array(
 						'type'    => 'text',
-						'label'   => __( 'Title', 'loom' ),
-						'default' => __( 'Add Your Heading Text Here', 'loom' ),
+						'label'   => __( 'Title', 'loom-builder' ),
+						'default' => __( 'Add Your Heading Text Here', 'loom-builder' ),
 						'section' => 'content',
 					),
 					'tag'  => array(
 						'type'    => 'select',
-						'label'   => __( 'HTML Tag', 'loom' ),
+						'label'   => __( 'HTML Tag', 'loom-builder' ),
 						'default' => 'h2',
 						'options' => array(
 							'h1'  => 'H1',
@@ -42,7 +42,7 @@ add_action(
 					),
 					'link' => array(
 						'type'    => 'url',
-						'label'   => __( 'Link', 'loom' ),
+						'label'   => __( 'Link', 'loom-builder' ),
 						'default' => '',
 						'section' => 'content',
 					),

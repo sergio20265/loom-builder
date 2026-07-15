@@ -23,11 +23,11 @@ function loom_register_field_group_cpt() {
 		'loom_field_group',
 		array(
 			'labels'       => array(
-				'name'          => __( 'Field Groups', 'loom' ),
-				'singular_name' => __( 'Field Group', 'loom' ),
-				'add_new_item'  => __( 'Add Field Group', 'loom' ),
-				'edit_item'     => __( 'Edit Field Group', 'loom' ),
-				'menu_name'     => __( 'Field Groups', 'loom' ),
+				'name'          => __( 'Field Groups', 'loom-builder' ),
+				'singular_name' => __( 'Field Group', 'loom-builder' ),
+				'add_new_item'  => __( 'Add Field Group', 'loom-builder' ),
+				'edit_item'     => __( 'Edit Field Group', 'loom-builder' ),
+				'menu_name'     => __( 'Field Groups', 'loom-builder' ),
 			),
 			'public'       => false,
 			'show_ui'      => true,

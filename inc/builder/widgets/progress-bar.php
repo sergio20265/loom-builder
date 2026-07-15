@@ -16,17 +16,17 @@ add_action(
 		$registry->register(
 			array(
 				'id'       => 'progress_bar',
-				'title'    => __( 'Progress Bar', 'loom' ),
+				'title'    => __( 'Progress Bar', 'loom-builder' ),
 				'icon'     => 'chart-line',
 				'category' => 'basic',
 				'controls' => array(
-					'label'       => array( 'type' => 'text', 'label' => __( 'Label', 'loom' ), 'default' => __( 'Skill', 'loom' ), 'section' => 'content' ),
-					'percent'     => array( 'type' => 'range', 'label' => __( 'Percent', 'loom' ), 'default' => 75, 'min' => 0, 'max' => 100, 'section' => 'content' ),
-					'showPercent' => array( 'type' => 'toggle', 'label' => __( 'Show percent', 'loom' ), 'default' => true, 'section' => 'content' ),
-					'animate'     => array( 'type' => 'toggle', 'label' => __( 'Animate on scroll', 'loom' ), 'default' => true, 'section' => 'content' ),
-					'barColor'    => array( 'type' => 'color', 'label' => __( 'Bar color', 'loom' ), 'default' => '#2563eb', 'section' => 'style' ),
-					'trackColor'  => array( 'type' => 'color', 'label' => __( 'Track color', 'loom' ), 'default' => '#e5e7eb', 'section' => 'style' ),
-					'height'      => array( 'type' => 'range', 'label' => __( 'Height (px)', 'loom' ), 'default' => 10, 'min' => 4, 'max' => 40, 'section' => 'style' ),
+					'label'       => array( 'type' => 'text', 'label' => __( 'Label', 'loom-builder' ), 'default' => __( 'Skill', 'loom-builder' ), 'section' => 'content' ),
+					'percent'     => array( 'type' => 'range', 'label' => __( 'Percent', 'loom-builder' ), 'default' => 75, 'min' => 0, 'max' => 100, 'section' => 'content' ),
+					'showPercent' => array( 'type' => 'toggle', 'label' => __( 'Show percent', 'loom-builder' ), 'default' => true, 'section' => 'content' ),
+					'animate'     => array( 'type' => 'toggle', 'label' => __( 'Animate on scroll', 'loom-builder' ), 'default' => true, 'section' => 'content' ),
+					'barColor'    => array( 'type' => 'color', 'label' => __( 'Bar color', 'loom-builder' ), 'default' => '#2563eb', 'section' => 'style' ),
+					'trackColor'  => array( 'type' => 'color', 'label' => __( 'Track color', 'loom-builder' ), 'default' => '#e5e7eb', 'section' => 'style' ),
+					'height'      => array( 'type' => 'range', 'label' => __( 'Height (px)', 'loom-builder' ), 'default' => 10, 'min' => 4, 'max' => 40, 'section' => 'style' ),
 				),
 				'render'   => 'loom_render_progress_bar',
 			)

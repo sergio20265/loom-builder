@@ -50,7 +50,7 @@ function loom_layout_limits() {
  */
 function loom_validate_tree_limits( $tree ) {
 	if ( ! is_array( $tree ) ) {
-		return new WP_Error( 'loom_invalid_layout', __( 'Layout must be an array.', 'loom' ), array( 'status' => 400 ) );
+		return new WP_Error( 'loom_invalid_layout', __( 'Layout must be an array.', 'loom-builder' ), array( 'status' => 400 ) );
 	}
 
 	$limits = loom_layout_limits();
@@ -58,7 +58,7 @@ function loom_validate_tree_limits( $tree ) {
 
 	$walk = static function ( $nodes, $depth ) use ( &$walk, &$count, $limits ) {
 		if ( $depth > (int) $limits['max_depth'] ) {
-			return new WP_Error( 'loom_layout_too_deep', __( 'Layout is too deeply nested.', 'loom' ), array( 'status' => 400 ) );
+			return new WP_Error( 'loom_layout_too_deep', __( 'Layout is too deeply nested.', 'loom-builder' ), array( 'status' => 400 ) );
 		}
 
 		foreach ( (array) $nodes as $node ) {
@@ -68,7 +68,7 @@ function loom_validate_tree_limits( $tree ) {
 
 			$count++;
 			if ( $count > (int) $limits['max_nodes'] ) {
-				return new WP_Error( 'loom_layout_too_large', __( 'Layout contains too many nodes.', 'loom' ), array( 'status' => 400 ) );
+				return new WP_Error( 'loom_layout_too_large', __( 'Layout contains too many nodes.', 'loom-builder' ), array( 'status' => 400 ) );
 			}
 
 			if ( ! empty( $node['children'] ) && is_array( $node['children'] ) ) {

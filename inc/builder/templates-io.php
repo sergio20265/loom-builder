@@ -40,7 +40,7 @@ function loom_template_export_row_action( $actions, $post ) {
 		admin_url( 'admin-post.php?action=loom_export_template&id=' . $post->ID ),
 		'loom_export_template_' . $post->ID
 	);
-	$actions['loom_export'] = '<a href="' . esc_url( $url ) . '">' . esc_html__( 'Export', 'loom' ) . '</a>';
+	$actions['loom_export'] = '<a href="' . esc_url( $url ) . '">' . esc_html__( 'Export', 'loom-builder' ) . '</a>';
 	return $actions;
 }
 add_filter( 'post_row_actions', 'loom_template_export_row_action', 20, 2 );
@@ -56,12 +56,12 @@ function loom_handle_export_template() {
 	$id = isset( $_GET['id'] ) ? (int) $_GET['id'] : 0;
 
 	if ( ! $id || ! current_user_can( 'edit_post', $id ) ) {
-		wp_die( esc_html__( 'You cannot export this template.', 'loom' ) );
+		wp_die( esc_html__( 'You cannot export this template.', 'loom-builder' ) );
 	}
 	check_admin_referer( 'loom_export_template_' . $id );
 
 	if ( 'loom_template' !== get_post_type( $id ) ) {
-		wp_die( esc_html__( 'Not a Loom template.', 'loom' ) );
+		wp_die( esc_html__( 'Not a Loom template.', 'loom-builder' ) );
 	}
 
 	$post       = get_post( $id );
@@ -105,9 +105,9 @@ function loom_template_import_box() {
 	if ( isset( $_GET['loom_import'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		$status = sanitize_key( wp_unslash( $_GET['loom_import'] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		if ( 'ok' === $status ) {
-			echo '<div class="notice notice-success is-dismissible"><p>' . esc_html__( 'Template imported as a draft.', 'loom' ) . '</p></div>';
+			echo '<div class="notice notice-success is-dismissible"><p>' . esc_html__( 'Template imported as a draft.', 'loom-builder' ) . '</p></div>';
 		} elseif ( 'error' === $status ) {
-			echo '<div class="notice notice-error is-dismissible"><p>' . esc_html__( 'Could not import: the file is not a valid Loom template export.', 'loom' ) . '</p></div>';
+			echo '<div class="notice notice-error is-dismissible"><p>' . esc_html__( 'Could not import: the file is not a valid Loom template export.', 'loom-builder' ) . '</p></div>';
 		}
 	}
 	?>
@@ -115,9 +115,9 @@ function loom_template_import_box() {
 		<form method="post" enctype="multipart/form-data" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:0;">
 			<input type="hidden" name="action" value="loom_import_template">
 			<?php wp_nonce_field( 'loom_import_template' ); ?>
-			<strong><?php esc_html_e( 'Import template', 'loom' ); ?></strong>
+			<strong><?php esc_html_e( 'Import template', 'loom-builder' ); ?></strong>
 			<input type="file" name="loom_template_file" accept="application/json,.json" required>
-			<button type="submit" class="button button-primary"><?php esc_html_e( 'Import', 'loom' ); ?></button>
+			<button type="submit" class="button button-primary"><?php esc_html_e( 'Import', 'loom-builder' ); ?></button>
 		</form>
 	</div>
 	<?php
@@ -133,7 +133,7 @@ add_action( 'admin_post_loom_import_template', 'loom_handle_import_template' );
  */
 function loom_handle_import_template() {
 	if ( ! current_user_can( loom_templates_io_cap() ) ) {
-		wp_die( esc_html__( 'You cannot import templates.', 'loom' ) );
+		wp_die( esc_html__( 'You cannot import templates.', 'loom-builder' ) );
 	}
 	check_admin_referer( 'loom_import_template' );
 
@@ -159,7 +159,7 @@ function loom_handle_import_template() {
 		exit;
 	}
 
-	$title = isset( $data['title'] ) ? sanitize_text_field( $data['title'] ) : __( 'Imported template', 'loom' );
+	$title = isset( $data['title'] ) ? sanitize_text_field( $data['title'] ) : __( 'Imported template', 'loom-builder' );
 	$type  = isset( $data['type'] ) && in_array( $data['type'], array( 'block', 'header', 'footer' ), true ) ? $data['type'] : 'block';
 	$raw_tree = isset( $data['layout'] ) && is_array( $data['layout'] ) ? $data['layout'] : array();
 	$valid = loom_validate_tree_limits( $raw_tree );

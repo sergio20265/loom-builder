@@ -29,7 +29,7 @@ function loom_value_meta_box( $post_type, $post ) {
 	}
 	add_meta_box(
 		'loom-field-values',
-		__( 'Loom Fields', 'loom' ),
+		__( 'Loom Fields', 'loom-builder' ),
 		'loom_render_value_meta_box',
 		$post_type,
 		'normal',

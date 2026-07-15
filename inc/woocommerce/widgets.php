@@ -22,31 +22,31 @@ add_action(
 		$registry->register(
 			array(
 				'id'       => 'products',
-				'title'    => __( 'Products', 'loom' ),
+				'title'    => __( 'Products', 'loom-builder' ),
 				'icon'     => 'cart',
 				'category' => 'woocommerce',
 				'controls' => array(
-					'category'     => array( 'type' => 'select', 'label' => __( 'Category', 'loom' ), 'default' => '', 'options' => $cats, 'section' => 'content' ),
-					'count'        => array( 'type' => 'range', 'label' => __( 'Products', 'loom' ), 'default' => 8, 'min' => 1, 'max' => 36, 'section' => 'content' ),
-					'colsD'        => array( 'type' => 'range', 'label' => __( 'Columns: desktop', 'loom' ), 'default' => 4, 'min' => 1, 'max' => 6, 'section' => 'content' ),
-					'colsM'        => array( 'type' => 'range', 'label' => __( 'Columns: mobile', 'loom' ), 'default' => 2, 'min' => 1, 'max' => 3, 'section' => 'content' ),
+					'category'     => array( 'type' => 'select', 'label' => __( 'Category', 'loom-builder' ), 'default' => '', 'options' => $cats, 'section' => 'content' ),
+					'count'        => array( 'type' => 'range', 'label' => __( 'Products', 'loom-builder' ), 'default' => 8, 'min' => 1, 'max' => 36, 'section' => 'content' ),
+					'colsD'        => array( 'type' => 'range', 'label' => __( 'Columns: desktop', 'loom-builder' ), 'default' => 4, 'min' => 1, 'max' => 6, 'section' => 'content' ),
+					'colsM'        => array( 'type' => 'range', 'label' => __( 'Columns: mobile', 'loom-builder' ), 'default' => 2, 'min' => 1, 'max' => 3, 'section' => 'content' ),
 					'orderby'      => array(
 						'type'    => 'select',
-						'label'   => __( 'Order by', 'loom' ),
+						'label'   => __( 'Order by', 'loom-builder' ),
 						'default' => 'date',
 						'options' => array(
-							'date'       => __( 'Newest', 'loom' ),
-							'price'      => __( 'Price: low to high', 'loom' ),
-							'price-desc' => __( 'Price: high to low', 'loom' ),
-							'popularity' => __( 'Popularity', 'loom' ),
-							'rating'     => __( 'Rating', 'loom' ),
-							'rand'       => __( 'Random', 'loom' ),
+							'date'       => __( 'Newest', 'loom-builder' ),
+							'price'      => __( 'Price: low to high', 'loom-builder' ),
+							'price-desc' => __( 'Price: high to low', 'loom-builder' ),
+							'popularity' => __( 'Popularity', 'loom-builder' ),
+							'rating'     => __( 'Rating', 'loom-builder' ),
+							'rand'       => __( 'Random', 'loom-builder' ),
 						),
 						'section' => 'content',
 					),
-					'onSale'       => array( 'type' => 'toggle', 'label' => __( 'On sale only', 'loom' ), 'default' => false, 'section' => 'content' ),
-					'featured'     => array( 'type' => 'toggle', 'label' => __( 'Featured only', 'loom' ), 'default' => false, 'section' => 'content' ),
-					'honorFilters' => array( 'type' => 'toggle', 'label' => __( 'Respect active filters', 'loom' ), 'default' => false, 'section' => 'content' ),
+					'onSale'       => array( 'type' => 'toggle', 'label' => __( 'On sale only', 'loom-builder' ), 'default' => false, 'section' => 'content' ),
+					'featured'     => array( 'type' => 'toggle', 'label' => __( 'Featured only', 'loom-builder' ), 'default' => false, 'section' => 'content' ),
+					'honorFilters' => array( 'type' => 'toggle', 'label' => __( 'Respect active filters', 'loom-builder' ), 'default' => false, 'section' => 'content' ),
 				),
 				'render'   => 'loom_render_products',
 			)
@@ -55,12 +55,12 @@ add_action(
 		$registry->register(
 			array(
 				'id'       => 'add_to_cart',
-				'title'    => __( 'Add to Cart', 'loom' ),
+				'title'    => __( 'Add to Cart', 'loom-builder' ),
 				'icon'     => 'cart',
 				'category' => 'woocommerce',
 				'controls' => array(
-					'productId' => array( 'type' => 'number', 'label' => __( 'Product ID (blank = current)', 'loom' ), 'default' => '', 'section' => 'content' ),
-					'showPrice' => array( 'type' => 'toggle', 'label' => __( 'Show price', 'loom' ), 'default' => true, 'section' => 'content' ),
+					'productId' => array( 'type' => 'number', 'label' => __( 'Product ID (blank = current)', 'loom-builder' ), 'default' => '', 'section' => 'content' ),
+					'showPrice' => array( 'type' => 'toggle', 'label' => __( 'Show price', 'loom-builder' ), 'default' => true, 'section' => 'content' ),
 				),
 				'render'   => 'loom_render_add_to_cart',
 			)
@@ -69,20 +69,20 @@ add_action(
 		$registry->register(
 			array(
 				'id'       => 'product_filter',
-				'title'    => __( 'Product Filter', 'loom' ),
+				'title'    => __( 'Product Filter', 'loom-builder' ),
 				'icon'     => 'filter',
 				'category' => 'woocommerce',
 				'controls' => array(
-					'showCategories' => array( 'type' => 'toggle', 'label' => __( 'Categories', 'loom' ), 'default' => true, 'section' => 'content' ),
-					'showPrice'      => array( 'type' => 'toggle', 'label' => __( 'Price range', 'loom' ), 'default' => true, 'section' => 'content' ),
-					'attribute'      => array( 'type' => 'text', 'label' => __( 'Attribute taxonomy (e.g. pa_color)', 'loom' ), 'default' => '', 'section' => 'content' ),
+					'showCategories' => array( 'type' => 'toggle', 'label' => __( 'Categories', 'loom-builder' ), 'default' => true, 'section' => 'content' ),
+					'showPrice'      => array( 'type' => 'toggle', 'label' => __( 'Price range', 'loom-builder' ), 'default' => true, 'section' => 'content' ),
+					'attribute'      => array( 'type' => 'text', 'label' => __( 'Attribute taxonomy (e.g. pa_color)', 'loom-builder' ), 'default' => '', 'section' => 'content' ),
 					'target'         => array(
 						'type'    => 'select',
-						'label'   => __( 'Submit to', 'loom' ),
+						'label'   => __( 'Submit to', 'loom-builder' ),
 						'default' => 'shop',
 						'options' => array(
-							'shop'    => __( 'Shop page', 'loom' ),
-							'current' => __( 'Current page', 'loom' ),
+							'shop'    => __( 'Shop page', 'loom-builder' ),
+							'current' => __( 'Current page', 'loom-builder' ),
 						),
 						'section' => 'content',
 					),
@@ -172,7 +172,7 @@ function loom_render_products( $s ) {
 	$query = new WP_Query( $args );
 	if ( ! $query->have_posts() ) {
 		wp_reset_postdata();
-		return '<div class="loom-products-empty">' . esc_html__( 'No products found.', 'loom' ) . '</div>';
+		return '<div class="loom-products-empty">' . esc_html__( 'No products found.', 'loom-builder' ) . '</div>';
 	}
 
 	$style = '--loom-pcols-d:' . $colsD . ';--loom-pcols-m:' . $colsM . ';';
@@ -214,7 +214,7 @@ function loom_render_add_to_cart( $s ) {
 	$product_id = ! empty( $s['productId'] ) ? (int) $s['productId'] : get_the_ID();
 	$product    = $product_id ? wc_get_product( $product_id ) : null;
 	if ( ! $product ) {
-		return '<div class="loom-atc-empty">' . esc_html__( 'Product not found.', 'loom' ) . '</div>';
+		return '<div class="loom-atc-empty">' . esc_html__( 'Product not found.', 'loom-builder' ) . '</div>';
 	}
 
 	$out = '<div class="loom-atc">';
@@ -249,7 +249,7 @@ function loom_render_product_filter( $s ) {
 		$terms    = get_terms( array( 'taxonomy' => 'product_cat', 'hide_empty' => true ) );
 		$selected = isset( $_GET['filter_cat'] ) ? explode( ',', sanitize_text_field( wp_unslash( $_GET['filter_cat'] ) ) ) : array(); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		if ( is_array( $terms ) && $terms ) {
-			$out .= '<div class="loom-filter-group"><h4>' . esc_html__( 'Categories', 'loom' ) . '</h4>';
+			$out .= '<div class="loom-filter-group"><h4>' . esc_html__( 'Categories', 'loom-builder' ) . '</h4>';
 			foreach ( $terms as $term ) {
 				$checked = in_array( $term->slug, $selected, true ) ? ' checked' : '';
 				$out    .= '<label class="loom-filter-opt"><input type="checkbox" name="filter_cat[]" value="' . esc_attr( $term->slug ) . '"' . $checked . '> ' . esc_html( $term->name ) . '</label>';
@@ -280,13 +280,13 @@ function loom_render_product_filter( $s ) {
 	if ( ! empty( $s['showPrice'] ) ) {
 		$min = isset( $_GET['min_price'] ) ? (float) $_GET['min_price'] : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		$max = isset( $_GET['max_price'] ) ? (float) $_GET['max_price'] : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-		$out .= '<div class="loom-filter-group"><h4>' . esc_html__( 'Price', 'loom' ) . '</h4><div class="loom-filter-price">';
-		$out .= '<input type="number" name="min_price" placeholder="' . esc_attr__( 'Min', 'loom' ) . '" value="' . esc_attr( $min ) . '">';
-		$out .= '<input type="number" name="max_price" placeholder="' . esc_attr__( 'Max', 'loom' ) . '" value="' . esc_attr( $max ) . '">';
+		$out .= '<div class="loom-filter-group"><h4>' . esc_html__( 'Price', 'loom-builder' ) . '</h4><div class="loom-filter-price">';
+		$out .= '<input type="number" name="min_price" placeholder="' . esc_attr__( 'Min', 'loom-builder' ) . '" value="' . esc_attr( $min ) . '">';
+		$out .= '<input type="number" name="max_price" placeholder="' . esc_attr__( 'Max', 'loom-builder' ) . '" value="' . esc_attr( $max ) . '">';
 		$out .= '</div></div>';
 	}
 
-	$out .= '<button type="submit" class="button loom-filter-submit">' . esc_html__( 'Apply filters', 'loom' ) . '</button>';
+	$out .= '<button type="submit" class="button loom-filter-submit">' . esc_html__( 'Apply filters', 'loom-builder' ) . '</button>';
 	$out .= '</form>';
 
 	return $out;

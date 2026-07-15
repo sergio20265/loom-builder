@@ -16,40 +16,40 @@ add_action(
 		$registry->register(
 			array(
 				'id'       => 'gallery',
-				'title'    => __( 'Gallery', 'loom' ),
+				'title'    => __( 'Gallery', 'loom-builder' ),
 				'icon'     => 'format-gallery',
 				'category' => 'media',
 				'controls' => array(
 					'images'   => array(
 						'type'    => 'gallery',
-						'label'   => __( 'Images', 'loom' ),
+						'label'   => __( 'Images', 'loom-builder' ),
 						'default' => array(),
 						'section' => 'content',
 					),
 					'layout'   => array(
 						'type'    => 'select',
-						'label'   => __( 'Layout', 'loom' ),
+						'label'   => __( 'Layout', 'loom-builder' ),
 						'default' => 'grid',
 						'options' => array(
-							'grid'    => __( 'Grid', 'loom' ),
-							'masonry' => __( 'Masonry', 'loom' ),
+							'grid'    => __( 'Grid', 'loom-builder' ),
+							'masonry' => __( 'Masonry', 'loom-builder' ),
 						),
 						'section' => 'content',
 					),
-					'colsD'    => array( 'type' => 'range', 'label' => __( 'Columns: desktop', 'loom' ), 'default' => 3, 'min' => 1, 'max' => 6, 'section' => 'content' ),
-					'colsT'    => array( 'type' => 'range', 'label' => __( 'Columns: tablet', 'loom' ), 'default' => 2, 'min' => 1, 'max' => 5, 'section' => 'content' ),
-					'colsM'    => array( 'type' => 'range', 'label' => __( 'Columns: mobile', 'loom' ), 'default' => 1, 'min' => 1, 'max' => 3, 'section' => 'content' ),
-					'gap'      => array( 'type' => 'range', 'label' => __( 'Gap (px)', 'loom' ), 'default' => 12, 'min' => 0, 'max' => 48, 'section' => 'content' ),
-					'radius'   => array( 'type' => 'range', 'label' => __( 'Radius (px)', 'loom' ), 'default' => 8, 'min' => 0, 'max' => 40, 'section' => 'style' ),
-					'lightbox' => array( 'type' => 'toggle', 'label' => __( 'Lightbox', 'loom' ), 'default' => true, 'section' => 'content' ),
+					'colsD'    => array( 'type' => 'range', 'label' => __( 'Columns: desktop', 'loom-builder' ), 'default' => 3, 'min' => 1, 'max' => 6, 'section' => 'content' ),
+					'colsT'    => array( 'type' => 'range', 'label' => __( 'Columns: tablet', 'loom-builder' ), 'default' => 2, 'min' => 1, 'max' => 5, 'section' => 'content' ),
+					'colsM'    => array( 'type' => 'range', 'label' => __( 'Columns: mobile', 'loom-builder' ), 'default' => 1, 'min' => 1, 'max' => 3, 'section' => 'content' ),
+					'gap'      => array( 'type' => 'range', 'label' => __( 'Gap (px)', 'loom-builder' ), 'default' => 12, 'min' => 0, 'max' => 48, 'section' => 'content' ),
+					'radius'   => array( 'type' => 'range', 'label' => __( 'Radius (px)', 'loom-builder' ), 'default' => 8, 'min' => 0, 'max' => 40, 'section' => 'style' ),
+					'lightbox' => array( 'type' => 'toggle', 'label' => __( 'Lightbox', 'loom-builder' ), 'default' => true, 'section' => 'content' ),
 					'size'     => array(
 						'type'    => 'select',
-						'label'   => __( 'Thumbnail size', 'loom' ),
+						'label'   => __( 'Thumbnail size', 'loom-builder' ),
 						'default' => 'medium_large',
 						'options' => array(
-							'medium'       => __( 'Medium', 'loom' ),
-							'medium_large' => __( 'Medium Large', 'loom' ),
-							'large'        => __( 'Large', 'loom' ),
+							'medium'       => __( 'Medium', 'loom-builder' ),
+							'medium_large' => __( 'Medium Large', 'loom-builder' ),
+							'large'        => __( 'Large', 'loom-builder' ),
 						),
 						'section' => 'content',
 					),
@@ -69,7 +69,7 @@ add_action(
 function loom_render_gallery( $s ) {
 	$images = isset( $s['images'] ) && is_array( $s['images'] ) ? $s['images'] : array();
 	if ( empty( $images ) ) {
-		return '<div class="loom-gallery-empty">' . esc_html__( 'Add images to the gallery.', 'loom' ) . '</div>';
+		return '<div class="loom-gallery-empty">' . esc_html__( 'Add images to the gallery.', 'loom-builder' ) . '</div>';
 	}
 
 	$layout   = 'masonry' === $s['layout'] ? 'masonry' : 'grid';

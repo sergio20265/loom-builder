@@ -96,7 +96,7 @@ function loom_settings_render_tab() {
 
 	if ( isset( $_POST['loom_settings_save'] ) && check_admin_referer( 'loom_settings_save', 'loom_settings_nonce' ) ) {
 		loom_settings_handle_save();
-		echo '<div class="notice notice-success is-dismissible"><p>' . esc_html__( 'Settings saved.', 'loom' ) . '</p></div>';
+		echo '<div class="notice notice-success is-dismissible"><p>' . esc_html__( 'Settings saved.', 'loom-builder' ) . '</p></div>';
 	}
 
 	$s = loom_settings_all();
@@ -104,48 +104,48 @@ function loom_settings_render_tab() {
 	<form method="post">
 		<?php wp_nonce_field( 'loom_settings_save', 'loom_settings_nonce' ); ?>
 
-		<h2><?php esc_html_e( 'Layout', 'loom' ); ?></h2>
+		<h2><?php esc_html_e( 'Layout', 'loom-builder' ); ?></h2>
 		<table class="form-table" role="presentation">
 			<tr>
-				<th><label for="container_width"><?php esc_html_e( 'Content width (px)', 'loom' ); ?></label></th>
+				<th><label for="container_width"><?php esc_html_e( 'Content width (px)', 'loom-builder' ); ?></label></th>
 				<td>
 					<input type="number" id="container_width" name="loom_settings[container_width]" value="<?php echo esc_attr( $s['container_width'] ); ?>" class="small-text" min="320" max="2400">
-					<p class="description"><?php esc_html_e( 'Maximum width of the centered section content area.', 'loom' ); ?></p>
+					<p class="description"><?php esc_html_e( 'Maximum width of the centered section content area.', 'loom-builder' ); ?></p>
 				</td>
 			</tr>
 			<tr>
-				<th><label for="breakpoint_tablet"><?php esc_html_e( 'Tablet breakpoint (px)', 'loom' ); ?></label></th>
+				<th><label for="breakpoint_tablet"><?php esc_html_e( 'Tablet breakpoint (px)', 'loom-builder' ); ?></label></th>
 				<td><input type="number" id="breakpoint_tablet" name="loom_settings[breakpoint_tablet]" value="<?php echo esc_attr( $s['breakpoint_tablet'] ); ?>" class="small-text" min="480" max="1600"></td>
 			</tr>
 			<tr>
-				<th><label for="breakpoint_mobile"><?php esc_html_e( 'Mobile breakpoint (px)', 'loom' ); ?></label></th>
+				<th><label for="breakpoint_mobile"><?php esc_html_e( 'Mobile breakpoint (px)', 'loom-builder' ); ?></label></th>
 				<td><input type="number" id="breakpoint_mobile" name="loom_settings[breakpoint_mobile]" value="<?php echo esc_attr( $s['breakpoint_mobile'] ); ?>" class="small-text" min="320" max="1024"></td>
 			</tr>
 		</table>
 
-		<h2><?php esc_html_e( 'Assets', 'loom' ); ?></h2>
+		<h2><?php esc_html_e( 'Assets', 'loom-builder' ); ?></h2>
 		<table class="form-table" role="presentation">
 			<tr>
-				<th><?php esc_html_e( 'Frontend assets', 'loom' ); ?></th>
+				<th><?php esc_html_e( 'Frontend assets', 'loom-builder' ); ?></th>
 				<td>
-					<label><input type="checkbox" name="loom_settings[load_everywhere]" value="1"<?php checked( $s['load_everywhere'], 1 ); ?>> <?php esc_html_e( 'Load builder CSS/JS on every page', 'loom' ); ?></label>
-					<p class="description"><?php esc_html_e( 'Off by default: assets load only on builder pages and where a header/footer template is active.', 'loom' ); ?></p>
+					<label><input type="checkbox" name="loom_settings[load_everywhere]" value="1"<?php checked( $s['load_everywhere'], 1 ); ?>> <?php esc_html_e( 'Load builder CSS/JS on every page', 'loom-builder' ); ?></label>
+					<p class="description"><?php esc_html_e( 'Off by default: assets load only on builder pages and where a header/footer template is active.', 'loom-builder' ); ?></p>
 				</td>
 			</tr>
 		</table>
 
-		<h2><?php esc_html_e( 'Data', 'loom' ); ?></h2>
+		<h2><?php esc_html_e( 'Data', 'loom-builder' ); ?></h2>
 		<table class="form-table" role="presentation">
 			<tr>
-				<th><?php esc_html_e( 'On uninstall', 'loom' ); ?></th>
+				<th><?php esc_html_e( 'On uninstall', 'loom-builder' ); ?></th>
 				<td>
-					<label><input type="checkbox" name="loom_settings[delete_data]" value="1"<?php checked( $s['delete_data'], 1 ); ?>> <?php esc_html_e( 'Delete all Loom data when the plugin is deleted', 'loom' ); ?></label>
-					<p class="description"><?php esc_html_e( 'Removes builder layouts, templates, SEO meta and options. This cannot be undone.', 'loom' ); ?></p>
+					<label><input type="checkbox" name="loom_settings[delete_data]" value="1"<?php checked( $s['delete_data'], 1 ); ?>> <?php esc_html_e( 'Delete all Loom data when the plugin is deleted', 'loom-builder' ); ?></label>
+					<p class="description"><?php esc_html_e( 'Removes builder layouts, templates, SEO meta and options. This cannot be undone.', 'loom-builder' ); ?></p>
 				</td>
 			</tr>
 		</table>
 
-		<p class="submit"><button type="submit" name="loom_settings_save" value="1" class="button button-primary"><?php esc_html_e( 'Save settings', 'loom' ); ?></button></p>
+		<p class="submit"><button type="submit" name="loom_settings_save" value="1" class="button button-primary"><?php esc_html_e( 'Save settings', 'loom-builder' ); ?></button></p>
 	</form>
 	<?php
 }

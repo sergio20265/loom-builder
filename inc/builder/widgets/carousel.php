@@ -16,32 +16,32 @@ add_action(
 		$registry->register(
 			array(
 				'id'       => 'carousel',
-				'title'    => __( 'Carousel', 'loom' ),
+				'title'    => __( 'Carousel', 'loom-builder' ),
 				'icon'     => 'slides',
 				'category' => 'media',
 				'controls' => array(
 					'items'    => array(
 						'type'    => 'repeater',
-						'label'   => __( 'Items', 'loom' ),
+						'label'   => __( 'Items', 'loom-builder' ),
 						'section' => 'content',
 						'titleField' => 'caption',
 						'fields'  => array(
-							'image'   => array( 'type' => 'imageobj', 'label' => __( 'Image', 'loom' ), 'default' => array() ),
-							'caption' => array( 'type' => 'text', 'label' => __( 'Caption', 'loom' ), 'default' => '' ),
-							'link'    => array( 'type' => 'url', 'label' => __( 'Link', 'loom' ), 'default' => '' ),
+							'image'   => array( 'type' => 'imageobj', 'label' => __( 'Image', 'loom-builder' ), 'default' => array() ),
+							'caption' => array( 'type' => 'text', 'label' => __( 'Caption', 'loom-builder' ), 'default' => '' ),
+							'link'    => array( 'type' => 'url', 'label' => __( 'Link', 'loom-builder' ), 'default' => '' ),
 						),
 						'default' => array(),
 					),
-					'perD'     => array( 'type' => 'range', 'label' => __( 'Items: desktop', 'loom' ), 'default' => 3, 'min' => 1, 'max' => 8, 'section' => 'content' ),
-					'perT'     => array( 'type' => 'range', 'label' => __( 'Items: tablet', 'loom' ), 'default' => 2, 'min' => 1, 'max' => 6, 'section' => 'content' ),
-					'perM'     => array( 'type' => 'range', 'label' => __( 'Items: mobile', 'loom' ), 'default' => 1, 'min' => 1, 'max' => 4, 'section' => 'content' ),
-					'gap'      => array( 'type' => 'range', 'label' => __( 'Gap (px)', 'loom' ), 'default' => 20, 'min' => 0, 'max' => 60, 'section' => 'content' ),
-					'autoplay' => array( 'type' => 'toggle', 'label' => __( 'Autoplay', 'loom' ), 'default' => false, 'section' => 'content' ),
-					'interval' => array( 'type' => 'number', 'label' => __( 'Interval (ms)', 'loom' ), 'default' => 4000, 'section' => 'content' ),
-					'loop'     => array( 'type' => 'toggle', 'label' => __( 'Loop', 'loom' ), 'default' => true, 'section' => 'content' ),
-					'arrows'   => array( 'type' => 'toggle', 'label' => __( 'Arrows', 'loom' ), 'default' => true, 'section' => 'content' ),
-					'dots'     => array( 'type' => 'toggle', 'label' => __( 'Dots', 'loom' ), 'default' => false, 'section' => 'content' ),
-					'radius'   => array( 'type' => 'range', 'label' => __( 'Image radius (px)', 'loom' ), 'default' => 10, 'min' => 0, 'max' => 40, 'section' => 'style' ),
+					'perD'     => array( 'type' => 'range', 'label' => __( 'Items: desktop', 'loom-builder' ), 'default' => 3, 'min' => 1, 'max' => 8, 'section' => 'content' ),
+					'perT'     => array( 'type' => 'range', 'label' => __( 'Items: tablet', 'loom-builder' ), 'default' => 2, 'min' => 1, 'max' => 6, 'section' => 'content' ),
+					'perM'     => array( 'type' => 'range', 'label' => __( 'Items: mobile', 'loom-builder' ), 'default' => 1, 'min' => 1, 'max' => 4, 'section' => 'content' ),
+					'gap'      => array( 'type' => 'range', 'label' => __( 'Gap (px)', 'loom-builder' ), 'default' => 20, 'min' => 0, 'max' => 60, 'section' => 'content' ),
+					'autoplay' => array( 'type' => 'toggle', 'label' => __( 'Autoplay', 'loom-builder' ), 'default' => false, 'section' => 'content' ),
+					'interval' => array( 'type' => 'number', 'label' => __( 'Interval (ms)', 'loom-builder' ), 'default' => 4000, 'section' => 'content' ),
+					'loop'     => array( 'type' => 'toggle', 'label' => __( 'Loop', 'loom-builder' ), 'default' => true, 'section' => 'content' ),
+					'arrows'   => array( 'type' => 'toggle', 'label' => __( 'Arrows', 'loom-builder' ), 'default' => true, 'section' => 'content' ),
+					'dots'     => array( 'type' => 'toggle', 'label' => __( 'Dots', 'loom-builder' ), 'default' => false, 'section' => 'content' ),
+					'radius'   => array( 'type' => 'range', 'label' => __( 'Image radius (px)', 'loom-builder' ), 'default' => 10, 'min' => 0, 'max' => 40, 'section' => 'style' ),
 				),
 				'render'   => 'loom_render_carousel',
 			)
@@ -58,7 +58,7 @@ add_action(
 function loom_render_carousel( $s ) {
 	$items = isset( $s['items'] ) && is_array( $s['items'] ) ? $s['items'] : array();
 	if ( empty( $items ) ) {
-		return '<div class="loom-carousel-empty">' . esc_html__( 'Add items to the carousel.', 'loom' ) . '</div>';
+		return '<div class="loom-carousel-empty">' . esc_html__( 'Add items to the carousel.', 'loom-builder' ) . '</div>';
 	}
 
 	$gap    = (int) $s['gap'];
@@ -84,7 +84,7 @@ function loom_render_carousel( $s ) {
 
 		$media = $img
 			? '<img src="' . $img . '" alt="' . $alt . '" loading="lazy" style="border-radius:' . $radius . 'px">'
-			: '<span class="loom-image-placeholder">' . esc_html__( 'No image', 'loom' ) . '</span>';
+			: '<span class="loom-image-placeholder">' . esc_html__( 'No image', 'loom-builder' ) . '</span>';
 
 		if ( ! empty( $item['link'] ) ) {
 			$media = '<a href="' . esc_url( $item['link'] ) . '">' . $media . '</a>';
@@ -98,8 +98,8 @@ function loom_render_carousel( $s ) {
 	$out .= '</div></div>'; // track, viewport
 
 	if ( ! empty( $s['arrows'] ) ) {
-		$out .= '<button class="loom-carousel-arrow loom-carousel-prev" aria-label="' . esc_attr__( 'Previous', 'loom' ) . '">&#8249;</button>';
-		$out .= '<button class="loom-carousel-arrow loom-carousel-next" aria-label="' . esc_attr__( 'Next', 'loom' ) . '">&#8250;</button>';
+		$out .= '<button class="loom-carousel-arrow loom-carousel-prev" aria-label="' . esc_attr__( 'Previous', 'loom-builder' ) . '">&#8249;</button>';
+		$out .= '<button class="loom-carousel-arrow loom-carousel-next" aria-label="' . esc_attr__( 'Next', 'loom-builder' ) . '">&#8250;</button>';
 	}
 	if ( ! empty( $s['dots'] ) ) {
 		$out .= '<div class="loom-carousel-dots"></div>';

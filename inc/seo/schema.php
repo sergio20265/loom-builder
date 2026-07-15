@@ -120,7 +120,7 @@ function loom_seo_schema_website() {
  */
 function loom_seo_schema_breadcrumb() {
 	$items = array();
-	$items[] = array( 'name' => __( 'Home', 'loom' ), 'url' => home_url( '/' ) );
+	$items[] = array( 'name' => __( 'Home', 'loom-builder' ), 'url' => home_url( '/' ) );
 
 	if ( is_singular() ) {
 		$post = get_queried_object();

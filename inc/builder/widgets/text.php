@@ -15,14 +15,14 @@ add_action(
 		$registry->register(
 			array(
 				'id'       => 'text',
-				'title'    => __( 'Text Editor', 'loom' ),
+				'title'    => __( 'Text Editor', 'loom-builder' ),
 				'icon'     => 'editor-paragraph',
 				'category' => 'basic',
 				'controls' => array(
 					'content' => array(
 						'type'    => 'richtext',
-						'label'   => __( 'Content', 'loom' ),
-						'default' => __( 'Start writing your text here. You can use paragraphs and basic formatting.', 'loom' ),
+						'label'   => __( 'Content', 'loom-builder' ),
+						'default' => __( 'Start writing your text here. You can use paragraphs and basic formatting.', 'loom-builder' ),
 						'section' => 'content',
 					),
 				),
